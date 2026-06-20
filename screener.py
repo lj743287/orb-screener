@@ -2,7 +2,7 @@
 """
 Overnight ORB-continuation screener (NYSE/NASDAQ) via Twelve Data.
 Surfaces continuation setups and prints a filter funnel. No market-regime filter
-(assess the market yourself).
+(assess the market yourself). Output is sorted calmest-first (ADR ascending).
 
 Env: TWELVE_DATA_KEY (req), MAX_SYMBOLS (opt cap), THROTTLE_SEC (default 1.2)
 """
@@ -17,7 +17,7 @@ THROTTLE   = float(os.environ.get("THROTTLE_SEC", "1.2"))
 OUT_DIR, DOCS_DIR = "output", "docs"
 
 # ---- screen parameters ----
-P = dict(ADR_MAX=10.0, RUNUP_MIN=40.0, RUNUP_MAX=200.0, PRICE_MIN=5.0,
+P = dict(ADR_MAX=6.0, RUNUP_MIN=40.0, RUNUP_MAX=200.0, PRICE_MIN=5.0,
          BASE_MIN=8, RUNUP_LB=60, MA_TOL=7.0)
 
 
@@ -32,12 +32,19 @@ def load_universe():
         df = df[~df[first].astype(str).str.contains("File Creation Time", na=False)]
         etf_col  = "ETF" if "ETF" in df.columns else None
         test_col = "Test Issue" if "Test Issue" in df.columns else None
+        name_col = "Security Name" if "Security Name" in df.columns else None
         sym_col  = "Symbol" if "Symbol" in df.columns else "ACT Symbol"
         if etf_col:  df = df[df[etf_col] != "Y"]
         if test_col: df = df[df[test_col] != "Y"]
+        # drop SPAC units / warrants / rights / preferreds by security-name wording
+        if name_col:
+            bad = r"\b(?:unit|units|warrant|warrants|right|rights|preferred|depositary)\b"
+            df = df[~df[name_col].astype(str).str.contains(bad, case=False, regex=True, na=False)]
         s = df[sym_col].dropna().astype(str).str.strip()
         s = s[(s.str.len() > 0) & (s.str.upper() != "NAN")]
-        s = s[~s.str.contains(r"[.$^]", regex=True, na=False)]
+        s = s[~s.str.contains(r"[.$^]", regex=True, na=False)]   # drop dotted/odd tickers
+        # belt-and-braces: drop 5-letter Nasdaq symbols ending U/W/R (unit/warrant/right)
+        s = s[~((s.str.len() == 5) & (s.str[-1].isin(["U", "W", "R"])))]
         syms += s.tolist()
     return sorted({x for x in syms if isinstance(x, str) and x})
 
@@ -108,6 +115,8 @@ def compute_screen(d, p=P):
 def write_outputs(rows):
     os.makedirs(OUT_DIR, exist_ok=True); os.makedirs(DOCS_DIR, exist_ok=True)
     df = pd.DataFrame(rows)
+    if len(df) and "adr" in df.columns:
+        df = df.sort_values("adr", ascending=True).reset_index(drop=True)  # calmest first
     stamp = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     df.to_csv(os.path.join(OUT_DIR, "candidates.csv"), index=False)
     cols = [c for c in ["symbol","price","adr","runup","base_depth","ext10"] if c in df.columns]
@@ -118,6 +127,7 @@ def write_outputs(rows):
 table{{border-collapse:collapse;width:100%}}th,td{{padding:.5rem .8rem;border-bottom:1px solid #333;text-align:right}}
 th:first-child,td:first-child{{text-align:left;font-weight:600}}h1{{font-size:1.2rem}}small{{color:#9aa}}</style>
 <h1>ORB Continuation Watchlist <small>({len(df)} candidates &middot; {stamp})</small></h1>
+<p><small>Sorted by ADR (calmest first). Prefer low adr, shallow base_depth, ext10 near zero.</small></p>
 {body}"""
     with open(os.path.join(DOCS_DIR, "index.html"), "w") as f:
         f.write(html)
