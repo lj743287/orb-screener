@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
 Overnight ORB-continuation screener (NYSE/NASDAQ) via Twelve Data.
-Surfaces stocks COILING below a recent high (set up for a breakout next session),
-not names already extended at new highs. Prints a filter funnel; sorts calmest-first.
+Surfaces liquid stocks in an intact uptrend that are COILING below a recent high
+(set up for a breakout next session). Prints a filter funnel; sorts calmest-first.
 No market-regime gate (assess the market yourself).
 
 Env: TWELVE_DATA_KEY (req), MAX_SYMBOLS (opt cap), THROTTLE_SEC (default 1.2)
@@ -18,8 +18,9 @@ THROTTLE   = float(os.environ.get("THROTTLE_SEC", "1.2"))
 OUT_DIR, DOCS_DIR = "output", "docs"
 
 # ---- screen parameters ----
-P = dict(ADR_MAX=6.0, RUNUP_MIN=45.0, RUNUP_MAX=200.0, PRICE_MIN=5.0,
-         BASE_MIN=8, RUNUP_LB=60, MA_TOL=7.0, PEAK_MIN_BACK=2, PULLBACK_MIN=0.5)
+P = dict(ADR_MIN=2.0, ADR_MAX=6.0, RUNUP_MIN=45.0, RUNUP_MAX=200.0, PRICE_MIN=5.0,
+         BASE_MIN=8, RUNUP_LB=60, MA_TOL=7.0, PEAK_MIN_BACK=2, PULLBACK_MIN=0.5,
+         DOLLAR_VOL_MIN=5_000_000)
 
 
 def load_universe():
@@ -73,11 +74,12 @@ def compute_screen(d, p=P):
     """Return (passed, metrics, crit). Pattern + quality gates only."""
     if d is None or len(d) < 60:
         return False, {}, {}
-    c, h, l = d["close"], d["high"], d["low"]
+    c, h, l, v = d["close"], d["high"], d["low"], d["volume"]
     sma10, sma20, sma50 = c.rolling(10).mean(), c.rolling(20).mean(), c.rolling(50).mean()
     sma200 = c.rolling(200).mean()
     adr = 100.0 * ((h / l).rolling(20).mean().iloc[-1] - 1.0)
     price = float(c.iloc[-1])
+    dvol = float((c * v).rolling(20).mean().iloc[-1])          # avg $ volume, 20d
 
     run_lb = min(p["RUNUP_LB"], len(d) - 1)
     run_low  = float(l.iloc[-run_lb:].min())
@@ -103,17 +105,20 @@ def compute_screen(d, p=P):
     surf = bool(near(sma10) or near(sma20) or near(sma50))
     ext10 = (price - sma10.iloc[-1]) / sma10.iloc[-1] * 100 if sma10.iloc[-1] else np.nan
 
-    # 200-MA soft trend gate: established names must be above it; young names (no 200-MA) pass
-    has200 = bool(not pd.isna(sma200.iloc[-1]))
+    # trend gates: intermediate (above 50-MA) hard; primary (above 200-MA) soft for young names
+    above50  = bool(not pd.isna(sma50.iloc[-1]) and price > sma50.iloc[-1])
+    has200   = bool(not pd.isna(sma200.iloc[-1]))
     above200 = bool((not has200) or (price > sma200.iloc[-1]))
 
     crit = dict(
         price = bool(price >= p["PRICE_MIN"]),
-        adr   = bool(adr < p["ADR_MAX"]),
+        liq   = bool(dvol >= p["DOLLAR_VOL_MIN"]),
+        adr   = bool(p["ADR_MIN"] <= adr < p["ADR_MAX"]),
         runup = bool((not np.isnan(runup)) and p["RUNUP_MIN"] <= runup <= p["RUNUP_MAX"]),
         base  = base_ok,
         hl    = bool(lows_up),
         surf  = surf,
+        t50   = above50,
         t200  = above200,
     )
     passed = all(crit.values())
@@ -121,6 +126,7 @@ def compute_screen(d, p=P):
                    runup=round(float(runup), 1) if not np.isnan(runup) else None,
                    base_depth=round(float(base_depth), 1) if not np.isnan(base_depth) else None,
                    ext10=round(float(ext10), 1) if not np.isnan(ext10) else None,
+                   dvolM=round(dvol/1e6, 1),
                    trend200=("yes" if (has200 and price > sma200.iloc[-1]) else ("n/a" if not has200 else "no")))
     return passed, metrics, crit
 
@@ -132,7 +138,7 @@ def write_outputs(rows):
         df = df.sort_values("adr", ascending=True).reset_index(drop=True)  # calmest first
     stamp = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     df.to_csv(os.path.join(OUT_DIR, "candidates.csv"), index=False)
-    cols = [c for c in ["symbol","price","adr","runup","base_depth","ext10","trend200"] if c in df.columns]
+    cols = [c for c in ["symbol","price","adr","runup","base_depth","ext10","dvolM","trend200"] if c in df.columns]
     body = (df[cols].to_html(index=False, border=0) if len(df) else "<p>No candidates today.</p>")
     html = f"""<!doctype html><meta charset="utf-8">
 <title>ORB Continuation Watchlist</title>
@@ -140,7 +146,7 @@ def write_outputs(rows):
 table{{border-collapse:collapse;width:100%}}th,td{{padding:.5rem .8rem;border-bottom:1px solid #333;text-align:right}}
 th:first-child,td:first-child{{text-align:left;font-weight:600}}h1{{font-size:1.2rem}}small{{color:#9aa}}</style>
 <h1>ORB Continuation Watchlist <small>({len(df)} candidates &middot; {stamp})</small></h1>
-<p><small>Coiling below a recent high &middot; sorted by ADR (calmest first). Prefer low adr, shallow base_depth, ext10 near zero.</small></p>
+<p><small>Liquid, above 50-MA, coiling below a recent high &middot; sorted by ADR (calmest first). dvolM = avg $ volume (millions).</small></p>
 {body}"""
     with open(os.path.join(DOCS_DIR, "index.html"), "w") as f:
         f.write(html)
@@ -155,7 +161,7 @@ def main():
         universe = universe[:MAX_SYMBOLS]
     print(f"Universe: {len(universe)} symbols.")
 
-    keys = ["price", "adr", "runup", "base", "hl", "surf", "t200"]
+    keys = ["price", "liq", "adr", "runup", "base", "hl", "surf", "t50", "t200"]
     crits, rows = [], []
     for i, sym in enumerate(universe, 1):
         try:
