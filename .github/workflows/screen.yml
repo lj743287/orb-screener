@@ -2,16 +2,25 @@ name: ORB Screen
 
 on:
   schedule:
-    - cron: '0 2 * * 2-6'      # 02:00 UTC Tue–Sat ≈ evening ET, after the close
-  workflow_dispatch: {}         # adds a manual "Run workflow" button
+    - cron: '0 2 * * 2-6'
+  workflow_dispatch: {}
 
 permissions:
-  contents: write               # lets the job commit the watchlist back
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
   screen:
     runs-on: ubuntu-latest
-    timeout-minutes: 350        # overnight full-universe scan
+    timeout-minutes: 350
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -24,10 +33,16 @@ jobs:
           MAX_SYMBOLS: ${{ vars.MAX_SYMBOLS }}
           THROTTLE_SEC: '1.2'
         run: python screener.py
-      - name: Commit watchlist
+      - name: Commit CSV history
         run: |
           git config user.name  "github-actions"
           git config user.email "actions@github.com"
-          git add output docs
+          git add output
           git commit -m "screen $(date -u +%F)" || echo "no changes"
-          git push
+          git push || echo "push skipped"
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+      - id: deploy
+        uses: actions/deploy-pages@v4
