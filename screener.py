@@ -37,17 +37,19 @@ def load_universe():
     syms = []
     for u in urls:
         txt = requests.get(u, timeout=30).text
-        df = pd.read_csv(io.StringIO(txt), sep="|")
-        df = df[:-1]  # drop the file-creation footer row
+        df = pd.read_csv(io.StringIO(txt), sep="|", dtype=str)
+        first = df.columns[0]
+        df = df[~df[first].astype(str).str.contains("File Creation Time", na=False)]
         etf_col  = "ETF" if "ETF" in df.columns else None
         test_col = "Test Issue" if "Test Issue" in df.columns else None
         sym_col  = "Symbol" if "Symbol" in df.columns else "ACT Symbol"
         if etf_col:  df = df[df[etf_col] != "Y"]
         if test_col: df = df[df[test_col] != "Y"]
-        s = df[sym_col].astype(str)
-        s = s[~s.str.contains(r"[.$]", regex=True, na=False)]   # drop warrants/units/pfd
+        s = df[sym_col].dropna().astype(str).str.strip()
+        s = s[(s.str.len() > 0) & (s.str.upper() != "NAN")]
+        s = s[~s.str.contains(r"[.$^]", regex=True, na=False)]   # drop warrants/units/pfd
         syms += s.tolist()
-   return sorted({x for x in syms if isinstance(x, str) and x})
+    return sorted({x for x in syms if isinstance(x, str) and x})
 
 
 # ============================ data ============================
