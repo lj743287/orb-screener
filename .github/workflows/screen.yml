@@ -1,0 +1,33 @@
+name: ORB Screen
+
+on:
+  schedule:
+    - cron: '0 2 * * 2-6'      # 02:00 UTC Tue–Sat ≈ evening ET, after the close
+  workflow_dispatch: {}         # adds a manual "Run workflow" button
+
+permissions:
+  contents: write               # lets the job commit the watchlist back
+
+jobs:
+  screen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350        # overnight full-universe scan
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - name: Run screener
+        env:
+          TWELVE_DATA_KEY: ${{ secrets.TWELVE_DATA_KEY }}
+          MAX_SYMBOLS: ${{ vars.MAX_SYMBOLS }}
+          THROTTLE_SEC: '1.2'
+        run: python screener.py
+      - name: Commit watchlist
+        run: |
+          git config user.name  "github-actions"
+          git config user.email "actions@github.com"
+          git add output docs
+          git commit -m "screen $(date -u +%F)" || echo "no changes"
+          git push
