@@ -47,7 +47,7 @@ def load_universe():
         s = df[sym_col].astype(str)
         s = s[~s.str.contains(r"[.$]", regex=True, na=False)]   # drop warrants/units/pfd
         syms += s.tolist()
-    return sorted(set(syms))
+   return sorted({x for x in syms if isinstance(x, str) and x})
 
 
 # ============================ data ============================
