@@ -20,7 +20,7 @@ OUT_DIR, DOCS_DIR = "output", "docs"
 # ---- screen parameters ----
 P = dict(ADR_MIN=2.0, ADR_MAX=6.0, RUNUP_MIN=45.0, RUNUP_MAX=200.0, PRICE_MIN=4.0,
          BASE_MIN=8, RUNUP_LB=60, MA_TOL=7.0, PEAK_MIN_BACK=2, PULLBACK_MIN=0.5,
-         DOLLAR_VOL_MIN=5_000_000)
+         DOLLAR_VOL_MIN=300_000)
 
 
 def load_universe():
@@ -70,7 +70,7 @@ def td_daily(symbol, outputsize=260, tries=6):
     return None
 
 
-def compute_screen(d, p=P):
+def compute_screen(d, p=P, debug=False):
     """Return (passed, metrics, crit). Pattern + quality gates only."""
     if d is None or len(d) < 60:
         return False, {}, {}
@@ -100,9 +100,12 @@ def compute_screen(d, p=P):
 
     lows_up = l.iloc[-p["BASE_MIN"]:].min() > l.iloc[-2*p["BASE_MIN"]:-p["BASE_MIN"]].min()
 
-    def near(ma):
-        return l.iloc[-1] <= ma.iloc[-1] * (1 + p["MA_TOL"]/100) and ma.iloc[-1] > ma.iloc[-6]
-    surf = bool(near(sma10) or near(sma20) or near(sma50))
+    def ma_status(ma):
+        rising = bool(ma.iloc[-1] > ma.iloc[-6])
+        nearby = bool(l.iloc[-1] <= ma.iloc[-1] * (1 + p["MA_TOL"]/100))
+        return rising, nearby
+    r10, n10 = ma_status(sma10); r20, n20 = ma_status(sma20); r50, n50 = ma_status(sma50)
+    surf = bool((r10 and n10) or (r20 and n20) or (r50 and n50))
     ext10 = (price - sma10.iloc[-1]) / sma10.iloc[-1] * 100 if sma10.iloc[-1] else np.nan
 
     # trend gates: intermediate (above 50-MA) hard; primary (above 200-MA) soft for young names
@@ -128,6 +131,12 @@ def compute_screen(d, p=P):
                    ext10=round(float(ext10), 1) if not np.isnan(ext10) else None,
                    dvolM=round(dvol/1e6, 1),
                    trend200=("yes" if (has200 and price > sma200.iloc[-1]) else ("n/a" if not has200 else "no")))
+    if debug:
+        metrics.update(dict(
+            peak_back=int(peak_back), contracting=bool(contracting),
+            pulled_in=bool(price < recent_high * (1 - p["PULLBACK_MIN"]/100)),
+            rising=f"{int(r10)}{int(r20)}{int(r50)}", nearby=f"{int(n10)}{int(n20)}{int(n50)}",
+            above50=above50, above200=above200))
     return passed, metrics, crit
 
 
@@ -156,6 +165,26 @@ th:first-child,td:first-child{{text-align:left;font-weight:600}}h1{{font-size:1.
 def main():
     if not API_KEY:
         raise SystemExit("TWELVE_DATA_KEY not set")
+
+    dbg = os.environ.get("DEBUG_SYMBOLS", "").strip()
+    if dbg:
+        syms = [s.strip().upper() for s in dbg.replace(",", " ").split() if s.strip()]
+        print(f"DEBUG mode: {len(syms)} symbols\n")
+        for sym in syms:
+            passed, m, crit = compute_screen(td_daily(sym), debug=True)
+            if not crit:
+                print(f"{sym:<6} insufficient data (<60 bars)"); continue
+            fails = [k for k, vv in crit.items() if not vv]
+            flags = " ".join(f"{k}{'.' if vv else 'X'}" for k, vv in crit.items())
+            print(f"{sym:<6} {'PASS' if passed else 'REJECT':<6} fails={fails}")
+            print(f"        {flags}")
+            print(f"        adr={m['adr']} runup={m['runup']} dvolM={m['dvolM']} "
+                  f"base_depth={m['base_depth']} ext10={m['ext10']} trend200={m['trend200']}")
+            print(f"        peak_back={m.get('peak_back')} contracting={m.get('contracting')} "
+                  f"pulled_in={m.get('pulled_in')} rising(10/20/50)={m.get('rising')} "
+                  f"near(10/20/50)={m.get('nearby')}\n")
+        return
+
     universe = load_universe()
     if MAX_SYMBOLS:
         universe = universe[:MAX_SYMBOLS]
