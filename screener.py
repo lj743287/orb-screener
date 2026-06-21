@@ -18,7 +18,7 @@ THROTTLE   = float(os.environ.get("THROTTLE_SEC", "1.2"))
 OUT_DIR, DOCS_DIR = "output", "docs"
 
 # ---- screen parameters ----
-P = dict(ADR_MIN=2.0, ADR_MAX=6.0, RUNUP_MIN=45.0, RUNUP_MAX=200.0, PRICE_MIN=4.0,
+P = dict(ADR_MIN=2.0, ADR_MAX=6.0, RUNUP_MIN=45.0, RUNUP_MAX=200.0, PRICE_MIN=5.0,
          BASE_MIN=8, RUNUP_LB=60, MA_TOL=7.0, PEAK_MIN_BACK=2, PULLBACK_MIN=0.5,
          DOLLAR_VOL_MIN=300_000)
 
@@ -147,19 +147,36 @@ def write_outputs(rows):
         df = df.sort_values("adr", ascending=True).reset_index(drop=True)  # calmest first
     stamp = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     df.to_csv(os.path.join(OUT_DIR, "candidates.csv"), index=False)
+
+    # TradingView import file: plain comma-separated tickers (calmest-first order)
+    tickers = df["symbol"].tolist() if len(df) else []
+    tv_list = ",".join(tickers)
+    for d in (DOCS_DIR, OUT_DIR):
+        with open(os.path.join(d, "watchlist.txt"), "w") as f:
+            f.write(tv_list)
+
     cols = [c for c in ["symbol","price","adr","runup","base_depth","ext10","dvolM","trend200"] if c in df.columns]
     body = (df[cols].to_html(index=False, border=0) if len(df) else "<p>No candidates today.</p>")
     html = f"""<!doctype html><meta charset="utf-8">
 <title>ORB Continuation Watchlist</title>
 <style>body{{font-family:system-ui;margin:2rem;background:#0f1115;color:#e6e6e6}}
 table{{border-collapse:collapse;width:100%}}th,td{{padding:.5rem .8rem;border-bottom:1px solid #333;text-align:right}}
-th:first-child,td:first-child{{text-align:left;font-weight:600}}h1{{font-size:1.2rem}}small{{color:#9aa}}</style>
+th:first-child,td:first-child{{text-align:left;font-weight:600}}h1{{font-size:1.2rem}}small{{color:#9aa}}
+.btn{{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.55rem .9rem;border:0;border-radius:8px;
+background:#2d7dff;color:#fff;font:inherit;font-weight:600;cursor:pointer;text-decoration:none}}
+.btn.copy{{background:#3a3f4b}} textarea{{width:100%;height:3.2rem;margin-top:.6rem;background:#161a22;
+color:#cdd3df;border:1px solid #333;border-radius:8px;padding:.5rem;font-family:ui-monospace,monospace}}</style>
 <h1>ORB Continuation Watchlist <small>({len(df)} candidates &middot; {stamp})</small></h1>
-<p><small>Liquid, above 50-MA, coiling below a recent high &middot; sorted by ADR (calmest first). dvolM = avg $ volume (millions).</small></p>
+<p><small>Liquid, above 50-MA, coiling below a recent high &middot; sorted by ADR (calmest first).</small></p>
+<p>
+  <a class="btn" href="watchlist.txt" download="orb_watchlist.txt">&#11015; Download TradingView list (.txt)</a>
+  <button class="btn copy" onclick="navigator.clipboard.writeText(document.getElementById('tv').value);this.textContent='Copied!'">Copy tickers</button>
+</p>
+<textarea id="tv" readonly onclick="this.select()">{tv_list}</textarea>
 {body}"""
     with open(os.path.join(DOCS_DIR, "index.html"), "w") as f:
         f.write(html)
-    print(f"Wrote {len(df)} candidates -> {OUT_DIR}/candidates.csv, {DOCS_DIR}/index.html")
+    print(f"Wrote {len(df)} candidates -> {OUT_DIR}/candidates.csv, {DOCS_DIR}/watchlist.txt, {DOCS_DIR}/index.html")
 
 
 def main():
