@@ -18,7 +18,7 @@ THROTTLE   = float(os.environ.get("THROTTLE_SEC", "1.2"))
 OUT_DIR, DOCS_DIR = "output", "docs"
 
 # ---- screen parameters ----
-P = dict(ADR_MIN=2.0, ADR_MAX=6.0, RUNUP_MIN=45.0, RUNUP_MAX=200.0, PRICE_MIN=5.0,
+P = dict(ADR_MIN=2.0, ADR_MAX=6.0, RUNUP_MIN=45.0, RUNUP_MAX=200.0, PRICE_MIN=4.0,
          BASE_MIN=8, RUNUP_LB=60, MA_TOL=7.0, PEAK_MIN_BACK=2, PULLBACK_MIN=0.5,
          DOLLAR_VOL_MIN=5_000_000)
 
