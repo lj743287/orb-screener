@@ -2,7 +2,7 @@ name: ORB Screen
 
 on:
   schedule:
-    - cron: '17 1 * * 2-6'
+    - cron: '55 21 * * 2-6'
   workflow_dispatch: {}
 
 permissions:
