@@ -1,0 +1,68 @@
+# .github/workflows/bursts.yml
+# Two scheduled jobs:
+#   Stage A (burst_scan.py)  — 05:30 UTC weekdays, before US open, full
+#                              universe scan (~2h), writes burst_watch.json
+#   Stage B (burst_check.py) — 15:30 UTC weekdays = 11:30 ET during US
+#                              daylight saving. NOTE: when US clocks change
+#                              (early Nov–mid Mar), edit to 16:30 UTC to keep
+#                              the 11:30 ET checkpoint.
+# Results are committed to the repo so GitHub Pages serves bursts.html.
+# Requires repo secret TWELVE_DATA_API_KEY (Settings → Secrets → Actions).
+
+name: Burst Scanner
+
+on:
+  schedule:
+    - cron: "30 5 * * 1-5"    # Stage A: overnight universe scan
+    - cron: "30 15 * * 1-5"   # Stage B: intraday second-burst check
+  workflow_dispatch:
+    inputs:
+      stage:
+        description: "Which stage to run (scan or check)"
+        required: true
+        default: "check"
+
+permissions:
+  contents: write
+
+jobs:
+  burst:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Decide stage
+        id: stage
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "stage=${{ github.event.inputs.stage }}" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event.schedule }}" = "30 5 * * 1-5" ]; then
+            echo "stage=scan" >> "$GITHUB_OUTPUT"
+          else
+            echo "stage=check" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Run Stage A — overnight universe scan
+        if: steps.stage.outputs.stage == 'scan'
+        env:
+          TWELVE_DATA_API_KEY: ${{ secrets.TWELVE_DATA_API_KEY }}
+        run: python burst_scan.py
+
+      - name: Run Stage B — intraday second-burst check
+        if: steps.stage.outputs.stage == 'check'
+        env:
+          TWELVE_DATA_API_KEY: ${{ secrets.TWELVE_DATA_API_KEY }}
+        run: python burst_check.py
+
+      - name: Commit results
+        run: |
+          git config user.name "burst-bot"
+          git config user.email "actions@github.com"
+          git add -A burst_watch.json bursts.html bursts.json || true
+          git diff --cached --quiet || git commit -m "Burst scanner update (${{ steps.stage.outputs.stage }})"
+          git push
