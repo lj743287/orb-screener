@@ -18,6 +18,7 @@ import os
 import sys
 import time
 import urllib.request
+from datetime import datetime, timezone, timedelta
 
 API_KEY = os.environ.get("TWELVE_DATA_API_KEY", "")
 TD_URL = "https://api.twelvedata.com/time_series"
@@ -83,6 +84,23 @@ def load_universe():
     return out
 
 
+def us_market_today_incomplete():
+    """Return today's US-Eastern date string if the regular session has not
+    yet completed (bar still in progress), else None."""
+    utc = datetime.now(timezone.utc)
+    offset = -4 if 3 <= utc.month <= 10 else -5  # approx EDT/EST
+    et = utc + timedelta(hours=offset)
+    if et.weekday() >= 5:
+        return None
+    # Bar considered complete a few minutes after the 16:00 ET close
+    if et.hour < 16 or (et.hour == 16 and et.minute < 10):
+        return et.strftime("%Y-%m-%d")
+    return None
+
+
+INCOMPLETE_TODAY = None  # set in main()
+
+
 def fetch_last_bars(symbol):
     url = (f"{TD_URL}?symbol={symbol}&interval=1day&outputsize=3"
            f"&apikey={API_KEY}")
@@ -91,7 +109,13 @@ def fetch_last_bars(symbol):
     except Exception:
         return None
     vals = data.get("values")
-    if not vals or len(vals) < 2:
+    if not vals:
+        return None
+    # Drop the in-progress bar if the scan is running mid-session, so the
+    # burst test always applies to the last COMPLETED trading day.
+    if INCOMPLETE_TODAY and vals[0].get("datetime", "")[:10] == INCOMPLETE_TODAY:
+        vals = vals[1:]
+    if len(vals) < 2:
         return None
     return vals  # newest first
 
@@ -118,6 +142,11 @@ def is_burst(bar, prior):
 def main():
     if not API_KEY:
         sys.exit("TWELVE_DATA_API_KEY not set")
+    global INCOMPLETE_TODAY
+    INCOMPLETE_TODAY = us_market_today_incomplete()
+    if INCOMPLETE_TODAY:
+        print(f"US session in progress — excluding {INCOMPLETE_TODAY} bar, "
+              f"testing last completed day")
     universe = load_universe()
     print(f"Universe: {len(universe)} symbols")
     delay = 60.0 / REQUESTS_PER_MIN
