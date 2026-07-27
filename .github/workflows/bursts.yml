@@ -63,6 +63,6 @@ jobs:
         run: |
           git config user.name "burst-bot"
           git config user.email "actions@github.com"
-          git add -A burst_watch.json bursts.html bursts.json || true
+          git add -A burst_watch.json bursts.html bursts.json bursts.txt || true
           git diff --cached --quiet || git commit -m "Burst scanner update (${{ steps.stage.outputs.stage }})"
           git push
