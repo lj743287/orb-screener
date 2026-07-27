@@ -7,7 +7,10 @@ live quotes for just those names, and tests for a SECOND burst in progress:
     volume, projected to full-day pace, above yesterday's volume
     trading in top 30% of today's range so far
 FULL = all three pass.  EARLY = price test only (volume/range pending).
-Writes bursts.html (styled report served by GitHub Pages) and bursts.json.
+Writes bursts.html (styled report served by GitHub Pages), bursts.json, and
+bursts.txt — a TradingView watchlist import file (EXCHANGE:SYMBOL, comma-
+separated). Falls back to bare symbols if the watch file predates exchange
+tagging.
 
 Requires env var TWELVE_DATA_API_KEY. Quotes are batched 40 symbols per call,
 paced within the Grow 55 credit budget.
@@ -32,6 +35,7 @@ MIN_SESSION_FRAC = 0.15   # clamp for volume projection
 WATCH_FILE = "burst_watch.json"
 OUT_HTML = "bursts.html"
 OUT_JSON = "bursts.json"
+OUT_TXT = "bursts.txt"
 
 
 def http_get(url, timeout=30):
@@ -100,7 +104,8 @@ def evaluate(stock, q, frac):
     status = "FULL" if (pct_ok and vol_ok and rng_ok) else ("EARLY" if pct_ok else None)
     if not status:
         return None
-    return {"symbol": stock["symbol"], "status": status,
+    return {"symbol": stock["symbol"],
+            "exchange": stock.get("exchange", ""), "status": status,
             "y_pct": stock["y_pct"], "today_pct": round(pct, 2),
             "price": price, "proj_vol": round(proj_vol),
             "y_volume": round(y_vol), "vol_ok": vol_ok, "rng_ok": rng_ok}
@@ -136,7 +141,9 @@ th{{color:#8b949e;font-weight:600;font-size:12px;text-transform:uppercase}}
 <h1>Second Burst Watch</h1>
 <div class="meta">Generated {ts} · session {frac*100:.0f}% elapsed ·
 watching {watch} stocks that burst yesterday · FULL = price + volume pace +
-range all confirm · EARLY = price only, volume pending</div>
+range all confirm · EARLY = price only, volume pending ·
+<a href="bursts.txt" download style="color:#58a6ff">Download TradingView
+watchlist (.txt)</a></div>
 <table><tr><th>Symbol</th><th>Status</th><th>Yesterday</th><th>Today</th>
 <th>Price</th><th>Proj vol vs yesterday</th><th>Checks</th></tr>
 {tr}</table></body></html>"""
@@ -167,10 +174,14 @@ def main():
                 rows.append(r)
     rows.sort(key=lambda x: (x["status"] != "FULL", -x["today_pct"]))
     write_html(rows, frac, len(stocks))
+    tv_syms = [f"{r['exchange']}:{r['symbol']}" if r["exchange"] else r["symbol"]
+               for r in rows]
+    with open(OUT_TXT, "w") as f:
+        f.write(",".join(tv_syms) + ("\n" if tv_syms else ""))
     with open(OUT_JSON, "w") as f:
         json.dump({"generated_utc": datetime.now(timezone.utc).isoformat(),
                    "session_fraction": round(frac, 3), "results": rows}, f, indent=1)
-    print(f"Wrote {OUT_HTML} / {OUT_JSON}: "
+    print(f"Wrote {OUT_HTML} / {OUT_JSON} / {OUT_TXT}: "
           f"{sum(1 for r in rows if r['status']=='FULL')} FULL, "
           f"{sum(1 for r in rows if r['status']=='EARLY')} EARLY")
 

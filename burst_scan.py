@@ -46,6 +46,7 @@ def http_get(url, timeout=30):
 def load_universe():
     symbols = []
     for url in UNIVERSE_URLS:
+        is_nasdaq_file = "nasdaqlisted" in url
         text = http_get(url)
         lines = [l for l in text.splitlines() if "|" in l]
         header = lines[0].split("|")
@@ -68,8 +69,18 @@ def load_universe():
                 continue
             if any(w in name for w in BAD_NAME_WORDS):
                 continue
-            symbols.append(sym)
-    return sorted(set(symbols))
+            if is_nasdaq_file:
+                tv_exch = "NASDAQ"
+            else:
+                tv_exch = "NYSE" if exch == "N" else "AMEX"
+            symbols.append((sym, tv_exch))
+    # de-dup keeping first exchange seen
+    seen, out = set(), []
+    for sym, ex in sorted(symbols):
+        if sym not in seen:
+            seen.add(sym)
+            out.append((sym, ex))
+    return out
 
 
 def fetch_last_bars(symbol):
@@ -111,13 +122,14 @@ def main():
     print(f"Universe: {len(universe)} symbols")
     delay = 60.0 / REQUESTS_PER_MIN
     hits, scanned = [], 0
-    for sym in universe:
+    for sym, exch in universe:
         bars = fetch_last_bars(sym)
         scanned += 1
         if bars:
             res = is_burst(bars[0], bars[1])
             if res:
                 res["symbol"] = sym
+                res["exchange"] = exch
                 res["date"] = bars[0].get("datetime", "")
                 hits.append(res)
                 print(f"BURST {sym}  +{res['y_pct']}%")
