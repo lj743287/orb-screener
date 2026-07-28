@@ -63,6 +63,13 @@ jobs:
         run: |
           git config user.name "burst-bot"
           git config user.email "actions@github.com"
-          git add -A burst_watch.json bursts.html bursts.json bursts.txt || true
-          git diff --cached --quiet || git commit -m "Burst scanner update (${{ steps.stage.outputs.stage }})"
-          git push
+          for f in burst_watch.json bursts.html bursts.json bursts.txt; do
+            [ -f "$f" ] && git add "$f" && echo "staged $f"
+          done
+          if git diff --cached --quiet; then
+            echo "Nothing to commit — no output files were produced"
+          else
+            git commit -m "Burst scanner update (${{ steps.stage.outputs.stage }})"
+            git pull --rebase origin HEAD || true
+            git push
+          fi
