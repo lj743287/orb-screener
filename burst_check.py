@@ -4,7 +4,7 @@ burst_check.py — Stage B (intraday, ~11:30 ET)
 Reads burst_watch.json (yesterday's burst stocks from burst_scan.py), pulls
 live quotes for just those names, and tests for a SECOND burst in progress:
     price >= 4% above yesterday's close
-    volume, projected to full-day pace, above yesterday's volume
+    volume, projected to full-day pace, >= 60% of the burst day's volume
     trading in top 30% of today's range so far
 FULL = all three pass.  EARLY = price test only (volume/range pending).
 Writes bursts.html (styled report served by GitHub Pages), bursts.json, and
@@ -28,6 +28,9 @@ QUOTE_URL = "https://api.twelvedata.com/quote"
 
 PCT_THRESHOLD = 4.0
 RANGE_TOP = 0.30
+DAY2_VOL_RATIO = 0.60   # day-2 projected volume must be >= this fraction of
+                        # the burst day's volume (day 2 of a real sequence
+                        # rarely out-trades day 1, so 1.0 is miscalibrated)
 BATCH = 40
 BATCH_DELAY = 50          # seconds between batches (40 credits per batch)
 MIN_SESSION_FRAC = 0.15   # clamp for volume projection
@@ -99,7 +102,7 @@ def evaluate(stock, q, frac):
     rng = h - l
     top_pos = (h - price) / rng if rng > 0 else 0.0
     pct_ok = pct >= PCT_THRESHOLD
-    vol_ok = proj_vol > y_vol
+    vol_ok = proj_vol >= DAY2_VOL_RATIO * y_vol
     rng_ok = top_pos <= RANGE_TOP
     status = "FULL" if (pct_ok and vol_ok and rng_ok) else ("EARLY" if pct_ok else None)
     if not status:
