@@ -59,11 +59,22 @@ jobs:
           TWELVE_DATA_API_KEY: ${{ secrets.TWELVE_DATA_API_KEY }}
         run: python burst_check.py
 
+      - name: Publish to docs/ for GitHub Pages
+        run: |
+          if [ -d docs ]; then
+            for f in bursts.html bursts.json bursts.txt; do
+              [ -f "$f" ] && cp "$f" docs/ && echo "copied $f -> docs/"
+            done
+          else
+            echo "no docs/ directory — Pages presumably serves from root"
+          fi
+
       - name: Commit results
         run: |
           git config user.name "burst-bot"
           git config user.email "actions@github.com"
-          for f in burst_watch.json bursts.html bursts.json bursts.txt; do
+          for f in burst_watch.json bursts.html bursts.json bursts.txt \
+                   docs/bursts.html docs/bursts.json docs/bursts.txt; do
             [ -f "$f" ] && git add "$f" && echo "staged $f"
           done
           if git diff --cached --quiet; then
