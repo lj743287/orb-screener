@@ -6,7 +6,9 @@
 #                              daylight saving. NOTE: when US clocks change
 #                              (early Nov–mid Mar), edit to 16:30 UTC to keep
 #                              the 11:30 ET checkpoint.
-# Results are committed to the repo so GitHub Pages serves bursts.html.
+# Stage B copies the report into docs/ and deploys it to GitHub Pages using
+# the same artifact method as the ORB Screen workflow, so the report appears
+# at https://lj743287.github.io/orb-screener/bursts.html
 # Requires repo secret TWELVE_DATA_API_KEY (Settings → Secrets → Actions).
 
 name: Burst Scanner
@@ -24,11 +26,20 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
   burst:
     runs-on: ubuntu-latest
     timeout-minutes: 300
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
@@ -59,15 +70,13 @@ jobs:
           TWELVE_DATA_API_KEY: ${{ secrets.TWELVE_DATA_API_KEY }}
         run: python burst_check.py
 
-      - name: Publish to docs/ for GitHub Pages
+      - name: Copy report into docs/
+        if: steps.stage.outputs.stage == 'check'
         run: |
-          if [ -d docs ]; then
-            for f in bursts.html bursts.json bursts.txt; do
-              [ -f "$f" ] && cp "$f" docs/ && echo "copied $f -> docs/"
-            done
-          else
-            echo "no docs/ directory — Pages presumably serves from root"
-          fi
+          mkdir -p docs
+          for f in bursts.html bursts.json bursts.txt; do
+            [ -f "$f" ] && cp "$f" docs/ && echo "copied $f -> docs/"
+          done
 
       - name: Commit results
         run: |
@@ -84,3 +93,16 @@ jobs:
             git pull --rebase origin HEAD || true
             git push
           fi
+
+      # Publish docs/ to GitHub Pages (same method as the ORB Screen workflow)
+      - uses: actions/configure-pages@v5
+        if: steps.stage.outputs.stage == 'check'
+
+      - uses: actions/upload-pages-artifact@v3
+        if: steps.stage.outputs.stage == 'check'
+        with:
+          path: docs
+
+      - id: deploy
+        uses: actions/deploy-pages@v4
+        if: steps.stage.outputs.stage == 'check'
