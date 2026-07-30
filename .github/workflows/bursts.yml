@@ -2,10 +2,12 @@
 # Stockbee Anticipation pipeline.
 #   Stage A (anticipation_scan.py)  — 05:30 UTC weekdays, before US open.
 #        Scans the full universe for COILED pre-breakout setups (~2h).
-#   Stage B (anticipation_check.py) — 15:30 UTC weekdays = 11:30 ET during US
-#        daylight saving. Checks those setups for a pivot break today.
-#        NOTE: when US clocks change (early Nov–mid Mar), edit to 16:30 UTC
-#        to keep the 11:30 ET checkpoint.
+#   Stage B (anticipation_check.py) — hourly at :07 from 14:07 to 19:07 UTC,
+#        i.e. 10:07 ET to 15:07 ET during US daylight saving. Runs hourly
+#        because GitHub delays scheduled jobs by 1-2 hours and because a
+#        breakout is worth catching near its pivot, not hours later.
+#        NOTE: when US clocks change (early Nov–mid Mar), shift the hour list
+#        to 15,16,17,18,19,20 to keep the same ET window.
 # Stage B copies the report into docs/ and deploys it to GitHub Pages using
 # the same artifact method as the ORB Screen workflow, so it appears at
 # https://lj743287.github.io/orb-screener/setups.html
@@ -15,8 +17,8 @@ name: Burst Scanner
 
 on:
   schedule:
-    - cron: "30 5 * * 1-5"    # Stage A: overnight anticipation scan
-    - cron: "30 15 * * 1-5"   # Stage B: intraday pivot-break check
+    - cron: "7 5 * * 1-5"                    # Stage A: overnight scan
+    - cron: "7 14,15,16,17,18,19 * * 1-5"    # Stage B: hourly during session
   workflow_dispatch:
     inputs:
       stage:
@@ -62,12 +64,14 @@ jobs:
         if: steps.stage.outputs.stage == 'scan'
         env:
           TWELVE_DATA_API_KEY: ${{ secrets.TWELVE_DATA_API_KEY }}
+          PYTHONUNBUFFERED: "1"
         run: python anticipation_scan.py
 
       - name: Run Stage B — intraday pivot-break check
         if: steps.stage.outputs.stage == 'check'
         env:
           TWELVE_DATA_API_KEY: ${{ secrets.TWELVE_DATA_API_KEY }}
+          PYTHONUNBUFFERED: "1"
         run: python anticipation_check.py
 
       - name: Copy report into docs/
