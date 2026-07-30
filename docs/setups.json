@@ -1,0 +1,26 @@
+{
+ "generated_utc": "2026-07-30T15:40:36.755059+00:00",
+ "session_fraction": 0.333,
+ "results": [
+  {
+   "symbol": "SHIP",
+   "exchange": "NASDAQ",
+   "status": "EARLY",
+   "score": 49.0,
+   "price": 17.25,
+   "pct": 7.21,
+   "pivot": 16.63,
+   "dist": 3.73,
+   "stop": 16.55,
+   "risk_pct": 4.03,
+   "adr_pct": 4.71,
+   "consol_days": 4,
+   "quals": "DT",
+   "proj_vol": 94565,
+   "prev_vol": 217799,
+   "vol_ok": false,
+   "rng_ok": false,
+   "pos_ok": true
+  }
+ ]
+}
