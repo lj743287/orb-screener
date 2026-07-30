@@ -1,22 +1,22 @@
 # .github/workflows/bursts.yml
-# Two scheduled jobs:
-#   Stage A (burst_scan.py)  — 05:30 UTC weekdays, before US open, full
-#                              universe scan (~2h), writes burst_watch.json
-#   Stage B (burst_check.py) — 15:30 UTC weekdays = 11:30 ET during US
-#                              daylight saving. NOTE: when US clocks change
-#                              (early Nov–mid Mar), edit to 16:30 UTC to keep
-#                              the 11:30 ET checkpoint.
+# Stockbee Anticipation pipeline.
+#   Stage A (anticipation_scan.py)  — 05:30 UTC weekdays, before US open.
+#        Scans the full universe for COILED pre-breakout setups (~2h).
+#   Stage B (anticipation_check.py) — 15:30 UTC weekdays = 11:30 ET during US
+#        daylight saving. Checks those setups for a pivot break today.
+#        NOTE: when US clocks change (early Nov–mid Mar), edit to 16:30 UTC
+#        to keep the 11:30 ET checkpoint.
 # Stage B copies the report into docs/ and deploys it to GitHub Pages using
-# the same artifact method as the ORB Screen workflow, so the report appears
-# at https://lj743287.github.io/orb-screener/bursts.html
-# Requires repo secret TWELVE_DATA_API_KEY (Settings → Secrets → Actions).
+# the same artifact method as the ORB Screen workflow, so it appears at
+# https://lj743287.github.io/orb-screener/setups.html
+# Requires repo secret TWELVE_DATA_API_KEY.
 
 name: Burst Scanner
 
 on:
   schedule:
-    - cron: "30 5 * * 1-5"    # Stage A: overnight universe scan
-    - cron: "30 15 * * 1-5"   # Stage B: intraday second-burst check
+    - cron: "30 5 * * 1-5"    # Stage A: overnight anticipation scan
+    - cron: "30 15 * * 1-5"   # Stage B: intraday pivot-break check
   workflow_dispatch:
     inputs:
       stage:
@@ -58,23 +58,23 @@ jobs:
             echo "stage=check" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Run Stage A — overnight universe scan
+      - name: Run Stage A — overnight anticipation scan
         if: steps.stage.outputs.stage == 'scan'
         env:
           TWELVE_DATA_API_KEY: ${{ secrets.TWELVE_DATA_API_KEY }}
-        run: python burst_scan.py
+        run: python anticipation_scan.py
 
-      - name: Run Stage B — intraday second-burst check
+      - name: Run Stage B — intraday pivot-break check
         if: steps.stage.outputs.stage == 'check'
         env:
           TWELVE_DATA_API_KEY: ${{ secrets.TWELVE_DATA_API_KEY }}
-        run: python burst_check.py
+        run: python anticipation_check.py
 
       - name: Copy report into docs/
         if: steps.stage.outputs.stage == 'check'
         run: |
           mkdir -p docs
-          for f in bursts.html bursts.json bursts.txt; do
+          for f in setups.html setups.json setups.txt; do
             [ -f "$f" ] && cp "$f" docs/ && echo "copied $f -> docs/"
           done
 
@@ -82,14 +82,14 @@ jobs:
         run: |
           git config user.name "burst-bot"
           git config user.email "actions@github.com"
-          for f in burst_watch.json bursts.html bursts.json bursts.txt \
-                   docs/bursts.html docs/bursts.json docs/bursts.txt; do
+          for f in anticipation_watch.json setups.html setups.json setups.txt \
+                   docs/setups.html docs/setups.json docs/setups.txt; do
             [ -f "$f" ] && git add "$f" && echo "staged $f"
           done
           if git diff --cached --quiet; then
             echo "Nothing to commit — no output files were produced"
           else
-            git commit -m "Burst scanner update (${{ steps.stage.outputs.stage }})"
+            git commit -m "Anticipation scanner update (${{ steps.stage.outputs.stage }})"
             git pull --rebase origin HEAD || true
             git push
           fi
