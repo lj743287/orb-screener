@@ -1,8 +1,8 @@
 {
- "generated_utc": "2026-07-30 04:26:43",
+ "generated_utc": "2026-07-30 10:16:41",
  "setup_date": "2026-07-29",
- "found": 76,
- "count": 76,
+ "found": 60,
+ "count": 60,
  "stocks": [
   {
    "close": 42.16,
@@ -18,54 +18,6 @@
    "score": 79.0,
    "date": "2026-07-29",
    "symbol": "DFTX",
-   "exchange": "NASDAQ"
-  },
-  {
-   "close": 14.06,
-   "prev_volume": 4030849,
-   "pivot": 14.12,
-   "dist_to_pivot": 0.42,
-   "consol_days": 6,
-   "quals": "DT+TI65+MDT",
-   "rng_ratio": 0.07,
-   "vol_ratio": 1.5,
-   "adr_pct": 2.87,
-   "avg_range_10": 1.74,
-   "score": 78.6,
-   "date": "2026-07-29",
-   "symbol": "UTZ",
-   "exchange": "NYSE"
-  },
-  {
-   "close": 7.18,
-   "prev_volume": 18550318,
-   "pivot": 7.22,
-   "dist_to_pivot": 0.55,
-   "consol_days": 9,
-   "quals": "DT+TI65+MDT",
-   "rng_ratio": 0.11,
-   "vol_ratio": 0.88,
-   "adr_pct": 4.95,
-   "avg_range_10": 1.08,
-   "score": 78.3,
-   "date": "2026-07-29",
-   "symbol": "ATAI",
-   "exchange": "NASDAQ"
-  },
-  {
-   "close": 86.22,
-   "prev_volume": 1771475,
-   "pivot": 89.15,
-   "dist_to_pivot": 3.29,
-   "consol_days": 5,
-   "quals": "DT+TI65+MDT",
-   "rng_ratio": 0.66,
-   "vol_ratio": 0.63,
-   "adr_pct": 4.99,
-   "avg_range_10": 4.97,
-   "score": 75.3,
-   "date": "2026-07-29",
-   "symbol": "ARWR",
    "exchange": "NASDAQ"
   },
   {
@@ -229,22 +181,6 @@
    "exchange": "NASDAQ"
   },
   {
-   "close": 54.5,
-   "prev_volume": 562955,
-   "pivot": 58.05,
-   "dist_to_pivot": 6.12,
-   "consol_days": 6,
-   "quals": "DT",
-   "rng_ratio": 0.74,
-   "vol_ratio": 0.47,
-   "adr_pct": 5.97,
-   "avg_range_10": 4.93,
-   "score": 62.0,
-   "date": "2026-07-29",
-   "symbol": "AUGO",
-   "exchange": "NASDAQ"
-  },
-  {
    "close": 21.2,
    "prev_volume": 2117514,
    "pivot": 21.72,
@@ -261,22 +197,6 @@
    "exchange": "NASDAQ"
   },
   {
-   "close": 57.52,
-   "prev_volume": 2716992,
-   "pivot": 58.7,
-   "dist_to_pivot": 2.01,
-   "consol_days": 9,
-   "quals": "TI65",
-   "rng_ratio": 0.74,
-   "vol_ratio": 0.48,
-   "adr_pct": 2.5,
-   "avg_range_10": 2.36,
-   "score": 61.2,
-   "date": "2026-07-29",
-   "symbol": "AHR",
-   "exchange": "NYSE"
-  },
-  {
    "close": 22.06,
    "prev_volume": 333499,
    "pivot": 22.29,
@@ -291,22 +211,6 @@
    "date": "2026-07-29",
    "symbol": "CBAN",
    "exchange": "NYSE"
-  },
-  {
-   "close": 52.14,
-   "prev_volume": 414799,
-   "pivot": 56.05,
-   "dist_to_pivot": 6.98,
-   "consol_days": 6,
-   "quals": "DT",
-   "rng_ratio": 0.66,
-   "vol_ratio": 0.69,
-   "adr_pct": 7.31,
-   "avg_range_10": 6.95,
-   "score": 60.2,
-   "date": "2026-07-29",
-   "symbol": "ANAB",
-   "exchange": "NASDAQ"
   },
   {
    "close": 28.22,
@@ -469,22 +373,6 @@
    "exchange": "NYSE"
   },
   {
-   "close": 64.61,
-   "prev_volume": 3432941,
-   "pivot": 69.87,
-   "dist_to_pivot": 7.53,
-   "consol_days": 8,
-   "quals": "TI65",
-   "rng_ratio": 0.75,
-   "vol_ratio": 0.73,
-   "adr_pct": 4.19,
-   "avg_range_10": 3.77,
-   "score": 52.1,
-   "date": "2026-07-29",
-   "symbol": "BROS",
-   "exchange": "NYSE"
-  },
-  {
    "close": 42.34,
    "prev_volume": 1257839,
    "pivot": 43.62,
@@ -501,22 +389,6 @@
    "exchange": "NYSE"
   },
   {
-   "close": 50.32,
-   "prev_volume": 851866,
-   "pivot": 53.57,
-   "dist_to_pivot": 6.07,
-   "consol_days": 12,
-   "quals": "DT+TI65",
-   "rng_ratio": 0.82,
-   "vol_ratio": 0.65,
-   "adr_pct": 3.02,
-   "avg_range_10": 2.85,
-   "score": 51.6,
-   "date": "2026-07-29",
-   "symbol": "YPF",
-   "exchange": "NYSE"
-  },
-  {
    "close": 86.82,
    "prev_volume": 1100001,
    "pivot": 91.1,
@@ -530,38 +402,6 @@
    "score": 51.1,
    "date": "2026-07-29",
    "symbol": "LQDA",
-   "exchange": "NASDAQ"
-  },
-  {
-   "close": 41.9,
-   "prev_volume": 870654,
-   "pivot": 42.21,
-   "dist_to_pivot": 0.73,
-   "consol_days": 9,
-   "quals": "TI65",
-   "rng_ratio": 0.99,
-   "vol_ratio": 0.55,
-   "adr_pct": 2.31,
-   "avg_range_10": 2.54,
-   "score": 51.1,
-   "date": "2026-07-29",
-   "symbol": "WSBC",
-   "exchange": "NASDAQ"
-  },
-  {
-   "close": 40.98,
-   "prev_volume": 284927,
-   "pivot": 42.25,
-   "dist_to_pivot": 3.01,
-   "consol_days": 12,
-   "quals": "TI65+MDT",
-   "rng_ratio": 0.82,
-   "vol_ratio": 0.81,
-   "adr_pct": 3.17,
-   "avg_range_10": 2.8,
-   "score": 50.6,
-   "date": "2026-07-29",
-   "symbol": "BBSI",
    "exchange": "NASDAQ"
   },
   {
@@ -594,22 +434,6 @@
    "score": 50.2,
    "date": "2026-07-29",
    "symbol": "SKYH",
-   "exchange": "NYSE"
-  },
-  {
-   "close": 14.93,
-   "prev_volume": 1114666,
-   "pivot": 15.23,
-   "dist_to_pivot": 1.97,
-   "consol_days": 9,
-   "quals": "DT+TI65+MDT",
-   "rng_ratio": 0.87,
-   "vol_ratio": 0.92,
-   "adr_pct": 4.51,
-   "avg_range_10": 4.06,
-   "score": 49.4,
-   "date": "2026-07-29",
-   "symbol": "ZGN",
    "exchange": "NYSE"
   },
   {
@@ -709,22 +533,6 @@
    "exchange": "NYSE"
   },
   {
-   "close": 301.32,
-   "prev_volume": 2299147,
-   "pivot": 320.24,
-   "dist_to_pivot": 5.91,
-   "consol_days": 12,
-   "quals": "DT+TI65+MDT",
-   "rng_ratio": 0.93,
-   "vol_ratio": 0.87,
-   "adr_pct": 3.33,
-   "avg_range_10": 3.22,
-   "score": 44.5,
-   "date": "2026-07-29",
-   "symbol": "VLO",
-   "exchange": "NYSE"
-  },
-  {
    "close": 50.72,
    "prev_volume": 117874,
    "pivot": 51.73,
@@ -754,22 +562,6 @@
    "score": 42.2,
    "date": "2026-07-29",
    "symbol": "CDNA",
-   "exchange": "NASDAQ"
-  },
-  {
-   "close": 39.23,
-   "prev_volume": 151054,
-   "pivot": 39.66,
-   "dist_to_pivot": 1.08,
-   "consol_days": 6,
-   "quals": "TI65",
-   "rng_ratio": 1.01,
-   "vol_ratio": 0.89,
-   "adr_pct": 2.66,
-   "avg_range_10": 2.97,
-   "score": 42.0,
-   "date": "2026-07-29",
-   "symbol": "WASH",
    "exchange": "NASDAQ"
   },
   {
@@ -1109,22 +901,6 @@
    "exchange": "NASDAQ"
   },
   {
-   "close": 292.19,
-   "prev_volume": 2469689,
-   "pivot": 309.32,
-   "dist_to_pivot": 5.54,
-   "consol_days": 4,
-   "quals": "TI65",
-   "rng_ratio": 1.32,
-   "vol_ratio": 1.16,
-   "adr_pct": 2.08,
-   "avg_range_10": 2.52,
-   "score": 31.4,
-   "date": "2026-07-29",
-   "symbol": "UNP",
-   "exchange": "NYSE"
-  },
-  {
    "close": 201.84,
    "prev_volume": 357080,
    "pivot": 224.0,
@@ -1139,38 +915,6 @@
    "date": "2026-07-29",
    "symbol": "MATX",
    "exchange": "NYSE"
-  },
-  {
-   "close": 80.39,
-   "prev_volume": 1311794,
-   "pivot": 81.8,
-   "dist_to_pivot": 1.72,
-   "consol_days": 9,
-   "quals": "TI65",
-   "rng_ratio": 0.97,
-   "vol_ratio": 0.99,
-   "adr_pct": 1.55,
-   "avg_range_10": 1.72,
-   "score": 30.3,
-   "date": "2026-07-29",
-   "symbol": "ADC",
-   "exchange": "NYSE"
-  },
-  {
-   "close": 10.25,
-   "prev_volume": 638816,
-   "pivot": 11.13,
-   "dist_to_pivot": 7.91,
-   "consol_days": 10,
-   "quals": "DT+TI65",
-   "rng_ratio": 0.99,
-   "vol_ratio": 1.16,
-   "adr_pct": 4.37,
-   "avg_range_10": 4.4,
-   "score": 29.9,
-   "date": "2026-07-29",
-   "symbol": "AMCX",
-   "exchange": "NASDAQ"
   },
   {
    "close": 21.98,
