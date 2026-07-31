@@ -6,16 +6,26 @@ Surfaces liquid stocks in an intact uptrend that are COILING below a recent high
 No market-regime gate (assess the market yourself).
 
 Env: TWELVE_DATA_KEY (req), MAX_SYMBOLS (opt cap), THROTTLE_SEC (default 1.2)
+
+Outputs (unchanged): output/candidates.csv, docs/watchlist.txt, docs/index.html
+Outputs (new):       data/orb.json  -- shared format for the combined dashboard
 """
 import os, io, time, datetime as dt
 import requests
 import numpy as np
 import pandas as pd
 
+# NEW: shared output writer used by all four scans.
+from scan_output import write_scan, write_failure
+
 API_KEY    = os.environ.get("TWELVE_DATA_KEY", "")
 MAX_SYMBOLS= int(os.environ.get("MAX_SYMBOLS", "0"))
 THROTTLE   = float(os.environ.get("THROTTLE_SEC", "1.2"))
 OUT_DIR, DOCS_DIR = "output", "docs"
+
+# NEW: identity of this scan on the combined dashboard.
+SCAN_ID    = "orb"
+SCAN_LABEL = "ORB Continuation"
 
 # ---- screen parameters ----
 P = dict(ADR_MIN=2.0, ADR_MAX=6.0, RUNUP_MIN=45.0, RUNUP_MAX=200.0, PRICE_MIN=5.0,
@@ -140,7 +150,7 @@ def compute_screen(d, p=P, debug=False):
     return passed, metrics, crit
 
 
-def write_outputs(rows):
+def write_outputs(rows, universe_n=None):
     os.makedirs(OUT_DIR, exist_ok=True); os.makedirs(DOCS_DIR, exist_ok=True)
     df = pd.DataFrame(rows)
     if len(df) and "adr" in df.columns:
@@ -177,6 +187,19 @@ color:#cdd3df;border:1px solid #333;border-radius:8px;padding:.5rem;font-family:
     with open(os.path.join(DOCS_DIR, "index.html"), "w") as f:
         f.write(html)
     print(f"Wrote {len(df)} candidates -> {OUT_DIR}/candidates.csv, {DOCS_DIR}/watchlist.txt, {DOCS_DIR}/index.html")
+
+    # --- NEW: shared output for the combined dashboard ---------------------
+    # Sorted the same way as the table above (calmest first) but built from the
+    # plain Python rows rather than the DataFrame, so no numpy types or NaNs
+    # can leak into the JSON file.
+    rows_sorted = sorted(
+        rows,
+        key=lambda r: r.get("adr") if isinstance(r.get("adr"), (int, float)) else float("inf"),
+    )
+    meta = {"sort": "ADR ascending (calmest first)"}
+    if universe_n is not None:
+        meta["universe"] = universe_n
+    write_scan(SCAN_ID, rows_sorted, label=SCAN_LABEL, meta=meta)
 
 
 def main():
@@ -230,8 +253,18 @@ def main():
         cum = [cr for cr in cum if cr[k]]
         print(f"    + {k:<6} -> {len(cum):>5}")
 
-    write_outputs(rows)
+    write_outputs(rows, universe_n=len(universe))
 
 
 if __name__ == "__main__":
-    main()
+    # NEW: if the scan falls over, leave a note so the dashboard can show a
+    # red banner on this tab instead of a silently empty table. The error is
+    # then re-raised so the GitHub Actions run still shows as failed.
+    try:
+        main()
+    except Exception as exc:
+        try:
+            write_failure(SCAN_ID, exc, label=SCAN_LABEL)
+        except Exception:
+            pass
+        raise
