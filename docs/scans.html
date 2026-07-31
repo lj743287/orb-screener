@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en-GB"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Overnight scans</title>
+<style>
+:root{
+  --bg:#0d1117; --panel:#11161d; --line:#21262d; --line2:#2d333b;
+  --ink:#e6edf3; --dim:#8b949e; --accent:#58a6ff;
+  --good:#3fb950; --warn:#d29922; --bad:#f85149;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;padding:20px;background:var(--bg);color:var(--ink);
+  font:14px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+header{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;
+  margin-bottom:4px}
+h1{font-size:19px;margin:0;letter-spacing:-.01em}
+header .built{color:var(--dim);font-size:12px;font-family:var(--mono)}
+header nav{margin-left:auto;display:flex;gap:14px}
+header nav a{color:var(--accent);text-decoration:none;font-size:13px}
+header nav a:hover{text-decoration:underline}
+.lede{color:var(--dim);font-size:13px;margin:0 0 18px}
+
+.tabs{display:flex;flex-wrap:wrap;gap:6px;border-bottom:1px solid var(--line);
+  padding-bottom:0;margin-bottom:0}
+.tab{appearance:none;background:transparent;border:1px solid transparent;
+  border-bottom:none;border-radius:8px 8px 0 0;color:var(--dim);
+  font:inherit;font-weight:600;padding:9px 14px;cursor:pointer;
+  display:flex;align-items:center;gap:8px;position:relative;top:1px}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected="true"]{background:var(--panel);color:var(--ink);
+  border-color:var(--line);border-bottom:1px solid var(--panel)}
+.tab .n{font-family:var(--mono);font-size:11px;font-weight:400;
+  background:var(--line);color:var(--dim);border-radius:9px;padding:1px 7px}
+.tab[aria-selected="true"] .n{background:var(--line2);color:var(--ink)}
+.tab:focus-visible,.btn:focus-visible{outline:2px solid var(--accent);
+  outline-offset:2px}
+
+.dot{width:7px;height:7px;border-radius:50%;flex:none;background:var(--dim)}
+.good .dot{background:var(--good)}
+.warn .dot{background:var(--warn)}
+.bad .dot{background:var(--bad)}
+
+.panel{background:var(--panel);border:1px solid var(--line);border-top:none;
+  border-radius:0 0 10px 10px;padding:16px}
+.panel[hidden]{display:none}
+
+.status{display:flex;align-items:center;gap:9px;font-size:13px;
+  padding:9px 12px;border-radius:7px;margin-bottom:14px;
+  border:1px solid var(--line2)}
+.status.good{color:var(--dim)}
+.status.warn{color:var(--warn);border-color:#5c4708;background:#1d1804}
+.status.bad{color:var(--bad);border-color:#5c1a17;background:#1d0f0e}
+.status .stamp{margin-left:auto;font-family:var(--mono);font-size:11px;
+  color:var(--dim)}
+.incomplete{color:var(--warn);font-size:13px;margin:-6px 0 14px}
+
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;
+  margin-bottom:10px}
+.bar .count{font-size:13px;color:var(--dim)}
+.bar .count strong{color:var(--ink);font-family:var(--mono);font-size:15px}
+.bar .meta{color:var(--dim);font-size:12px;flex-basis:100%;
+  font-family:var(--mono)}
+.btn{display:inline-block;border:1px solid transparent;border-radius:7px;
+  background:var(--accent);color:#04101f;font:inherit;font-weight:600;
+  font-size:13px;padding:7px 13px;cursor:pointer;text-decoration:none}
+.btn:hover{filter:brightness(1.1)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line2)}
+.btn.ghost:hover{background:var(--line)}
+
+textarea{width:100%;height:44px;margin-bottom:14px;background:var(--bg);
+  color:var(--dim);border:1px solid var(--line);border-radius:7px;
+  padding:8px 10px;font-family:var(--mono);font-size:11px;resize:vertical}
+
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:7px 11px;text-align:left;border-bottom:1px solid var(--line);
+  white-space:nowrap}
+th{color:var(--dim);font-size:11px;font-weight:600;text-transform:uppercase;
+  letter-spacing:.04em;cursor:pointer;user-select:none;position:sticky;top:0;
+  background:var(--panel)}
+th:hover{color:var(--ink)}
+th::after{content:"";opacity:.45;font-size:9px;margin-left:5px}
+th.asc::after{content:"\25B2"}
+th.desc::after{content:"\25BC"}
+td.num,th.num{text-align:right;font-family:var(--mono)}
+td.sym{font-family:var(--mono);font-weight:700}
+tbody tr:hover{background:#161c24}
+.tag{font-family:var(--mono);font-size:11px;color:var(--dim);
+  border:1px solid var(--line2);border-radius:5px;padding:1px 6px}
+.tag.multi{color:var(--good);border-color:#1f5c2e;background:#08160d;
+  font-weight:700}
+.empty{color:var(--dim);padding:22px 0;text-align:center}
+.tab.live{margin-left:auto}
+.tab.live::before{content:"intraday";font-size:9px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--dim);border:1px solid var(--line2);
+  border-radius:4px;padding:1px 5px}
+
+@media (max-width:640px){
+  body{padding:12px}
+  .tab{padding:8px 10px;font-size:13px}
+  th,td{padding:6px 8px}
+}
+</style></head><body>
+<header>
+  <h1>Overnight scans</h1>
+  <span class="built">built 2026-07-31 16:40 UTC</span>
+  <nav>
+    <a href="index.html">ORB watchlist</a>
+    <a href="setups.html">Anticipation intraday</a>
+  </nav>
+</header>
+<p class="lede">Five scans of last night's close, plus one live check that
+runs during the US session. Every tab exports a TradingView import file;
+Combined merges ORB, Daily and Burst with duplicates removed.</p>
+<div class="tabs" role="tablist"><button class="tab bad" type="button" data-tab="orb"><span class="dot"></span>ORB<span class="n">0</span></button><button class="tab bad" type="button" data-tab="daily"><span class="dot"></span>Daily<span class="n">0</span></button><button class="tab bad" type="button" data-tab="burst"><span class="dot"></span>Burst<span class="n">0</span></button><button class="tab warn" type="button" data-tab="combined"><span class="dot"></span>Combined<span class="n">0</span></button><button class="tab bad" type="button" data-tab="anticipation"><span class="dot"></span>Anticipation<span class="n">0</span></button><button class="tab warn live" type="button" data-tab="burst_check"><span class="dot"></span>Second burst<span class="n">0</span></button></div>
+<section class="panel" id="panel-orb" hidden>
+  <div class="status bad">
+    <span class="dot"></span>
+    <span class="note">Has not run yet. No results file was found.</span>
+    <span class="stamp">never</span>
+  </div>
+  
+  <div class="bar">
+    <span class="count"><strong>0</strong> symbols</span>
+    <a class="btn" href="scans_orb.txt" download>Download .txt</a>
+    <button class="btn ghost" type="button" data-copy="tv-orb">Copy tickers</button>
+    <span class="meta"></span>
+  </div>
+  <textarea id="tv-orb" readonly onclick="this.select()"></textarea>
+  <p class="empty">Nothing to show.</p>
+</section><section class="panel" id="panel-daily" hidden>
+  <div class="status bad">
+    <span class="dot"></span>
+    <span class="note">Has not run yet. No results file was found.</span>
+    <span class="stamp">never</span>
+  </div>
+  
+  <div class="bar">
+    <span class="count"><strong>0</strong> symbols</span>
+    <a class="btn" href="scans_daily.txt" download>Download .txt</a>
+    <button class="btn ghost" type="button" data-copy="tv-daily">Copy tickers</button>
+    <span class="meta"></span>
+  </div>
+  <textarea id="tv-daily" readonly onclick="this.select()"></textarea>
+  <p class="empty">Nothing to show.</p>
+</section><section class="panel" id="panel-burst" hidden>
+  <div class="status bad">
+    <span class="dot"></span>
+    <span class="note">Has not run yet. No results file was found.</span>
+    <span class="stamp">never</span>
+  </div>
+  
+  <div class="bar">
+    <span class="count"><strong>0</strong> symbols</span>
+    <a class="btn" href="scans_burst.txt" download>Download .txt</a>
+    <button class="btn ghost" type="button" data-copy="tv-burst">Copy tickers</button>
+    <span class="meta"></span>
+  </div>
+  <textarea id="tv-burst" readonly onclick="this.select()"></textarea>
+  <p class="empty">Nothing to show.</p>
+</section><section class="panel" id="panel-combined" hidden>
+  <div class="status warn">
+    <span class="dot"></span>
+    <span class="note">Ran successfully but found nothing today.</span>
+    <span class="stamp">2026-07-31T16:40:04Z</span>
+  </div>
+  <p class="incomplete">Built without ORB, DAILY, BURST &mdash; that scan did not produce results, so names it would have contributed are missing from this list.</p>
+  <div class="bar">
+    <span class="count"><strong>0</strong> symbols</span>
+    <a class="btn" href="scans_combined.txt" download>Download .txt</a>
+    <button class="btn ghost" type="button" data-copy="tv-combined">Copy tickers</button>
+    <span class="meta">sort: most scans first, then A-Z &middot; sources: none</span>
+  </div>
+  <textarea id="tv-combined" readonly onclick="this.select()"></textarea>
+  <p class="empty">Nothing to show.</p>
+</section><section class="panel" id="panel-anticipation" hidden>
+  <div class="status bad">
+    <span class="dot"></span>
+    <span class="note">Has not run yet. No results file was found.</span>
+    <span class="stamp">never</span>
+  </div>
+  
+  <div class="bar">
+    <span class="count"><strong>0</strong> symbols</span>
+    <a class="btn" href="scans_anticipation.txt" download>Download .txt</a>
+    <button class="btn ghost" type="button" data-copy="tv-anticipation">Copy tickers</button>
+    <span class="meta"></span>
+  </div>
+  <textarea id="tv-anticipation" readonly onclick="this.select()"></textarea>
+  <p class="empty">Nothing to show.</p>
+</section><section class="panel" id="panel-burst_check" hidden>
+  <div class="status warn">
+    <span class="dot"></span>
+    <span class="note">Has not run yet today. This tab fills in once the US market has been open an hour.</span>
+    <span class="stamp">never</span>
+  </div>
+  
+  <div class="bar">
+    <span class="count"><strong>0</strong> symbols</span>
+    <a class="btn" href="scans_burst_check.txt" download>Download .txt</a>
+    <button class="btn ghost" type="button" data-copy="tv-burst_check">Copy tickers</button>
+    <span class="meta"></span>
+  </div>
+  <textarea id="tv-burst_check" readonly onclick="this.select()"></textarea>
+  <p class="empty">Nothing to show.</p>
+</section>
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  function show(id){
+    tabs.forEach(function(t){
+      var on=t.dataset.tab===id;
+      t.setAttribute('aria-selected',on?'true':'false');
+      var p=document.getElementById('panel-'+t.dataset.tab);
+      if(p)p.hidden=!on;
+    });
+    try{location.hash=id;}catch(e){}
+  }
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){show(t.dataset.tab);});
+  });
+  var start=(location.hash||'').replace('#','');
+  show(tabs.some(function(t){return t.dataset.tab===start;})?start:tabs[0].dataset.tab);
+
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('[data-copy]');
+    if(!b)return;
+    var ta=document.getElementById(b.dataset.copy);
+    if(!ta)return;
+    var done=function(){var o=b.textContent;b.textContent='Copied';
+      setTimeout(function(){b.textContent=o;},1400);};
+    if(navigator.clipboard){navigator.clipboard.writeText(ta.value).then(done,function(){
+      ta.select();document.execCommand('copy');done();});}
+    else{ta.select();document.execCommand('copy');done();}
+  });
+
+  document.querySelectorAll('table').forEach(function(tbl){
+    tbl.querySelectorAll('th').forEach(function(th,i){
+      th.addEventListener('click',function(){
+        var body=tbl.tBodies[0];
+        var rows=[].slice.call(body.rows);
+        var desc=!th.classList.contains('desc');
+        tbl.querySelectorAll('th').forEach(function(o){
+          o.classList.remove('asc','desc');});
+        th.classList.add(desc?'desc':'asc');
+        rows.sort(function(a,b){
+          var x=a.cells[i].textContent.trim(),y=b.cells[i].textContent.trim();
+          var nx=parseFloat(x.replace(/[^0-9.eE+-]/g,'')),
+              ny=parseFloat(y.replace(/[^0-9.eE+-]/g,''));
+          var num=!isNaN(nx)&&!isNaN(ny)&&x!==''&&y!=='';
+          var c=num?(nx-ny):x.localeCompare(y);
+          return desc?-c:c;
+        });
+        rows.forEach(function(r){body.appendChild(r);});
+      });
+    });
+  });
+})();
+</script>
+</body></html>
