@@ -11,6 +11,9 @@ Writes burst_watch.json for burst_check.py (Stage B) to test intraday.
 
 Designed for GitHub Actions (cron, pre-US-open). Requires env var
 TWELVE_DATA_API_KEY. Paced to ~50 requests/min for the Grow 55 plan.
+
+Outputs (unchanged): burst_watch.json  -- consumed by burst_check.py
+Outputs (new):       data/burst.json   -- shared format for the combined dashboard
 """
 
 import json
@@ -19,6 +22,9 @@ import sys
 import time
 import urllib.request
 from datetime import datetime, timezone, timedelta
+
+# NEW: shared output writer used by all the overnight scans.
+from scan_output import write_scan, write_failure
 
 API_KEY = os.environ.get("TWELVE_DATA_API_KEY", "")
 TD_URL = "https://api.twelvedata.com/time_series"
@@ -36,6 +42,10 @@ BAD_NAME_WORDS = ("WARRANT", "RIGHT", "UNIT", "PREFERRED", "NOTES", "DEBENTURE")
 BAD_SYMBOL_CHARS = set(".$^~=")
 
 OUT_FILE = "burst_watch.json"
+
+# NEW: identity of this scan on the combined dashboard.
+SCAN_ID = "burst"
+SCAN_LABEL = "Stockbee Burst"
 
 
 def http_get(url, timeout=30):
@@ -139,6 +149,30 @@ def is_burst(bar, prior):
     return None
 
 
+def to_scan_rows(hits):
+    """NEW: translate burst hits into the shared dashboard format.
+
+    burst_watch.json keeps its own field names because burst_check.py reads
+    it and must not be disturbed. This makes a separate, friendlier copy for
+    the combined page: y_close becomes the standard 'close', and volumes are
+    expressed in millions so the table stays readable.
+    """
+    rows = []
+    for h in hits:
+        vol = h.get("y_volume") or 0
+        dvol = h.get("y_dollar_vol") or 0
+        rows.append({
+            "symbol": h.get("symbol", ""),
+            "exchange": h.get("exchange", ""),
+            "close": h.get("y_close"),
+            "burst_pct": h.get("y_pct"),
+            "volM": round(vol / 1e6, 2),
+            "dvolM": round(dvol / 1e6, 1),
+            "burst_date": (h.get("date") or "")[:10],
+        })
+    return rows
+
+
 def main():
     if not API_KEY:
         sys.exit("TWELVE_DATA_API_KEY not set")
@@ -173,6 +207,29 @@ def main():
         json.dump(out, f, indent=1)
     print(f"Wrote {OUT_FILE}: {len(hits)} burst stocks")
 
+    # --- NEW: shared output for the combined dashboard ---------------------
+    # Same hits, same order (biggest burst first), different packaging.
+    write_scan(
+        SCAN_ID,
+        to_scan_rows(hits),
+        label=SCAN_LABEL,
+        meta={
+            "sort": "burst % descending",
+            "universe": len(universe),
+            "burst_date": (hits[0]["date"][:10] if hits else ""),
+        },
+    )
+
 
 if __name__ == "__main__":
-    main()
+    # NEW: if the scan falls over, leave a note so the dashboard can show a
+    # red banner on this tab instead of a silently empty table. The error is
+    # re-raised so the GitHub Actions run still shows as failed.
+    try:
+        main()
+    except Exception as exc:
+        try:
+            write_failure(SCAN_ID, exc, label=SCAN_LABEL)
+        except Exception:
+            pass
+        raise
