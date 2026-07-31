@@ -1,0 +1,109 @@
+# .github/workflows/intraday.yml
+#
+# The live check during the US session. Replaces the old bursts.yml, which
+# despite its name only ever ran the anticipation scripts -- the burst system
+# had been dormant. Both now run.
+#
+#   anticipation_check.py  -- which of last night's coiled setups are
+#                             breaking their pivot right now
+#   burst_check.py         -- which of last night's burst names are bursting
+#                             a second time right now
+#
+# Then the page is rebuilt so the "Second burst" tab is current.
+#
+# WHY HOURLY 14:07-20:07 UTC: that band covers the whole US session in both
+# halves of the year. In summer 20:07 UTC is after the close; in winter 14:07
+# UTC is before the open. Both scripts work out for themselves how far into
+# the session they are and quietly skip when the market is shut or barely
+# open, so the runs that fall outside the session cost nothing and change
+# nothing. That is what removes the twice-yearly job of editing this file
+# when the American clocks change.
+#
+# Skipping leaves the previous result in place rather than blanking it, so
+# the tab never goes empty just because a run fired at an awkward moment.
+
+name: Intraday checks
+
+on:
+  schedule:
+    - cron: "7 14,15,16,17,18,19,20 * * 1-5"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+# Same group as the overnight workflow so the two never deploy at once.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  intraday:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt
+
+      # continue-on-error so that one check failing does not stop the other,
+      # and does not stop the page being rebuilt from whatever did work.
+      - name: Anticipation pivot-break check
+        continue-on-error: true
+        env:
+          TWELVE_DATA_API_KEY: ${{ secrets.TWELVE_DATA_API_KEY }}
+          PYTHONUNBUFFERED: "1"
+        run: python anticipation_check.py
+
+      - name: Second burst check
+        continue-on-error: true
+        env:
+          TWELVE_DATA_API_KEY: ${{ secrets.TWELVE_DATA_API_KEY }}
+          PYTHONUNBUFFERED: "1"
+        run: python burst_check.py
+
+      # The standalone setups.html page is served from docs/, so keep the
+      # copy step the old workflow did.
+      - name: Copy standalone reports into docs/
+        run: |
+          mkdir -p docs
+          for f in setups.html setups.json setups.txt \
+                   bursts.html bursts.json bursts.txt; do
+            [ -f "$f" ] && cp "$f" docs/ && echo "copied $f -> docs/"
+          done
+          true
+
+      - name: Rebuild the scans page
+        run: python build_scans.py
+
+      - name: Save results
+        run: |
+          git config user.name  "scan-bot"
+          git config user.email "actions@github.com"
+          git add -A data docs setups.html setups.json setups.txt \
+                     bursts.html bursts.json bursts.txt || true
+          if git diff --cached --quiet; then
+            echo "nothing to commit"
+          else
+            git commit -m "Intraday check $(date -u +'%F %H:%M')"
+            git pull --rebase origin ${{ github.ref_name }} || true
+            git push
+          fi
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+      - id: deploy
+        uses: actions/deploy-pages@v4
