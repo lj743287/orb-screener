@@ -1,5 +1,46 @@
 {
- "generated_utc": "2026-07-31T18:40:45.502810+00:00",
- "session_fraction": 0.794,
- "results": []
+ "generated_utc": "2026-07-31T20:26:54.608254+00:00",
+ "session_fraction": 1.0,
+ "results": [
+  {
+   "symbol": "S",
+   "exchange": "NYSE",
+   "status": "EARLY",
+   "score": 72.1,
+   "price": 19.07,
+   "pct": 3.64,
+   "pivot": 18.86,
+   "dist": 1.11,
+   "stop": 18.25,
+   "risk_pct": 4.3,
+   "adr_pct": 5.29,
+   "consol_days": 4,
+   "quals": "TI65+MDT",
+   "proj_vol": 2162343,
+   "prev_vol": 3912502,
+   "vol_ok": false,
+   "rng_ok": true,
+   "pos_ok": true
+  },
+  {
+   "symbol": "TJGC",
+   "exchange": "NASDAQ",
+   "status": "EARLY",
+   "score": 41.8,
+   "price": 5.29,
+   "pct": 3.12,
+   "pivot": 5.28,
+   "dist": 0.19,
+   "stop": 5.16,
+   "risk_pct": 2.46,
+   "adr_pct": 7.23,
+   "consol_days": 6,
+   "quals": "DT+MDT",
+   "proj_vol": 46070,
+   "prev_vol": 2404926,
+   "vol_ok": false,
+   "rng_ok": false,
+   "pos_ok": true
+  }
+ ]
 }
