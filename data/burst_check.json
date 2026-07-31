@@ -1,0 +1,152 @@
+{
+  "scan_id": "burst_check",
+  "label": "Second burst",
+  "generated_utc": "2026-07-31T16:45:57Z",
+  "status": "ok",
+  "count": 9,
+  "columns": [
+    "status",
+    "today_pct",
+    "y_pct",
+    "proj_volM",
+    "burst_volM",
+    "volume_ok",
+    "range_ok"
+  ],
+  "meta": {
+    "sort": "FULL first, then biggest move",
+    "watching": 177,
+    "session_elapsed": "49%",
+    "full": 0,
+    "early": 9,
+    "burst_date": "2026-07-28"
+  },
+  "rows": [
+    {
+      "symbol": "CBZ",
+      "exchange": "NYSE",
+      "close": 55.08,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 17.94,
+        "y_pct": 5.04,
+        "proj_volM": 0.34,
+        "burst_volM": 0.95,
+        "volume_ok": "no",
+        "range_ok": "no"
+      }
+    },
+    {
+      "symbol": "CHEF",
+      "exchange": "NASDAQ",
+      "close": 113.97,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 13.77,
+        "y_pct": 4.7,
+        "proj_volM": 0.36,
+        "burst_volM": 1.01,
+        "volume_ok": "no",
+        "range_ok": "yes"
+      }
+    },
+    {
+      "symbol": "PCOR",
+      "exchange": "NYSE",
+      "close": 54.93,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 12.47,
+        "y_pct": 4.85,
+        "proj_volM": 1.37,
+        "burst_volM": 3.13,
+        "volume_ok": "no",
+        "range_ok": "no"
+      }
+    },
+    {
+      "symbol": "EXLS",
+      "exchange": "NASDAQ",
+      "close": 34.21,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 12.05,
+        "y_pct": 6.9,
+        "proj_volM": 0.96,
+        "burst_volM": 3.17,
+        "volume_ok": "no",
+        "range_ok": "yes"
+      }
+    },
+    {
+      "symbol": "GEHC",
+      "exchange": "NASDAQ",
+      "close": 67.84,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 5.82,
+        "y_pct": 4.89,
+        "proj_volM": 2.2,
+        "burst_volM": 7.97,
+        "volume_ok": "no",
+        "range_ok": "no"
+      }
+    },
+    {
+      "symbol": "LBRT",
+      "exchange": "NYSE",
+      "close": 18.5,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 4.52,
+        "y_pct": 4.98,
+        "proj_volM": 1.39,
+        "burst_volM": 14.14,
+        "volume_ok": "no",
+        "range_ok": "no"
+      }
+    },
+    {
+      "symbol": "LBRDK",
+      "exchange": "NASDAQ",
+      "close": 34.24,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 4.17,
+        "y_pct": 6.31,
+        "proj_volM": 0.21,
+        "burst_volM": 2.01,
+        "volume_ok": "no",
+        "range_ok": "yes"
+      }
+    },
+    {
+      "symbol": "LBRDA",
+      "exchange": "NASDAQ",
+      "close": 34.18,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 4.02,
+        "y_pct": 6.69,
+        "proj_volM": 0.03,
+        "burst_volM": 0.2,
+        "volume_ok": "no",
+        "range_ok": "yes"
+      }
+    },
+    {
+      "symbol": "PPHC",
+      "exchange": "NASDAQ",
+      "close": 10.37,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 4.01,
+        "y_pct": 5.84,
+        "proj_volM": 0.01,
+        "burst_volM": 0.14,
+        "volume_ok": "no",
+        "range_ok": "no"
+      }
+    }
+  ]
+}
