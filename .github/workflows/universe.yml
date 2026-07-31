@@ -1,0 +1,78 @@
+# .github/workflows/universe.yml
+#
+# Weekly rebuild of the daily scanner's ticker list.
+#
+# Moved over from the daily-stock-scanner repo. Two things changed on the way:
+#
+#   1. The secret. The old repo called it TWELVEDATA_API_KEY (no underscore
+#      between TWELVE and DATA); this repo calls it TWELVE_DATA_API_KEY.
+#      Copied across unchanged it would have handed the script an empty key.
+#
+#   2. The output file. It used to write universe.txt; the file the scanner
+#      reads here is daily_universe.txt. Left alone it would have written a
+#      second file that nothing reads, while the real one went stale forever
+#      behind a weekly green tick.
+#
+# TIMING: 01:00 UTC on Sunday. The overnight scans run Monday to Friday at
+# 22:00 UTC and finish by about 05:00; the intraday checks run Monday to
+# Friday afternoons. Sunday morning is the only time nothing else is touching
+# the API allowance.
+#
+# The job takes roughly an hour and a half, because it asks Twelve Data for
+# every stock's price one at a time. That is slow but harmless here: nothing
+# else is running, and Actions minutes are free on a public repository.
+
+name: Build daily universe (weekly)
+
+on:
+  schedule:
+    - cron: "0 1 * * 0"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+# Its own group -- this job does not touch GitHub Pages, so it has no reason
+# to queue behind the scan workflows.
+concurrency:
+  group: build-universe
+  cancel-in-progress: false
+
+jobs:
+  build_universe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build daily_universe.txt from Twelve Data
+        env:
+          TWELVE_DATA_API_KEY: ${{ secrets.TWELVE_DATA_API_KEY }}
+          UNIVERSE_MIN_PRICE: "1.50"
+          TD_MAX_REQUESTS_PER_MINUTE: "50"
+          UNIVERSE_OUTFILE: "daily_universe.txt"
+          PYTHONUNBUFFERED: "1"
+        run: python build_universe.py
+
+      - name: Commit the updated list
+        run: |
+          git config user.name  "scan-bot"
+          git config user.email "actions@github.com"
+          git add daily_universe.txt
+          if git diff --cached --quiet; then
+            echo "No changes to daily_universe.txt"
+          else
+            git commit -m "Update daily universe $(date -u +%F)"
+            git pull --rebase origin ${{ github.ref_name }} || true
+            git push
+          fi
