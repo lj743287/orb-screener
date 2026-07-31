@@ -49,16 +49,22 @@ jobs:
         with:
           python-version: "3.12"
 
+      # Stage is decided by the clock, NOT by matching the cron string.
+      # GitHub delays scheduled jobs by hours and does not reliably report the
+      # schedule string, so: anything firing before midday UTC is the overnight
+      # scan, anything after it is the intraday check.
       - name: Decide stage
         id: stage
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "stage=${{ github.event.inputs.stage }}" >> "$GITHUB_OUTPUT"
-          elif [ "${{ github.event.schedule }}" = "30 5 * * 1-5" ]; then
-            echo "stage=scan" >> "$GITHUB_OUTPUT"
+            STAGE="${{ github.event.inputs.stage }}"
+          elif [ "$(date -u +%H)" -lt 12 ]; then
+            STAGE="scan"
           else
-            echo "stage=check" >> "$GITHUB_OUTPUT"
+            STAGE="check"
           fi
+          echo "stage=$STAGE" >> "$GITHUB_OUTPUT"
+          echo "Stage: $STAGE (UTC hour $(date -u +%H), event ${{ github.event_name }})"
 
       - name: Run Stage A — overnight anticipation scan
         if: steps.stage.outputs.stage == 'scan'
