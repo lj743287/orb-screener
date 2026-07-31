@@ -33,6 +33,9 @@ each stock's PIVOT (consolidation high) — the level whose break starts the
 burst.
 
 Requires env var TWELVE_DATA_API_KEY. Paced to ~50 req/min (Grow 55 plan).
+
+Outputs (unchanged): anticipation_watch.json  -- consumed by anticipation_check.py
+Outputs (new):       data/anticipation.json   -- shared format for the combined dashboard
 """
 
 import json
@@ -41,6 +44,9 @@ import sys
 import time
 import urllib.request
 from datetime import datetime, timezone, timedelta
+
+# NEW: shared output writer used by all the overnight scans.
+from scan_output import write_scan, write_failure
 
 API_KEY = os.environ.get("TWELVE_DATA_API_KEY", "")
 TD_URL = "https://api.twelvedata.com/time_series"
@@ -75,6 +81,10 @@ BAD_SYMBOL_CHARS = set(".$^~=")
 OUT_FILE = "anticipation_watch.json"
 
 INCOMPLETE_TODAY = None   # set in main()
+
+# NEW: identity of this scan on the combined dashboard.
+SCAN_ID = "anticipation"
+SCAN_LABEL = "Stockbee Anticipation"
 
 
 # ── helpers ──────────────────────────────────────────────────────────────────
@@ -275,6 +285,36 @@ def evaluate(bars):
     }
 
 
+def to_scan_rows(kept):
+    """NEW: translate anticipation setups into the shared dashboard format.
+
+    anticipation_watch.json keeps its own field names because
+    anticipation_check.py reads it and must not be disturbed. This makes a
+    separate copy for the combined page, with the columns in the order that
+    is most useful to read at a glance and volume in millions.
+    """
+    rows = []
+    for s in kept:
+        vol = s.get("prev_volume") or 0
+        rows.append({
+            "symbol": s.get("symbol", ""),
+            "exchange": s.get("exchange", ""),
+            "close": s.get("close"),
+            "score": s.get("score"),
+            "pivot": s.get("pivot"),
+            "pct_to_pivot": s.get("dist_to_pivot"),
+            "consol_days": s.get("consol_days"),
+            "quals": s.get("quals", ""),
+            "rng_ratio": s.get("rng_ratio"),
+            "vol_ratio": s.get("vol_ratio"),
+            "adr_pct": s.get("adr_pct"),
+            "avg_range_10": s.get("avg_range_10"),
+            "volM": round(vol / 1e6, 2),
+            "setup_date": s.get("date", ""),
+        })
+    return rows
+
+
 def main():
     if not API_KEY:
         sys.exit("TWELVE_DATA_API_KEY not set")
@@ -311,6 +351,31 @@ def main():
         json.dump(out, f, indent=1)
     print(f"Wrote {OUT_FILE}: {len(hits)} setups found, kept top {len(kept)}")
 
+    # --- NEW: shared output for the combined dashboard ---------------------
+    # Same stocks, same order (best score first), different packaging.
+    write_scan(
+        SCAN_ID,
+        to_scan_rows(kept),
+        label=SCAN_LABEL,
+        meta={
+            "sort": "score descending",
+            "universe": len(universe),
+            "found": len(hits),
+            "cap": WATCH_CAP,
+            "setup_date": (kept[0]["date"] if kept else ""),
+        },
+    )
+
 
 if __name__ == "__main__":
-    main()
+    # NEW: if the scan falls over, leave a note so the dashboard can show a
+    # red banner on this tab instead of a silently empty table. The error is
+    # re-raised so the GitHub Actions run still shows as failed.
+    try:
+        main()
+    except Exception as exc:
+        try:
+            write_failure(SCAN_ID, exc, label=SCAN_LABEL)
+        except Exception:
+            pass
+        raise
