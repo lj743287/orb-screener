@@ -1,4 +1,5 @@
 import os
+import csv
 import json
 import time
 from datetime import datetime, timezone
@@ -7,7 +8,6 @@ import yaml
 import requests
 import pandas as pd
 import numpy as np
-import gspread
 
 # NEW: shared output writer used by all the overnight scans.
 from scan_output import write_scan, write_failure
@@ -19,6 +19,8 @@ SETUP_NAME = "RUN-UP + EMA Touch Triangle (10/20/50)"
 # with the other scanners' files sitting in the same folder.
 CONFIG_FILE = "daily_config.yml"
 DEFAULT_UNIVERSE_FILE = "daily_universe.txt"
+OUTPUT_DIR = "output"
+SIGNALS_CSV = "daily_signals.csv"
 
 # NEW: identity of this scan on the combined dashboard.
 SCAN_ID = "daily"
@@ -539,40 +541,8 @@ def to_scan_rows(results: list) -> list:
 
 
 # ---------------------------
-# Google Sheets helpers
+# Rate limiting
 # ---------------------------
-
-def get_gspread_client(sa_json_text: str):
-    sa_dict = json.loads(sa_json_text)
-    return gspread.service_account_from_dict(sa_dict)
-
-
-def upsert_worksheet(sh, title: str, rows: int = 1000, cols: int = 20):
-    try:
-        return sh.worksheet(title)
-    except Exception:
-        return sh.add_worksheet(title=title, rows=str(rows), cols=str(cols))
-
-
-def ensure_run_log_header(ws_log):
-    header = ["run_time_utc", "tickers", "buy_now", "watch", "errors", "api_calls", "credits_est", "notes"]
-    existing = ws_log.get_all_values()
-
-    if not existing:
-        ws_log.update("A1", [header])
-        return header
-
-    first_row = existing[0]
-
-    if not first_row or first_row[0] != "run_time_utc":
-        ws_log.insert_row(header, 1)
-        return header
-
-    if first_row[:len(header)] != header:
-        ws_log.update("A1", [header])
-
-    return header
-
 
 def rate_limit_wait(batch_credits: int, max_credits_per_min: int, state: dict) -> None:
     if max_credits_per_min <= 0:
@@ -605,20 +575,47 @@ def rate_limit_wait(batch_credits: int, max_credits_per_min: int, state: dict) -
 # Main
 # ---------------------------
 
+def write_signals_csv(results: list, now_utc: str) -> str:
+    """NEW: replaces the old Google Sheets "Signals" tab.
+
+    Every scanned ticker with its verdict and the reason, written to a CSV in
+    the repo. Committed each night, so git history gives you every past run --
+    something the spreadsheet never did.
+    """
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    path = os.path.join(OUTPUT_DIR, SIGNALS_CSV)
+    header = ["ticker", "exchange", "signal", "score", "runup_pct",
+              "close", "reason", "as_of_utc"]
+    with open(path, "w", encoding="utf-8", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(header)
+        for r in results:
+            sym, exch = split_ticker(r.get("ticker", ""))
+            w.writerow([
+                sym, exch,
+                r.get("signal", "PASS"),
+                r.get("score", 0),
+                r.get("runup_pct", ""),
+                r.get("close", ""),
+                r.get("reason", ""),
+                now_utc,
+            ])
+    return path
+
+
+# ---------------------------
+# Main
+# ---------------------------
+
 def main():
     # Accept either name (workflow sets TWELVE_DATA_API_KEY, older setups used TWELVEDATA_API_KEY)
     td_key = (os.environ.get("TWELVE_DATA_API_KEY", "") or os.environ.get("TWELVEDATA_API_KEY", "")).strip()
-    sheet_id = os.environ.get("SHEET_ID", "").strip()
-    sa_json = os.environ.get("GOOGLE_SERVICE_ACCOUNT_JSON", "").strip()
 
-    if not td_key or not sheet_id or not sa_json:
-        raise SystemExit("Missing one or more secrets: TWELVE_DATA_API_KEY/TWELVEDATA_API_KEY, SHEET_ID, GOOGLE_SERVICE_ACCOUNT_JSON")
+    if not td_key:
+        raise SystemExit("Missing secret: TWELVE_DATA_API_KEY (or TWELVEDATA_API_KEY)")
 
     with open(CONFIG_FILE, "r", encoding="utf-8") as f:
         cfg = yaml.safe_load(f) or {}
-
-    gc = get_gspread_client(sa_json)
-    sh = gc.open_by_key(sheet_id)
 
     # --- ticker source is universe file in repo ---
     universe_file = os.environ.get("UNIVERSE_FILE", DEFAULT_UNIVERSE_FILE).strip() or DEFAULT_UNIVERSE_FILE
@@ -653,6 +650,12 @@ def main():
 
     rl_state = {"window_start": time.monotonic(), "used": 0}
 
+    blank = {
+        "setup": SETUP_NAME, "signal": "PASS", "score": 0, "entry": "",
+        "stop": "", "pivot": "", "base_weeks": "", "contractions": "",
+        "depths": "", "risk_pct": "", "runup_pct": "", "close": None,
+    }
+
     for sym_batch in chunks(tickers, batch_size):
         batch_credits = len(sym_batch)
         credits_est += batch_credits
@@ -668,21 +671,8 @@ def main():
                 sym = sym_batch[0]
                 df = normalise_timeseries_payload(sym, data)
                 if df.empty:
-                    results.append({
-                        "ticker": sym,
-                        "setup": SETUP_NAME,
-                        "signal": "PASS",
-                        "score": 0,
-                        "entry": "",
-                        "stop": "",
-                        "pivot": "",
-                        "base_weeks": "",
-                        "contractions": "",
-                        "depths": "",
-                        "risk_pct": "",
-                        "runup_pct": "",
-                        "reason": data.get("message", "No data"),
-                    })
+                    results.append({"ticker": sym, **blank,
+                                    "reason": data.get("message", "No data")})
                 else:
                     for r in detect_setups(df, cfg):
                         results.append({"ticker": sym, **r})
@@ -692,21 +682,8 @@ def main():
                     payload = data.get(sym, {}) if isinstance(data, dict) else {}
                     df = normalise_timeseries_payload(sym, payload)
                     if df.empty:
-                        results.append({
-                            "ticker": sym,
-                            "setup": SETUP_NAME,
-                            "signal": "PASS",
-                            "score": 0,
-                            "entry": "",
-                            "stop": "",
-                            "pivot": "",
-                            "base_weeks": "",
-                            "contractions": "",
-                            "depths": "",
-                            "risk_pct": "",
-                            "runup_pct": "",
-                            "reason": payload.get("message", "No data"),
-                        })
+                        results.append({"ticker": sym, **blank,
+                                        "reason": payload.get("message", "No data")})
                         continue
 
                     for r in detect_setups(df, cfg):
@@ -714,28 +691,13 @@ def main():
 
         except Exception as e:
             for sym in sym_batch:
-                results.append({
-                    "ticker": sym,
-                    "setup": SETUP_NAME,
-                    "signal": "PASS",
-                    "score": 0,
-                    "entry": "",
-                    "stop": "",
-                    "pivot": "",
-                    "base_weeks": "",
-                    "contractions": "",
-                    "depths": "",
-                    "risk_pct": "",
-                    "runup_pct": "",
-                    "reason": f"Fetch error: {type(e).__name__}",
-                })
+                results.append({"ticker": sym, **blank,
+                                "reason": f"Fetch error: {type(e).__name__}"})
             errors += 1
 
     now_utc = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
 
-    # --- NEW: shared output for the combined dashboard --------------------
-    # Written BEFORE the Google Sheets work, so that a Sheets outage costs a
-    # spreadsheet update but not the morning watchlist.
+    # --- shared output for the combined dashboard -------------------------
     scan_rows = to_scan_rows(results)
     write_scan(
         SCAN_ID,
@@ -750,100 +712,21 @@ def main():
         },
     )
 
-    ws_signals = upsert_worksheet(sh, "Signals", rows=max(2000, len(results) + 10), cols=20)
-    ws_buys = upsert_worksheet(sh, "BUY_NOW", rows=1000, cols=20)
-    ws_watch = upsert_worksheet(sh, "WATCH", rows=2000, cols=20)
-    ws_summary = upsert_worksheet(sh, "Summary", rows=80, cols=4)
-    ws_log = upsert_worksheet(sh, "Run_Log", rows=1000, cols=12)
+    # --- full verdict list, replacing the old Sheets "Signals" tab --------
+    csv_path = write_signals_csv(results, now_utc)
 
-    header = ["ticker", "setup", "signal", "score", "entry", "stop", "pivot", "base_weeks", "contractions", "depths_pct", "risk_pct", "runup_pct", "reason", "as_of_utc"]
-    signals_rows = [header]
-
-    buy_header = ["line", "ticker", "setup", "score", "entry", "stop", "pivot", "base_weeks", "contractions", "risk_pct", "reason", "as_of_utc"]
-    buy_rows = [buy_header]
-
-    watch_header = ["ticker", "setup", "score", "entry", "stop", "pivot", "base_weeks", "contractions", "risk_pct", "reason", "as_of_utc"]
-    watch_rows = [watch_header]
-
-    buy_items = []
-    watch_items = []
-
-    for r in results:
-        sym = r.get("ticker", "")
-        setup = r.get("setup", SETUP_NAME)
-        sig = r.get("signal", "PASS")
-        score = int(r.get("score", 0) or 0)
-        entry = r.get("entry", "")
-        stop = r.get("stop", "")
-        pivot = r.get("pivot", "")
-        base_weeks = r.get("base_weeks", "")
-        contractions = r.get("contractions", "")
-        depths = r.get("depths", "")
-        risk_pct = r.get("risk_pct", "")
-        runup_pct = r.get("runup_pct", "")
-        reason = r.get("reason", "")
-
-        signals_rows.append([sym, setup, sig, score, entry, stop, pivot, base_weeks, contractions, depths, risk_pct, runup_pct, reason, now_utc])
-
-        sym_disp = display_ticker(sym)
-
-        if sig == "BUY_NOW":
-            line = f"{sym_disp} - BUY NOW - Setup: {setup} - Entry: {entry} - Stop: {stop} - Reason: {reason}"
-            buy_items.append((score, [line, sym_disp, setup, score, entry, stop, pivot, base_weeks, contractions, risk_pct, reason, now_utc]))
-
-        if sig == "WATCH":
-            watch_items.append((score, [sym_disp, setup, score, entry, stop, pivot, base_weeks, contractions, risk_pct, reason, now_utc]))
-
-    buy_items.sort(key=lambda x: x[0], reverse=True)
-    watch_items.sort(key=lambda x: x[0], reverse=True)
-
-    buy_rows.extend([row for _, row in buy_items])
-    watch_rows.extend([row for _, row in watch_items])
-
-    ws_signals.clear()
-    ws_signals.update("A1", signals_rows)
-
-    ws_buys.clear()
-    ws_buys.update("A1", buy_rows)
-
-    ws_watch.clear()
-    ws_watch.update("A1", watch_rows)
-
-    buy_count = len(buy_items)
-    watch_count = len(watch_items)
-    pass_count = max(0, len(results) - buy_count - watch_count)
-
-    note = f"ok ({tickers_source}) paced at {max_credits_per_min}/min, batch_size={batch_size}"
-
-    summary_rows = [
-        ["key", "value"],
-        ["last_run_utc", now_utc],
-        ["tickers_scanned", str(len(tickers))],
-        ["results_rows", str(len(results))],
-        ["buy_now_count", str(buy_count)],
-        ["watch_count", str(watch_count)],
-        ["pass_count", str(pass_count)],
-        ["errors", str(errors)],
-        ["api_calls", str(api_calls)],
-        ["credits_est", str(credits_est)],
-        ["source", tickers_source],
-        ["note", note],
-        ["setup", SETUP_NAME],
-        ["outputsize", str(outputsize)],
-    ]
-    ws_summary.clear()
-    ws_summary.update("A1", summary_rows)
-
-    ensure_run_log_header(ws_log)
-    ws_log.append_row(
-        [now_utc, len(tickers), buy_count, watch_count, errors, api_calls, credits_est, note],
-        value_input_option="USER_ENTERED",
-    )
+    watch_count = len(scan_rows)
+    pass_count = max(0, len(results) - watch_count)
 
     print("WATCH signals:")
-    for _, r in watch_items[:20]:
-        print(r[0])
-    print(f"Done. tickers={len(tickers)} results={len(results)} watch={watch_count} pass={pass_count} errors={errors} api_calls={api_calls} credits_est={credits_est} source={tickers_source}")
+    for r in scan_rows[:20]:
+        tag = f"{r['exchange']}:{r['symbol']}" if r["exchange"] else r["symbol"]
+        print(f"  {tag}  score {r['score']}  runup {r['runup_pct']}%  "
+              f"triangle {r['triangle_date']}  EMA{r['ema_touched']}")
+    print(f"Wrote {csv_path}")
+    print(f"Done. tickers={len(tickers)} results={len(results)} "
+          f"watch={watch_count} pass={pass_count} errors={errors} "
+          f"api_calls={api_calls} credits_est={credits_est} source={tickers_source}")
 
 
 if __name__ == "__main__":
