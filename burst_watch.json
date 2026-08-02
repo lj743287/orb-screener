@@ -1,94 +1,49 @@
 {
- "generated_utc": "2026-08-01 04:02:01",
+ "generated_utc": "2026-08-02 12:00:35",
  "burst_date": "2026-07-31",
- "count": 64,
+ "count": 38,
  "stocks": [
   {
    "y_pct": 59.18,
    "y_close": 15.44,
-   "y_volume": 668368.0,
-   "y_dollar_vol": 10319602,
+   "y_volume": 669800.0,
+   "y_dollar_vol": 10341712,
    "symbol": "TCX",
-   "exchange": "NASDAQ",
-   "date": "2026-07-31"
-  },
-  {
-   "y_pct": 30.27,
-   "y_close": 744.53998,
-   "y_volume": 485145.0,
-   "y_dollar_vol": 361209849,
-   "symbol": "IESC",
    "exchange": "NASDAQ",
    "date": "2026-07-31"
   },
   {
    "y_pct": 29.76,
    "y_close": 4.84,
-   "y_volume": 3163175.0,
-   "y_dollar_vol": 15309767,
+   "y_volume": 3174800.0,
+   "y_dollar_vol": 15366032,
    "symbol": "SCYX",
    "exchange": "NASDAQ",
    "date": "2026-07-31"
   },
   {
-   "y_pct": 21.85,
-   "y_close": 62.67,
-   "y_volume": 378631.0,
-   "y_dollar_vol": 23728805,
-   "symbol": "FET",
-   "exchange": "NYSE",
-   "date": "2026-07-31"
-  },
-  {
    "y_pct": 20.18,
    "y_close": 121.21,
-   "y_volume": 2355408.0,
-   "y_dollar_vol": 285499004,
+   "y_volume": 2609000.0,
+   "y_dollar_vol": 316236890,
    "symbol": "ITGR",
    "exchange": "NYSE",
    "date": "2026-07-31"
   },
   {
-   "y_pct": 19.57,
-   "y_close": 5.62,
-   "y_volume": 114402.0,
-   "y_dollar_vol": 642939,
-   "symbol": "RYOJ",
-   "exchange": "NASDAQ",
-   "date": "2026-07-31"
-  },
-  {
-   "y_pct": 18.75,
-   "y_close": 6.08,
-   "y_volume": 359060.0,
-   "y_dollar_vol": 2183085,
-   "symbol": "FATN",
-   "exchange": "NASDAQ",
-   "date": "2026-07-31"
-  },
-  {
    "y_pct": 18.08,
    "y_close": 5.29,
-   "y_volume": 14904743.0,
-   "y_dollar_vol": 78846090,
+   "y_volume": 16460300.0,
+   "y_dollar_vol": 87074987,
    "symbol": "SOC",
    "exchange": "NYSE",
    "date": "2026-07-31"
   },
   {
-   "y_pct": 18.07,
-   "y_close": 11.5,
-   "y_volume": 233694.0,
-   "y_dollar_vol": 2687481,
-   "symbol": "FORR",
-   "exchange": "NASDAQ",
-   "date": "2026-07-31"
-  },
-  {
    "y_pct": 15.41,
    "y_close": 4.12,
-   "y_volume": 1720160.0,
-   "y_dollar_vol": 7087059,
+   "y_volume": 1720700.0,
+   "y_dollar_vol": 7089284,
    "symbol": "ALVO",
    "exchange": "NASDAQ",
    "date": "2026-07-31"
@@ -96,8 +51,8 @@
   {
    "y_pct": 15.35,
    "y_close": 11.2,
-   "y_volume": 3207564.0,
-   "y_dollar_vol": 35924717,
+   "y_volume": 3207600.0,
+   "y_dollar_vol": 35925120,
    "symbol": "AMCX",
    "exchange": "NASDAQ",
    "date": "2026-07-31"
@@ -105,44 +60,35 @@
   {
    "y_pct": 15.32,
    "y_close": 271.57999,
-   "y_volume": 125921078.0,
-   "y_dollar_vol": 34197645104,
+   "y_volume": 128881300.0,
+   "y_dollar_vol": 35001582165,
    "symbol": "AMZN",
-   "exchange": "NASDAQ",
-   "date": "2026-07-31"
-  },
-  {
-   "y_pct": 14.75,
-   "y_close": 4.9,
-   "y_volume": 1507278.0,
-   "y_dollar_vol": 7385662,
-   "symbol": "CSHR",
    "exchange": "NASDAQ",
    "date": "2026-07-31"
   },
   {
    "y_pct": 14.72,
    "y_close": 43.71,
-   "y_volume": 2748247.0,
-   "y_dollar_vol": 120125876,
+   "y_volume": 2778900.0,
+   "y_dollar_vol": 121465719,
    "symbol": "CDNA",
    "exchange": "NASDAQ",
    "date": "2026-07-31"
   },
   {
-   "y_pct": 13.58,
-   "y_close": 58.81,
-   "y_volume": 1378051.0,
-   "y_dollar_vol": 81043179,
-   "symbol": "DLB",
+   "y_pct": 14.26,
+   "y_close": 6.89,
+   "y_volume": 22801900.0,
+   "y_dollar_vol": 157105091,
+   "symbol": "BHC",
    "exchange": "NYSE",
    "date": "2026-07-31"
   },
   {
    "y_pct": 13.4,
    "y_close": 4.23,
-   "y_volume": 3534940.0,
-   "y_dollar_vol": 14952796,
+   "y_volume": 3579100.0,
+   "y_dollar_vol": 15139593,
    "symbol": "IRWD",
    "exchange": "NASDAQ",
    "date": "2026-07-31"
@@ -150,8 +96,8 @@
   {
    "y_pct": 12.06,
    "y_close": 29.46,
-   "y_volume": 272788.0,
-   "y_dollar_vol": 8036334,
+   "y_volume": 273100.0,
+   "y_dollar_vol": 8045526,
    "symbol": "INBK",
    "exchange": "NASDAQ",
    "date": "2026-07-31"
@@ -159,89 +105,35 @@
   {
    "y_pct": 11.96,
    "y_close": 7.49,
-   "y_volume": 610118.0,
-   "y_dollar_vol": 4569784,
+   "y_volume": 610200.0,
+   "y_dollar_vol": 4570398,
    "symbol": "GTE",
    "exchange": "AMEX",
    "date": "2026-07-31"
   },
   {
-   "y_pct": 11.95,
-   "y_close": 83.45,
-   "y_volume": 11764839.0,
-   "y_dollar_vol": 981775815,
-   "symbol": "DXCM",
-   "exchange": "NASDAQ",
-   "date": "2026-07-31"
-  },
-  {
    "y_pct": 10.75,
    "y_close": 7.21,
-   "y_volume": 153769.0,
-   "y_dollar_vol": 1108674,
+   "y_volume": 160300.0,
+   "y_dollar_vol": 1155763,
    "symbol": "CVV",
-   "exchange": "NASDAQ",
-   "date": "2026-07-31"
-  },
-  {
-   "y_pct": 10.43,
-   "y_close": 23.5,
-   "y_volume": 387431.0,
-   "y_dollar_vol": 9104628,
-   "symbol": "BETR",
-   "exchange": "NASDAQ",
-   "date": "2026-07-31"
-  },
-  {
-   "y_pct": 9.96,
-   "y_close": 11.15,
-   "y_volume": 2395316.0,
-   "y_dollar_vol": 26707773,
-   "symbol": "KC",
-   "exchange": "NASDAQ",
-   "date": "2026-07-31"
-  },
-  {
-   "y_pct": 9.79,
-   "y_close": 39.0099983,
-   "y_volume": 3953482.0,
-   "y_dollar_vol": 154225326,
-   "symbol": "OUST",
    "exchange": "NASDAQ",
    "date": "2026-07-31"
   },
   {
    "y_pct": 9.43,
    "y_close": 6.15,
-   "y_volume": 201085.0,
-   "y_dollar_vol": 1236673,
+   "y_volume": 202700.0,
+   "y_dollar_vol": 1246605,
    "symbol": "AZ",
    "exchange": "NASDAQ",
    "date": "2026-07-31"
   },
   {
-   "y_pct": 9.24,
-   "y_close": 19.27,
-   "y_volume": 7089834.0,
-   "y_dollar_vol": 136621101,
-   "symbol": "PGY",
-   "exchange": "NASDAQ",
-   "date": "2026-07-31"
-  },
-  {
-   "y_pct": 9.18,
-   "y_close": 28.66,
-   "y_volume": 322018.0,
-   "y_dollar_vol": 9229036,
-   "symbol": "PTHS",
-   "exchange": "AMEX",
-   "date": "2026-07-31"
-  },
-  {
    "y_pct": 8.53,
    "y_close": 27.98,
-   "y_volume": 3702982.0,
-   "y_dollar_vol": 103609436,
+   "y_volume": 4235100.0,
+   "y_dollar_vol": 118498098,
    "symbol": "GTES",
    "exchange": "NYSE",
    "date": "2026-07-31"
@@ -249,8 +141,8 @@
   {
    "y_pct": 8.4,
    "y_close": 6.58,
-   "y_volume": 172093.0,
-   "y_dollar_vol": 1132372,
+   "y_volume": 200900.0,
+   "y_dollar_vol": 1321922,
    "symbol": "ALTG",
    "exchange": "NYSE",
    "date": "2026-07-31"
@@ -258,8 +150,8 @@
   {
    "y_pct": 7.84,
    "y_close": 7.15,
-   "y_volume": 662787.0,
-   "y_dollar_vol": 4738927,
+   "y_volume": 662900.0,
+   "y_dollar_vol": 4739735,
    "symbol": "HPK",
    "exchange": "NASDAQ",
    "date": "2026-07-31"
@@ -267,71 +159,26 @@
   {
    "y_pct": 7.72,
    "y_close": 18.7,
-   "y_volume": 1298044.0,
-   "y_dollar_vol": 24273423,
+   "y_volume": 1299100.0,
+   "y_dollar_vol": 24293170,
    "symbol": "AADX",
-   "exchange": "NYSE",
-   "date": "2026-07-31"
-  },
-  {
-   "y_pct": 7.32,
-   "y_close": 415.20001,
-   "y_volume": 4430408.0,
-   "y_dollar_vol": 1839505446,
-   "symbol": "ETN",
-   "exchange": "NYSE",
-   "date": "2026-07-31"
-  },
-  {
-   "y_pct": 7.22,
-   "y_close": 9.51,
-   "y_volume": 109491.0,
-   "y_dollar_vol": 1041259,
-   "symbol": "NRT",
    "exchange": "NYSE",
    "date": "2026-07-31"
   },
   {
    "y_pct": 7.03,
    "y_close": 29.54,
-   "y_volume": 336653.0,
-   "y_dollar_vol": 9944730,
+   "y_volume": 337200.0,
+   "y_dollar_vol": 9960888,
    "symbol": "LIME",
-   "exchange": "NASDAQ",
-   "date": "2026-07-31"
-  },
-  {
-   "y_pct": 6.95,
-   "y_close": 6.46,
-   "y_volume": 4241672.0,
-   "y_dollar_vol": 27401201,
-   "symbol": "LWLG",
-   "exchange": "NASDAQ",
-   "date": "2026-07-31"
-  },
-  {
-   "y_pct": 6.88,
-   "y_close": 356.64999,
-   "y_volume": 30351093.0,
-   "y_dollar_vol": 10824717015,
-   "symbol": "GOOG",
-   "exchange": "NASDAQ",
-   "date": "2026-07-31"
-  },
-  {
-   "y_pct": 6.73,
-   "y_close": 356.13,
-   "y_volume": 46347613.0,
-   "y_dollar_vol": 16505775418,
-   "symbol": "GOOGL",
    "exchange": "NASDAQ",
    "date": "2026-07-31"
   },
   {
    "y_pct": 6.7,
    "y_close": 19.28,
-   "y_volume": 166729.0,
-   "y_dollar_vol": 3214535,
+   "y_volume": 170300.0,
+   "y_dollar_vol": 3283384,
    "symbol": "ANIK",
    "exchange": "NASDAQ",
    "date": "2026-07-31"
@@ -339,8 +186,8 @@
   {
    "y_pct": 6.51,
    "y_close": 25.030001,
-   "y_volume": 9250351.0,
-   "y_dollar_vol": 231536295,
+   "y_volume": 10941800.0,
+   "y_dollar_vol": 273873265,
    "symbol": "WY",
    "exchange": "NYSE",
    "date": "2026-07-31"
@@ -348,80 +195,35 @@
   {
    "y_pct": 6.07,
    "y_close": 11.88,
-   "y_volume": 6264167.0,
-   "y_dollar_vol": 74418304,
+   "y_volume": 6472400.0,
+   "y_dollar_vol": 76892112,
    "symbol": "ARX",
    "exchange": "NYSE",
    "date": "2026-07-31"
   },
   {
-   "y_pct": 5.92,
-   "y_close": 5.37,
-   "y_volume": 317062.0,
-   "y_dollar_vol": 1702623,
-   "symbol": "IMC",
-   "exchange": "AMEX",
-   "date": "2026-07-31"
-  },
-  {
-   "y_pct": 5.56,
-   "y_close": 6.27,
-   "y_volume": 5518838.0,
-   "y_dollar_vol": 34603114,
-   "symbol": "PGEN",
-   "exchange": "NASDAQ",
-   "date": "2026-07-31"
-  },
-  {
    "y_pct": 5.32,
    "y_close": 24.16,
-   "y_volume": 451715.0,
-   "y_dollar_vol": 10913434,
+   "y_volume": 451700.0,
+   "y_dollar_vol": 10913072,
    "symbol": "NTGR",
    "exchange": "NASDAQ",
    "date": "2026-07-31"
   },
   {
-   "y_pct": 5.16,
-   "y_close": 10.39,
-   "y_volume": 644382.0,
-   "y_dollar_vol": 6695129,
-   "symbol": "QUAD",
-   "exchange": "NYSE",
-   "date": "2026-07-31"
-  },
-  {
    "y_pct": 5.15,
    "y_close": 22.66,
-   "y_volume": 5427294.0,
-   "y_dollar_vol": 122982482,
+   "y_volume": 5442000.0,
+   "y_dollar_vol": 123315720,
    "symbol": "FSLY",
    "exchange": "NASDAQ",
    "date": "2026-07-31"
   },
   {
-   "y_pct": 5.1,
-   "y_close": 122.25,
-   "y_volume": 16933673.0,
-   "y_dollar_vol": 2070141524,
-   "symbol": "BABA",
-   "exchange": "NYSE",
-   "date": "2026-07-31"
-  },
-  {
-   "y_pct": 5.03,
-   "y_close": 13.16,
-   "y_volume": 266574.0,
-   "y_dollar_vol": 3508114,
-   "symbol": "INR",
-   "exchange": "NYSE",
-   "date": "2026-07-31"
-  },
-  {
    "y_pct": 4.92,
    "y_close": 26.65,
-   "y_volume": 1251353.0,
-   "y_dollar_vol": 33348557,
+   "y_volume": 1260509.0,
+   "y_dollar_vol": 33592565,
    "symbol": "ADEA",
    "exchange": "NASDAQ",
    "date": "2026-07-31"
@@ -429,8 +231,8 @@
   {
    "y_pct": 4.84,
    "y_close": 8.01,
-   "y_volume": 335294.0,
-   "y_dollar_vol": 2685705,
+   "y_volume": 335300.0,
+   "y_dollar_vol": 2685753,
    "symbol": "MASS",
    "exchange": "NASDAQ",
    "date": "2026-07-31"
@@ -438,8 +240,8 @@
   {
    "y_pct": 4.83,
    "y_close": 15.2,
-   "y_volume": 1355831.0,
-   "y_dollar_vol": 20608631,
+   "y_volume": 1375800.0,
+   "y_dollar_vol": 20912160,
    "symbol": "TH",
    "exchange": "NASDAQ",
    "date": "2026-07-31"
@@ -447,8 +249,8 @@
   {
    "y_pct": 4.8,
    "y_close": 3.49,
-   "y_volume": 122200.0,
-   "y_dollar_vol": 426478,
+   "y_volume": 127700.0,
+   "y_dollar_vol": 445673,
    "symbol": "IONR",
    "exchange": "NASDAQ",
    "date": "2026-07-31"
@@ -456,8 +258,8 @@
   {
    "y_pct": 4.78,
    "y_close": 79.19,
-   "y_volume": 1626486.0,
-   "y_dollar_vol": 128801426,
+   "y_volume": 1794000.0,
+   "y_dollar_vol": 142066860,
    "symbol": "VAL",
    "exchange": "NYSE",
    "date": "2026-07-31"
@@ -465,80 +267,44 @@
   {
    "y_pct": 4.75,
    "y_close": 18.29,
-   "y_volume": 253030.0,
-   "y_dollar_vol": 4627919,
+   "y_volume": 253000.0,
+   "y_dollar_vol": 4627370,
    "symbol": "ISSC",
    "exchange": "NASDAQ",
    "date": "2026-07-31"
   },
   {
-   "y_pct": 4.72,
-   "y_close": 5.32,
-   "y_volume": 62752493.0,
-   "y_dollar_vol": 333843263,
-   "symbol": "RIG",
-   "exchange": "NYSE",
-   "date": "2026-07-31"
-  },
-  {
    "y_pct": 4.59,
    "y_close": 5.01,
-   "y_volume": 7373053.0,
-   "y_dollar_vol": 36938996,
+   "y_volume": 8874300.0,
+   "y_dollar_vol": 44460243,
    "symbol": "ABR",
    "exchange": "NYSE",
    "date": "2026-07-31"
   },
   {
-   "y_pct": 4.39,
-   "y_close": 70.21,
-   "y_volume": 157028.0,
-   "y_dollar_vol": 11024936,
-   "symbol": "FBIZ",
-   "exchange": "NASDAQ",
-   "date": "2026-07-31"
-  },
-  {
-   "y_pct": 4.38,
-   "y_close": 4.53,
-   "y_volume": 533632.0,
-   "y_dollar_vol": 2417353,
-   "symbol": "CVGI",
-   "exchange": "NASDAQ",
+   "y_pct": 4.27,
+   "y_close": 497.75,
+   "y_volume": 228600.0,
+   "y_dollar_vol": 113785650,
+   "symbol": "CACI",
+   "exchange": "NYSE",
    "date": "2026-07-31"
   },
   {
    "y_pct": 4.23,
    "y_close": 6.4,
-   "y_volume": 107605.0,
-   "y_dollar_vol": 688672,
+   "y_volume": 107600.0,
+   "y_dollar_vol": 688640,
    "symbol": "UFI",
    "exchange": "NYSE",
    "date": "2026-07-31"
   },
   {
-   "y_pct": 4.14,
-   "y_close": 6.04,
-   "y_volume": 470221.0,
-   "y_dollar_vol": 2840135,
-   "symbol": "HDSN",
-   "exchange": "NASDAQ",
-   "date": "2026-07-31"
-  },
-  {
-   "y_pct": 4.11,
-   "y_close": 83.38,
-   "y_volume": 2282371.0,
-   "y_dollar_vol": 190304094,
-   "symbol": "GSAT",
-   "exchange": "NASDAQ",
-   "date": "2026-07-31"
-  },
-  {
    "y_pct": 4.06,
    "y_close": 96.07,
-   "y_volume": 4590060.0,
-   "y_dollar_vol": 440967064,
+   "y_volume": 4597800.0,
+   "y_dollar_vol": 441710646,
    "symbol": "ZM",
    "exchange": "NASDAQ",
    "date": "2026-07-31"
@@ -546,35 +312,35 @@
   {
    "y_pct": 4.05,
    "y_close": 12.59,
-   "y_volume": 3815431.0,
-   "y_dollar_vol": 48036276,
+   "y_volume": 3816200.0,
+   "y_dollar_vol": 48045958,
    "symbol": "NTSK",
    "exchange": "NASDAQ",
    "date": "2026-07-31"
   },
   {
    "y_pct": 4.04,
-   "y_close": 3.35,
-   "y_volume": 116163.0,
-   "y_dollar_vol": 389146,
-   "symbol": "CINT",
-   "exchange": "NYSE",
-   "date": "2026-07-31"
-  },
-  {
-   "y_pct": 4.04,
    "y_close": 6.18,
-   "y_volume": 190861.0,
-   "y_dollar_vol": 1179521,
+   "y_volume": 191500.0,
+   "y_dollar_vol": 1183470,
    "symbol": "RGC",
    "exchange": "NASDAQ",
    "date": "2026-07-31"
   },
   {
+   "y_pct": 4.02,
+   "y_close": 90.24,
+   "y_volume": 717000.0,
+   "y_dollar_vol": 64702080,
+   "symbol": "VVX",
+   "exchange": "NYSE",
+   "date": "2026-07-31"
+  },
+  {
    "y_pct": 4.0,
    "y_close": 39.74,
-   "y_volume": 1783819.0,
-   "y_dollar_vol": 70888967,
+   "y_volume": 1791700.0,
+   "y_dollar_vol": 71202158,
    "symbol": "MUR",
    "exchange": "NYSE",
    "date": "2026-07-31"
