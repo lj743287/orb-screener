@@ -15,16 +15,24 @@
 # scanning, so Monday evening scans Monday. Running Tuesday-Saturday would
 # miss every Monday close and waste a run on Saturday re-scanning Friday.
 #
-# TIMING: 22:00 UTC is one hour after the US close in winter and two hours
-# after it in summer, so the daily bars have always settled. The run finishes
-# around 03:15 UTC, well before a 07:00 UK review even if GitHub starts it
-# late, which it often does.
+# TIMING: 21:30 UTC is 30 minutes after the US close in summer and 90 minutes
+# after it in winter, which clears the 21:15 UTC point at which the daily bars
+# have settled.
+#
+# Measured durations, not estimates: daily 1h45, orb 2h02, burst 2h05,
+# anticipation 2h07, publish 21s -- about 8 hours end to end, finishing near
+# 05:30 UTC. That is 06:30 UK in summer and only just clears a 07:00 review,
+# with no room for the multi-hour start delays GitHub sometimes adds.
+#
+# The durable fix is to fetch the shared ~5,500-symbol daily history once and
+# have all three big scans read it, which would cut the night to under two
+# hours. Until then this schedule is tight by necessity.
 
 name: Overnight scans
 
 on:
   schedule:
-    - cron: "0 22 * * 1-5"
+    - cron: "30 21 * * 1-5"
   workflow_dispatch:
     inputs:
       mode:
@@ -53,7 +61,10 @@ jobs:
   daily:
     if: github.event.inputs.mode != 'build-only'
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    # 180, not 60. The first version used 60 on an estimate of ten minutes;
+    # the real scan takes about 1h45 because it asks for 520 days of history
+    # for 50 symbols at a time, so GitHub killed it mid-scan every night.
+    timeout-minutes: 180
     steps:
       - uses: actions/checkout@v4
         with:
