@@ -26,6 +26,10 @@ from datetime import datetime, timezone, timedelta
 # NEW: shared output writer used by all the overnight scans.
 from scan_output import write_scan, write_failure
 
+# NEW: shared bar cache, filled once per night by fetch_bars.py. If it is
+# absent this scan falls back to fetching its own data, exactly as before.
+from bars_cache import CACHE
+
 API_KEY = os.environ.get("TWELVE_DATA_API_KEY", "")
 TD_URL = "https://api.twelvedata.com/time_series"
 UNIVERSE_URLS = [
@@ -94,6 +98,23 @@ def load_universe():
     return out
 
 
+def load_universe_cached():
+    """NEW: prefer the universe the shared cache was built from.
+
+    fetch_bars.py already downloaded and filtered the NASDAQ Trader files
+    using these same rules, so reusing its list saves two downloads and, more
+    importantly, guarantees this scan and the cache agree on which symbols
+    exist. Falls back to fetching the files directly if there is no cache.
+    """
+    if CACHE.available:
+        universe = CACHE.universe()
+        if universe:
+            print(f"Universe from cache: {len(universe)} symbols")
+            return universe
+    print("No cache — building universe from NASDAQ Trader files")
+    return load_universe()
+
+
 def us_market_today_incomplete():
     """Return today's US-Eastern date string if the regular session has not
     yet completed (bar still in progress), else None."""
@@ -112,6 +133,18 @@ INCOMPLETE_TODAY = None  # set in main()
 
 
 def fetch_last_bars(symbol):
+    # NEW: the shared cache holds 250 bars per symbol, newest first -- the
+    # same order the API returns. Only the newest two are needed here, so
+    # take them off the top. The in-progress bar was already dropped when the
+    # cache was built, so no further filtering is required.
+    cached = CACHE.get(symbol, newest_first=True, limit=3)
+    if cached:
+        if len(cached) < 2:
+            return None
+        return [{"datetime": b["d"], "open": b["o"], "high": b["h"],
+                 "low": b["l"], "close": b["c"], "volume": b["v"]}
+                for b in cached]
+
     url = (f"{TD_URL}?symbol={symbol}&interval=1day&outputsize=3"
            f"&apikey={API_KEY}")
     try:
@@ -181,9 +214,11 @@ def main():
     if INCOMPLETE_TODAY:
         print(f"US session in progress — excluding {INCOMPLETE_TODAY} bar, "
               f"testing last completed day")
-    universe = load_universe()
+    universe = load_universe_cached()
     print(f"Universe: {len(universe)} symbols")
-    delay = 60.0 / REQUESTS_PER_MIN
+    # NEW: no pacing needed when the data comes off local disk. Falls back to
+    # the old rate limit if there is no cache and every symbol hits the API.
+    delay = 0.0 if CACHE.available else 60.0 / REQUESTS_PER_MIN
     hits, scanned = [], 0
     for sym, exch in universe:
         bars = fetch_last_bars(sym)
@@ -198,7 +233,8 @@ def main():
                 print(f"BURST {sym}  +{res['y_pct']}%")
         if scanned % 500 == 0:
             print(f"...{scanned}/{len(universe)} scanned, {len(hits)} bursts")
-        time.sleep(delay)
+        if delay:
+            time.sleep(delay)
     hits.sort(key=lambda x: -x["y_pct"])
     out = {"generated_utc": time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime()),
            "burst_date": hits[0]["date"] if hits else "",
@@ -206,6 +242,7 @@ def main():
     with open(OUT_FILE, "w") as f:
         json.dump(out, f, indent=1)
     print(f"Wrote {OUT_FILE}: {len(hits)} burst stocks")
+    CACHE.report()
 
     # --- NEW: shared output for the combined dashboard ---------------------
     # Same hits, same order (biggest burst first), different packaging.
