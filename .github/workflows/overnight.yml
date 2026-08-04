@@ -1,32 +1,34 @@
 # .github/workflows/overnight.yml
 #
-# The overnight run. Four scans, strictly one after another, then the page.
+# The overnight run. One shared data fetch, then every scan reads it.
 #
-# WHY SEQUENTIAL: the Twelve Data allowance is 55 credits per minute and it is
-# counted against the API KEY, not the repo. Each big scan already runs at
-# ~50 credits/min, so any two of them running together blow the limit and both
-# get throttled. Chaining the jobs with "needs:" is what stops that.
+# WHAT CHANGED AND WHY: the three big scans each used to fetch daily history
+# for the same ~5,760 symbols separately -- roughly 17,000 API calls a night,
+# measured at 8h47m end to end, which finished after the 07:00 UK review it
+# was meant to feed. fetch_bars.py now does one pass (~5,760 calls) and writes
+# cache/bars.json.gz; the ORB, burst and anticipation scans read that instead
+# of calling the provider. The scanning rules themselves are untouched.
 #
-# WHY SEPARATE JOBS AND NOT ONE LONG ONE: GitHub kills any single job at six
-# hours. All four scans together take about five and a quarter, which is far
-# too close to the ceiling. Each job gets its own fresh six-hour allowance.
+# WHY ONE JOB, NOT FIVE: the cache has to be on disk when the scans run.
+# Separate jobs would mean shuttling it through the artifact store on every
+# hand-off. One job keeps it on local disk between steps. The six-hour job
+# ceiling was what forced the old split; at an estimated ~4h05 there is room,
+# though not a vast amount -- see the note on timing below.
 #
-# WHY MONDAY TO FRIDAY: the scan runs the same evening as the close it is
-# scanning, so Monday evening scans Monday. Running Tuesday-Saturday would
-# miss every Monday close and waste a run on Saturday re-scanning Friday.
+# EXPECTED TIMING (estimates, to be checked against the first real run):
+#   fetch          ~2h00   one pass, 50 req/min
+#   daily          ~1h45   measured; cannot share the cache, different endpoint
+#   orb            ~5m     reads cache, no API calls
+#   burst          ~5m     reads cache
+#   anticipation   ~10m    reads cache
+#   publish        ~1m
+#   total          ~4h05, finishing about 01:35 UTC from a 21:30 start
 #
-# TIMING: 21:30 UTC is 30 minutes after the US close in summer and 90 minutes
-# after it in winter, which clears the 21:15 UTC point at which the daily bars
-# have settled.
+# If that holds, the page is ready hours before the morning rather than after
+# it. The daily scanner is now the longest single item in the night.
 #
-# Measured durations, not estimates: daily 1h45, orb 2h02, burst 2h05,
-# anticipation 2h07, publish 21s -- about 8 hours end to end, finishing near
-# 05:30 UTC. That is 06:30 UK in summer and only just clears a 07:00 review,
-# with no room for the multi-hour start delays GitHub sometimes adds.
-#
-# The durable fix is to fetch the shared ~5,500-symbol daily history once and
-# have all three big scans read it, which would cut the night to under two
-# hours. Until then this schedule is tight by necessity.
+# WHY MONDAY TO FRIDAY: the run scans the same evening's close, so Monday
+# evening scans Monday. Tuesday-Saturday would miss every Monday close.
 
 name: Overnight scans
 
@@ -36,7 +38,7 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "all = run every scan, then build. build-only = just rebuild the page from the last results."
+        description: "all = fetch and run everything. build-only = just rebuild the page from the last results."
         required: true
         default: "all"
         type: choice
@@ -47,157 +49,123 @@ permissions:
   pages: write
   id-token: write
 
-# Shared with the intraday workflow so the two can never deploy Pages at the
-# same moment. They do not overlap in time anyway, but this makes it certain.
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
-  # ---------------------------------------------------------------------
-  # Fastest scan first, so a broken setup shows up in ten minutes rather
-  # than two hours.
-  # ---------------------------------------------------------------------
-  daily:
+  scans:
     if: github.event.inputs.mode != 'build-only'
     runs-on: ubuntu-latest
-    # 180, not 60. The first version used 60 on an estimate of ten minutes;
-    # the real scan takes about 1h45 because it asks for 520 days of history
-    # for 50 symbols at a time, so GitHub killed it mid-scan every night.
-    timeout-minutes: 180
+    # Well inside the six-hour ceiling on the estimate above, with room for
+    # the fetch to run long. If a real run ever approaches this, the daily
+    # scanner is the thing to attack next.
+    timeout-minutes: 330
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.ref_name }}
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
       - run: pip install -r requirements.txt
+
+      # ---------------------------------------------------------------
+      # One pass over the universe. Everything below reads what this
+      # writes. If it fails, the scans fall back to their own API calls --
+      # slow, but they still run, so the night is degraded not lost.
+      # ---------------------------------------------------------------
+      - name: Fetch shared daily bars
+        id: fetch
+        continue-on-error: true
+        env:
+          TWELVE_DATA_API_KEY: ${{ secrets.TWELVE_DATA_API_KEY }}
+          BARS: "250"
+          REQUESTS_PER_MIN: "50"
+          PYTHONUNBUFFERED: "1"
+        run: python fetch_bars.py
+
+      - name: Note the cache state
+        run: |
+          if [ -f cache/bars.json.gz ]; then
+            echo "Cache built: $(du -h cache/bars.json.gz | cut -f1)"
+          else
+            echo "NO CACHE - every scan will fetch its own data. Expect this"
+            echo "run to take around nine hours instead of four."
+          fi
+
+      # ---------------------------------------------------------------
+      # Each scan continues on error so one failure cannot cost the night.
+      # A failed scan writes its own red banner to the dashboard.
+      # ---------------------------------------------------------------
       - name: Daily scanner
+        continue-on-error: true
         env:
           TWELVE_DATA_API_KEY: ${{ secrets.TWELVE_DATA_API_KEY }}
           PYTHONUNBUFFERED: "1"
         run: python daily_scanner.py
-      - name: Save results
-        if: always()
-        run: |
-          git config user.name  "scan-bot"
-          git config user.email "actions@github.com"
-          git add -A data output || true
-          if git diff --cached --quiet; then
-            echo "nothing to commit"
-          else
-            git commit -m "Daily scanner $(date -u +%F)"
-            git pull --rebase origin ${{ github.ref_name }} || true
-            git push
-          fi
 
-  orb:
-    needs: daily
-    if: always() && github.event.inputs.mode != 'build-only'
-    runs-on: ubuntu-latest
-    timeout-minutes: 350
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.ref_name }}
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-      - run: pip install -r requirements.txt
       - name: ORB continuation screener
+        continue-on-error: true
         env:
           TWELVE_DATA_KEY: ${{ secrets.TWELVE_DATA_KEY }}
           MAX_SYMBOLS: ${{ vars.MAX_SYMBOLS }}
           THROTTLE_SEC: "1.2"
           PYTHONUNBUFFERED: "1"
         run: python screener.py
-      - name: Save results
-        if: always()
-        run: |
-          git config user.name  "scan-bot"
-          git config user.email "actions@github.com"
-          git add -A data output docs || true
-          if git diff --cached --quiet; then
-            echo "nothing to commit"
-          else
-            git commit -m "ORB screen $(date -u +%F)"
-            git pull --rebase origin ${{ github.ref_name }} || true
-            git push
-          fi
 
-  burst:
-    needs: orb
-    if: always() && github.event.inputs.mode != 'build-only'
-    runs-on: ubuntu-latest
-    timeout-minutes: 350
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.ref_name }}
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-      - run: pip install -r requirements.txt
       - name: Stockbee burst scan
+        continue-on-error: true
         env:
           TWELVE_DATA_API_KEY: ${{ secrets.TWELVE_DATA_API_KEY }}
           PYTHONUNBUFFERED: "1"
         run: python burst_scan.py
-      - name: Save results
-        if: always()
-        run: |
-          git config user.name  "scan-bot"
-          git config user.email "actions@github.com"
-          git add -A data burst_watch.json || true
-          if git diff --cached --quiet; then
-            echo "nothing to commit"
-          else
-            git commit -m "Burst scan $(date -u +%F)"
-            git pull --rebase origin ${{ github.ref_name }} || true
-            git push
-          fi
 
-  anticipation:
-    needs: burst
-    if: always() && github.event.inputs.mode != 'build-only'
-    runs-on: ubuntu-latest
-    timeout-minutes: 350
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.ref_name }}
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-      - run: pip install -r requirements.txt
       - name: Stockbee anticipation scan
+        continue-on-error: true
         env:
           TWELVE_DATA_API_KEY: ${{ secrets.TWELVE_DATA_API_KEY }}
           PYTHONUNBUFFERED: "1"
         run: python anticipation_scan.py
+
+      - name: Build the scans page
+        run: python build_scans.py
+
+      # The cache is working data, not a result. Deleting it before the
+      # commit keeps 20MB of bars out of the repository history.
       - name: Save results
         if: always()
         run: |
+          rm -rf cache
           git config user.name  "scan-bot"
           git config user.email "actions@github.com"
-          git add -A data anticipation_watch.json || true
+          git add -A data output docs burst_watch.json anticipation_watch.json || true
           if git diff --cached --quiet; then
             echo "nothing to commit"
           else
-            git commit -m "Anticipation scan $(date -u +%F)"
+            git commit -m "Overnight scans $(date -u +%F)"
             git pull --rebase origin ${{ github.ref_name }} || true
             git push
           fi
 
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+      - id: deploy
+        uses: actions/deploy-pages@v4
+
   # ---------------------------------------------------------------------
-  # Builds the page from whatever the four scans produced. "always()" is
-  # deliberate: if one scan fell over, the page must still be built so the
-  # other tabs are there at 07:00, with a red banner on the one that failed.
+  # build-only: rebuild the page from the last results, no scanning and no
+  # API credits. Useful for checking a page change in twenty seconds.
   # ---------------------------------------------------------------------
-  publish:
-    needs: [daily, orb, burst, anticipation]
-    if: always()
+  rebuild:
+    if: github.event.inputs.mode == 'build-only'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     environment:
