@@ -18,6 +18,10 @@ import pandas as pd
 # NEW: shared output writer used by all four scans.
 from scan_output import write_scan, write_failure
 
+# NEW: shared bar cache, filled once per night by fetch_bars.py. If it is
+# absent this screener falls back to fetching its own data, exactly as before.
+from bars_cache import CACHE
+
 API_KEY    = os.environ.get("TWELVE_DATA_KEY", "")
 MAX_SYMBOLS= int(os.environ.get("MAX_SYMBOLS", "0"))
 THROTTLE   = float(os.environ.get("THROTTLE_SEC", "1.2"))
@@ -59,7 +63,49 @@ def load_universe():
     return sorted({x for x in syms if isinstance(x, str) and x})
 
 
+def load_universe_cached():
+    """NEW: prefer the universe the shared cache was built from.
+
+    fetch_bars.py already downloaded and filtered the NASDAQ Trader files, so
+    reusing its list saves two downloads and guarantees this screener and the
+    cache agree on which symbols exist. Returns bare symbols, matching what
+    load_universe() returns.
+    """
+    if CACHE.available:
+        syms = CACHE.symbols
+        if syms:
+            print(f"Universe from cache: {len(syms)} symbols")
+            return syms
+    print("No cache — building universe from NASDAQ Trader files")
+    return load_universe()
+
+
+def bars_to_frame(rows):
+    """NEW: turn cached bars into the exact DataFrame td_daily returns.
+
+    Three things have to match or the moving averages below are computed
+    against the wrong thing: a real datetime index, sorted oldest-first, and
+    the long column names. The cache stores short keys (o/h/l/c/v) newest
+    first, so both are converted here.
+    """
+    d = pd.DataFrame(rows).rename(columns={
+        "d": "datetime", "o": "open", "h": "high",
+        "l": "low", "c": "close", "v": "volume"})
+    d["datetime"] = pd.to_datetime(d["datetime"])
+    d = d.set_index("datetime").sort_index()
+    for c in ["open", "high", "low", "close", "volume"]:
+        d[c] = pd.to_numeric(d[c], errors="coerce")
+    return d[["open", "high", "low", "close", "volume"]]
+
+
 def td_daily(symbol, outputsize=260, tries=6):
+    # NEW: try the shared cache first. sort_index() in bars_to_frame handles
+    # the ordering, and the in-progress bar was dropped when the cache was
+    # built, so nothing further is needed here.
+    cached = CACHE.get(symbol)
+    if cached:
+        return bars_to_frame(cached)
+
     params = dict(symbol=symbol, interval="1day", outputsize=outputsize,
                   order="ASC", timezone="America/New_York", apikey=API_KEY)
     for _ in range(tries):
@@ -71,7 +117,10 @@ def td_daily(symbol, outputsize=260, tries=6):
             d = d.set_index("datetime").sort_index()
             for c in ["open", "high", "low", "close", "volume"]:
                 d[c] = pd.to_numeric(d[c], errors="coerce")
-            time.sleep(THROTTLE)
+            # NEW: only pace real API calls. Cached symbols return above
+            # without reaching this point.
+            if THROTTLE:
+                time.sleep(THROTTLE)
             return d[["open", "high", "low", "close", "volume"]]
         msg = str(j.get("message", "")).lower()
         if any(k in msg for k in ("credit", "run out", "limit")):
@@ -225,7 +274,7 @@ def main():
                   f"near(10/20/50)={m.get('nearby')}\n")
         return
 
-    universe = load_universe()
+    universe = load_universe_cached()
     if MAX_SYMBOLS:
         universe = universe[:MAX_SYMBOLS]
     print(f"Universe: {len(universe)} symbols.")
@@ -254,6 +303,7 @@ def main():
         print(f"    + {k:<6} -> {len(cum):>5}")
 
     write_outputs(rows, universe_n=len(universe))
+    CACHE.report()
 
 
 if __name__ == "__main__":
