@@ -1,7 +1,7 @@
 {
- "generated_utc": "2026-08-04 04:43:45",
+ "generated_utc": "2026-08-04 11:13:42",
  "burst_date": "2026-08-03",
- "count": 326,
+ "count": 325,
  "stocks": [
   {
    "y_pct": 5729.55,
@@ -1918,15 +1918,6 @@
    "y_dollar_vol": 5141052,
    "symbol": "GLAS",
    "exchange": "NYSE",
-   "date": "2026-08-03"
-  },
-  {
-   "y_pct": 5.56,
-   "y_close": 5.13,
-   "y_volume": 1221151.0,
-   "y_dollar_vol": 6264505,
-   "symbol": "TOI",
-   "exchange": "NASDAQ",
    "date": "2026-08-03"
   },
   {

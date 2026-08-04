@@ -1,9 +1,9 @@
 {
   "scan_id": "daily",
   "label": "Daily Stock Scanner",
-  "generated_utc": "2026-08-04T00:17:55Z",
+  "generated_utc": "2026-08-04T11:13:17Z",
   "status": "ok",
-  "count": 37,
+  "count": 35,
   "columns": [
     "score",
     "runup_pct",
@@ -14,7 +14,7 @@
     "sort": "score (run-up %) descending",
     "universe": 5277,
     "scanned": 5277,
-    "errors": 0,
+    "errors": 11,
     "setup": "RUN-UP + EMA Touch Triangle (10/20/50)"
   },
   "rows": [
@@ -120,7 +120,7 @@
     {
       "symbol": "ANIX",
       "exchange": "",
-      "close": 3.44,
+      "close": 3.41,
       "extra": {
         "score": 65,
         "runup_pct": 64.8,
@@ -137,17 +137,6 @@
         "runup_pct": 63.3,
         "triangle_date": "2026-07-29",
         "ema_touched": 50
-      }
-    },
-    {
-      "symbol": "LFST",
-      "exchange": "",
-      "close": 10.54,
-      "extra": {
-        "score": 59,
-        "runup_pct": 59.4,
-        "triangle_date": "2026-07-28",
-        "ema_touched": 10
       }
     },
     {
@@ -283,17 +272,6 @@
       }
     },
     {
-      "symbol": "VLO",
-      "exchange": "",
-      "close": 307.54,
-      "extra": {
-        "score": 38,
-        "runup_pct": 37.6,
-        "triangle_date": "2026-07-28",
-        "ema_touched": 10
-      }
-    },
-    {
       "symbol": "BCO",
       "exchange": "",
       "close": 115.61,
@@ -351,7 +329,7 @@
     {
       "symbol": "GLTO",
       "exchange": "",
-      "close": 28.99,
+      "close": 28.55,
       "extra": {
         "score": 33,
         "runup_pct": 32.7,

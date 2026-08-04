@@ -1,7 +1,7 @@
 {
   "scan_id": "anticipation",
   "label": "Stockbee Anticipation",
-  "generated_utc": "2026-08-04T06:51:48Z",
+  "generated_utc": "2026-08-04T11:13:45Z",
   "status": "ok",
   "count": 85,
   "columns": [
@@ -19,7 +19,7 @@
   ],
   "meta": {
     "sort": "score descending",
-    "universe": 5777,
+    "universe": 5755,
     "found": 85,
     "cap": 250,
     "setup_date": "2026-08-03"

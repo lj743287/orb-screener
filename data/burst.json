@@ -1,9 +1,9 @@
 {
   "scan_id": "burst",
   "label": "Stockbee Burst",
-  "generated_utc": "2026-08-04T04:43:45Z",
+  "generated_utc": "2026-08-04T11:13:42Z",
   "status": "ok",
-  "count": 326,
+  "count": 325,
   "columns": [
     "burst_pct",
     "volM",
@@ -12,7 +12,7 @@
   ],
   "meta": {
     "sort": "burst % descending",
-    "universe": 5761,
+    "universe": 5755,
     "burst_date": "2026-08-03"
   },
   "rows": [
@@ -2356,17 +2356,6 @@
         "burst_pct": 5.56,
         "volM": 0.51,
         "dvolM": 5.1,
-        "burst_date": "2026-08-03"
-      }
-    },
-    {
-      "symbol": "TOI",
-      "exchange": "NASDAQ",
-      "close": 5.13,
-      "extra": {
-        "burst_pct": 5.56,
-        "volM": 1.22,
-        "dvolM": 6.3,
         "burst_date": "2026-08-03"
       }
     },
