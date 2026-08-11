@@ -1,40 +1,16 @@
 {
- "generated_utc": "2026-08-11T18:03:35.648039+00:00",
- "session_fraction": 0.695,
+ "generated_utc": "2026-08-11T19:19:49.821027+00:00",
+ "session_fraction": 0.89,
  "results": [
-  {
-   "symbol": "GLBS",
-   "exchange": "NASDAQ",
-   "status": "EARLY",
-   "y_pct": 6.27,
-   "today_pct": 8.26,
-   "price": 3.67,
-   "proj_vol": 7133,
-   "y_volume": 657419,
-   "vol_ok": false,
-   "rng_ok": true
-  },
   {
    "symbol": "CCB",
    "exchange": "NASDAQ",
    "status": "EARLY",
    "y_pct": 7.21,
-   "today_pct": 8.04,
-   "price": 52.52,
-   "proj_vol": 25428,
+   "today_pct": 8.66,
+   "price": 52.82,
+   "proj_vol": 26037,
    "y_volume": 525682,
-   "vol_ok": false,
-   "rng_ok": true
-  },
-  {
-   "symbol": "GMTL",
-   "exchange": "AMEX",
-   "status": "EARLY",
-   "y_pct": 7.01,
-   "today_pct": 7.89,
-   "price": 13.335,
-   "proj_vol": 3845,
-   "y_volume": 240926,
    "vol_ok": false,
    "rng_ok": true
   },
@@ -43,10 +19,34 @@
    "exchange": "NYSE",
    "status": "EARLY",
    "y_pct": 5.88,
-   "today_pct": 5.65,
-   "price": 25.695,
-   "proj_vol": 19986,
+   "today_pct": 7.55,
+   "price": 26.155,
+   "proj_vol": 19260,
    "y_volume": 185186,
+   "vol_ok": false,
+   "rng_ok": true
+  },
+  {
+   "symbol": "GMTL",
+   "exchange": "AMEX",
+   "status": "EARLY",
+   "y_pct": 7.01,
+   "today_pct": 7.36,
+   "price": 13.27,
+   "proj_vol": 4821,
+   "y_volume": 240926,
+   "vol_ok": false,
+   "rng_ok": true
+  },
+  {
+   "symbol": "GLBS",
+   "exchange": "NASDAQ",
+   "status": "EARLY",
+   "y_pct": 6.27,
+   "today_pct": 7.08,
+   "price": 3.63,
+   "proj_vol": 5790,
+   "y_volume": 657419,
    "vol_ok": false,
    "rng_ok": true
   },
@@ -55,36 +55,24 @@
    "exchange": "NASDAQ",
    "status": "EARLY",
    "y_pct": 7.67,
-   "today_pct": 4.89,
-   "price": 30.48,
-   "proj_vol": 33165,
+   "today_pct": 4.85,
+   "price": 30.47,
+   "proj_vol": 35469,
    "y_volume": 1633632,
    "vol_ok": false,
-   "rng_ok": true
+   "rng_ok": false
   },
   {
-   "symbol": "PBF",
-   "exchange": "NYSE",
-   "status": "EARLY",
-   "y_pct": 7.42,
-   "today_pct": 4.62,
-   "price": 69.35,
-   "proj_vol": 247875,
-   "y_volume": 3986805,
-   "vol_ok": false,
-   "rng_ok": true
-  },
-  {
-   "symbol": "RXST",
+   "symbol": "NSLR",
    "exchange": "NASDAQ",
    "status": "EARLY",
-   "y_pct": 4.95,
-   "today_pct": 4.11,
-   "price": 6.84,
-   "proj_vol": 109820,
-   "y_volume": 1083685,
+   "y_pct": 7.6,
+   "today_pct": 4.02,
+   "price": 10.745,
+   "proj_vol": 28609,
+   "y_volume": 684315,
    "vol_ok": false,
-   "rng_ok": false
+   "rng_ok": true
   }
  ]
 }

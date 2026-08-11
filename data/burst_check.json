@@ -1,9 +1,9 @@
 {
   "scan_id": "burst_check",
   "label": "Second burst",
-  "generated_utc": "2026-08-11T18:03:35Z",
+  "generated_utc": "2026-08-11T19:19:49Z",
   "status": "ok",
-  "count": 7,
+  "count": 6,
   "columns": [
     "status",
     "today_pct",
@@ -16,33 +16,19 @@
   "meta": {
     "sort": "FULL first, then biggest move",
     "watching": 130,
-    "session_elapsed": "69%",
+    "session_elapsed": "89%",
     "full": 0,
-    "early": 7,
+    "early": 6,
     "burst_date": "2026-08-10"
   },
   "rows": [
     {
-      "symbol": "GLBS",
-      "exchange": "NASDAQ",
-      "close": 3.67,
-      "extra": {
-        "status": "EARLY",
-        "today_pct": 8.26,
-        "y_pct": 6.27,
-        "proj_volM": 0.01,
-        "burst_volM": 0.66,
-        "volume_ok": "no",
-        "range_ok": "yes"
-      }
-    },
-    {
       "symbol": "CCB",
       "exchange": "NASDAQ",
-      "close": 52.52,
+      "close": 52.82,
       "extra": {
         "status": "EARLY",
-        "today_pct": 8.04,
+        "today_pct": 8.66,
         "y_pct": 7.21,
         "proj_volM": 0.03,
         "burst_volM": 0.53,
@@ -51,26 +37,12 @@
       }
     },
     {
-      "symbol": "GMTL",
-      "exchange": "AMEX",
-      "close": 13.335,
-      "extra": {
-        "status": "EARLY",
-        "today_pct": 7.89,
-        "y_pct": 7.01,
-        "proj_volM": 0.0,
-        "burst_volM": 0.24,
-        "volume_ok": "no",
-        "range_ok": "yes"
-      }
-    },
-    {
       "symbol": "EROK",
       "exchange": "NYSE",
-      "close": 25.695,
+      "close": 26.155,
       "extra": {
         "status": "EARLY",
-        "today_pct": 5.65,
+        "today_pct": 7.55,
         "y_pct": 5.88,
         "proj_volM": 0.02,
         "burst_volM": 0.19,
@@ -79,45 +51,59 @@
       }
     },
     {
+      "symbol": "GMTL",
+      "exchange": "AMEX",
+      "close": 13.27,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 7.36,
+        "y_pct": 7.01,
+        "proj_volM": 0.0,
+        "burst_volM": 0.24,
+        "volume_ok": "no",
+        "range_ok": "yes"
+      }
+    },
+    {
+      "symbol": "GLBS",
+      "exchange": "NASDAQ",
+      "close": 3.63,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 7.08,
+        "y_pct": 6.27,
+        "proj_volM": 0.01,
+        "burst_volM": 0.66,
+        "volume_ok": "no",
+        "range_ok": "yes"
+      }
+    },
+    {
       "symbol": "TRUP",
       "exchange": "NASDAQ",
-      "close": 30.48,
+      "close": 30.47,
       "extra": {
         "status": "EARLY",
-        "today_pct": 4.89,
+        "today_pct": 4.85,
         "y_pct": 7.67,
-        "proj_volM": 0.03,
+        "proj_volM": 0.04,
         "burst_volM": 1.63,
         "volume_ok": "no",
-        "range_ok": "yes"
-      }
-    },
-    {
-      "symbol": "PBF",
-      "exchange": "NYSE",
-      "close": 69.35,
-      "extra": {
-        "status": "EARLY",
-        "today_pct": 4.62,
-        "y_pct": 7.42,
-        "proj_volM": 0.25,
-        "burst_volM": 3.99,
-        "volume_ok": "no",
-        "range_ok": "yes"
-      }
-    },
-    {
-      "symbol": "RXST",
-      "exchange": "NASDAQ",
-      "close": 6.84,
-      "extra": {
-        "status": "EARLY",
-        "today_pct": 4.11,
-        "y_pct": 4.95,
-        "proj_volM": 0.11,
-        "burst_volM": 1.08,
-        "volume_ok": "no",
         "range_ok": "no"
+      }
+    },
+    {
+      "symbol": "NSLR",
+      "exchange": "NASDAQ",
+      "close": 10.745,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 4.02,
+        "y_pct": 7.6,
+        "proj_volM": 0.03,
+        "burst_volM": 0.68,
+        "volume_ok": "no",
+        "range_ok": "yes"
       }
     }
   ]
