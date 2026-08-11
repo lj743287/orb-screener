@@ -1,9 +1,9 @@
 {
   "scan_id": "daily",
   "label": "Daily Stock Scanner",
-  "generated_utc": "2026-08-11T02:07:36Z",
+  "generated_utc": "2026-08-11T11:29:43Z",
   "status": "ok",
-  "count": 31,
+  "count": 30,
   "columns": [
     "score",
     "runup_pct",
@@ -14,7 +14,7 @@
     "sort": "score (run-up %) descending",
     "universe": 5277,
     "scanned": 5277,
-    "errors": 0,
+    "errors": 1,
     "setup": "RUN-UP + EMA Touch Triangle (10/20/50)"
   },
   "rows": [
@@ -114,17 +114,6 @@
         "score": 56,
         "runup_pct": 56.5,
         "triangle_date": "2026-08-06",
-        "ema_touched": 10
-      }
-    },
-    {
-      "symbol": "CCCS",
-      "exchange": "",
-      "close": 6.92,
-      "extra": {
-        "score": 52,
-        "runup_pct": 51.9,
-        "triangle_date": "2026-08-03",
         "ema_touched": 10
       }
     },

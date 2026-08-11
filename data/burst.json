@@ -1,9 +1,9 @@
 {
   "scan_id": "burst",
   "label": "Stockbee Burst",
-  "generated_utc": "2026-08-11T02:08:05Z",
+  "generated_utc": "2026-08-11T11:30:12Z",
   "status": "ok",
-  "count": 126,
+  "count": 130,
   "columns": [
     "burst_pct",
     "volM",
@@ -52,11 +52,11 @@
     {
       "symbol": "ALGS",
       "exchange": "NASDAQ",
-      "close": 7.66,
+      "close": 7.65,
       "extra": {
-        "burst_pct": 37.03,
-        "volM": 0.6,
-        "dvolM": 4.6,
+        "burst_pct": 36.85,
+        "volM": 0.61,
+        "dvolM": 4.7,
         "burst_date": "2026-08-10"
       }
     },
@@ -79,6 +79,17 @@
         "burst_pct": 27.52,
         "volM": 0.29,
         "dvolM": 2.0,
+        "burst_date": "2026-08-10"
+      }
+    },
+    {
+      "symbol": "ADVB",
+      "exchange": "NASDAQ",
+      "close": 7.91,
+      "extra": {
+        "burst_pct": 24.18,
+        "volM": 0.59,
+        "dvolM": 4.7,
         "burst_date": "2026-08-10"
       }
     },
@@ -286,8 +297,8 @@
       "close": 7.92,
       "extra": {
         "burst_pct": 10.0,
-        "volM": 0.64,
-        "dvolM": 5.0,
+        "volM": 0.77,
+        "dvolM": 6.1,
         "burst_date": "2026-08-10"
       }
     },
@@ -435,6 +446,17 @@
       }
     },
     {
+      "symbol": "AMPL",
+      "exchange": "NASDAQ",
+      "close": 12.19,
+      "extra": {
+        "burst_pct": 8.26,
+        "volM": 2.83,
+        "dvolM": 34.5,
+        "burst_date": "2026-08-10"
+      }
+    },
+    {
       "symbol": "TDW",
       "exchange": "NYSE",
       "close": 89.63,
@@ -475,6 +497,17 @@
         "burst_pct": 7.95,
         "volM": 5.0,
         "dvolM": 344.6,
+        "burst_date": "2026-08-10"
+      }
+    },
+    {
+      "symbol": "AVTX",
+      "exchange": "NASDAQ",
+      "close": 19.77,
+      "extra": {
+        "burst_pct": 7.91,
+        "volM": 0.96,
+        "dvolM": 19.0,
         "burst_date": "2026-08-10"
       }
     },
@@ -1179,6 +1212,17 @@
         "burst_pct": 4.79,
         "volM": 1.05,
         "dvolM": 6.9,
+        "burst_date": "2026-08-10"
+      }
+    },
+    {
+      "symbol": "CLFD",
+      "exchange": "NASDAQ",
+      "close": 28.79,
+      "extra": {
+        "burst_pct": 4.77,
+        "volM": 0.42,
+        "dvolM": 12.2,
         "burst_date": "2026-08-10"
       }
     },

@@ -1,7 +1,7 @@
 {
- "generated_utc": "2026-08-11 02:08:05",
+ "generated_utc": "2026-08-11 11:30:12",
  "burst_date": "2026-08-10",
- "count": 126,
+ "count": 130,
  "stocks": [
   {
    "y_pct": 55.78,
@@ -31,10 +31,10 @@
    "date": "2026-08-10"
   },
   {
-   "y_pct": 37.03,
-   "y_close": 7.66,
-   "y_volume": 600152.0,
-   "y_dollar_vol": 4597164,
+   "y_pct": 36.85,
+   "y_close": 7.65,
+   "y_volume": 608392.0,
+   "y_dollar_vol": 4654199,
    "symbol": "ALGS",
    "exchange": "NASDAQ",
    "date": "2026-08-10"
@@ -54,6 +54,15 @@
    "y_volume": 287844.0,
    "y_dollar_vol": 2040814,
    "symbol": "UPC",
+   "exchange": "NASDAQ",
+   "date": "2026-08-10"
+  },
+  {
+   "y_pct": 24.18,
+   "y_close": 7.91,
+   "y_volume": 594259.0,
+   "y_dollar_vol": 4700589,
+   "symbol": "ADVB",
    "exchange": "NASDAQ",
    "date": "2026-08-10"
   },
@@ -222,8 +231,8 @@
   {
    "y_pct": 10.0,
    "y_close": 7.92,
-   "y_volume": 637018.0,
-   "y_dollar_vol": 5045183,
+   "y_volume": 772029.0,
+   "y_dollar_vol": 6114470,
    "symbol": "HPK",
    "exchange": "NASDAQ",
    "date": "2026-08-10"
@@ -346,6 +355,15 @@
    "date": "2026-08-10"
   },
   {
+   "y_pct": 8.26,
+   "y_close": 12.19,
+   "y_volume": 2832445.0,
+   "y_dollar_vol": 34527505,
+   "symbol": "AMPL",
+   "exchange": "NASDAQ",
+   "date": "2026-08-10"
+  },
+  {
    "y_pct": 8.2,
    "y_close": 89.63,
    "y_volume": 792076.0,
@@ -378,6 +396,15 @@
    "y_volume": 5002776.0,
    "y_dollar_vol": 344591211,
    "symbol": "BMRN",
+   "exchange": "NASDAQ",
+   "date": "2026-08-10"
+  },
+  {
+   "y_pct": 7.91,
+   "y_close": 19.77,
+   "y_volume": 962064.0,
+   "y_dollar_vol": 19020005,
+   "symbol": "AVTX",
    "exchange": "NASDAQ",
    "date": "2026-08-10"
   },
@@ -954,6 +981,15 @@
    "y_volume": 1047039.0,
    "y_dollar_vol": 6868576,
    "symbol": "SUJA",
+   "exchange": "NASDAQ",
+   "date": "2026-08-10"
+  },
+  {
+   "y_pct": 4.77,
+   "y_close": 28.79,
+   "y_volume": 422355.0,
+   "y_dollar_vol": 12159600,
+   "symbol": "CLFD",
    "exchange": "NASDAQ",
    "date": "2026-08-10"
   },

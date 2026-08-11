@@ -1,19 +1,126 @@
-<!doctype html><meta charset="utf-8">
+
+<!doctype html>
+
+<meta charset="utf-8">
+
 <title>ORB Continuation Watchlist</title>
-<style>body{font-family:system-ui;margin:2rem;background:#0f1115;color:#e6e6e6}
-table{border-collapse:collapse;width:100%}th,td{padding:.5rem .8rem;border-bottom:1px solid #333;text-align:right}
-th:first-child,td:first-child{text-align:left;font-weight:600}h1{font-size:1.2rem}small{color:#9aa}
-.btn{display:inline-block;margin:.2rem .5rem .2rem 0;padding:.55rem .9rem;border:0;border-radius:8px;
-background:#2d7dff;color:#fff;font:inherit;font-weight:600;cursor:pointer;text-decoration:none}
-.btn.copy{background:#3a3f4b} textarea{width:100%;height:3.2rem;margin-top:.6rem;background:#161a22;
-color:#cdd3df;border:1px solid #333;border-radius:8px;padding:.5rem;font-family:ui-monospace,monospace}</style>
-<h1>ORB Continuation Watchlist <small>(55 candidates &middot; 2026-08-11 02:08 UTC)</small></h1>
-<p><small>Liquid, above 50-MA, coiling below a recent high &middot; sorted by ADR (calmest first).</small></p>
+
+<style>
+
+body {
+    font-family: system-ui;
+    margin: 2rem;
+    background: #0f1115;
+    color: #e6e6e6;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    padding: .5rem .8rem;
+    border-bottom: 1px solid #333;
+    text-align: right;
+}
+
+th:first-child,
+td:first-child {
+    text-align: left;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 1.2rem;
+}
+
+small {
+    color: #9aa;
+}
+
+.btn {
+    display: inline-block;
+    margin: .2rem .5rem .2rem 0;
+    padding: .55rem .9rem;
+    border: 0;
+    border-radius: 8px;
+    background: #2d7dff;
+    color: #fff;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn.copy {
+    background: #3a3f4b;
+}
+
+textarea {
+    width: 100%;
+    height: 3.2rem;
+    margin-top: .6rem;
+    background: #161a22;
+    color: #cdd3df;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: .5rem;
+    font-family: ui-monospace, monospace;
+}
+
+</style>
+
+<h1>
+ORB Continuation Watchlist
+<small>
+(80 candidates &middot; 2026-08-11 11:30 UTC)
+</small>
+</h1>
+
 <p>
-  <a class="btn" href="watchlist.txt" download="orb_watchlist.txt">&#11015; Download TradingView list (.txt)</a>
-  <button class="btn copy" onclick="navigator.clipboard.writeText(document.getElementById('tv').value);this.textContent='Copied!'">Copy tickers</button>
+<small>
+Price $3+ &middot;
+ADR 2%-10% &middot;
+45%-200% prior run-up &middot;
+above 50-MA &middot;
+coiling below a recent high &middot;
+no liquidity filter &middot;
+sorted by ADR (calmest first).
+</small>
 </p>
-<textarea id="tv" readonly onclick="this.select()">PAG,WSM,DLTR,CBZ,WKC,IQV,DLO,SKYW,FLXS,MEDP,BOW,ENVA,ALKS,KMX,PLMR,SW,EAT,WEX,FDS,IP,MLKN,WWW,THC,BNED,BILL,EXLS,IMAX,LAD,CHEF,CBRL,KARO,AVTR,AIR,TWFG,RDVT,MAMA,TWIN,AGYS,KNSA,MANH,KLC,FRSH,JILL,ANDG,MMYT,OII,VG,CLF,THRM,BH,NP,DYN,JBLU,HURN,WNC</textarea>
+
+<p>
+
+<a
+    class="btn"
+    href="watchlist.txt"
+    download="orb_watchlist.txt"
+>
+&#11015; Download TradingView list (.txt)
+</a>
+
+<button
+    class="btn copy"
+    onclick="
+        navigator.clipboard.writeText(
+            document.getElementById('tv').value
+        );
+        this.textContent='Copied!'
+    "
+>
+Copy tickers
+</button>
+
+</p>
+
+<textarea
+    id="tv"
+    readonly
+    onclick="this.select()"
+>PAG,WSM,DLTR,CBZ,WKC,IQV,DLO,SKYW,FLXS,MEDP,BOW,ENVA,ALKS,KMX,PLMR,EAT,SW,NCMI,WEX,FDS,IP,MLKN,WWW,THC,BNED,BILL,EXLS,IMAX,LAD,CHEF,CBRL,KARO,AVTR,AIR,TWFG,RDVT,MAMA,TWIN,AGYS,KNSA,MANH,KLC,FRSH,JILL,ANDG,MMYT,OII,VG,CLF,THRM,BH,NP,DYN,JBLU,HURN,WNC,ETON,ANGX,ZBIO,NUVB,JACK,TRVI,GSHD,MGRT,RZLT,PRLD,ALMR,DMRA,ROLR,MSLE,ATEX,OTLY,PVLA,XNCR,NVEC,RELL,STTK,AERT,ARTV,FIRY</textarea>
+
 <table class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -179,6 +286,16 @@ color:#cdd3df;border:1px solid #333;border-radius:8px;padding:.5rem;font-family:
       <td>yes</td>
     </tr>
     <tr>
+      <td>EAT</td>
+      <td>227.54</td>
+      <td>3.90</td>
+      <td>84.1</td>
+      <td>20.9</td>
+      <td>4.5</td>
+      <td>216.6</td>
+      <td>yes</td>
+    </tr>
+    <tr>
       <td>SW</td>
       <td>47.59</td>
       <td>3.90</td>
@@ -189,13 +306,13 @@ color:#cdd3df;border:1px solid #333;border-radius:8px;padding:.5rem;font-family:
       <td>yes</td>
     </tr>
     <tr>
-      <td>EAT</td>
-      <td>227.54</td>
-      <td>3.90</td>
-      <td>84.1</td>
-      <td>20.9</td>
-      <td>4.5</td>
-      <td>216.6</td>
+      <td>NCMI</td>
+      <td>3.95</td>
+      <td>3.94</td>
+      <td>53.6</td>
+      <td>12.4</td>
+      <td>-2.3</td>
+      <td>1.2</td>
       <td>yes</td>
     </tr>
     <tr>
@@ -576,6 +693,246 @@ color:#cdd3df;border:1px solid #333;border-radius:8px;padding:.5rem;font-family:
       <td>14.1</td>
       <td>-0.8</td>
       <td>21.2</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>ETON</td>
+      <td>43.67</td>
+      <td>6.12</td>
+      <td>88.2</td>
+      <td>16.2</td>
+      <td>-5.4</td>
+      <td>24.4</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>ANGX</td>
+      <td>4.22</td>
+      <td>6.13</td>
+      <td>90.7</td>
+      <td>14.7</td>
+      <td>0.8</td>
+      <td>5.2</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>ZBIO</td>
+      <td>31.99</td>
+      <td>6.21</td>
+      <td>103.7</td>
+      <td>10.0</td>
+      <td>0.6</td>
+      <td>21.7</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>NUVB</td>
+      <td>6.60</td>
+      <td>6.24</td>
+      <td>67.0</td>
+      <td>11.6</td>
+      <td>2.2</td>
+      <td>38.1</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>JACK</td>
+      <td>17.84</td>
+      <td>6.30</td>
+      <td>77.0</td>
+      <td>25.6</td>
+      <td>4.4</td>
+      <td>11.8</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>TRVI</td>
+      <td>17.80</td>
+      <td>6.64</td>
+      <td>47.1</td>
+      <td>12.3</td>
+      <td>-2.9</td>
+      <td>40.5</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>GSHD</td>
+      <td>64.55</td>
+      <td>6.94</td>
+      <td>110.5</td>
+      <td>24.6</td>
+      <td>-2.6</td>
+      <td>36.6</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>MGRT</td>
+      <td>94.50</td>
+      <td>7.16</td>
+      <td>74.5</td>
+      <td>12.2</td>
+      <td>-1.2</td>
+      <td>1.8</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>RZLT</td>
+      <td>4.68</td>
+      <td>7.27</td>
+      <td>90.6</td>
+      <td>15.1</td>
+      <td>-2.2</td>
+      <td>5.9</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>PRLD</td>
+      <td>4.83</td>
+      <td>7.31</td>
+      <td>51.5</td>
+      <td>26.8</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>ALMR</td>
+      <td>27.99</td>
+      <td>7.37</td>
+      <td>55.4</td>
+      <td>20.4</td>
+      <td>5.0</td>
+      <td>5.7</td>
+      <td>n/a</td>
+    </tr>
+    <tr>
+      <td>DMRA</td>
+      <td>29.54</td>
+      <td>7.47</td>
+      <td>70.9</td>
+      <td>11.4</td>
+      <td>0.2</td>
+      <td>13.2</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>ROLR</td>
+      <td>6.67</td>
+      <td>7.50</td>
+      <td>49.4</td>
+      <td>24.9</td>
+      <td>8.9</td>
+      <td>0.4</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>MSLE</td>
+      <td>10.01</td>
+      <td>7.52</td>
+      <td>96.7</td>
+      <td>12.8</td>
+      <td>1.7</td>
+      <td>0.5</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>ATEX</td>
+      <td>92.79</td>
+      <td>7.54</td>
+      <td>100.1</td>
+      <td>20.0</td>
+      <td>-3.3</td>
+      <td>31.5</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>OTLY</td>
+      <td>13.12</td>
+      <td>7.70</td>
+      <td>96.9</td>
+      <td>21.9</td>
+      <td>-9.2</td>
+      <td>2.9</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>PVLA</td>
+      <td>152.22</td>
+      <td>7.75</td>
+      <td>60.5</td>
+      <td>15.7</td>
+      <td>2.3</td>
+      <td>29.9</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>XNCR</td>
+      <td>21.58</td>
+      <td>7.96</td>
+      <td>111.7</td>
+      <td>13.8</td>
+      <td>6.4</td>
+      <td>21.7</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>NVEC</td>
+      <td>118.36</td>
+      <td>8.13</td>
+      <td>67.7</td>
+      <td>20.2</td>
+      <td>-2.3</td>
+      <td>29.8</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>RELL</td>
+      <td>19.89</td>
+      <td>8.57</td>
+      <td>54.3</td>
+      <td>24.0</td>
+      <td>1.9</td>
+      <td>7.6</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>STTK</td>
+      <td>7.14</td>
+      <td>8.60</td>
+      <td>138.4</td>
+      <td>17.4</td>
+      <td>-0.8</td>
+      <td>8.8</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>AERT</td>
+      <td>7.06</td>
+      <td>8.67</td>
+      <td>81.4</td>
+      <td>16.0</td>
+      <td>7.3</td>
+      <td>0.1</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>ARTV</td>
+      <td>11.22</td>
+      <td>9.38</td>
+      <td>83.0</td>
+      <td>19.8</td>
+      <td>3.3</td>
+      <td>4.0</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td>FIRY</td>
+      <td>10.48</td>
+      <td>9.44</td>
+      <td>142.2</td>
+      <td>43.3</td>
+      <td>6.6</td>
+      <td>12.4</td>
       <td>yes</td>
     </tr>
   </tbody>
