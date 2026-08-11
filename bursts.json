@@ -1,16 +1,64 @@
 {
- "generated_utc": "2026-08-11T15:14:57.762879+00:00",
- "session_fraction": 0.262,
+ "generated_utc": "2026-08-11T17:13:06.256974+00:00",
+ "session_fraction": 0.565,
  "results": [
   {
    "symbol": "GLBS",
    "exchange": "NASDAQ",
    "status": "EARLY",
    "y_pct": 6.27,
-   "today_pct": 7.37,
-   "price": 3.64,
-   "proj_vol": 7540,
+   "today_pct": 7.08,
+   "price": 3.63,
+   "proj_vol": 6330,
    "y_volume": 657419,
+   "vol_ok": false,
+   "rng_ok": true
+  },
+  {
+   "symbol": "CCB",
+   "exchange": "NASDAQ",
+   "status": "EARLY",
+   "y_pct": 7.21,
+   "today_pct": 6.92,
+   "price": 51.975,
+   "proj_vol": 23978,
+   "y_volume": 525682,
+   "vol_ok": false,
+   "rng_ok": true
+  },
+  {
+   "symbol": "EROK",
+   "exchange": "NYSE",
+   "status": "EARLY",
+   "y_pct": 5.88,
+   "today_pct": 5.84,
+   "price": 25.74,
+   "proj_vol": 19990,
+   "y_volume": 185186,
+   "vol_ok": false,
+   "rng_ok": true
+  },
+  {
+   "symbol": "PBF",
+   "exchange": "NYSE",
+   "status": "EARLY",
+   "y_pct": 7.42,
+   "today_pct": 4.72,
+   "price": 69.42,
+   "proj_vol": 261051,
+   "y_volume": 3986805,
+   "vol_ok": false,
+   "rng_ok": true
+  },
+  {
+   "symbol": "NSLR",
+   "exchange": "NASDAQ",
+   "status": "EARLY",
+   "y_pct": 7.6,
+   "today_pct": 4.36,
+   "price": 10.78,
+   "proj_vol": 41721,
+   "y_volume": 684315,
    "vol_ok": false,
    "rng_ok": true
   },
@@ -19,24 +67,12 @@
    "exchange": "NASDAQ",
    "status": "EARLY",
    "y_pct": 4.95,
-   "today_pct": 5.86,
-   "price": 6.955,
-   "proj_vol": 129319,
+   "today_pct": 4.19,
+   "price": 6.845,
+   "proj_vol": 124867,
    "y_volume": 1083685,
    "vol_ok": false,
-   "rng_ok": true
-  },
-  {
-   "symbol": "SMMT",
-   "exchange": "NASDAQ",
-   "status": "EARLY",
-   "y_pct": 6.52,
-   "today_pct": 5.01,
-   "price": 15.615,
-   "proj_vol": 274153,
-   "y_volume": 3372519,
-   "vol_ok": false,
-   "rng_ok": true
+   "rng_ok": false
   }
  ]
 }
