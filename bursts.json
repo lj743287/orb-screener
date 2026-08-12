@@ -1,42 +1,66 @@
 {
- "generated_utc": "2026-08-12T15:12:41.222824+00:00",
- "session_fraction": 0.259,
+ "generated_utc": "2026-08-12T16:12:49.693289+00:00",
+ "session_fraction": 0.413,
  "results": [
   {
-   "symbol": "EROC",
+   "symbol": "QMCO",
+   "exchange": "NASDAQ",
+   "status": "EARLY",
+   "y_pct": 64.63,
+   "today_pct": 10.73,
+   "price": 21.475,
+   "proj_vol": 207425,
+   "y_volume": 16107650,
+   "vol_ok": false,
+   "rng_ok": true
+  },
+  {
+   "symbol": "FORM",
+   "exchange": "NASDAQ",
+   "status": "EARLY",
+   "y_pct": 7.65,
+   "today_pct": 6.5,
+   "price": 128.94,
+   "proj_vol": 55079,
+   "y_volume": 1231866,
+   "vol_ok": false,
+   "rng_ok": true
+  },
+  {
+   "symbol": "ACB",
+   "exchange": "NASDAQ",
+   "status": "EARLY",
+   "y_pct": 20.59,
+   "today_pct": 6.31,
+   "price": 3.705,
+   "proj_vol": 416744,
+   "y_volume": 6369480,
+   "vol_ok": false,
+   "rng_ok": true
+  },
+  {
+   "symbol": "RUM",
+   "exchange": "NASDAQ",
+   "status": "EARLY",
+   "y_pct": 11.36,
+   "today_pct": 4.04,
+   "price": 7.195,
+   "proj_vol": 294058,
+   "y_volume": 6350974,
+   "vol_ok": false,
+   "rng_ok": false
+  },
+  {
+   "symbol": "VRT",
    "exchange": "NYSE",
    "status": "EARLY",
-   "y_pct": 7.04,
-   "today_pct": 24.44,
-   "price": 14.0,
-   "proj_vol": 894482,
-   "y_volume": 3034434,
+   "y_pct": 4.34,
+   "today_pct": 4.01,
+   "price": 293.12,
+   "proj_vol": 248895,
+   "y_volume": 3677051,
    "vol_ok": false,
-   "rng_ok": true
-  },
-  {
-   "symbol": "NBIS",
-   "exchange": "NASDAQ",
-   "status": "EARLY",
-   "y_pct": 4.95,
-   "today_pct": 22.13,
-   "price": 235.995,
-   "proj_vol": 2210026,
-   "y_volume": 19739205,
-   "vol_ok": false,
-   "rng_ok": true
-  },
-  {
-   "symbol": "OCUL",
-   "exchange": "NASDAQ",
-   "status": "EARLY",
-   "y_pct": 5.68,
-   "today_pct": 6.09,
-   "price": 10.36,
-   "proj_vol": 304470,
-   "y_volume": 1860845,
-   "vol_ok": false,
-   "rng_ok": true
+   "rng_ok": false
   }
  ]
 }

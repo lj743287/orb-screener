@@ -1,9 +1,9 @@
 {
   "scan_id": "burst_check",
   "label": "Second burst",
-  "generated_utc": "2026-08-12T15:12:41Z",
+  "generated_utc": "2026-08-12T16:12:49Z",
   "status": "ok",
-  "count": 3,
+  "count": 5,
   "columns": [
     "status",
     "today_pct",
@@ -16,52 +16,80 @@
   "meta": {
     "sort": "FULL first, then biggest move",
     "watching": 98,
-    "session_elapsed": "26%",
+    "session_elapsed": "41%",
     "full": 0,
-    "early": 3,
+    "early": 5,
     "burst_date": "2026-08-11"
   },
   "rows": [
     {
-      "symbol": "EROC",
+      "symbol": "QMCO",
+      "exchange": "NASDAQ",
+      "close": 21.475,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 10.73,
+        "y_pct": 64.63,
+        "proj_volM": 0.21,
+        "burst_volM": 16.11,
+        "volume_ok": "no",
+        "range_ok": "yes"
+      }
+    },
+    {
+      "symbol": "FORM",
+      "exchange": "NASDAQ",
+      "close": 128.94,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 6.5,
+        "y_pct": 7.65,
+        "proj_volM": 0.06,
+        "burst_volM": 1.23,
+        "volume_ok": "no",
+        "range_ok": "yes"
+      }
+    },
+    {
+      "symbol": "ACB",
+      "exchange": "NASDAQ",
+      "close": 3.705,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 6.31,
+        "y_pct": 20.59,
+        "proj_volM": 0.42,
+        "burst_volM": 6.37,
+        "volume_ok": "no",
+        "range_ok": "yes"
+      }
+    },
+    {
+      "symbol": "RUM",
+      "exchange": "NASDAQ",
+      "close": 7.195,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 4.04,
+        "y_pct": 11.36,
+        "proj_volM": 0.29,
+        "burst_volM": 6.35,
+        "volume_ok": "no",
+        "range_ok": "no"
+      }
+    },
+    {
+      "symbol": "VRT",
       "exchange": "NYSE",
-      "close": 14.0,
+      "close": 293.12,
       "extra": {
         "status": "EARLY",
-        "today_pct": 24.44,
-        "y_pct": 7.04,
-        "proj_volM": 0.89,
-        "burst_volM": 3.03,
+        "today_pct": 4.01,
+        "y_pct": 4.34,
+        "proj_volM": 0.25,
+        "burst_volM": 3.68,
         "volume_ok": "no",
-        "range_ok": "yes"
-      }
-    },
-    {
-      "symbol": "NBIS",
-      "exchange": "NASDAQ",
-      "close": 235.995,
-      "extra": {
-        "status": "EARLY",
-        "today_pct": 22.13,
-        "y_pct": 4.95,
-        "proj_volM": 2.21,
-        "burst_volM": 19.74,
-        "volume_ok": "no",
-        "range_ok": "yes"
-      }
-    },
-    {
-      "symbol": "OCUL",
-      "exchange": "NASDAQ",
-      "close": 10.36,
-      "extra": {
-        "status": "EARLY",
-        "today_pct": 6.09,
-        "y_pct": 5.68,
-        "proj_volM": 0.3,
-        "burst_volM": 1.86,
-        "volume_ok": "no",
-        "range_ok": "yes"
+        "range_ok": "no"
       }
     }
   ]
