@@ -1,9 +1,9 @@
 {
   "scan_id": "burst_check",
   "label": "Second burst",
-  "generated_utc": "2026-08-12T18:06:45Z",
+  "generated_utc": "2026-08-12T19:20:21Z",
   "status": "ok",
-  "count": 4,
+  "count": 14,
   "columns": [
     "status",
     "today_pct",
@@ -16,21 +16,21 @@
   "meta": {
     "sort": "FULL first, then biggest move",
     "watching": 98,
-    "session_elapsed": "71%",
+    "session_elapsed": "89%",
     "full": 0,
-    "early": 4,
+    "early": 14,
     "burst_date": "2026-08-11"
   },
   "rows": [
     {
       "symbol": "NBIS",
       "exchange": "NASDAQ",
-      "close": 248.52,
+      "close": 249.71,
       "extra": {
         "status": "EARLY",
-        "today_pct": 28.61,
+        "today_pct": 29.23,
         "y_pct": 4.95,
-        "proj_volM": 2.27,
+        "proj_volM": 2.05,
         "burst_volM": 19.74,
         "volume_ok": "no",
         "range_ok": "yes"
@@ -39,13 +39,83 @@
     {
       "symbol": "EROC",
       "exchange": "NYSE",
-      "close": 13.835,
+      "close": 13.8,
       "extra": {
         "status": "EARLY",
-        "today_pct": 22.98,
+        "today_pct": 22.67,
         "y_pct": 7.04,
-        "proj_volM": 0.54,
+        "proj_volM": 0.47,
         "burst_volM": 3.03,
+        "volume_ok": "no",
+        "range_ok": "no"
+      }
+    },
+    {
+      "symbol": "QMCO",
+      "exchange": "NASDAQ",
+      "close": 21.87,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 12.77,
+        "y_pct": 64.63,
+        "proj_volM": 0.16,
+        "burst_volM": 16.11,
+        "volume_ok": "no",
+        "range_ok": "yes"
+      }
+    },
+    {
+      "symbol": "RUM",
+      "exchange": "NASDAQ",
+      "close": 7.605,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 9.97,
+        "y_pct": 11.36,
+        "proj_volM": 0.24,
+        "burst_volM": 6.35,
+        "volume_ok": "no",
+        "range_ok": "yes"
+      }
+    },
+    {
+      "symbol": "CBLL",
+      "exchange": "NASDAQ",
+      "close": 23.32,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 9.43,
+        "y_pct": 10.41,
+        "proj_volM": 0.04,
+        "burst_volM": 1.86,
+        "volume_ok": "no",
+        "range_ok": "yes"
+      }
+    },
+    {
+      "symbol": "ACB",
+      "exchange": "NASDAQ",
+      "close": 3.795,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 8.9,
+        "y_pct": 20.59,
+        "proj_volM": 0.28,
+        "burst_volM": 6.37,
+        "volume_ok": "no",
+        "range_ok": "yes"
+      }
+    },
+    {
+      "symbol": "AIAI",
+      "exchange": "NASDAQ",
+      "close": 5.9,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 8.86,
+        "y_pct": 29.67,
+        "proj_volM": 0.01,
+        "burst_volM": 0.28,
         "volume_ok": "no",
         "range_ok": "no"
       }
@@ -53,13 +123,41 @@
     {
       "symbol": "SECZ",
       "exchange": "NYSE",
-      "close": 8.03,
+      "close": 7.9,
       "extra": {
         "status": "EARLY",
-        "today_pct": 8.66,
+        "today_pct": 6.9,
         "y_pct": 6.79,
-        "proj_volM": 0.1,
+        "proj_volM": 0.09,
         "burst_volM": 1.16,
+        "volume_ok": "no",
+        "range_ok": "yes"
+      }
+    },
+    {
+      "symbol": "FORM",
+      "exchange": "NASDAQ",
+      "close": 129.29,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 6.79,
+        "y_pct": 7.65,
+        "proj_volM": 0.06,
+        "burst_volM": 1.23,
+        "volume_ok": "no",
+        "range_ok": "no"
+      }
+    },
+    {
+      "symbol": "IMUX",
+      "exchange": "NASDAQ",
+      "close": 16.44,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 6.2,
+        "y_pct": 9.79,
+        "proj_volM": 0.0,
+        "burst_volM": 0.17,
         "volume_ok": "no",
         "range_ok": "yes"
       }
@@ -67,13 +165,55 @@
     {
       "symbol": "OCUL",
       "exchange": "NASDAQ",
-      "close": 10.295,
+      "close": 10.24,
       "extra": {
         "status": "EARLY",
-        "today_pct": 5.43,
+        "today_pct": 4.86,
         "y_pct": 5.68,
-        "proj_volM": 0.23,
+        "proj_volM": 0.22,
         "burst_volM": 1.86,
+        "volume_ok": "no",
+        "range_ok": "yes"
+      }
+    },
+    {
+      "symbol": "IMRX",
+      "exchange": "NASDAQ",
+      "close": 5.03,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 4.79,
+        "y_pct": 5.96,
+        "proj_volM": 0.05,
+        "burst_volM": 1.06,
+        "volume_ok": "no",
+        "range_ok": "yes"
+      }
+    },
+    {
+      "symbol": "NEOV",
+      "exchange": "NASDAQ",
+      "close": 3.375,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 4.49,
+        "y_pct": 16.19,
+        "proj_volM": 0.12,
+        "burst_volM": 4.6,
+        "volume_ok": "no",
+        "range_ok": "yes"
+      }
+    },
+    {
+      "symbol": "DXYZ",
+      "exchange": "NYSE",
+      "close": 30.83,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 4.09,
+        "y_pct": 11.65,
+        "proj_volM": 0.1,
+        "burst_volM": 1.31,
         "volume_ok": "no",
         "range_ok": "yes"
       }
