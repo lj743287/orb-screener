@@ -74,7 +74,7 @@ SCAN_LABEL = "ORB Continuation"
 
 P = dict(
     ADR_MIN=3.5,
-    ADR_MAX=10.0,
+    ADR_MAX=7.5,
     RUNUP_MIN=40.0,
     RUNUP_MAX=1000.0,
     PRICE_MIN=3.0,
