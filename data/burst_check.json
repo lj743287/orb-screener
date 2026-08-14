@@ -1,9 +1,9 @@
 {
   "scan_id": "burst_check",
   "label": "Second burst",
-  "generated_utc": "2026-08-14T18:04:39Z",
+  "generated_utc": "2026-08-14T19:11:39Z",
   "status": "ok",
-  "count": 3,
+  "count": 2,
   "columns": [
     "status",
     "today_pct",
@@ -16,21 +16,21 @@
   "meta": {
     "sort": "FULL first, then biggest move",
     "watching": 155,
-    "session_elapsed": "70%",
+    "session_elapsed": "87%",
     "full": 0,
-    "early": 3,
+    "early": 2,
     "burst_date": "2026-08-13"
   },
   "rows": [
     {
       "symbol": "NMAX",
       "exchange": "NYSE",
-      "close": 11.245,
+      "close": 11.09,
       "extra": {
         "status": "EARLY",
-        "today_pct": 18.49,
+        "today_pct": 16.86,
         "y_pct": 7.11,
-        "proj_volM": 0.41,
+        "proj_volM": 0.37,
         "burst_volM": 1.54,
         "volume_ok": "no",
         "range_ok": "yes"
@@ -39,29 +39,15 @@
     {
       "symbol": "SKM",
       "exchange": "NYSE",
-      "close": 38.58,
+      "close": 38.645,
       "extra": {
         "status": "EARLY",
-        "today_pct": 5.09,
+        "today_pct": 5.27,
         "y_pct": 4.74,
-        "proj_volM": 0.12,
+        "proj_volM": 0.11,
         "burst_volM": 1.55,
         "volume_ok": "no",
         "range_ok": "no"
-      }
-    },
-    {
-      "symbol": "ABCL",
-      "exchange": "NASDAQ",
-      "close": 11.425,
-      "extra": {
-        "status": "EARLY",
-        "today_pct": 4.01,
-        "y_pct": 6.08,
-        "proj_volM": 0.95,
-        "burst_volM": 18.61,
-        "volume_ok": "no",
-        "range_ok": "yes"
       }
     }
   ]

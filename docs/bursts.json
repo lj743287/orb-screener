@@ -1,15 +1,15 @@
 {
- "generated_utc": "2026-08-14T18:04:39.277396+00:00",
- "session_fraction": 0.697,
+ "generated_utc": "2026-08-14T19:11:39.944019+00:00",
+ "session_fraction": 0.869,
  "results": [
   {
    "symbol": "NMAX",
    "exchange": "NYSE",
    "status": "EARLY",
    "y_pct": 7.11,
-   "today_pct": 18.49,
-   "price": 11.245,
-   "proj_vol": 408456,
+   "today_pct": 16.86,
+   "price": 11.09,
+   "proj_vol": 371681,
    "y_volume": 1543606,
    "vol_ok": false,
    "rng_ok": true
@@ -19,24 +19,12 @@
    "exchange": "NYSE",
    "status": "EARLY",
    "y_pct": 4.74,
-   "today_pct": 5.09,
-   "price": 38.58,
-   "proj_vol": 123761,
+   "today_pct": 5.27,
+   "price": 38.645,
+   "proj_vol": 112260,
    "y_volume": 1548705,
    "vol_ok": false,
    "rng_ok": false
-  },
-  {
-   "symbol": "ABCL",
-   "exchange": "NASDAQ",
-   "status": "EARLY",
-   "y_pct": 6.08,
-   "today_pct": 4.01,
-   "price": 11.425,
-   "proj_vol": 950207,
-   "y_volume": 18609624,
-   "vol_ok": false,
-   "rng_ok": true
   }
  ]
 }
