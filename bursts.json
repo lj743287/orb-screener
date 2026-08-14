@@ -1,27 +1,15 @@
 {
- "generated_utc": "2026-08-14T14:40:29.919137+00:00",
- "session_fraction": 0.174,
+ "generated_utc": "2026-08-14T15:06:53.282092+00:00",
+ "session_fraction": 0.242,
  "results": [
-  {
-   "symbol": "NMAX",
-   "exchange": "NYSE",
-   "status": "EARLY",
-   "y_pct": 7.11,
-   "today_pct": 17.28,
-   "price": 11.13,
-   "proj_vol": 550653,
-   "y_volume": 1543606,
-   "vol_ok": false,
-   "rng_ok": true
-  },
   {
    "symbol": "SKM",
    "exchange": "NYSE",
    "status": "EARLY",
    "y_pct": 4.74,
-   "today_pct": 6.74,
-   "price": 39.185,
-   "proj_vol": 191260,
+   "today_pct": 6.37,
+   "price": 39.05,
+   "proj_vol": 182606,
    "y_volume": 1548705,
    "vol_ok": false,
    "rng_ok": false
