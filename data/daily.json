@@ -1,9 +1,9 @@
 {
   "scan_id": "daily",
   "label": "Daily Stock Scanner",
-  "generated_utc": "2026-08-13T02:00:36Z",
+  "generated_utc": "2026-08-14T02:01:24Z",
   "status": "ok",
-  "count": 35,
+  "count": 42,
   "columns": [
     "score",
     "runup_pct",
@@ -21,7 +21,7 @@
     {
       "symbol": "LCID",
       "exchange": "",
-      "close": 6.54,
+      "close": 6.44,
       "extra": {
         "score": 259,
         "runup_pct": 258.6,
@@ -30,20 +30,20 @@
       }
     },
     {
-      "symbol": "MX",
+      "symbol": "AMC",
       "exchange": "",
-      "close": 3.82,
+      "close": 2.63,
       "extra": {
-        "score": 145,
-        "runup_pct": 144.8,
-        "triangle_date": "2026-08-06",
-        "ema_touched": 20
+        "score": 89,
+        "runup_pct": 89.4,
+        "triangle_date": "2026-08-07",
+        "ema_touched": 10
       }
     },
     {
       "symbol": "RYOJ",
       "exchange": "",
-      "close": 4.85,
+      "close": 4.65,
       "extra": {
         "score": 80,
         "runup_pct": 79.9,
@@ -52,9 +52,20 @@
       }
     },
     {
+      "symbol": "NDLS",
+      "exchange": "",
+      "close": 16.84,
+      "extra": {
+        "score": 76,
+        "runup_pct": 76.3,
+        "triangle_date": "2026-08-12",
+        "ema_touched": 10
+      }
+    },
+    {
       "symbol": "OTLY",
       "exchange": "",
-      "close": 13.15,
+      "close": 13.83,
       "extra": {
         "score": 75,
         "runup_pct": 75.1,
@@ -63,42 +74,20 @@
       }
     },
     {
-      "symbol": "LAR",
+      "symbol": "ELTX",
       "exchange": "",
-      "close": 6.81,
+      "close": 3.15,
       "extra": {
-        "score": 72,
-        "runup_pct": 72.1,
-        "triangle_date": "2026-08-06",
-        "ema_touched": 20
-      }
-    },
-    {
-      "symbol": "ARL",
-      "exchange": "",
-      "close": 15.02,
-      "extra": {
-        "score": 67,
-        "runup_pct": 66.9,
-        "triangle_date": "2026-08-06",
-        "ema_touched": 10
-      }
-    },
-    {
-      "symbol": "NKTX",
-      "exchange": "",
-      "close": 2.39,
-      "extra": {
-        "score": 60,
-        "runup_pct": 60.3,
-        "triangle_date": "2026-08-06",
+        "score": 64,
+        "runup_pct": 64.2,
+        "triangle_date": "2026-08-12",
         "ema_touched": 10
       }
     },
     {
       "symbol": "PRME",
       "exchange": "",
-      "close": 3.2,
+      "close": 3.17,
       "extra": {
         "score": 60,
         "runup_pct": 59.8,
@@ -107,20 +96,20 @@
       }
     },
     {
-      "symbol": "NTLA",
+      "symbol": "ULCC",
       "exchange": "",
-      "close": 12.09,
+      "close": 6.82,
       "extra": {
-        "score": 56,
-        "runup_pct": 56.5,
-        "triangle_date": "2026-08-06",
-        "ema_touched": 10
+        "score": 54,
+        "runup_pct": 54.2,
+        "triangle_date": "2026-08-12",
+        "ema_touched": 20
       }
     },
     {
       "symbol": "SEAT",
       "exchange": "",
-      "close": 7.26,
+      "close": 7.16,
       "extra": {
         "score": 53,
         "runup_pct": 53.2,
@@ -129,20 +118,9 @@
       }
     },
     {
-      "symbol": "UMC",
-      "exchange": "",
-      "close": 19.31,
-      "extra": {
-        "score": 51,
-        "runup_pct": 51.2,
-        "triangle_date": "2026-08-06",
-        "ema_touched": 10
-      }
-    },
-    {
       "symbol": "VICR",
       "exchange": "",
-      "close": 226.12,
+      "close": 226.64,
       "extra": {
         "score": 48,
         "runup_pct": 47.8,
@@ -151,20 +129,42 @@
       }
     },
     {
-      "symbol": "DINO",
+      "symbol": "GSHD",
       "exchange": "",
-      "close": 87.93,
+      "close": 67.4,
       "extra": {
         "score": 47,
-        "runup_pct": 46.8,
-        "triangle_date": "2026-08-06",
-        "ema_touched": 20
+        "runup_pct": 47.1,
+        "triangle_date": "2026-08-12",
+        "ema_touched": 10
+      }
+    },
+    {
+      "symbol": "MAX",
+      "exchange": "",
+      "close": 13.27,
+      "extra": {
+        "score": 47,
+        "runup_pct": 47.4,
+        "triangle_date": "2026-08-11",
+        "ema_touched": 10
+      }
+    },
+    {
+      "symbol": "WW",
+      "exchange": "",
+      "close": 14.45,
+      "extra": {
+        "score": 44,
+        "runup_pct": 44.3,
+        "triangle_date": "2026-08-12",
+        "ema_touched": 10
       }
     },
     {
       "symbol": "ETON",
       "exchange": "",
-      "close": 41.58,
+      "close": 40.8,
       "extra": {
         "score": 43,
         "runup_pct": 43.4,
@@ -175,7 +175,7 @@
     {
       "symbol": "FIG",
       "exchange": "",
-      "close": 23.75,
+      "close": 26.34,
       "extra": {
         "score": 43,
         "runup_pct": 43.1,
@@ -184,31 +184,9 @@
       }
     },
     {
-      "symbol": "MU",
-      "exchange": "",
-      "close": 911.29,
-      "extra": {
-        "score": 42,
-        "runup_pct": 42.0,
-        "triangle_date": "2026-08-06",
-        "ema_touched": 20
-      }
-    },
-    {
-      "symbol": "NVCR",
-      "exchange": "",
-      "close": 17.59,
-      "extra": {
-        "score": 40,
-        "runup_pct": 40.1,
-        "triangle_date": "2026-08-06",
-        "ema_touched": 10
-      }
-    },
-    {
       "symbol": "GENI",
       "exchange": "",
-      "close": 7.65,
+      "close": 7.91,
       "extra": {
         "score": 39,
         "runup_pct": 39.3,
@@ -219,7 +197,7 @@
     {
       "symbol": "PAMT",
       "exchange": "",
-      "close": 13.32,
+      "close": 13.61,
       "extra": {
         "score": 39,
         "runup_pct": 39.0,
@@ -230,7 +208,7 @@
     {
       "symbol": "PTSI",
       "exchange": "",
-      "close": 13.44,
+      "close": 13.61,
       "extra": {
         "score": 39,
         "runup_pct": 39.1,
@@ -241,7 +219,7 @@
     {
       "symbol": "MBX",
       "exchange": "",
-      "close": 66.97,
+      "close": 67.08,
       "extra": {
         "score": 38,
         "runup_pct": 38.3,
@@ -250,9 +228,20 @@
       }
     },
     {
+      "symbol": "MNDY",
+      "exchange": "",
+      "close": 94.29,
+      "extra": {
+        "score": 38,
+        "runup_pct": 38.1,
+        "triangle_date": "2026-08-12",
+        "ema_touched": 20
+      }
+    },
+    {
       "symbol": "TMCI",
       "exchange": "",
-      "close": 4.75,
+      "close": 4.51,
       "extra": {
         "score": 38,
         "runup_pct": 38.4,
@@ -261,31 +250,64 @@
       }
     },
     {
-      "symbol": "ACMR",
+      "symbol": "CNK",
       "exchange": "",
-      "close": 81.26,
+      "close": 37.66,
       "extra": {
         "score": 37,
-        "runup_pct": 36.6,
-        "triangle_date": "2026-08-06",
+        "runup_pct": 36.8,
+        "triangle_date": "2026-08-12",
         "ema_touched": 10
       }
     },
     {
-      "symbol": "LAD",
+      "symbol": "ROCK",
       "exchange": "",
-      "close": 378.55,
+      "close": 48.93,
+      "extra": {
+        "score": 37,
+        "runup_pct": 37.0,
+        "triangle_date": "2026-08-12",
+        "ema_touched": 10
+      }
+    },
+    {
+      "symbol": "TNET",
+      "exchange": "",
+      "close": 70.11,
+      "extra": {
+        "score": 37,
+        "runup_pct": 37.4,
+        "triangle_date": "2026-08-10",
+        "ema_touched": 10
+      }
+    },
+    {
+      "symbol": "IRTC",
+      "exchange": "",
+      "close": 123.16,
       "extra": {
         "score": 36,
-        "runup_pct": 35.9,
-        "triangle_date": "2026-08-06",
+        "runup_pct": 35.5,
+        "triangle_date": "2026-08-12",
+        "ema_touched": 10
+      }
+    },
+    {
+      "symbol": "QUAD",
+      "exchange": "",
+      "close": 9.81,
+      "extra": {
+        "score": 36,
+        "runup_pct": 36.0,
+        "triangle_date": "2026-08-12",
         "ema_touched": 10
       }
     },
     {
       "symbol": "EQNR",
       "exchange": "",
-      "close": 40.99,
+      "close": 40.54,
       "extra": {
         "score": 35,
         "runup_pct": 35.0,
@@ -294,9 +316,42 @@
       }
     },
     {
+      "symbol": "KLC",
+      "exchange": "",
+      "close": 4.83,
+      "extra": {
+        "score": 35,
+        "runup_pct": 35.0,
+        "triangle_date": "2026-08-07",
+        "ema_touched": 10
+      }
+    },
+    {
+      "symbol": "RCKY",
+      "exchange": "",
+      "close": 47.12,
+      "extra": {
+        "score": 35,
+        "runup_pct": 34.9,
+        "triangle_date": "2026-08-12",
+        "ema_touched": 10
+      }
+    },
+    {
+      "symbol": "ARLO",
+      "exchange": "",
+      "close": 14.35,
+      "extra": {
+        "score": 34,
+        "runup_pct": 34.2,
+        "triangle_date": "2026-08-11",
+        "ema_touched": 10
+      }
+    },
+    {
       "symbol": "COTY",
       "exchange": "",
-      "close": 2.76,
+      "close": 2.75,
       "extra": {
         "score": 34,
         "runup_pct": 34.1,
@@ -307,7 +362,7 @@
     {
       "symbol": "EPAM",
       "exchange": "",
-      "close": 100.29,
+      "close": 101.55,
       "extra": {
         "score": 34,
         "runup_pct": 34.5,
@@ -316,53 +371,20 @@
       }
     },
     {
-      "symbol": "TRI",
+      "symbol": "HUBS",
       "exchange": "",
-      "close": 102.61,
+      "close": 240.51,
       "extra": {
         "score": 34,
         "runup_pct": 34.1,
-        "triangle_date": "2026-08-06",
-        "ema_touched": 10
+        "triangle_date": "2026-08-12",
+        "ema_touched": 50
       }
     },
     {
-      "symbol": "ACU",
+      "symbol": "DRQ",
       "exchange": "",
-      "close": 59.59,
-      "extra": {
-        "score": 33,
-        "runup_pct": 32.6,
-        "triangle_date": "2026-08-06",
-        "ema_touched": 10
-      }
-    },
-    {
-      "symbol": "GRPN",
-      "exchange": "",
-      "close": 22.15,
-      "extra": {
-        "score": 32,
-        "runup_pct": 32.2,
-        "triangle_date": "2026-08-07",
-        "ema_touched": 10
-      }
-    },
-    {
-      "symbol": "HYLN",
-      "exchange": "",
-      "close": 3.89,
-      "extra": {
-        "score": 32,
-        "runup_pct": 32.2,
-        "triangle_date": "2026-08-06",
-        "ema_touched": 20
-      }
-    },
-    {
-      "symbol": "INVX",
-      "exchange": "",
-      "close": 30.39,
+      "close": 30.78,
       "extra": {
         "score": 32,
         "runup_pct": 31.7,
@@ -371,9 +393,42 @@
       }
     },
     {
+      "symbol": "GRPN",
+      "exchange": "",
+      "close": 21.98,
+      "extra": {
+        "score": 32,
+        "runup_pct": 32.2,
+        "triangle_date": "2026-08-07",
+        "ema_touched": 10
+      }
+    },
+    {
+      "symbol": "INVX",
+      "exchange": "",
+      "close": 30.78,
+      "extra": {
+        "score": 32,
+        "runup_pct": 31.7,
+        "triangle_date": "2026-08-11",
+        "ema_touched": 10
+      }
+    },
+    {
+      "symbol": "WRBY",
+      "exchange": "",
+      "close": 25.88,
+      "extra": {
+        "score": 32,
+        "runup_pct": 31.6,
+        "triangle_date": "2026-08-10",
+        "ema_touched": 50
+      }
+    },
+    {
       "symbol": "DXC",
       "exchange": "",
-      "close": 10.68,
+      "close": 11.2,
       "extra": {
         "score": 31,
         "runup_pct": 30.9,
@@ -384,7 +439,7 @@
     {
       "symbol": "ELWT",
       "exchange": "",
-      "close": 8.38,
+      "close": 8.1,
       "extra": {
         "score": 31,
         "runup_pct": 31.4,
@@ -393,13 +448,35 @@
       }
     },
     {
+      "symbol": "EVCM",
+      "exchange": "",
+      "close": 10.11,
+      "extra": {
+        "score": 31,
+        "runup_pct": 30.9,
+        "triangle_date": "2026-08-10",
+        "ema_touched": 50
+      }
+    },
+    {
       "symbol": "ACRS",
       "exchange": "",
-      "close": 5.84,
+      "close": 5.86,
       "extra": {
         "score": 30,
         "runup_pct": 30.0,
         "triangle_date": "2026-08-11",
+        "ema_touched": 10
+      }
+    },
+    {
+      "symbol": "CNSP",
+      "exchange": "",
+      "close": 5.15,
+      "extra": {
+        "score": 30,
+        "runup_pct": 30.2,
+        "triangle_date": "2026-08-07",
         "ema_touched": 10
       }
     }
