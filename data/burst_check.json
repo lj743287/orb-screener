@@ -1,9 +1,9 @@
 {
   "scan_id": "burst_check",
   "label": "Second burst",
-  "generated_utc": "2026-08-14T15:06:53Z",
+  "generated_utc": "2026-08-14T16:05:34Z",
   "status": "ok",
-  "count": 1,
+  "count": 2,
   "columns": [
     "status",
     "today_pct",
@@ -16,21 +16,35 @@
   "meta": {
     "sort": "FULL first, then biggest move",
     "watching": 155,
-    "session_elapsed": "24%",
+    "session_elapsed": "39%",
     "full": 0,
-    "early": 1,
+    "early": 2,
     "burst_date": "2026-08-13"
   },
   "rows": [
     {
-      "symbol": "SKM",
+      "symbol": "NMAX",
       "exchange": "NYSE",
-      "close": 39.05,
+      "close": 10.975,
       "extra": {
         "status": "EARLY",
-        "today_pct": 6.37,
+        "today_pct": 15.65,
+        "y_pct": 7.11,
+        "proj_volM": 0.55,
+        "burst_volM": 1.54,
+        "volume_ok": "no",
+        "range_ok": "no"
+      }
+    },
+    {
+      "symbol": "SKM",
+      "exchange": "NYSE",
+      "close": 38.75,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 5.56,
         "y_pct": 4.74,
-        "proj_volM": 0.18,
+        "proj_volM": 0.15,
         "burst_volM": 1.55,
         "volume_ok": "no",
         "range_ok": "no"
