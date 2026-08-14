@@ -1,30 +1,42 @@
 {
- "generated_utc": "2026-08-14T16:05:34.815857+00:00",
- "session_fraction": 0.392,
+ "generated_utc": "2026-08-14T17:08:16.763466+00:00",
+ "session_fraction": 0.553,
  "results": [
   {
    "symbol": "NMAX",
    "exchange": "NYSE",
    "status": "EARLY",
    "y_pct": 7.11,
-   "today_pct": 15.65,
-   "price": 10.975,
-   "proj_vol": 546320,
+   "today_pct": 18.7,
+   "price": 11.265,
+   "proj_vol": 475881,
    "y_volume": 1543606,
    "vol_ok": false,
-   "rng_ok": false
+   "rng_ok": true
   },
   {
    "symbol": "SKM",
    "exchange": "NYSE",
    "status": "EARLY",
    "y_pct": 4.74,
-   "today_pct": 5.56,
-   "price": 38.75,
-   "proj_vol": 145782,
+   "today_pct": 5.09,
+   "price": 38.58,
+   "proj_vol": 118079,
    "y_volume": 1548705,
    "vol_ok": false,
    "rng_ok": false
+  },
+  {
+   "symbol": "GTN",
+   "exchange": "NYSE",
+   "status": "EARLY",
+   "y_pct": 4.34,
+   "today_pct": 4.36,
+   "price": 5.27,
+   "proj_vol": 52188,
+   "y_volume": 875459,
+   "vol_ok": false,
+   "rng_ok": true
   }
  ]
 }
