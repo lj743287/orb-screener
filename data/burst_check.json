@@ -1,9 +1,9 @@
 {
   "scan_id": "burst_check",
   "label": "Second burst",
-  "generated_utc": "2026-08-17T17:41:47Z",
+  "generated_utc": "2026-08-17T18:57:55Z",
   "status": "ok",
-  "count": 9,
+  "count": 10,
   "columns": [
     "status",
     "today_pct",
@@ -16,33 +16,19 @@
   "meta": {
     "sort": "FULL first, then biggest move",
     "watching": 97,
-    "session_elapsed": "64%",
+    "session_elapsed": "84%",
     "full": 0,
-    "early": 9,
+    "early": 10,
     "burst_date": "2026-08-14"
   },
   "rows": [
     {
-      "symbol": "NTHI",
-      "exchange": "NASDAQ",
-      "close": 4.845,
-      "extra": {
-        "status": "EARLY",
-        "today_pct": 14.81,
-        "y_pct": 31.46,
-        "proj_volM": 0.23,
-        "burst_volM": 0.64,
-        "volume_ok": "no",
-        "range_ok": "yes"
-      }
-    },
-    {
       "symbol": "RCMT",
       "exchange": "NASDAQ",
-      "close": 39.645,
+      "close": 40.56,
       "extra": {
         "status": "EARLY",
-        "today_pct": 13.11,
+        "today_pct": 15.72,
         "y_pct": 21.2,
         "proj_volM": 0.02,
         "burst_volM": 0.23,
@@ -51,15 +37,29 @@
       }
     },
     {
-      "symbol": "FDMT",
+      "symbol": "NTHI",
       "exchange": "NASDAQ",
-      "close": 13.735,
+      "close": 4.85,
       "extra": {
         "status": "EARLY",
-        "today_pct": 12.67,
-        "y_pct": 4.64,
-        "proj_volM": 0.24,
-        "burst_volM": 0.77,
+        "today_pct": 14.93,
+        "y_pct": 31.46,
+        "proj_volM": 0.21,
+        "burst_volM": 0.64,
+        "volume_ok": "no",
+        "range_ok": "yes"
+      }
+    },
+    {
+      "symbol": "KEEL",
+      "exchange": "NASDAQ",
+      "close": 3.825,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 8.97,
+        "y_pct": 6.04,
+        "proj_volM": 1.46,
+        "burst_volM": 41.1,
         "volume_ok": "no",
         "range_ok": "no"
       }
@@ -67,12 +67,12 @@
     {
       "symbol": "ALM",
       "exchange": "NASDAQ",
-      "close": 16.44,
+      "close": 16.235,
       "extra": {
         "status": "EARLY",
-        "today_pct": 8.95,
+        "today_pct": 7.59,
         "y_pct": 8.95,
-        "proj_volM": 12.51,
+        "proj_volM": 10.42,
         "burst_volM": 5.79,
         "volume_ok": "yes",
         "range_ok": "no"
@@ -81,13 +81,41 @@
     {
       "symbol": "FTH",
       "exchange": "NASDAQ",
-      "close": 35.25,
+      "close": 34.25,
       "extra": {
         "status": "EARLY",
-        "today_pct": 8.44,
+        "today_pct": 5.37,
         "y_pct": 13.85,
         "proj_volM": 0.02,
         "burst_volM": 0.36,
+        "volume_ok": "no",
+        "range_ok": "no"
+      }
+    },
+    {
+      "symbol": "DIOD",
+      "exchange": "NASDAQ",
+      "close": 108.96,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 5.3,
+        "y_pct": 6.47,
+        "proj_volM": 0.05,
+        "burst_volM": 2.2,
+        "volume_ok": "no",
+        "range_ok": "yes"
+      }
+    },
+    {
+      "symbol": "AEYE",
+      "exchange": "NASDAQ",
+      "close": 8.41,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 5.26,
+        "y_pct": 37.52,
+        "proj_volM": 0.01,
+        "burst_volM": 0.94,
         "volume_ok": "no",
         "range_ok": "yes"
       }
@@ -95,27 +123,27 @@
     {
       "symbol": "AAOI",
       "exchange": "NASDAQ",
-      "close": 160.76,
+      "close": 157.74,
       "extra": {
         "status": "EARLY",
-        "today_pct": 6.97,
+        "today_pct": 4.96,
         "y_pct": 15.54,
-        "proj_volM": 0.27,
+        "proj_volM": 0.24,
         "burst_volM": 17.22,
         "volume_ok": "no",
         "range_ok": "yes"
       }
     },
     {
-      "symbol": "MRAM",
+      "symbol": "ETON",
       "exchange": "NASDAQ",
-      "close": 19.895,
+      "close": 61.61,
       "extra": {
         "status": "EARLY",
-        "today_pct": 5.38,
-        "y_pct": 12.18,
-        "proj_volM": 0.07,
-        "burst_volM": 1.54,
+        "today_pct": 4.67,
+        "y_pct": 44.26,
+        "proj_volM": 0.06,
+        "burst_volM": 2.29,
         "volume_ok": "no",
         "range_ok": "yes"
       }
@@ -123,29 +151,15 @@
     {
       "symbol": "NNBR",
       "exchange": "NASDAQ",
-      "close": 4.09,
+      "close": 4.06,
       "extra": {
         "status": "EARLY",
-        "today_pct": 4.87,
+        "today_pct": 4.1,
         "y_pct": 8.03,
-        "proj_volM": 0.33,
+        "proj_volM": 0.31,
         "burst_volM": 6.84,
         "volume_ok": "no",
         "range_ok": "no"
-      }
-    },
-    {
-      "symbol": "PTEN",
-      "exchange": "NASDAQ",
-      "close": 11.875,
-      "extra": {
-        "status": "EARLY",
-        "today_pct": 4.44,
-        "y_pct": 4.31,
-        "proj_volM": 0.6,
-        "burst_volM": 5.97,
-        "volume_ok": "no",
-        "range_ok": "yes"
       }
     }
   ]
