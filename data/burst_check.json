@@ -1,9 +1,9 @@
 {
   "scan_id": "burst_check",
   "label": "Second burst",
-  "generated_utc": "2026-08-14T19:58:15Z",
+  "generated_utc": "2026-08-17T14:42:37Z",
   "status": "ok",
-  "count": 2,
+  "count": 12,
   "columns": [
     "status",
     "today_pct",
@@ -15,39 +15,179 @@
   ],
   "meta": {
     "sort": "FULL first, then biggest move",
-    "watching": 155,
-    "session_elapsed": "99%",
+    "watching": 97,
+    "session_elapsed": "18%",
     "full": 0,
-    "early": 2,
-    "burst_date": "2026-08-13"
+    "early": 12,
+    "burst_date": "2026-08-14"
   },
   "rows": [
     {
-      "symbol": "NMAX",
-      "exchange": "NYSE",
-      "close": 10.855,
+      "symbol": "FDMT",
+      "exchange": "NASDAQ",
+      "close": 14.1,
       "extra": {
         "status": "EARLY",
-        "today_pct": 14.38,
-        "y_pct": 7.11,
-        "proj_volM": 0.38,
-        "burst_volM": 1.54,
+        "today_pct": 15.67,
+        "y_pct": 4.64,
+        "proj_volM": 0.14,
+        "burst_volM": 0.77,
+        "volume_ok": "no",
+        "range_ok": "yes"
+      }
+    },
+    {
+      "symbol": "RCMT",
+      "exchange": "NASDAQ",
+      "close": 38.56,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 10.01,
+        "y_pct": 21.2,
+        "proj_volM": 0.06,
+        "burst_volM": 0.23,
+        "volume_ok": "no",
+        "range_ok": "yes"
+      }
+    },
+    {
+      "symbol": "ALM",
+      "exchange": "NASDAQ",
+      "close": 16.44,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 8.95,
+        "y_pct": 8.95,
+        "proj_volM": 26.44,
+        "burst_volM": 5.79,
+        "volume_ok": "yes",
+        "range_ok": "no"
+      }
+    },
+    {
+      "symbol": "INDI",
+      "exchange": "NASDAQ",
+      "close": 5.05,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 7.22,
+        "y_pct": 13.77,
+        "proj_volM": 1.88,
+        "burst_volM": 12.34,
+        "volume_ok": "no",
+        "range_ok": "yes"
+      }
+    },
+    {
+      "symbol": "OPHC",
+      "exchange": "AMEX",
+      "close": 10.5,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 7.03,
+        "y_pct": 6.86,
+        "proj_volM": 0.01,
+        "burst_volM": 0.17,
+        "volume_ok": "no",
+        "range_ok": "yes"
+      }
+    },
+    {
+      "symbol": "KEEL",
+      "exchange": "NASDAQ",
+      "close": 3.755,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 6.98,
+        "y_pct": 6.04,
+        "proj_volM": 2.79,
+        "burst_volM": 41.1,
         "volume_ok": "no",
         "range_ok": "no"
       }
     },
     {
-      "symbol": "SKM",
-      "exchange": "NYSE",
-      "close": 38.62,
+      "symbol": "FTH",
+      "exchange": "NASDAQ",
+      "close": 34.75,
       "extra": {
         "status": "EARLY",
-        "today_pct": 5.2,
-        "y_pct": 4.74,
-        "proj_volM": 0.13,
-        "burst_volM": 1.55,
+        "today_pct": 6.91,
+        "y_pct": 13.85,
+        "proj_volM": 0.03,
+        "burst_volM": 0.36,
+        "volume_ok": "no",
+        "range_ok": "yes"
+      }
+    },
+    {
+      "symbol": "WDC",
+      "exchange": "NASDAQ",
+      "close": 540.09,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 6.15,
+        "y_pct": 4.41,
+        "proj_volM": 0.82,
+        "burst_volM": 9.84,
+        "volume_ok": "no",
+        "range_ok": "yes"
+      }
+    },
+    {
+      "symbol": "SGMT",
+      "exchange": "NASDAQ",
+      "close": 11.03,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 4.55,
+        "y_pct": 13.69,
+        "proj_volM": 0.08,
+        "burst_volM": 2.65,
+        "volume_ok": "no",
+        "range_ok": "yes"
+      }
+    },
+    {
+      "symbol": "NNBR",
+      "exchange": "NASDAQ",
+      "close": 4.06,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 4.1,
+        "y_pct": 8.03,
+        "proj_volM": 0.5,
+        "burst_volM": 6.84,
         "volume_ok": "no",
         "range_ok": "no"
+      }
+    },
+    {
+      "symbol": "DIOD",
+      "exchange": "NASDAQ",
+      "close": 107.68,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 4.06,
+        "y_pct": 6.47,
+        "proj_volM": 0.05,
+        "burst_volM": 2.2,
+        "volume_ok": "no",
+        "range_ok": "yes"
+      }
+    },
+    {
+      "symbol": "ETON",
+      "exchange": "NASDAQ",
+      "close": 61.24,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 4.04,
+        "y_pct": 44.26,
+        "proj_volM": 0.13,
+        "burst_volM": 2.29,
+        "volume_ok": "no",
+        "range_ok": "yes"
       }
     }
   ]
