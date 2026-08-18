@@ -1,14 +1,14 @@
 {
   "scan_id": "burst_check",
   "label": "Second burst",
-  "generated_utc": "2026-08-18T15:44:28Z",
+  "generated_utc": "2026-08-18T16:46:23Z",
   "status": "empty",
   "count": 0,
   "columns": [],
   "meta": {
     "sort": "FULL first, then biggest move",
     "watching": 93,
-    "session_elapsed": "34%",
+    "session_elapsed": "50%",
     "full": 0,
     "early": 0,
     "burst_date": "2026-08-17"
