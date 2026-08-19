@@ -1,27 +1,27 @@
 {
- "generated_utc": "2026-08-19T16:44:28.058718+00:00",
- "session_fraction": 0.496,
+ "generated_utc": "2026-08-19T17:38:19.813970+00:00",
+ "session_fraction": 0.634,
  "results": [
   {
    "symbol": "ODTX",
    "exchange": "NASDAQ",
    "status": "EARLY",
    "y_pct": 5.23,
-   "today_pct": 10.43,
-   "price": 24.24,
-   "proj_vol": 9350,
+   "today_pct": 8.11,
+   "price": 23.73,
+   "proj_vol": 9362,
    "y_volume": 187960,
    "vol_ok": false,
-   "rng_ok": true
+   "rng_ok": false
   },
   {
    "symbol": "IMMX",
    "exchange": "NASDAQ",
    "status": "EARLY",
    "y_pct": 4.14,
-   "today_pct": 7.83,
-   "price": 12.735,
-   "proj_vol": 89100,
+   "today_pct": 7.87,
+   "price": 12.74,
+   "proj_vol": 78412,
    "y_volume": 1335879,
    "vol_ok": false,
    "rng_ok": false
@@ -31,9 +31,9 @@
    "exchange": "NASDAQ",
    "status": "EARLY",
    "y_pct": 4.36,
-   "today_pct": 4.91,
-   "price": 4.27,
-   "proj_vol": 220839,
+   "today_pct": 5.65,
+   "price": 4.3,
+   "proj_vol": 291335,
    "y_volume": 4540512,
    "vol_ok": false,
    "rng_ok": true
