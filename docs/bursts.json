@@ -1,15 +1,15 @@
 {
- "generated_utc": "2026-08-19T14:48:21.051614+00:00",
- "session_fraction": 0.199,
+ "generated_utc": "2026-08-19T15:43:04.949039+00:00",
+ "session_fraction": 0.339,
  "results": [
   {
    "symbol": "ODTX",
    "exchange": "NASDAQ",
    "status": "EARLY",
    "y_pct": 5.23,
-   "today_pct": 7.45,
-   "price": 23.585,
-   "proj_vol": 21435,
+   "today_pct": 8.15,
+   "price": 23.74,
+   "proj_vol": 13160,
    "y_volume": 187960,
    "vol_ok": false,
    "rng_ok": true
@@ -19,9 +19,9 @@
    "exchange": "NASDAQ",
    "status": "EARLY",
    "y_pct": 4.14,
-   "today_pct": 7.03,
-   "price": 12.64,
-   "proj_vol": 57983,
+   "today_pct": 6.27,
+   "price": 12.55,
+   "proj_vol": 117003,
    "y_volume": 1335879,
    "vol_ok": false,
    "rng_ok": false
@@ -31,34 +31,10 @@
    "exchange": "NASDAQ",
    "status": "EARLY",
    "y_pct": 4.22,
-   "today_pct": 4.6,
-   "price": 30.47,
-   "proj_vol": 72078,
+   "today_pct": 4.39,
+   "price": 30.41,
+   "proj_vol": 77375,
    "y_volume": 3112039,
-   "vol_ok": false,
-   "rng_ok": true
-  },
-  {
-   "symbol": "MNKD",
-   "exchange": "NASDAQ",
-   "status": "EARLY",
-   "y_pct": 4.36,
-   "today_pct": 4.3,
-   "price": 4.245,
-   "proj_vol": 300108,
-   "y_volume": 4540512,
-   "vol_ok": false,
-   "rng_ok": false
-  },
-  {
-   "symbol": "ULTA",
-   "exchange": "NASDAQ",
-   "status": "EARLY",
-   "y_pct": 4.75,
-   "today_pct": 4.11,
-   "price": 537.955,
-   "proj_vol": 65962,
-   "y_volume": 765197,
    "vol_ok": false,
    "rng_ok": true
   }
