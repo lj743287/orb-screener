@@ -1,9 +1,9 @@
 {
   "scan_id": "daily",
   "label": "Daily Stock Scanner",
-  "generated_utc": "2026-08-18T01:39:11Z",
+  "generated_utc": "2026-08-19T01:48:54Z",
   "status": "ok",
-  "count": 37,
+  "count": 39,
   "columns": [
     "score",
     "runup_pct",
@@ -19,20 +19,9 @@
   },
   "rows": [
     {
-      "symbol": "WFF",
-      "exchange": "",
-      "close": 2.02,
-      "extra": {
-        "score": 420,
-        "runup_pct": 419.8,
-        "triangle_date": "2026-08-11",
-        "ema_touched": 10
-      }
-    },
-    {
       "symbol": "PCLA",
       "exchange": "",
-      "close": 7.14,
+      "close": 6.4,
       "extra": {
         "score": 308,
         "runup_pct": 307.8,
@@ -41,9 +30,31 @@
       }
     },
     {
+      "symbol": "SAIH",
+      "exchange": "",
+      "close": 20.28,
+      "extra": {
+        "score": 103,
+        "runup_pct": 102.9,
+        "triangle_date": "2026-08-17",
+        "ema_touched": 10
+      }
+    },
+    {
+      "symbol": "IDAI",
+      "exchange": "",
+      "close": 2.49,
+      "extra": {
+        "score": 84,
+        "runup_pct": 84.0,
+        "triangle_date": "2026-08-13",
+        "ema_touched": 10
+      }
+    },
+    {
       "symbol": "NDLS",
       "exchange": "",
-      "close": 17.5,
+      "close": 16.29,
       "extra": {
         "score": 76,
         "runup_pct": 76.3,
@@ -54,7 +65,7 @@
     {
       "symbol": "CMCO",
       "exchange": "",
-      "close": 19.08,
+      "close": 17.8,
       "extra": {
         "score": 68,
         "runup_pct": 68.5,
@@ -65,7 +76,7 @@
     {
       "symbol": "ELTX",
       "exchange": "",
-      "close": 3.02,
+      "close": 3.11,
       "extra": {
         "score": 64,
         "runup_pct": 64.2,
@@ -76,7 +87,7 @@
     {
       "symbol": "NVEC",
       "exchange": "",
-      "close": 121.09,
+      "close": 114.78,
       "extra": {
         "score": 62,
         "runup_pct": 62.5,
@@ -87,7 +98,7 @@
     {
       "symbol": "FOSL",
       "exchange": "",
-      "close": 5.74,
+      "close": 5.5,
       "extra": {
         "score": 59,
         "runup_pct": 58.8,
@@ -98,7 +109,7 @@
     {
       "symbol": "ULCC",
       "exchange": "",
-      "close": 6.35,
+      "close": 6.15,
       "extra": {
         "score": 54,
         "runup_pct": 54.2,
@@ -109,7 +120,7 @@
     {
       "symbol": "PYXS",
       "exchange": "",
-      "close": 3.02,
+      "close": 2.99,
       "extra": {
         "score": 52,
         "runup_pct": 52.1,
@@ -118,9 +129,31 @@
       }
     },
     {
+      "symbol": "IT",
+      "exchange": "",
+      "close": 182.07,
+      "extra": {
+        "score": 51,
+        "runup_pct": 51.1,
+        "triangle_date": "2026-08-17",
+        "ema_touched": 10
+      }
+    },
+    {
+      "symbol": "XRX",
+      "exchange": "",
+      "close": 2.97,
+      "extra": {
+        "score": 51,
+        "runup_pct": 50.6,
+        "triangle_date": "2026-08-13",
+        "ema_touched": 10
+      }
+    },
+    {
       "symbol": "GSHD",
       "exchange": "",
-      "close": 64.4,
+      "close": 64.78,
       "extra": {
         "score": 47,
         "runup_pct": 47.1,
@@ -129,20 +162,9 @@
       }
     },
     {
-      "symbol": "MAX",
-      "exchange": "",
-      "close": 12.69,
-      "extra": {
-        "score": 47,
-        "runup_pct": 47.4,
-        "triangle_date": "2026-08-11",
-        "ema_touched": 10
-      }
-    },
-    {
       "symbol": "NNBR",
       "exchange": "",
-      "close": 4.11,
+      "close": 3.84,
       "extra": {
         "score": 47,
         "runup_pct": 46.9,
@@ -153,7 +175,7 @@
     {
       "symbol": "DSP",
       "exchange": "",
-      "close": 12.61,
+      "close": 12.91,
       "extra": {
         "score": 46,
         "runup_pct": 45.5,
@@ -164,7 +186,7 @@
     {
       "symbol": "VOR",
       "exchange": "",
-      "close": 23.01,
+      "close": 23.28,
       "extra": {
         "score": 46,
         "runup_pct": 46.0,
@@ -173,9 +195,31 @@
       }
     },
     {
+      "symbol": "KARO",
+      "exchange": "",
+      "close": 62.78,
+      "extra": {
+        "score": 45,
+        "runup_pct": 45.1,
+        "triangle_date": "2026-08-13",
+        "ema_touched": 20
+      }
+    },
+    {
+      "symbol": "SVV",
+      "exchange": "",
+      "close": 10.53,
+      "extra": {
+        "score": 45,
+        "runup_pct": 44.9,
+        "triangle_date": "2026-08-14",
+        "ema_touched": 10
+      }
+    },
+    {
       "symbol": "WW",
       "exchange": "",
-      "close": 13.58,
+      "close": 13.89,
       "extra": {
         "score": 44,
         "runup_pct": 44.3,
@@ -184,20 +228,9 @@
       }
     },
     {
-      "symbol": "DDL",
-      "exchange": "",
-      "close": 2.29,
-      "extra": {
-        "score": 42,
-        "runup_pct": 41.9,
-        "triangle_date": "2026-08-11",
-        "ema_touched": 20
-      }
-    },
-    {
       "symbol": "SPRY",
       "exchange": "",
-      "close": 6.24,
+      "close": 6.3,
       "extra": {
         "score": 42,
         "runup_pct": 42.1,
@@ -206,31 +239,31 @@
       }
     },
     {
-      "symbol": "BBGI",
+      "symbol": "ZIP",
       "exchange": "",
-      "close": 22.34,
+      "close": 4.97,
       "extra": {
-        "score": 40,
-        "runup_pct": 40.2,
-        "triangle_date": "2026-08-11",
+        "score": 41,
+        "runup_pct": 41.0,
+        "triangle_date": "2026-08-17",
         "ema_touched": 10
       }
     },
     {
-      "symbol": "GENI",
+      "symbol": "AGMB",
       "exchange": "",
-      "close": 7.76,
+      "close": 13.73,
       "extra": {
         "score": 39,
-        "runup_pct": 39.3,
-        "triangle_date": "2026-08-11",
+        "runup_pct": 38.9,
+        "triangle_date": "2026-08-14",
         "ema_touched": 10
       }
     },
     {
       "symbol": "MNDY",
       "exchange": "",
-      "close": 83.33,
+      "close": 88.04,
       "extra": {
         "score": 38,
         "runup_pct": 38.1,
@@ -241,7 +274,7 @@
     {
       "symbol": "ADAG",
       "exchange": "",
-      "close": 3.83,
+      "close": 4.08,
       "extra": {
         "score": 37,
         "runup_pct": 36.9,
@@ -252,7 +285,7 @@
     {
       "symbol": "CNK",
       "exchange": "",
-      "close": 37.52,
+      "close": 36.7,
       "extra": {
         "score": 37,
         "runup_pct": 36.8,
@@ -261,9 +294,20 @@
       }
     },
     {
+      "symbol": "INSP",
+      "exchange": "",
+      "close": 57.38,
+      "extra": {
+        "score": 37,
+        "runup_pct": 37.3,
+        "triangle_date": "2026-08-14",
+        "ema_touched": 10
+      }
+    },
+    {
       "symbol": "ROCK",
       "exchange": "",
-      "close": 47.53,
+      "close": 46.41,
       "extra": {
         "score": 37,
         "runup_pct": 37.0,
@@ -274,7 +318,7 @@
     {
       "symbol": "IRTC",
       "exchange": "",
-      "close": 116.92,
+      "close": 115.24,
       "extra": {
         "score": 36,
         "runup_pct": 35.5,
@@ -285,7 +329,7 @@
     {
       "symbol": "QUAD",
       "exchange": "",
-      "close": 10.12,
+      "close": 10.05,
       "extra": {
         "score": 36,
         "runup_pct": 36.0,
@@ -294,9 +338,20 @@
       }
     },
     {
+      "symbol": "OPAL",
+      "exchange": "",
+      "close": 2.22,
+      "extra": {
+        "score": 35,
+        "runup_pct": 35.4,
+        "triangle_date": "2026-08-14",
+        "ema_touched": 50
+      }
+    },
+    {
       "symbol": "RCKY",
       "exchange": "",
-      "close": 46.68,
+      "close": 46.26,
       "extra": {
         "score": 35,
         "runup_pct": 34.9,
@@ -305,20 +360,31 @@
       }
     },
     {
-      "symbol": "ARLO",
+      "symbol": "XFOR",
       "exchange": "",
-      "close": 13.71,
+      "close": 4.21,
+      "extra": {
+        "score": 35,
+        "runup_pct": 35.4,
+        "triangle_date": "2026-08-17",
+        "ema_touched": 10
+      }
+    },
+    {
+      "symbol": "EGHT",
+      "exchange": "",
+      "close": 2.05,
       "extra": {
         "score": 34,
-        "runup_pct": 34.2,
-        "triangle_date": "2026-08-11",
-        "ema_touched": 10
+        "runup_pct": 34.3,
+        "triangle_date": "2026-08-14",
+        "ema_touched": 20
       }
     },
     {
       "symbol": "HUBS",
       "exchange": "",
-      "close": 215.17,
+      "close": 226.24,
       "extra": {
         "score": 34,
         "runup_pct": 34.1,
@@ -327,53 +393,31 @@
       }
     },
     {
-      "symbol": "OM",
+      "symbol": "PS",
       "exchange": "",
-      "close": 4.51,
+      "close": 39.91,
       "extra": {
-        "score": 33,
-        "runup_pct": 33.1,
-        "triangle_date": "2026-08-11",
+        "score": 34,
+        "runup_pct": 34.5,
+        "triangle_date": "2026-08-17",
         "ema_touched": 10
       }
     },
     {
-      "symbol": "DRQ",
+      "symbol": "DUOL",
       "exchange": "",
-      "close": 31.24,
-      "extra": {
-        "score": 32,
-        "runup_pct": 31.7,
-        "triangle_date": "2026-08-11",
-        "ema_touched": 10
-      }
-    },
-    {
-      "symbol": "INVX",
-      "exchange": "",
-      "close": 30.79,
-      "extra": {
-        "score": 32,
-        "runup_pct": 31.7,
-        "triangle_date": "2026-08-11",
-        "ema_touched": 10
-      }
-    },
-    {
-      "symbol": "BZUN",
-      "exchange": "",
-      "close": 2.78,
+      "close": 139.64,
       "extra": {
         "score": 31,
-        "runup_pct": 30.6,
-        "triangle_date": "2026-08-11",
+        "runup_pct": 31.1,
+        "triangle_date": "2026-08-14",
         "ema_touched": 10
       }
     },
     {
       "symbol": "GGB",
       "exchange": "",
-      "close": 4.8,
+      "close": 4.67,
       "extra": {
         "score": 31,
         "runup_pct": 30.8,
@@ -382,20 +426,9 @@
       }
     },
     {
-      "symbol": "GRND",
-      "exchange": "",
-      "close": 15.81,
-      "extra": {
-        "score": 31,
-        "runup_pct": 31.2,
-        "triangle_date": "2026-08-11",
-        "ema_touched": 20
-      }
-    },
-    {
       "symbol": "LQDA",
       "exchange": "",
-      "close": 77.7,
+      "close": 74.33,
       "extra": {
         "score": 31,
         "runup_pct": 30.7,
@@ -404,20 +437,9 @@
       }
     },
     {
-      "symbol": "ACRS",
-      "exchange": "",
-      "close": 5.92,
-      "extra": {
-        "score": 30,
-        "runup_pct": 30.0,
-        "triangle_date": "2026-08-11",
-        "ema_touched": 10
-      }
-    },
-    {
       "symbol": "HPK",
       "exchange": "",
-      "close": 7.88,
+      "close": 7.85,
       "extra": {
         "score": 30,
         "runup_pct": 30.1,
