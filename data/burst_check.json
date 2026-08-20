@@ -1,9 +1,9 @@
 {
   "scan_id": "burst_check",
   "label": "Second burst",
-  "generated_utc": "2026-08-20T14:54:28Z",
+  "generated_utc": "2026-08-20T15:50:13Z",
   "status": "ok",
-  "count": 8,
+  "count": 14,
   "columns": [
     "status",
     "today_pct",
@@ -16,36 +16,50 @@
   "meta": {
     "sort": "FULL first, then biggest move",
     "watching": 280,
-    "session_elapsed": "20%",
+    "session_elapsed": "35%",
     "full": 0,
-    "early": 8,
+    "early": 14,
     "burst_date": "2026-08-19"
   },
   "rows": [
     {
-      "symbol": "MARA",
+      "symbol": "USDE",
       "exchange": "NASDAQ",
-      "close": 10.465,
+      "close": 3.6,
       "extra": {
         "status": "EARLY",
-        "today_pct": 8.45,
-        "y_pct": 7.7,
-        "proj_volM": 5.86,
-        "burst_volM": 66.06,
+        "today_pct": 16.5,
+        "y_pct": 10.75,
+        "proj_volM": 0.08,
+        "burst_volM": 0.47,
         "volume_ok": "no",
         "range_ok": "no"
       }
     },
     {
-      "symbol": "AUPH",
+      "symbol": "DFDV",
       "exchange": "NASDAQ",
-      "close": 17.32,
+      "close": 3.9,
       "extra": {
         "status": "EARLY",
-        "today_pct": 7.11,
-        "y_pct": 5.69,
-        "proj_volM": 0.18,
-        "burst_volM": 1.57,
+        "today_pct": 14.04,
+        "y_pct": 11.04,
+        "proj_volM": 0.13,
+        "burst_volM": 2.89,
+        "volume_ok": "no",
+        "range_ok": "no"
+      }
+    },
+    {
+      "symbol": "MARA",
+      "exchange": "NASDAQ",
+      "close": 10.605,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 9.9,
+        "y_pct": 7.7,
+        "proj_volM": 5.19,
+        "burst_volM": 66.06,
         "volume_ok": "no",
         "range_ok": "no"
       }
@@ -53,83 +67,153 @@
     {
       "symbol": "CAI",
       "exchange": "NASDAQ",
-      "close": 24.16,
+      "close": 24.51,
       "extra": {
         "status": "EARLY",
-        "today_pct": 6.15,
+        "today_pct": 7.69,
         "y_pct": 8.54,
-        "proj_volM": 0.48,
+        "proj_volM": 0.58,
         "burst_volM": 6.55,
         "volume_ok": "no",
         "range_ok": "yes"
       }
     },
     {
-      "symbol": "GLXY",
+      "symbol": "SBET",
       "exchange": "NASDAQ",
-      "close": 23.09,
+      "close": 7.52,
       "extra": {
         "status": "EARLY",
-        "today_pct": 5.43,
-        "y_pct": 7.2,
-        "proj_volM": 10.15,
-        "burst_volM": 8.06,
-        "volume_ok": "yes",
+        "today_pct": 6.21,
+        "y_pct": 12.56,
+        "proj_volM": 1.33,
+        "burst_volM": 18.22,
+        "volume_ok": "no",
+        "range_ok": "yes"
+      }
+    },
+    {
+      "symbol": "ILMN",
+      "exchange": "NASDAQ",
+      "close": 217.045,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 5.88,
+        "y_pct": 8.87,
+        "proj_volM": 0.37,
+        "burst_volM": 2.09,
+        "volume_ok": "no",
+        "range_ok": "yes"
+      }
+    },
+    {
+      "symbol": "AUPH",
+      "exchange": "NASDAQ",
+      "close": 17.1,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 5.75,
+        "y_pct": 5.69,
+        "proj_volM": 0.19,
+        "burst_volM": 1.57,
+        "volume_ok": "no",
         "range_ok": "no"
       }
     },
     {
-      "symbol": "USAU",
+      "symbol": "FHTX",
       "exchange": "NASDAQ",
-      "close": 16.5,
+      "close": 7.45,
       "extra": {
         "status": "EARLY",
-        "today_pct": 5.36,
-        "y_pct": 7.19,
+        "today_pct": 5.52,
+        "y_pct": 4.59,
         "proj_volM": 0.04,
-        "burst_volM": 0.37,
+        "burst_volM": 0.33,
         "volume_ok": "no",
-        "range_ok": "no"
-      }
-    },
-    {
-      "symbol": "BULL",
-      "exchange": "NASDAQ",
-      "close": 9.015,
-      "extra": {
-        "status": "EARLY",
-        "today_pct": 4.34,
-        "y_pct": 8.95,
-        "proj_volM": 4.26,
-        "burst_volM": 27.83,
-        "volume_ok": "no",
-        "range_ok": "no"
+        "range_ok": "yes"
       }
     },
     {
       "symbol": "CERT",
       "exchange": "NASDAQ",
-      "close": 8.71,
+      "close": 8.8,
       "extra": {
         "status": "EARLY",
-        "today_pct": 4.19,
+        "today_pct": 5.26,
         "y_pct": 4.37,
-        "proj_volM": 0.18,
+        "proj_volM": 0.16,
         "burst_volM": 1.99,
         "volume_ok": "no",
         "range_ok": "yes"
       }
     },
     {
-      "symbol": "MUR",
-      "exchange": "NYSE",
-      "close": 38.395,
+      "symbol": "USAU",
+      "exchange": "NASDAQ",
+      "close": 16.48,
       "extra": {
         "status": "EARLY",
-        "today_pct": 4.14,
+        "today_pct": 5.24,
+        "y_pct": 7.19,
+        "proj_volM": 0.02,
+        "burst_volM": 0.37,
+        "volume_ok": "no",
+        "range_ok": "no"
+      }
+    },
+    {
+      "symbol": "BMNR",
+      "exchange": "NYSE",
+      "close": 21.245,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 4.97,
+        "y_pct": 10.72,
+        "proj_volM": 5.19,
+        "burst_volM": 70.71,
+        "volume_ok": "no",
+        "range_ok": "no"
+      }
+    },
+    {
+      "symbol": "GLXY",
+      "exchange": "NASDAQ",
+      "close": 22.86,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 4.38,
+        "y_pct": 7.2,
+        "proj_volM": 8.1,
+        "burst_volM": 8.06,
+        "volume_ok": "yes",
+        "range_ok": "no"
+      }
+    },
+    {
+      "symbol": "MUR",
+      "exchange": "NYSE",
+      "close": 38.485,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 4.38,
         "y_pct": 4.8,
         "proj_volM": 0.08,
         "burst_volM": 2.03,
+        "volume_ok": "no",
+        "range_ok": "yes"
+      }
+    },
+    {
+      "symbol": "SUJA",
+      "exchange": "NASDAQ",
+      "close": 7.7,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 4.19,
+        "y_pct": 10.13,
+        "proj_volM": 0.02,
+        "burst_volM": 1.24,
         "volume_ok": "no",
         "range_ok": "yes"
       }
