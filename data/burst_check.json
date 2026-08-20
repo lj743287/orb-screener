@@ -1,9 +1,9 @@
 {
   "scan_id": "burst_check",
   "label": "Second burst",
-  "generated_utc": "2026-08-19T19:37:03Z",
+  "generated_utc": "2026-08-20T14:54:28Z",
   "status": "ok",
-  "count": 5,
+  "count": 8,
   "columns": [
     "status",
     "today_pct",
@@ -15,79 +15,121 @@
   ],
   "meta": {
     "sort": "FULL first, then biggest move",
-    "watching": 65,
-    "session_elapsed": "94%",
+    "watching": 280,
+    "session_elapsed": "20%",
     "full": 0,
-    "early": 5,
-    "burst_date": "2026-08-18"
+    "early": 8,
+    "burst_date": "2026-08-19"
   },
   "rows": [
     {
-      "symbol": "ODTX",
+      "symbol": "MARA",
       "exchange": "NASDAQ",
-      "close": 24.19,
+      "close": 10.465,
       "extra": {
         "status": "EARLY",
-        "today_pct": 10.21,
-        "y_pct": 5.23,
-        "proj_volM": 0.01,
-        "burst_volM": 0.19,
+        "today_pct": 8.45,
+        "y_pct": 7.7,
+        "proj_volM": 5.86,
+        "burst_volM": 66.06,
+        "volume_ok": "no",
+        "range_ok": "no"
+      }
+    },
+    {
+      "symbol": "AUPH",
+      "exchange": "NASDAQ",
+      "close": 17.32,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 7.11,
+        "y_pct": 5.69,
+        "proj_volM": 0.18,
+        "burst_volM": 1.57,
+        "volume_ok": "no",
+        "range_ok": "no"
+      }
+    },
+    {
+      "symbol": "CAI",
+      "exchange": "NASDAQ",
+      "close": 24.16,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 6.15,
+        "y_pct": 8.54,
+        "proj_volM": 0.48,
+        "burst_volM": 6.55,
         "volume_ok": "no",
         "range_ok": "yes"
       }
     },
     {
-      "symbol": "IMMX",
+      "symbol": "GLXY",
       "exchange": "NASDAQ",
-      "close": 12.97,
+      "close": 23.09,
       "extra": {
         "status": "EARLY",
-        "today_pct": 9.82,
-        "y_pct": 4.14,
-        "proj_volM": 0.07,
-        "burst_volM": 1.34,
+        "today_pct": 5.43,
+        "y_pct": 7.2,
+        "proj_volM": 10.15,
+        "burst_volM": 8.06,
+        "volume_ok": "yes",
+        "range_ok": "no"
+      }
+    },
+    {
+      "symbol": "USAU",
+      "exchange": "NASDAQ",
+      "close": 16.5,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 5.36,
+        "y_pct": 7.19,
+        "proj_volM": 0.04,
+        "burst_volM": 0.37,
+        "volume_ok": "no",
+        "range_ok": "no"
+      }
+    },
+    {
+      "symbol": "BULL",
+      "exchange": "NASDAQ",
+      "close": 9.015,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 4.34,
+        "y_pct": 8.95,
+        "proj_volM": 4.26,
+        "burst_volM": 27.83,
+        "volume_ok": "no",
+        "range_ok": "no"
+      }
+    },
+    {
+      "symbol": "CERT",
+      "exchange": "NASDAQ",
+      "close": 8.71,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 4.19,
+        "y_pct": 4.37,
+        "proj_volM": 0.18,
+        "burst_volM": 1.99,
         "volume_ok": "no",
         "range_ok": "yes"
       }
     },
     {
-      "symbol": "MNKD",
-      "exchange": "NASDAQ",
-      "close": 4.38,
+      "symbol": "MUR",
+      "exchange": "NYSE",
+      "close": 38.395,
       "extra": {
         "status": "EARLY",
-        "today_pct": 7.62,
-        "y_pct": 4.36,
-        "proj_volM": 0.33,
-        "burst_volM": 4.54,
-        "volume_ok": "no",
-        "range_ok": "yes"
-      }
-    },
-    {
-      "symbol": "EOLS",
-      "exchange": "NASDAQ",
-      "close": 8.65,
-      "extra": {
-        "status": "EARLY",
-        "today_pct": 5.75,
-        "y_pct": 5.28,
-        "proj_volM": 0.03,
-        "burst_volM": 0.69,
-        "volume_ok": "no",
-        "range_ok": "yes"
-      }
-    },
-    {
-      "symbol": "BRZE",
-      "exchange": "NASDAQ",
-      "close": 30.505,
-      "extra": {
-        "status": "EARLY",
-        "today_pct": 4.72,
-        "y_pct": 4.22,
-        "proj_volM": 0.09,
-        "burst_volM": 3.11,
+        "today_pct": 4.14,
+        "y_pct": 4.8,
+        "proj_volM": 0.08,
+        "burst_volM": 2.03,
         "volume_ok": "no",
         "range_ok": "yes"
       }
