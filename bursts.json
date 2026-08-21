@@ -1,16 +1,28 @@
 {
- "generated_utc": "2026-08-21T14:48:47.470832+00:00",
- "session_fraction": 0.2,
+ "generated_utc": "2026-08-21T15:44:41.577556+00:00",
+ "session_fraction": 0.343,
  "results": [
   {
    "symbol": "WW",
    "exchange": "NASDAQ",
    "status": "EARLY",
    "y_pct": 4.46,
-   "today_pct": 6.27,
-   "price": 15.94,
-   "proj_vol": 20030,
+   "today_pct": 10.2,
+   "price": 16.53,
+   "proj_vol": 19281,
    "y_volume": 144976,
+   "vol_ok": false,
+   "rng_ok": true
+  },
+  {
+   "symbol": "MOS",
+   "exchange": "NYSE",
+   "status": "EARLY",
+   "y_pct": 5.04,
+   "today_pct": 4.88,
+   "price": 24.49,
+   "proj_vol": 723657,
+   "y_volume": 12613213,
    "vol_ok": false,
    "rng_ok": true
   },
@@ -21,7 +33,7 @@
    "y_pct": 4.9,
    "today_pct": 4.67,
    "price": 13.9,
-   "proj_vol": 756,
+   "proj_vol": 440,
    "y_volume": 112869,
    "vol_ok": false,
    "rng_ok": true
