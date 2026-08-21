@@ -1,7 +1,7 @@
 {
   "scan_id": "burst_check",
   "label": "Second burst",
-  "generated_utc": "2026-08-21T16:48:04Z",
+  "generated_utc": "2026-08-21T17:40:17Z",
   "status": "ok",
   "count": 3,
   "columns": [
@@ -16,33 +16,19 @@
   "meta": {
     "sort": "FULL first, then biggest move",
     "watching": 59,
-    "session_elapsed": "51%",
+    "session_elapsed": "64%",
     "full": 0,
     "early": 3,
     "burst_date": "2026-08-20"
   },
   "rows": [
     {
-      "symbol": "WW",
-      "exchange": "NASDAQ",
-      "close": 16.225,
-      "extra": {
-        "status": "EARLY",
-        "today_pct": 8.17,
-        "y_pct": 4.46,
-        "proj_volM": 0.02,
-        "burst_volM": 0.14,
-        "volume_ok": "no",
-        "range_ok": "yes"
-      }
-    },
-    {
       "symbol": "TOP",
       "exchange": "NASDAQ",
-      "close": 14.17,
+      "close": 14.18,
       "extra": {
         "status": "EARLY",
-        "today_pct": 6.7,
+        "today_pct": 6.78,
         "y_pct": 4.9,
         "proj_volM": 0.0,
         "burst_volM": 0.11,
@@ -51,14 +37,28 @@
       }
     },
     {
-      "symbol": "MOS",
-      "exchange": "NYSE",
-      "close": 24.495,
+      "symbol": "WW",
+      "exchange": "NASDAQ",
+      "close": 16.0,
       "extra": {
         "status": "EARLY",
-        "today_pct": 4.9,
+        "today_pct": 6.67,
+        "y_pct": 4.46,
+        "proj_volM": 0.02,
+        "burst_volM": 0.14,
+        "volume_ok": "no",
+        "range_ok": "no"
+      }
+    },
+    {
+      "symbol": "MOS",
+      "exchange": "NYSE",
+      "close": 24.43,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 4.63,
         "y_pct": 5.04,
-        "proj_volM": 0.61,
+        "proj_volM": 0.67,
         "burst_volM": 12.61,
         "volume_ok": "no",
         "range_ok": "yes"
