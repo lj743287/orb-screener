@@ -1,9 +1,9 @@
 {
   "scan_id": "burst_check",
   "label": "Second burst",
-  "generated_utc": "2026-08-24T18:56:33Z",
+  "generated_utc": "2026-08-24T19:40:49Z",
   "status": "ok",
-  "count": 10,
+  "count": 6,
   "columns": [
     "status",
     "today_pct",
@@ -16,21 +16,21 @@
   "meta": {
     "sort": "FULL first, then biggest move",
     "watching": 110,
-    "session_elapsed": "83%",
+    "session_elapsed": "95%",
     "full": 1,
-    "early": 9,
+    "early": 5,
     "burst_date": "2026-08-21"
   },
   "rows": [
     {
       "symbol": "SUPX",
       "exchange": "NASDAQ",
-      "close": 9.7,
+      "close": 10.145,
       "extra": {
         "status": "FULL",
-        "today_pct": 13.85,
+        "today_pct": 19.07,
         "y_pct": 25.29,
-        "proj_volM": 1.44,
+        "proj_volM": 1.39,
         "burst_volM": 0.58,
         "volume_ok": "yes",
         "range_ok": "yes"
@@ -39,10 +39,10 @@
     {
       "symbol": "WBTN",
       "exchange": "NASDAQ",
-      "close": 9.48,
+      "close": 9.495,
       "extra": {
         "status": "EARLY",
-        "today_pct": 7.73,
+        "today_pct": 7.9,
         "y_pct": 5.14,
         "proj_volM": 0.02,
         "burst_volM": 0.42,
@@ -51,54 +51,40 @@
       }
     },
     {
-      "symbol": "VOGX",
+      "symbol": "ARCT",
       "exchange": "NASDAQ",
-      "close": 31.6,
+      "close": 14.335,
       "extra": {
         "status": "EARLY",
-        "today_pct": 7.05,
-        "y_pct": 24.82,
-        "proj_volM": 0.01,
-        "burst_volM": 0.43,
-        "volume_ok": "no",
-        "range_ok": "no"
-      }
-    },
-    {
-      "symbol": "STRZ",
-      "exchange": "NASDAQ",
-      "close": 29.215,
-      "extra": {
-        "status": "EARLY",
-        "today_pct": 6.39,
-        "y_pct": 4.49,
-        "proj_volM": 0.16,
-        "burst_volM": 0.37,
+        "today_pct": 6.59,
+        "y_pct": 22.37,
+        "proj_volM": 0.11,
+        "burst_volM": 2.72,
         "volume_ok": "no",
         "range_ok": "yes"
       }
     },
     {
-      "symbol": "VCX",
+      "symbol": "PSQH",
       "exchange": "NYSE",
-      "close": 44.75,
+      "close": 5.78,
       "extra": {
         "status": "EARLY",
-        "today_pct": 6.27,
-        "y_pct": 6.82,
-        "proj_volM": 0.07,
-        "burst_volM": 0.85,
+        "today_pct": 6.06,
+        "y_pct": 16.45,
+        "proj_volM": 0.0,
+        "burst_volM": 0.25,
         "volume_ok": "no",
-        "range_ok": "no"
+        "range_ok": "yes"
       }
     },
     {
       "symbol": "PRE",
       "exchange": "NASDAQ",
-      "close": 21.42,
+      "close": 21.385,
       "extra": {
         "status": "EARLY",
-        "today_pct": 6.04,
+        "today_pct": 5.87,
         "y_pct": 12.41,
         "proj_volM": 0.01,
         "burst_volM": 0.33,
@@ -107,57 +93,15 @@
       }
     },
     {
-      "symbol": "RUM",
+      "symbol": "STRZ",
       "exchange": "NASDAQ",
-      "close": 9.59,
+      "close": 28.895,
       "extra": {
         "status": "EARLY",
-        "today_pct": 5.97,
-        "y_pct": 7.35,
-        "proj_volM": 0.3,
-        "burst_volM": 3.79,
-        "volume_ok": "no",
-        "range_ok": "yes"
-      }
-    },
-    {
-      "symbol": "ARCT",
-      "exchange": "NASDAQ",
-      "close": 14.22,
-      "extra": {
-        "status": "EARLY",
-        "today_pct": 5.73,
-        "y_pct": 22.37,
-        "proj_volM": 0.09,
-        "burst_volM": 2.72,
-        "volume_ok": "no",
-        "range_ok": "yes"
-      }
-    },
-    {
-      "symbol": "ALIT",
-      "exchange": "NYSE",
-      "close": 14.88,
-      "extra": {
-        "status": "EARLY",
-        "today_pct": 4.64,
-        "y_pct": 6.04,
-        "proj_volM": 0.03,
-        "burst_volM": 0.5,
-        "volume_ok": "no",
-        "range_ok": "no"
-      }
-    },
-    {
-      "symbol": "PSQH",
-      "exchange": "NYSE",
-      "close": 5.67,
-      "extra": {
-        "status": "EARLY",
-        "today_pct": 4.04,
-        "y_pct": 16.45,
-        "proj_volM": 0.0,
-        "burst_volM": 0.25,
+        "today_pct": 5.23,
+        "y_pct": 4.49,
+        "proj_volM": 0.16,
+        "burst_volM": 0.37,
         "volume_ok": "no",
         "range_ok": "yes"
       }
