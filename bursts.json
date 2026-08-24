@@ -1,5 +1,78 @@
 {
- "generated_utc": "2026-08-21T19:34:55.475823+00:00",
- "session_fraction": 0.934,
- "results": []
+ "generated_utc": "2026-08-24T14:56:38.382472+00:00",
+ "session_fraction": 0.217,
+ "results": [
+  {
+   "symbol": "NCTY",
+   "exchange": "NASDAQ",
+   "status": "EARLY",
+   "y_pct": 31.08,
+   "today_pct": 19.25,
+   "price": 6.815,
+   "proj_vol": 36742,
+   "y_volume": 888030,
+   "vol_ok": false,
+   "rng_ok": false
+  },
+  {
+   "symbol": "WBTN",
+   "exchange": "NASDAQ",
+   "status": "EARLY",
+   "y_pct": 5.14,
+   "today_pct": 9.32,
+   "price": 9.62,
+   "proj_vol": 21952,
+   "y_volume": 418615,
+   "vol_ok": false,
+   "rng_ok": true
+  },
+  {
+   "symbol": "ALIT",
+   "exchange": "NYSE",
+   "status": "EARLY",
+   "y_pct": 6.04,
+   "today_pct": 7.81,
+   "price": 15.33,
+   "proj_vol": 49050,
+   "y_volume": 496821,
+   "vol_ok": false,
+   "rng_ok": true
+  },
+  {
+   "symbol": "RUM",
+   "exchange": "NASDAQ",
+   "status": "EARLY",
+   "y_pct": 7.35,
+   "today_pct": 5.08,
+   "price": 9.51,
+   "proj_vol": 544850,
+   "y_volume": 3791986,
+   "vol_ok": false,
+   "rng_ok": true
+  },
+  {
+   "symbol": "REA",
+   "exchange": "AMEX",
+   "status": "EARLY",
+   "y_pct": 8.1,
+   "today_pct": 4.64,
+   "price": 15.215,
+   "proj_vol": 8094,
+   "y_volume": 112280,
+   "vol_ok": false,
+   "rng_ok": false
+  },
+  {
+   "symbol": "VOGX",
+   "exchange": "NASDAQ",
+   "status": "EARLY",
+   "y_pct": 24.82,
+   "today_pct": 4.56,
+   "price": 30.865,
+   "proj_vol": 17509,
+   "y_volume": 428014,
+   "vol_ok": false,
+   "rng_ok": false
+  }
+ ]
 }

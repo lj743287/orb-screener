@@ -1,17 +1,110 @@
 {
   "scan_id": "burst_check",
   "label": "Second burst",
-  "generated_utc": "2026-08-21T19:34:55Z",
-  "status": "empty",
-  "count": 0,
-  "columns": [],
+  "generated_utc": "2026-08-24T14:56:38Z",
+  "status": "ok",
+  "count": 6,
+  "columns": [
+    "status",
+    "today_pct",
+    "y_pct",
+    "proj_volM",
+    "burst_volM",
+    "volume_ok",
+    "range_ok"
+  ],
   "meta": {
     "sort": "FULL first, then biggest move",
-    "watching": 59,
-    "session_elapsed": "93%",
+    "watching": 110,
+    "session_elapsed": "22%",
     "full": 0,
-    "early": 0,
-    "burst_date": "2026-08-20"
+    "early": 6,
+    "burst_date": "2026-08-21"
   },
-  "rows": []
+  "rows": [
+    {
+      "symbol": "NCTY",
+      "exchange": "NASDAQ",
+      "close": 6.815,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 19.25,
+        "y_pct": 31.08,
+        "proj_volM": 0.04,
+        "burst_volM": 0.89,
+        "volume_ok": "no",
+        "range_ok": "no"
+      }
+    },
+    {
+      "symbol": "WBTN",
+      "exchange": "NASDAQ",
+      "close": 9.62,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 9.32,
+        "y_pct": 5.14,
+        "proj_volM": 0.02,
+        "burst_volM": 0.42,
+        "volume_ok": "no",
+        "range_ok": "yes"
+      }
+    },
+    {
+      "symbol": "ALIT",
+      "exchange": "NYSE",
+      "close": 15.33,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 7.81,
+        "y_pct": 6.04,
+        "proj_volM": 0.05,
+        "burst_volM": 0.5,
+        "volume_ok": "no",
+        "range_ok": "yes"
+      }
+    },
+    {
+      "symbol": "RUM",
+      "exchange": "NASDAQ",
+      "close": 9.51,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 5.08,
+        "y_pct": 7.35,
+        "proj_volM": 0.54,
+        "burst_volM": 3.79,
+        "volume_ok": "no",
+        "range_ok": "yes"
+      }
+    },
+    {
+      "symbol": "REA",
+      "exchange": "AMEX",
+      "close": 15.215,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 4.64,
+        "y_pct": 8.1,
+        "proj_volM": 0.01,
+        "burst_volM": 0.11,
+        "volume_ok": "no",
+        "range_ok": "no"
+      }
+    },
+    {
+      "symbol": "VOGX",
+      "exchange": "NASDAQ",
+      "close": 30.865,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 4.56,
+        "y_pct": 24.82,
+        "proj_volM": 0.02,
+        "burst_volM": 0.43,
+        "volume_ok": "no",
+        "range_ok": "no"
+      }
+    }
+  ]
 }
