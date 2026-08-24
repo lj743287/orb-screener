@@ -1,9 +1,9 @@
 {
   "scan_id": "burst_check",
   "label": "Second burst",
-  "generated_utc": "2026-08-24T15:53:30Z",
+  "generated_utc": "2026-08-24T16:52:51Z",
   "status": "ok",
-  "count": 8,
+  "count": 4,
   "columns": [
     "status",
     "today_pct",
@@ -16,64 +16,36 @@
   "meta": {
     "sort": "FULL first, then biggest move",
     "watching": 110,
-    "session_elapsed": "36%",
+    "session_elapsed": "52%",
     "full": 0,
-    "early": 8,
+    "early": 4,
     "burst_date": "2026-08-21"
   },
   "rows": [
     {
-      "symbol": "NCTY",
+      "symbol": "VOGX",
       "exchange": "NASDAQ",
-      "close": 6.69,
+      "close": 31.3,
       "extra": {
         "status": "EARLY",
-        "today_pct": 17.06,
-        "y_pct": 31.08,
-        "proj_volM": 0.03,
-        "burst_volM": 0.89,
+        "today_pct": 6.03,
+        "y_pct": 24.82,
+        "proj_volM": 0.01,
+        "burst_volM": 0.43,
         "volume_ok": "no",
         "range_ok": "no"
       }
     },
     {
-      "symbol": "VOGX",
+      "symbol": "PRE",
       "exchange": "NASDAQ",
-      "close": 33.0,
+      "close": 21.35,
       "extra": {
         "status": "EARLY",
-        "today_pct": 11.79,
-        "y_pct": 24.82,
-        "proj_volM": 0.02,
-        "burst_volM": 0.43,
-        "volume_ok": "no",
-        "range_ok": "yes"
-      }
-    },
-    {
-      "symbol": "ALIT",
-      "exchange": "NYSE",
-      "close": 15.285,
-      "extra": {
-        "status": "EARLY",
-        "today_pct": 7.49,
-        "y_pct": 6.04,
-        "proj_volM": 0.05,
-        "burst_volM": 0.5,
-        "volume_ok": "no",
-        "range_ok": "yes"
-      }
-    },
-    {
-      "symbol": "VCX",
-      "exchange": "NYSE",
-      "close": 44.91,
-      "extra": {
-        "status": "EARLY",
-        "today_pct": 6.65,
-        "y_pct": 6.82,
-        "proj_volM": 0.13,
-        "burst_volM": 0.85,
+        "today_pct": 5.69,
+        "y_pct": 12.41,
+        "proj_volM": 0.01,
+        "burst_volM": 0.33,
         "volume_ok": "no",
         "range_ok": "yes"
       }
@@ -81,10 +53,10 @@
     {
       "symbol": "WBTN",
       "exchange": "NASDAQ",
-      "close": 9.385,
+      "close": 9.29,
       "extra": {
         "status": "EARLY",
-        "today_pct": 6.65,
+        "today_pct": 5.57,
         "y_pct": 5.14,
         "proj_volM": 0.02,
         "burst_volM": 0.42,
@@ -93,45 +65,17 @@
       }
     },
     {
-      "symbol": "RUM",
+      "symbol": "NCTY",
       "exchange": "NASDAQ",
-      "close": 9.65,
+      "close": 6.0,
       "extra": {
         "status": "EARLY",
-        "today_pct": 6.63,
-        "y_pct": 7.35,
-        "proj_volM": 0.42,
-        "burst_volM": 3.79,
+        "today_pct": 4.99,
+        "y_pct": 31.08,
+        "proj_volM": 0.02,
+        "burst_volM": 0.89,
         "volume_ok": "no",
-        "range_ok": "yes"
-      }
-    },
-    {
-      "symbol": "PICS",
-      "exchange": "NASDAQ",
-      "close": 11.165,
-      "extra": {
-        "status": "EARLY",
-        "today_pct": 5.33,
-        "y_pct": 5.47,
-        "proj_volM": 0.07,
-        "burst_volM": 0.6,
-        "volume_ok": "no",
-        "range_ok": "yes"
-      }
-    },
-    {
-      "symbol": "PRE",
-      "exchange": "NASDAQ",
-      "close": 21.11,
-      "extra": {
-        "status": "EARLY",
-        "today_pct": 4.5,
-        "y_pct": 12.41,
-        "proj_volM": 0.01,
-        "burst_volM": 0.33,
-        "volume_ok": "no",
-        "range_ok": "yes"
+        "range_ok": "no"
       }
     }
   ]
