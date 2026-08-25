@@ -1,7 +1,7 @@
 {
   "scan_id": "burst_check",
   "label": "Second burst",
-  "generated_utc": "2026-08-25T15:57:19Z",
+  "generated_utc": "2026-08-25T17:43:30Z",
   "status": "ok",
   "count": 6,
   "columns": [
@@ -16,7 +16,7 @@
   "meta": {
     "sort": "FULL first, then biggest move",
     "watching": 55,
-    "session_elapsed": "38%",
+    "session_elapsed": "65%",
     "full": 0,
     "early": 6,
     "burst_date": "2026-08-24"
@@ -25,26 +25,26 @@
     {
       "symbol": "PMI",
       "exchange": "AMEX",
-      "close": 7.57,
+      "close": 10.1,
       "extra": {
         "status": "EARLY",
-        "today_pct": 47.56,
+        "today_pct": 96.88,
         "y_pct": 59.81,
-        "proj_volM": 0.78,
+        "proj_volM": 0.68,
         "burst_volM": 22.47,
         "volume_ok": "no",
-        "range_ok": "no"
+        "range_ok": "yes"
       }
     },
     {
       "symbol": "ZSTK",
       "exchange": "NASDAQ",
-      "close": 6.39,
+      "close": 6.47,
       "extra": {
         "status": "EARLY",
-        "today_pct": 26.28,
+        "today_pct": 27.87,
         "y_pct": 7.43,
-        "proj_volM": 0.09,
+        "proj_volM": 0.08,
         "burst_volM": 0.66,
         "volume_ok": "no",
         "range_ok": "yes"
@@ -53,27 +53,13 @@
     {
       "symbol": "GENB",
       "exchange": "NASDAQ",
-      "close": 20.99,
+      "close": 20.04,
       "extra": {
         "status": "EARLY",
-        "today_pct": 18.45,
+        "today_pct": 13.09,
         "y_pct": 9.93,
-        "proj_volM": 0.34,
+        "proj_volM": 0.29,
         "burst_volM": 2.5,
-        "volume_ok": "no",
-        "range_ok": "no"
-      }
-    },
-    {
-      "symbol": "PRE",
-      "exchange": "NASDAQ",
-      "close": 23.02,
-      "extra": {
-        "status": "EARLY",
-        "today_pct": 5.5,
-        "y_pct": 8.02,
-        "proj_volM": 0.04,
-        "burst_volM": 0.42,
         "volume_ok": "no",
         "range_ok": "no"
       }
@@ -81,13 +67,27 @@
     {
       "symbol": "GORO",
       "exchange": "AMEX",
-      "close": 3.71,
+      "close": 3.815,
       "extra": {
         "status": "EARLY",
-        "today_pct": 5.1,
+        "today_pct": 8.07,
         "y_pct": 10.66,
-        "proj_volM": 0.13,
+        "proj_volM": 0.11,
         "burst_volM": 2.2,
+        "volume_ok": "no",
+        "range_ok": "yes"
+      }
+    },
+    {
+      "symbol": "SPRB",
+      "exchange": "NASDAQ",
+      "close": 61.855,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 5.46,
+        "y_pct": 13.71,
+        "proj_volM": 0.0,
+        "burst_volM": 0.14,
         "volume_ok": "no",
         "range_ok": "yes"
       }
@@ -95,12 +95,12 @@
     {
       "symbol": "CMPS",
       "exchange": "NASDAQ",
-      "close": 14.88,
+      "close": 14.83,
       "extra": {
         "status": "EARLY",
-        "today_pct": 4.86,
+        "today_pct": 4.51,
         "y_pct": 6.45,
-        "proj_volM": 0.15,
+        "proj_volM": 0.11,
         "burst_volM": 2.62,
         "volume_ok": "no",
         "range_ok": "yes"
