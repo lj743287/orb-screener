@@ -1,9 +1,9 @@
 {
   "scan_id": "burst_check",
   "label": "Second burst",
-  "generated_utc": "2026-08-24T19:40:49Z",
+  "generated_utc": "2026-08-25T14:59:31Z",
   "status": "ok",
-  "count": 6,
+  "count": 5,
   "columns": [
     "status",
     "today_pct",
@@ -15,65 +15,51 @@
   ],
   "meta": {
     "sort": "FULL first, then biggest move",
-    "watching": 110,
-    "session_elapsed": "95%",
-    "full": 1,
+    "watching": 55,
+    "session_elapsed": "23%",
+    "full": 0,
     "early": 5,
-    "burst_date": "2026-08-21"
+    "burst_date": "2026-08-24"
   },
   "rows": [
     {
-      "symbol": "SUPX",
-      "exchange": "NASDAQ",
-      "close": 10.145,
-      "extra": {
-        "status": "FULL",
-        "today_pct": 19.07,
-        "y_pct": 25.29,
-        "proj_volM": 1.39,
-        "burst_volM": 0.58,
-        "volume_ok": "yes",
-        "range_ok": "yes"
-      }
-    },
-    {
-      "symbol": "WBTN",
-      "exchange": "NASDAQ",
-      "close": 9.495,
+      "symbol": "PMI",
+      "exchange": "AMEX",
+      "close": 8.845,
       "extra": {
         "status": "EARLY",
-        "today_pct": 7.9,
-        "y_pct": 5.14,
-        "proj_volM": 0.02,
-        "burst_volM": 0.42,
+        "today_pct": 72.42,
+        "y_pct": 59.81,
+        "proj_volM": 1.03,
+        "burst_volM": 22.47,
         "volume_ok": "no",
         "range_ok": "no"
       }
     },
     {
-      "symbol": "ARCT",
+      "symbol": "ZSTK",
       "exchange": "NASDAQ",
-      "close": 14.335,
+      "close": 6.4,
       "extra": {
         "status": "EARLY",
-        "today_pct": 6.59,
-        "y_pct": 22.37,
-        "proj_volM": 0.11,
-        "burst_volM": 2.72,
+        "today_pct": 26.48,
+        "y_pct": 7.43,
+        "proj_volM": 0.05,
+        "burst_volM": 0.66,
         "volume_ok": "no",
         "range_ok": "yes"
       }
     },
     {
-      "symbol": "PSQH",
-      "exchange": "NYSE",
-      "close": 5.78,
+      "symbol": "GENB",
+      "exchange": "NASDAQ",
+      "close": 21.88,
       "extra": {
         "status": "EARLY",
-        "today_pct": 6.06,
-        "y_pct": 16.45,
-        "proj_volM": 0.0,
-        "burst_volM": 0.25,
+        "today_pct": 23.48,
+        "y_pct": 9.93,
+        "proj_volM": 0.34,
+        "burst_volM": 2.5,
         "volume_ok": "no",
         "range_ok": "yes"
       }
@@ -81,29 +67,29 @@
     {
       "symbol": "PRE",
       "exchange": "NASDAQ",
-      "close": 21.385,
+      "close": 23.34,
       "extra": {
         "status": "EARLY",
-        "today_pct": 5.87,
-        "y_pct": 12.41,
-        "proj_volM": 0.01,
-        "burst_volM": 0.33,
+        "today_pct": 6.97,
+        "y_pct": 8.02,
+        "proj_volM": 0.04,
+        "burst_volM": 0.42,
         "volume_ok": "no",
         "range_ok": "yes"
       }
     },
     {
-      "symbol": "STRZ",
+      "symbol": "TJGC",
       "exchange": "NASDAQ",
-      "close": 28.895,
+      "close": 6.46,
       "extra": {
         "status": "EARLY",
-        "today_pct": 5.23,
-        "y_pct": 4.49,
-        "proj_volM": 0.16,
-        "burst_volM": 0.37,
+        "today_pct": 5.9,
+        "y_pct": 30.9,
+        "proj_volM": 0.01,
+        "burst_volM": 4.93,
         "volume_ok": "no",
-        "range_ok": "yes"
+        "range_ok": "no"
       }
     }
   ]
