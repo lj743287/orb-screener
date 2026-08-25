@@ -1,9 +1,9 @@
 {
   "scan_id": "burst_check",
   "label": "Second burst",
-  "generated_utc": "2026-08-25T14:59:31Z",
+  "generated_utc": "2026-08-25T15:57:19Z",
   "status": "ok",
-  "count": 5,
+  "count": 6,
   "columns": [
     "status",
     "today_pct",
@@ -16,21 +16,21 @@
   "meta": {
     "sort": "FULL first, then biggest move",
     "watching": 55,
-    "session_elapsed": "23%",
+    "session_elapsed": "38%",
     "full": 0,
-    "early": 5,
+    "early": 6,
     "burst_date": "2026-08-24"
   },
   "rows": [
     {
       "symbol": "PMI",
       "exchange": "AMEX",
-      "close": 8.845,
+      "close": 7.57,
       "extra": {
         "status": "EARLY",
-        "today_pct": 72.42,
+        "today_pct": 47.56,
         "y_pct": 59.81,
-        "proj_volM": 1.03,
+        "proj_volM": 0.78,
         "burst_volM": 22.47,
         "volume_ok": "no",
         "range_ok": "no"
@@ -39,12 +39,12 @@
     {
       "symbol": "ZSTK",
       "exchange": "NASDAQ",
-      "close": 6.4,
+      "close": 6.39,
       "extra": {
         "status": "EARLY",
-        "today_pct": 26.48,
+        "today_pct": 26.28,
         "y_pct": 7.43,
-        "proj_volM": 0.05,
+        "proj_volM": 0.09,
         "burst_volM": 0.66,
         "volume_ok": "no",
         "range_ok": "yes"
@@ -53,43 +53,57 @@
     {
       "symbol": "GENB",
       "exchange": "NASDAQ",
-      "close": 21.88,
+      "close": 20.99,
       "extra": {
         "status": "EARLY",
-        "today_pct": 23.48,
+        "today_pct": 18.45,
         "y_pct": 9.93,
         "proj_volM": 0.34,
         "burst_volM": 2.5,
         "volume_ok": "no",
-        "range_ok": "yes"
+        "range_ok": "no"
       }
     },
     {
       "symbol": "PRE",
       "exchange": "NASDAQ",
-      "close": 23.34,
+      "close": 23.02,
       "extra": {
         "status": "EARLY",
-        "today_pct": 6.97,
+        "today_pct": 5.5,
         "y_pct": 8.02,
         "proj_volM": 0.04,
         "burst_volM": 0.42,
+        "volume_ok": "no",
+        "range_ok": "no"
+      }
+    },
+    {
+      "symbol": "GORO",
+      "exchange": "AMEX",
+      "close": 3.71,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 5.1,
+        "y_pct": 10.66,
+        "proj_volM": 0.13,
+        "burst_volM": 2.2,
         "volume_ok": "no",
         "range_ok": "yes"
       }
     },
     {
-      "symbol": "TJGC",
+      "symbol": "CMPS",
       "exchange": "NASDAQ",
-      "close": 6.46,
+      "close": 14.88,
       "extra": {
         "status": "EARLY",
-        "today_pct": 5.9,
-        "y_pct": 30.9,
-        "proj_volM": 0.01,
-        "burst_volM": 4.93,
+        "today_pct": 4.86,
+        "y_pct": 6.45,
+        "proj_volM": 0.15,
+        "burst_volM": 2.62,
         "volume_ok": "no",
-        "range_ok": "no"
+        "range_ok": "yes"
       }
     }
   ]

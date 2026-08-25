@@ -1,15 +1,15 @@
 {
- "generated_utc": "2026-08-25T14:59:31.591944+00:00",
- "session_fraction": 0.227,
+ "generated_utc": "2026-08-25T15:57:19.675635+00:00",
+ "session_fraction": 0.375,
  "results": [
   {
    "symbol": "PMI",
    "exchange": "AMEX",
    "status": "EARLY",
    "y_pct": 59.81,
-   "today_pct": 72.42,
-   "price": 8.845,
-   "proj_vol": 1033719,
+   "today_pct": 47.56,
+   "price": 7.57,
+   "proj_vol": 783890,
    "y_volume": 22468515,
    "vol_ok": false,
    "rng_ok": false
@@ -19,9 +19,9 @@
    "exchange": "NASDAQ",
    "status": "EARLY",
    "y_pct": 7.43,
-   "today_pct": 26.48,
-   "price": 6.4,
-   "proj_vol": 50273,
+   "today_pct": 26.28,
+   "price": 6.39,
+   "proj_vol": 94285,
    "y_volume": 664493,
    "vol_ok": false,
    "rng_ok": true
@@ -31,36 +31,48 @@
    "exchange": "NASDAQ",
    "status": "EARLY",
    "y_pct": 9.93,
-   "today_pct": 23.48,
-   "price": 21.88,
-   "proj_vol": 336600,
+   "today_pct": 18.45,
+   "price": 20.99,
+   "proj_vol": 338914,
    "y_volume": 2496677,
    "vol_ok": false,
-   "rng_ok": true
+   "rng_ok": false
   },
   {
    "symbol": "PRE",
    "exchange": "NASDAQ",
    "status": "EARLY",
    "y_pct": 8.02,
-   "today_pct": 6.97,
-   "price": 23.34,
-   "proj_vol": 43816,
+   "today_pct": 5.5,
+   "price": 23.02,
+   "proj_vol": 37892,
    "y_volume": 417642,
+   "vol_ok": false,
+   "rng_ok": false
+  },
+  {
+   "symbol": "GORO",
+   "exchange": "AMEX",
+   "status": "EARLY",
+   "y_pct": 10.66,
+   "today_pct": 5.1,
+   "price": 3.71,
+   "proj_vol": 134290,
+   "y_volume": 2198374,
    "vol_ok": false,
    "rng_ok": true
   },
   {
-   "symbol": "TJGC",
+   "symbol": "CMPS",
    "exchange": "NASDAQ",
    "status": "EARLY",
-   "y_pct": 30.9,
-   "today_pct": 5.9,
-   "price": 6.46,
-   "proj_vol": 14847,
-   "y_volume": 4925806,
+   "y_pct": 6.45,
+   "today_pct": 4.86,
+   "price": 14.88,
+   "proj_vol": 145377,
+   "y_volume": 2621174,
    "vol_ok": false,
-   "rng_ok": false
+   "rng_ok": true
   }
  ]
 }
