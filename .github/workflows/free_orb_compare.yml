@@ -1,0 +1,85 @@
+name: Free ORB provider comparison
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Safely after the US close year-round and after the 15-minute free-data delay.
+    - cron: "15 22 * * 1-5"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: free-orb-provider-comparison
+  cancel-in-progress: false
+
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt
+
+      - name: Build free Alpaca daily-bar cache
+        env:
+          APCA_API_KEY_ID: ${{ secrets.APCA_API_KEY_ID }}
+          APCA_API_SECRET_KEY: ${{ secrets.APCA_API_SECRET_KEY }}
+          CACHE_FILE: cache/alpaca_bars.json.gz
+          BARS: "250"
+          BATCH_SIZE: "50"
+          REQUESTS_PER_MIN: "170"
+          LOOKBACK_DAYS: "450"
+          MAX_SYMBOLS: ${{ vars.MAX_SYMBOLS }}
+          PYTHONUNBUFFERED: "1"
+        run: python fetch_bars_alpaca.py
+
+      # Run the PRODUCTION screener itself, unchanged, in an isolated folder.
+      # This prevents its normal output paths from overwriting the Twelve Data
+      # results while guaranteeing the rules/calculations are identical.
+      - name: Run exact production ORB logic against Alpaca cache
+        env:
+          PYTHONUNBUFFERED: "1"
+        run: |
+          rm -rf free_run
+          mkdir -p free_run
+          cp screener.py bars_cache.py scan_output.py free_run/
+          cd free_run
+          CACHE_FILE="$GITHUB_WORKSPACE/cache/alpaca_bars.json.gz" \
+          TWELVE_DATA_KEY="" \
+          THROTTLE_SEC="0" \
+          MAX_SYMBOLS="${{ vars.MAX_SYMBOLS }}" \
+          python screener.py
+
+      - name: Save Alpaca results separately
+        run: |
+          mkdir -p comparison/alpaca
+          cp free_run/output/candidates.csv comparison/alpaca/candidates.csv
+          cp free_run/data/orb.json comparison/alpaca/orb.json
+          cp free_run/docs/watchlist.txt comparison/alpaca/watchlist.txt
+
+      - name: Compare with latest Twelve Data ORB result
+        run: python compare_orb_providers.py
+
+      - name: Save comparison results
+        if: always()
+        run: |
+          rm -rf cache free_run
+          git config user.name "scan-bot"
+          git config user.email "actions@github.com"
+          git add comparison || true
+          if git diff --cached --quiet; then
+            echo "nothing to commit"
+          else
+            git commit -m "ORB provider comparison $(date -u +%F)"
+            git pull --rebase origin ${{ github.ref_name }} || true
+            git push
+          fi
