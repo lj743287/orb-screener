@@ -1,82 +1,17 @@
 {
   "scan_id": "burst_check",
   "label": "Second burst",
-  "generated_utc": "2026-08-26T15:00:17Z",
-  "status": "ok",
-  "count": 4,
-  "columns": [
-    "status",
-    "today_pct",
-    "y_pct",
-    "proj_volM",
-    "burst_volM",
-    "volume_ok",
-    "range_ok"
-  ],
+  "generated_utc": "2026-08-31T19:59:22Z",
+  "status": "empty",
+  "count": 0,
+  "columns": [],
   "meta": {
     "sort": "FULL first, then biggest move",
-    "watching": 140,
-    "session_elapsed": "22%",
+    "watching": 38,
+    "session_elapsed": "100%",
     "full": 0,
-    "early": 4,
-    "burst_date": "2026-08-25"
+    "early": 0,
+    "burst_date": "2026-08-28"
   },
-  "rows": [
-    {
-      "symbol": "BZ",
-      "exchange": "NASDAQ",
-      "close": 19.11,
-      "extra": {
-        "status": "EARLY",
-        "today_pct": 17.31,
-        "y_pct": 5.51,
-        "proj_volM": 4.83,
-        "burst_volM": 14.35,
-        "volume_ok": "no",
-        "range_ok": "yes"
-      }
-    },
-    {
-      "symbol": "EXYN",
-      "exchange": "NASDAQ",
-      "close": 3.6,
-      "extra": {
-        "status": "EARLY",
-        "today_pct": 11.8,
-        "y_pct": 40.0,
-        "proj_volM": 0.04,
-        "burst_volM": 1.57,
-        "volume_ok": "no",
-        "range_ok": "no"
-      }
-    },
-    {
-      "symbol": "SMTC",
-      "exchange": "NASDAQ",
-      "close": 138.82,
-      "extra": {
-        "status": "EARLY",
-        "today_pct": 8.86,
-        "y_pct": 5.47,
-        "proj_volM": 1.23,
-        "burst_volM": 8.63,
-        "volume_ok": "no",
-        "range_ok": "no"
-      }
-    },
-    {
-      "symbol": "ZSQR",
-      "exchange": "NASDAQ",
-      "close": 4.295,
-      "extra": {
-        "status": "EARLY",
-        "today_pct": 4.76,
-        "y_pct": 12.02,
-        "proj_volM": 0.03,
-        "burst_volM": 0.26,
-        "volume_ok": "no",
-        "range_ok": "yes"
-      }
-    }
-  ]
+  "rows": []
 }

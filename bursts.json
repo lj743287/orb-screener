@@ -1,54 +1,5 @@
 {
- "generated_utc": "2026-08-26T15:00:17.275933+00:00",
- "session_fraction": 0.224,
- "results": [
-  {
-   "symbol": "BZ",
-   "exchange": "NASDAQ",
-   "status": "EARLY",
-   "y_pct": 5.51,
-   "today_pct": 17.31,
-   "price": 19.11,
-   "proj_vol": 4825190,
-   "y_volume": 14347755,
-   "vol_ok": false,
-   "rng_ok": true
-  },
-  {
-   "symbol": "EXYN",
-   "exchange": "NASDAQ",
-   "status": "EARLY",
-   "y_pct": 40.0,
-   "today_pct": 11.8,
-   "price": 3.6,
-   "proj_vol": 41208,
-   "y_volume": 1567933,
-   "vol_ok": false,
-   "rng_ok": false
-  },
-  {
-   "symbol": "SMTC",
-   "exchange": "NASDAQ",
-   "status": "EARLY",
-   "y_pct": 5.47,
-   "today_pct": 8.86,
-   "price": 138.82,
-   "proj_vol": 1227157,
-   "y_volume": 8627353,
-   "vol_ok": false,
-   "rng_ok": false
-  },
-  {
-   "symbol": "ZSQR",
-   "exchange": "NASDAQ",
-   "status": "EARLY",
-   "y_pct": 12.02,
-   "today_pct": 4.76,
-   "price": 4.295,
-   "proj_vol": 27657,
-   "y_volume": 258863,
-   "vol_ok": false,
-   "rng_ok": true
-  }
- ]
+ "generated_utc": "2026-08-31T19:59:22.003172+00:00",
+ "session_fraction": 0.998,
+ "results": []
 }
