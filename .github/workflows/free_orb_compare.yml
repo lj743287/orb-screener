@@ -40,8 +40,8 @@ jobs:
           APCA_API_SECRET_KEY: ${{ secrets.APCA_API_SECRET_KEY }}
           CACHE_FILE: cache/alpaca_bars.json.gz
           BARS: "250"
-          BATCH_SIZE: "50"
-          REQUESTS_PER_MIN: "170"
+          BATCH_SIZE: "30"
+          REQUESTS_PER_MIN: "120"
           LOOKBACK_DAYS: "450"
           MAX_SYMBOLS: ${{ vars.MAX_SYMBOLS }}
           PYTHONUNBUFFERED: "1"
