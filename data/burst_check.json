@@ -1,17 +1,54 @@
 {
   "scan_id": "burst_check",
   "label": "Second burst",
-  "generated_utc": "2026-08-31T19:59:22Z",
-  "status": "empty",
-  "count": 0,
-  "columns": [],
+  "generated_utc": "2026-09-01T17:50:07Z",
+  "status": "ok",
+  "count": 2,
+  "columns": [
+    "status",
+    "today_pct",
+    "y_pct",
+    "proj_volM",
+    "burst_volM",
+    "volume_ok",
+    "range_ok"
+  ],
   "meta": {
     "sort": "FULL first, then biggest move",
-    "watching": 38,
-    "session_elapsed": "100%",
+    "watching": 58,
+    "session_elapsed": "66%",
     "full": 0,
-    "early": 0,
-    "burst_date": "2026-08-28"
+    "early": 2,
+    "burst_date": "2026-08-31"
   },
-  "rows": []
+  "rows": [
+    {
+      "symbol": "FRVO",
+      "exchange": "NASDAQ",
+      "close": 19.74,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 28.35,
+        "y_pct": 4.13,
+        "proj_volM": 1.16,
+        "burst_volM": 4.51,
+        "volume_ok": "no",
+        "range_ok": "yes"
+      }
+    },
+    {
+      "symbol": "CTMX",
+      "exchange": "NASDAQ",
+      "close": 3.555,
+      "extra": {
+        "status": "EARLY",
+        "today_pct": 5.8,
+        "y_pct": 4.67,
+        "proj_volM": 1.11,
+        "burst_volM": 2.38,
+        "volume_ok": "no",
+        "range_ok": "yes"
+      }
+    }
+  ]
 }
