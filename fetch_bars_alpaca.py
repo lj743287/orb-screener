@@ -22,8 +22,8 @@ Required env vars:
 Optional env vars:
   CACHE_FILE          default cache/alpaca_bars.json.gz
   BARS                default 250
-  BATCH_SIZE          default 50
-  REQUESTS_PER_MIN    default 170 (below Alpaca Basic's 200/min limit)
+  BATCH_SIZE          default 30
+  REQUESTS_PER_MIN    default 120 (comfortably below Alpaca Basic's limit)
   LOOKBACK_DAYS       default 450 calendar days
   MAX_SYMBOLS         optional cap for testing
 """
@@ -46,8 +46,8 @@ API_KEY = os.environ.get("APCA_API_KEY_ID", "")
 API_SECRET = os.environ.get("APCA_API_SECRET_KEY", "")
 CACHE_FILE = os.environ.get("CACHE_FILE", "cache/alpaca_bars.json.gz")
 BARS = int(os.environ.get("BARS", "250"))
-BATCH_SIZE = int(os.environ.get("BATCH_SIZE", "50"))
-REQUESTS_PER_MIN = int(os.environ.get("REQUESTS_PER_MIN", "170"))
+BATCH_SIZE = int(os.environ.get("BATCH_SIZE", "30"))
+REQUESTS_PER_MIN = int(os.environ.get("REQUESTS_PER_MIN", "120"))
 LOOKBACK_DAYS = int(os.environ.get("LOOKBACK_DAYS", "450"))
 MAX_SYMBOLS = int(os.environ.get("MAX_SYMBOLS", "0") or "0")
 
@@ -56,35 +56,73 @@ HEADERS = {
     "APCA-API-SECRET-KEY": API_SECRET,
 }
 
+# One global clock controls EVERY HTTP attempt, including retries. This avoids
+# bursts when a paginated response or a 429 retry happens immediately after a
+# successful request.
+_last_request_at = 0.0
+
 
 def chunks(items, n):
     for i in range(0, len(items), n):
         yield items[i:i + n]
 
 
-def request_page(params, tries=6):
-    """GET one Alpaca page with conservative retry/backoff behaviour."""
+def pace_request():
+    global _last_request_at
+    if REQUESTS_PER_MIN <= 0:
+        _last_request_at = time.monotonic()
+        return
+
+    min_gap = 60.0 / REQUESTS_PER_MIN
+    now = time.monotonic()
+    wait = min_gap - (now - _last_request_at)
+    if wait > 0:
+        time.sleep(wait)
+    _last_request_at = time.monotonic()
+
+
+def request_page(params, tries=8):
+    """GET one Alpaca page with global pacing and robust 429 recovery."""
     delay = 1.0
     for attempt in range(tries):
         try:
+            pace_request()
             r = requests.get(BASE_URL, headers=HEADERS, params=params, timeout=60)
+
             if r.status_code == 429:
-                retry_after = float(r.headers.get("Retry-After", "0") or "0")
-                time.sleep(max(retry_after, 60.0 / max(1, REQUESTS_PER_MIN), delay))
-                delay = min(delay * 2, 30)
+                raw_retry = r.headers.get("Retry-After", "")
+                try:
+                    retry_after = float(raw_retry) if raw_retry else 0.0
+                except ValueError:
+                    retry_after = 0.0
+
+                # If Alpaca does not tell us when the window resets, wait a full
+                # minute rather than repeatedly colliding with the same window.
+                wait = max(retry_after, 65.0)
+                print(
+                    f"Alpaca rate limit (429); waiting {wait:.0f}s before retry "
+                    f"{attempt + 1}/{tries}",
+                    flush=True,
+                )
+                time.sleep(wait)
+                delay = 1.0
                 continue
+
             if r.status_code >= 500:
                 time.sleep(delay)
                 delay = min(delay * 2, 30)
                 continue
+
             r.raise_for_status()
             return r.json()
+
         except requests.RequestException as exc:
             if attempt == tries - 1:
                 raise
             print(f"Alpaca request error: {exc}; retrying", flush=True)
             time.sleep(delay)
             delay = min(delay * 2, 30)
+
     raise RuntimeError("Alpaca request failed after retries")
 
 
@@ -136,10 +174,6 @@ def fetch_batch(symbols, start_date, end_date, skip_date):
         if not page_token:
             break
 
-        # Basic plan allows 200 historical API calls/min. Stay below it.
-        if REQUESTS_PER_MIN:
-            time.sleep(60.0 / REQUESTS_PER_MIN)
-
     # Existing cache is newest-first and capped to BARS.
     out = {}
     for sym, rows in collected.items():
@@ -174,7 +208,8 @@ def main():
 
     print(
         f"Alpaca free ORB cache: {len(symbols)} symbols, up to {BARS} daily bars, "
-        f"{start_date} to {end_date}, batch size {BATCH_SIZE}",
+        f"{start_date} to {end_date}, batch size {BATCH_SIZE}, "
+        f"request ceiling {REQUESTS_PER_MIN}/min",
         flush=True,
     )
 
@@ -200,9 +235,6 @@ def main():
                 f"{total_calls} API calls, {elapsed:.1f} min",
                 flush=True,
             )
-
-        if REQUESTS_PER_MIN:
-            time.sleep(60.0 / REQUESTS_PER_MIN)
 
     missing = sorted(set(symbols) - set(all_bars))
 
