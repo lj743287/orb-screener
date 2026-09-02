@@ -1,9 +1,9 @@
 {
   "scan_id": "burst",
   "label": "Stockbee Burst",
-  "generated_utc": "2026-09-01T04:49:36Z",
+  "generated_utc": "2026-09-02T04:10:00Z",
   "status": "ok",
-  "count": 58,
+  "count": 54,
   "columns": [
     "burst_pct",
     "volM",
@@ -12,646 +12,602 @@
   ],
   "meta": {
     "sort": "burst % descending",
-    "universe": 5760,
-    "burst_date": "2026-08-31"
+    "universe": 5761,
+    "burst_date": "2026-09-01"
   },
   "rows": [
     {
-      "symbol": "USDE",
+      "symbol": "SSM",
       "exchange": "NASDAQ",
-      "close": 8.87,
+      "close": 4.755,
       "extra": {
-        "burst_pct": 31.21,
-        "volM": 9.69,
-        "dvolM": 86.0,
-        "burst_date": "2026-08-31"
+        "burst_pct": 77.43,
+        "volM": 33.59,
+        "dvolM": 159.7,
+        "burst_date": "2026-09-01"
       }
     },
     {
-      "symbol": "NEOV",
+      "symbol": "SWVL",
       "exchange": "NASDAQ",
-      "close": 4.24,
+      "close": 3.83,
       "extra": {
-        "burst_pct": 26.95,
-        "volM": 10.08,
-        "dvolM": 42.7,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "DPRO",
-      "exchange": "NASDAQ",
-      "close": 5.42,
-      "extra": {
-        "burst_pct": 21.39,
-        "volM": 9.0,
-        "dvolM": 48.8,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "FXHO",
-      "exchange": "NASDAQ",
-      "close": 12.32,
-      "extra": {
-        "burst_pct": 18.69,
-        "volM": 0.16,
-        "dvolM": 2.0,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "EMAT",
-      "exchange": "NASDAQ",
-      "close": 3.865,
-      "extra": {
-        "burst_pct": 18.2,
-        "volM": 1.33,
-        "dvolM": 5.1,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "STDN",
-      "exchange": "NYSE",
-      "close": 16.11,
-      "extra": {
-        "burst_pct": 14.26,
-        "volM": 1.84,
-        "dvolM": 29.6,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "SPAI",
-      "exchange": "NASDAQ",
-      "close": 5.28,
-      "extra": {
-        "burst_pct": 14.04,
-        "volM": 0.43,
-        "dvolM": 2.3,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "GPRK",
-      "exchange": "NYSE",
-      "close": 11.0,
-      "extra": {
-        "burst_pct": 11.9,
-        "volM": 2.05,
-        "dvolM": 22.5,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "WKHS",
-      "exchange": "NASDAQ",
-      "close": 3.43,
-      "extra": {
-        "burst_pct": 11.73,
-        "volM": 0.18,
-        "dvolM": 0.6,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "ASST",
-      "exchange": "NASDAQ",
-      "close": 24.22,
-      "extra": {
-        "burst_pct": 11.41,
-        "volM": 14.95,
-        "dvolM": 362.0,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "LPSN",
-      "exchange": "NASDAQ",
-      "close": 3.1,
-      "extra": {
-        "burst_pct": 9.93,
-        "volM": 0.46,
-        "dvolM": 1.4,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "CRCL",
-      "exchange": "NYSE",
-      "close": 95.55,
-      "extra": {
-        "burst_pct": 9.65,
-        "volM": 19.71,
-        "dvolM": 1883.6,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "QMCO",
-      "exchange": "NASDAQ",
-      "close": 24.33,
-      "extra": {
-        "burst_pct": 9.3,
-        "volM": 1.2,
-        "dvolM": 29.2,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "EMPD",
-      "exchange": "NASDAQ",
-      "close": 3.22,
-      "extra": {
-        "burst_pct": 8.24,
-        "volM": 0.46,
-        "dvolM": 1.5,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "SOC",
-      "exchange": "NYSE",
-      "close": 4.83,
-      "extra": {
-        "burst_pct": 7.57,
-        "volM": 6.58,
-        "dvolM": 31.8,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "CABO",
-      "exchange": "NYSE",
-      "close": 27.38,
-      "extra": {
-        "burst_pct": 7.37,
-        "volM": 0.35,
-        "dvolM": 9.5,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "RBLX",
-      "exchange": "NYSE",
-      "close": 41.29,
-      "extra": {
-        "burst_pct": 7.16,
-        "volM": 19.52,
-        "dvolM": 805.8,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "NCT",
-      "exchange": "NASDAQ",
-      "close": 5.21,
-      "extra": {
-        "burst_pct": 6.98,
-        "volM": 0.92,
-        "dvolM": 4.8,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "CAR",
-      "exchange": "NASDAQ",
-      "close": 147.49,
-      "extra": {
-        "burst_pct": 6.78,
-        "volM": 0.84,
-        "dvolM": 124.6,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "OMCL",
-      "exchange": "NASDAQ",
-      "close": 35.16,
-      "extra": {
-        "burst_pct": 6.29,
-        "volM": 1.04,
-        "dvolM": 36.5,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "ASND",
-      "exchange": "NASDAQ",
-      "close": 263.04,
-      "extra": {
-        "burst_pct": 6.1,
-        "volM": 0.97,
-        "dvolM": 256.0,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "WOLF",
-      "exchange": "NYSE",
-      "close": 27.4,
-      "extra": {
-        "burst_pct": 6.0,
-        "volM": 2.6,
-        "dvolM": 71.2,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "GLXY",
-      "exchange": "NASDAQ",
-      "close": 24.6,
-      "extra": {
-        "burst_pct": 5.99,
-        "volM": 5.76,
-        "dvolM": 141.6,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "AGRO",
-      "exchange": "NYSE",
-      "close": 11.38,
-      "extra": {
-        "burst_pct": 5.96,
-        "volM": 0.88,
-        "dvolM": 10.1,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "DHX",
-      "exchange": "NYSE",
-      "close": 4.29,
-      "extra": {
-        "burst_pct": 5.93,
-        "volM": 0.3,
-        "dvolM": 1.3,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "ZDGE",
-      "exchange": "AMEX",
-      "close": 3.04,
-      "extra": {
-        "burst_pct": 5.92,
-        "volM": 0.95,
-        "dvolM": 2.9,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "PLSE",
-      "exchange": "NASDAQ",
-      "close": 50.33,
-      "extra": {
-        "burst_pct": 5.8,
-        "volM": 0.66,
-        "dvolM": 33.1,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "CRWD",
-      "exchange": "NASDAQ",
-      "close": 231.0,
-      "extra": {
-        "burst_pct": 5.77,
-        "volM": 17.75,
-        "dvolM": 4099.6,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "PICS",
-      "exchange": "NASDAQ",
-      "close": 10.61,
-      "extra": {
-        "burst_pct": 5.57,
-        "volM": 0.83,
-        "dvolM": 8.8,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "XRX",
-      "exchange": "NASDAQ",
-      "close": 3.23,
-      "extra": {
-        "burst_pct": 5.56,
-        "volM": 4.32,
-        "dvolM": 14.0,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "PURR",
-      "exchange": "NASDAQ",
-      "close": 12.25,
-      "extra": {
-        "burst_pct": 5.51,
-        "volM": 40.33,
-        "dvolM": 494.1,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "TSLA",
-      "exchange": "NASDAQ",
-      "close": 367.95,
-      "extra": {
-        "burst_pct": 5.51,
-        "volM": 61.16,
-        "dvolM": 22502.9,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "SNDK",
-      "exchange": "NASDAQ",
-      "close": 1566.6999,
-      "extra": {
-        "burst_pct": 5.5,
-        "volM": 23.18,
-        "dvolM": 36320.8,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "HTFL",
-      "exchange": "NASDAQ",
-      "close": 50.39,
-      "extra": {
-        "burst_pct": 5.46,
-        "volM": 2.59,
-        "dvolM": 130.3,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "NTHI",
-      "exchange": "NASDAQ",
-      "close": 4.94,
-      "extra": {
-        "burst_pct": 5.33,
-        "volM": 0.17,
-        "dvolM": 0.9,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "COIN",
-      "exchange": "NASDAQ",
-      "close": 188.12,
-      "extra": {
-        "burst_pct": 5.31,
-        "volM": 10.53,
-        "dvolM": 1981.7,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "HELE",
-      "exchange": "NASDAQ",
-      "close": 30.1,
-      "extra": {
-        "burst_pct": 5.17,
-        "volM": 0.82,
-        "dvolM": 24.7,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "SUPV",
-      "exchange": "NYSE",
-      "close": 8.74,
-      "extra": {
-        "burst_pct": 5.17,
-        "volM": 1.13,
-        "dvolM": 9.9,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "ALVO",
-      "exchange": "NASDAQ",
-      "close": 5.19,
-      "extra": {
-        "burst_pct": 4.85,
-        "volM": 1.25,
-        "dvolM": 6.5,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "QVCG",
-      "exchange": "NASDAQ",
-      "close": 17.59,
-      "extra": {
-        "burst_pct": 4.83,
-        "volM": 0.24,
-        "dvolM": 4.1,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "SLB",
-      "exchange": "NYSE",
-      "close": 60.1,
-      "extra": {
-        "burst_pct": 4.83,
-        "volM": 35.08,
-        "dvolM": 2108.3,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "ELF",
-      "exchange": "NYSE",
-      "close": 109.05,
-      "extra": {
-        "burst_pct": 4.76,
-        "volM": 2.24,
-        "dvolM": 243.9,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "SMPL",
-      "exchange": "NASDAQ",
-      "close": 11.45,
-      "extra": {
-        "burst_pct": 4.76,
-        "volM": 3.79,
-        "dvolM": 43.4,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "CTMX",
-      "exchange": "NASDAQ",
-      "close": 3.36,
-      "extra": {
-        "burst_pct": 4.67,
-        "volM": 2.38,
-        "dvolM": 8.0,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "MIR",
-      "exchange": "NYSE",
-      "close": 15.07,
-      "extra": {
-        "burst_pct": 4.65,
-        "volM": 4.86,
-        "dvolM": 73.3,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "TONX",
-      "exchange": "NASDAQ",
-      "close": 3.4,
-      "extra": {
-        "burst_pct": 4.62,
-        "volM": 0.48,
-        "dvolM": 1.6,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "BRCB",
-      "exchange": "NASDAQ",
-      "close": 9.55,
-      "extra": {
-        "burst_pct": 4.6,
-        "volM": 0.48,
-        "dvolM": 4.6,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "LEGN",
-      "exchange": "NASDAQ",
-      "close": 20.78,
-      "extra": {
-        "burst_pct": 4.53,
-        "volM": 2.32,
-        "dvolM": 48.2,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "GRRR",
-      "exchange": "NASDAQ",
-      "close": 15.04,
-      "extra": {
-        "burst_pct": 4.37,
-        "volM": 1.23,
-        "dvolM": 18.6,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "ARKO",
-      "exchange": "NASDAQ",
-      "close": 4.56,
-      "extra": {
-        "burst_pct": 4.35,
-        "volM": 1.32,
-        "dvolM": 6.0,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "AGCO",
-      "exchange": "NYSE",
-      "close": 118.31,
-      "extra": {
-        "burst_pct": 4.34,
-        "volM": 1.81,
-        "dvolM": 213.9,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "PHAT",
-      "exchange": "NASDAQ",
-      "close": 9.57,
-      "extra": {
-        "burst_pct": 4.25,
-        "volM": 1.21,
-        "dvolM": 11.6,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "AMR",
-      "exchange": "NYSE",
-      "close": 235.7,
-      "extra": {
-        "burst_pct": 4.19,
-        "volM": 0.42,
-        "dvolM": 99.2,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "GLUE",
-      "exchange": "NASDAQ",
-      "close": 13.94,
-      "extra": {
-        "burst_pct": 4.19,
-        "volM": 1.11,
-        "dvolM": 15.5,
-        "burst_date": "2026-08-31"
-      }
-    },
-    {
-      "symbol": "OLLI",
-      "exchange": "NASDAQ",
-      "close": 75.42,
-      "extra": {
-        "burst_pct": 4.14,
-        "volM": 2.68,
-        "dvolM": 202.1,
-        "burst_date": "2026-08-31"
+        "burst_pct": 31.62,
+        "volM": 0.99,
+        "dvolM": 3.8,
+        "burst_date": "2026-09-01"
       }
     },
     {
       "symbol": "FRVO",
       "exchange": "NASDAQ",
-      "close": 15.38,
+      "close": 19.75,
+      "extra": {
+        "burst_pct": 28.41,
+        "volM": 35.13,
+        "dvolM": 693.7,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "RDIB",
+      "exchange": "NASDAQ",
+      "close": 17.7,
+      "extra": {
+        "burst_pct": 15.65,
+        "volM": 0.12,
+        "dvolM": 2.1,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "FCUV",
+      "exchange": "NASDAQ",
+      "close": 11.35,
+      "extra": {
+        "burst_pct": 15.23,
+        "volM": 0.36,
+        "dvolM": 4.1,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "CUE",
+      "exchange": "NASDAQ",
+      "close": 28.44,
+      "extra": {
+        "burst_pct": 11.44,
+        "volM": 0.18,
+        "dvolM": 5.0,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "CRK",
+      "exchange": "NYSE",
+      "close": 16.02,
+      "extra": {
+        "burst_pct": 11.02,
+        "volM": 11.22,
+        "dvolM": 179.7,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "MMED",
+      "exchange": "NASDAQ",
+      "close": 22.42,
+      "extra": {
+        "burst_pct": 10.66,
+        "volM": 6.07,
+        "dvolM": 136.2,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "ADVB",
+      "exchange": "NASDAQ",
+      "close": 10.44,
+      "extra": {
+        "burst_pct": 10.48,
+        "volM": 0.37,
+        "dvolM": 3.9,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "MRNA",
+      "exchange": "NASDAQ",
+      "close": 154.27,
+      "extra": {
+        "burst_pct": 9.93,
+        "volM": 25.69,
+        "dvolM": 3963.3,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "CTMX",
+      "exchange": "NASDAQ",
+      "close": 3.67,
+      "extra": {
+        "burst_pct": 9.23,
+        "volM": 8.82,
+        "dvolM": 32.4,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "SLN",
+      "exchange": "NASDAQ",
+      "close": 14.74,
+      "extra": {
+        "burst_pct": 8.94,
+        "volM": 1.13,
+        "dvolM": 16.7,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "NCTY",
+      "exchange": "NASDAQ",
+      "close": 4.82,
+      "extra": {
+        "burst_pct": 8.8,
+        "volM": 0.3,
+        "dvolM": 1.4,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "LMB",
+      "exchange": "NASDAQ",
+      "close": 44.79,
+      "extra": {
+        "burst_pct": 8.66,
+        "volM": 0.89,
+        "dvolM": 39.6,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "CBIO",
+      "exchange": "NASDAQ",
+      "close": 17.93,
+      "extra": {
+        "burst_pct": 8.01,
+        "volM": 0.79,
+        "dvolM": 14.1,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "NVAX",
+      "exchange": "NASDAQ",
+      "close": 10.12,
+      "extra": {
+        "burst_pct": 8.0,
+        "volM": 10.02,
+        "dvolM": 101.4,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "CLYM",
+      "exchange": "NASDAQ",
+      "close": 14.82,
+      "extra": {
+        "burst_pct": 7.94,
+        "volM": 1.97,
+        "dvolM": 29.2,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "ANNA",
+      "exchange": "NASDAQ",
+      "close": 3.14,
+      "extra": {
+        "burst_pct": 7.17,
+        "volM": 0.29,
+        "dvolM": 0.9,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "SION",
+      "exchange": "NASDAQ",
+      "close": 6.46,
+      "extra": {
+        "burst_pct": 7.13,
+        "volM": 1.4,
+        "dvolM": 9.1,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "SDGR",
+      "exchange": "NASDAQ",
+      "close": 20.84,
+      "extra": {
+        "burst_pct": 6.87,
+        "volM": 1.51,
+        "dvolM": 31.4,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "AGBK",
+      "exchange": "NYSE",
+      "close": 6.63,
+      "extra": {
+        "burst_pct": 6.76,
+        "volM": 0.3,
+        "dvolM": 2.0,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "GMRS",
+      "exchange": "NYSE",
+      "close": 12.97,
+      "extra": {
+        "burst_pct": 6.75,
+        "volM": 0.84,
+        "dvolM": 10.8,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "ACET",
+      "exchange": "NASDAQ",
+      "close": 9.26,
+      "extra": {
+        "burst_pct": 6.44,
+        "volM": 0.13,
+        "dvolM": 1.2,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "NXTC",
+      "exchange": "NASDAQ",
+      "close": 6.8,
+      "extra": {
+        "burst_pct": 6.42,
+        "volM": 0.11,
+        "dvolM": 0.8,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "CABA",
+      "exchange": "NASDAQ",
+      "close": 3.3,
+      "extra": {
+        "burst_pct": 6.11,
+        "volM": 6.64,
+        "dvolM": 21.9,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "BWXT",
+      "exchange": "NYSE",
+      "close": 161.54,
+      "extra": {
+        "burst_pct": 6.07,
+        "volM": 1.96,
+        "dvolM": 317.3,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "HP",
+      "exchange": "NYSE",
+      "close": 46.21,
+      "extra": {
+        "burst_pct": 6.03,
+        "volM": 2.26,
+        "dvolM": 104.5,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "OBE",
+      "exchange": "AMEX",
+      "close": 12.13,
+      "extra": {
+        "burst_pct": 5.94,
+        "volM": 0.84,
+        "dvolM": 10.1,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "IRD",
+      "exchange": "NASDAQ",
+      "close": 3.83,
+      "extra": {
+        "burst_pct": 5.8,
+        "volM": 0.87,
+        "dvolM": 3.3,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "AGRO",
+      "exchange": "NYSE",
+      "close": 12.02,
+      "extra": {
+        "burst_pct": 5.62,
+        "volM": 1.39,
+        "dvolM": 16.7,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "VSTM",
+      "exchange": "NASDAQ",
+      "close": 7.61,
+      "extra": {
+        "burst_pct": 5.4,
+        "volM": 2.08,
+        "dvolM": 15.8,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "FTH",
+      "exchange": "NASDAQ",
+      "close": 34.51,
+      "extra": {
+        "burst_pct": 5.31,
+        "volM": 0.28,
+        "dvolM": 9.5,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "IPI",
+      "exchange": "NYSE",
+      "close": 40.7,
+      "extra": {
+        "burst_pct": 5.25,
+        "volM": 0.37,
+        "dvolM": 15.1,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "ORA",
+      "exchange": "NYSE",
+      "close": 107.29,
+      "extra": {
+        "burst_pct": 5.19,
+        "volM": 1.02,
+        "dvolM": 109.7,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "PBR",
+      "exchange": "NYSE",
+      "close": 20.33,
+      "extra": {
+        "burst_pct": 5.06,
+        "volM": 31.04,
+        "dvolM": 631.0,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "GRDN",
+      "exchange": "NYSE",
+      "close": 38.87,
+      "extra": {
+        "burst_pct": 4.8,
+        "volM": 0.54,
+        "dvolM": 20.9,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "LXU",
+      "exchange": "NYSE",
+      "close": 11.18,
+      "extra": {
+        "burst_pct": 4.78,
+        "volM": 0.78,
+        "dvolM": 8.7,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "HRMY",
+      "exchange": "NASDAQ",
+      "close": 41.25,
+      "extra": {
+        "burst_pct": 4.75,
+        "volM": 0.83,
+        "dvolM": 34.3,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "ASMB",
+      "exchange": "NASDAQ",
+      "close": 35.18,
+      "extra": {
+        "burst_pct": 4.61,
+        "volM": 0.3,
+        "dvolM": 10.6,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "VIST",
+      "exchange": "NYSE",
+      "close": 74.71,
+      "extra": {
+        "burst_pct": 4.55,
+        "volM": 1.89,
+        "dvolM": 141.5,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "NGNE",
+      "exchange": "NASDAQ",
+      "close": 37.87,
+      "extra": {
+        "burst_pct": 4.5,
+        "volM": 0.13,
+        "dvolM": 5.1,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "DSC",
+      "exchange": "NASDAQ",
+      "close": 7.83,
+      "extra": {
+        "burst_pct": 4.4,
+        "volM": 0.12,
+        "dvolM": 0.9,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "PEPG",
+      "exchange": "NASDAQ",
+      "close": 3.12,
+      "extra": {
+        "burst_pct": 4.35,
+        "volM": 0.46,
+        "dvolM": 1.4,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "CCCC",
+      "exchange": "NASDAQ",
+      "close": 3.87,
+      "extra": {
+        "burst_pct": 4.31,
+        "volM": 2.36,
+        "dvolM": 9.1,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "CF",
+      "exchange": "NYSE",
+      "close": 135.6,
+      "extra": {
+        "burst_pct": 4.28,
+        "volM": 3.81,
+        "dvolM": 516.3,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "DHX",
+      "exchange": "NYSE",
+      "close": 4.47,
+      "extra": {
+        "burst_pct": 4.2,
+        "volM": 0.45,
+        "dvolM": 2.0,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "SNDX",
+      "exchange": "NASDAQ",
+      "close": 20.1,
+      "extra": {
+        "burst_pct": 4.2,
+        "volM": 1.41,
+        "dvolM": 28.3,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "LAND",
+      "exchange": "NASDAQ",
+      "close": 9.56,
+      "extra": {
+        "burst_pct": 4.14,
+        "volM": 1.12,
+        "dvolM": 10.7,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "BLBD",
+      "exchange": "NASDAQ",
+      "close": 60.55,
       "extra": {
         "burst_pct": 4.13,
-        "volM": 4.51,
-        "dvolM": 69.3,
-        "burst_date": "2026-08-31"
+        "volM": 0.87,
+        "dvolM": 52.5,
+        "burst_date": "2026-09-01"
       }
     },
     {
-      "symbol": "OKTA",
-      "exchange": "NASDAQ",
-      "close": 173.04,
+      "symbol": "OSG",
+      "exchange": "NYSE",
+      "close": 4.54,
       "extra": {
-        "burst_pct": 4.1,
-        "volM": 4.7,
-        "dvolM": 813.2,
-        "burst_date": "2026-08-31"
+        "burst_pct": 4.13,
+        "volM": 1.01,
+        "dvolM": 4.6,
+        "burst_date": "2026-09-01"
       }
     },
     {
-      "symbol": "ZYME",
+      "symbol": "EXEL",
       "exchange": "NASDAQ",
-      "close": 29.41,
+      "close": 56.89,
       "extra": {
-        "burst_pct": 4.03,
-        "volM": 0.72,
-        "dvolM": 21.1,
-        "burst_date": "2026-08-31"
+        "burst_pct": 4.12,
+        "volM": 2.4,
+        "dvolM": 136.4,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "HSAI",
+      "exchange": "NASDAQ",
+      "close": 16.78,
+      "extra": {
+        "burst_pct": 4.09,
+        "volM": 2.2,
+        "dvolM": 37.0,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "MUSA",
+      "exchange": "NYSE",
+      "close": 536.45,
+      "extra": {
+        "burst_pct": 4.09,
+        "volM": 0.42,
+        "dvolM": 223.0,
+        "burst_date": "2026-09-01"
+      }
+    },
+    {
+      "symbol": "EIKN",
+      "exchange": "NASDAQ",
+      "close": 10.88,
+      "extra": {
+        "burst_pct": 4.02,
+        "volM": 0.33,
+        "dvolM": 3.6,
+        "burst_date": "2026-09-01"
       }
     }
   ]
