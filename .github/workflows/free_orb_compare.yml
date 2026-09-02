@@ -7,6 +7,7 @@ on:
       - alpaca-free-orb
     paths:
       - .github/workflows/free_orb_compare.yml
+      - fetch_bars_alpaca.py
   schedule:
     # Safely after the US close year-round and after the 15-minute free-data delay.
     - cron: "15 22 * * 1-5"
