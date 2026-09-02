@@ -9,8 +9,7 @@ a strategy-code comparison.
 
 Important compatibility choices:
 - Uses the exact same NASDAQ Trader universe builder as fetch_bars.py.
-- Requests 1Day SIP historical bars. Alpaca Basic restricts only the latest
-  15 minutes of historical data, which is irrelevant for an overnight run.
+- Requests 1Day IEX historical bars available on Alpaca's free data plan.
 - Uses split-adjusted bars to match Twelve Data time_series default behaviour.
 - Stores newest-first rows in the same compact d/o/h/l/c/v schema.
 - Keeps up to 250 completed daily bars per symbol.
@@ -140,7 +139,7 @@ def fetch_batch(symbols, start_date, end_date, skip_date):
             "end": end_date,
             "limit": 10000,
             "adjustment": "split",
-            "feed": "sip",
+            "feed": "iex",
             "sort": "asc",
         }
         if page_token:
@@ -242,7 +241,7 @@ def main():
     payload = {
         "generated_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "provider": "alpaca",
-        "feed": "sip",
+        "feed": "iex",
         "adjustment": "split",
         "bars_requested": BARS,
         "lookback_days": LOOKBACK_DAYS,
