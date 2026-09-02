@@ -60,7 +60,7 @@ jobs:
           cp screener.py bars_cache.py scan_output.py free_run/
           cd free_run
           CACHE_FILE="$GITHUB_WORKSPACE/cache/alpaca_bars.json.gz" \
-          TWELVE_DATA_KEY="" \
+          TWELVE_DATA_KEY="CACHE_ONLY_NO_TWELVE" \
           THROTTLE_SEC="0" \
           MAX_SYMBOLS="${{ vars.MAX_SYMBOLS }}" \
           python screener.py
