@@ -1,0 +1,88 @@
+name: Free Massive ORB provider comparison
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - massive-free-orb
+    paths:
+      - .github/workflows/free_massive_orb_compare.yml
+      - fetch_bars_massive.py
+      - compare_orb_massive.py
+
+permissions:
+  contents: write
+
+concurrency:
+  group: free-massive-orb-provider-comparison
+  cancel-in-progress: false
+
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt
+
+      - name: Build free Massive grouped daily-bar cache
+        env:
+          MASSIVE_API_KEY: ${{ secrets.MASSIVE_API_KEY }}
+          CACHE_FILE: cache/massive_bars.json.gz
+          BARS: "250"
+          REQUESTS_PER_MIN: "4.5"
+          MIN_COVERAGE: "0.90"
+          MAX_SYMBOLS: ${{ vars.MAX_SYMBOLS }}
+          PYTHONUNBUFFERED: "1"
+        run: python fetch_bars_massive.py
+
+      # Run the PRODUCTION screener itself, unchanged, in an isolated folder.
+      # The non-secret dummy Twelve value satisfies screener.py's startup guard.
+      # The Massive cache supplies the complete scan universe, so no valid Twelve
+      # Data key is available and no Twelve data can enter this provider run.
+      - name: Run exact production ORB logic against Massive cache
+        env:
+          PYTHONUNBUFFERED: "1"
+        run: |
+          rm -rf free_run
+          mkdir -p free_run
+          cp screener.py bars_cache.py scan_output.py free_run/
+          cd free_run
+          CACHE_FILE="$GITHUB_WORKSPACE/cache/massive_bars.json.gz" \
+          TWELVE_DATA_KEY="CACHE_ONLY_NO_TWELVE" \
+          THROTTLE_SEC="0" \
+          MAX_SYMBOLS="${{ vars.MAX_SYMBOLS }}" \
+          python screener.py
+
+      - name: Save Massive results separately
+        run: |
+          mkdir -p comparison/massive
+          cp free_run/output/candidates.csv comparison/massive/candidates.csv
+          cp free_run/data/orb.json comparison/massive/orb.json
+          cp free_run/docs/watchlist.txt comparison/massive/watchlist.txt
+
+      - name: Compare with latest Twelve Data ORB result
+        run: python compare_orb_massive.py
+
+      - name: Save comparison results
+        if: always()
+        run: |
+          rm -rf cache free_run
+          git config user.name "scan-bot"
+          git config user.email "actions@github.com"
+          git add comparison/massive || true
+          if git diff --cached --quiet; then
+            echo "nothing to commit"
+          else
+            git commit -m "Massive ORB provider comparison $(date -u +%F)"
+            git pull --rebase origin ${{ github.ref_name }} || true
+            git push
+          fi
