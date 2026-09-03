@@ -38,7 +38,7 @@ jobs:
           MASSIVE_API_KEY: ${{ secrets.MASSIVE_API_KEY }}
           CACHE_FILE: cache/massive_bars.json.gz
           BARS: "250"
-          REQUESTS_PER_MIN: "4.5"
+          MASSIVE_REQUESTS_PER_MIN: "4.5"
           MIN_COVERAGE: "0.90"
           MAX_SYMBOLS: ${{ vars.MAX_SYMBOLS }}
           PYTHONUNBUFFERED: "1"
