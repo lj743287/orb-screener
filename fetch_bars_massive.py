@@ -12,11 +12,11 @@ Required env var:
   MASSIVE_API_KEY
 
 Optional env vars:
-  CACHE_FILE          default cache/massive_bars.json.gz
-  BARS                default 250 completed market sessions
-  REQUESTS_PER_MIN    default 4.5 (below Massive Basic's 5 req/min limit)
-  MAX_SYMBOLS         optional universe cap for testing
-  MIN_COVERAGE        default 0.90
+  CACHE_FILE                    default cache/massive_bars.json.gz
+  BARS                          default 250 completed market sessions
+  MASSIVE_REQUESTS_PER_MIN      default 4.5 (below Massive Basic's 5 req/min limit)
+  MAX_SYMBOLS                   optional universe cap for testing
+  MIN_COVERAGE                  default 0.90
 """
 
 import gzip
@@ -36,7 +36,7 @@ BASE_URL = "https://api.massive.com/v2/aggs/grouped/locale/us/market/stocks/{dat
 API_KEY = os.environ.get("MASSIVE_API_KEY", "")
 CACHE_FILE = os.environ.get("CACHE_FILE", "cache/massive_bars.json.gz")
 BARS = int(os.environ.get("BARS", "250"))
-REQUESTS_PER_MIN = float(os.environ.get("REQUESTS_PER_MIN", "4.5"))
+REQUESTS_PER_MIN = float(os.environ.get("MASSIVE_REQUESTS_PER_MIN", "4.5"))
 MAX_SYMBOLS = int(os.environ.get("MAX_SYMBOLS", "0") or "0")
 MIN_COVERAGE = float(os.environ.get("MIN_COVERAGE", "0.90"))
 
@@ -155,10 +155,6 @@ def main():
         day = cursor.isoformat()
         cursor -= timedelta(days=1)
         scanned_days += 1
-
-        # Grouped daily data is never needed for weekends, saving free-tier calls.
-        if cursor.weekday() == 5:  # cursor has already moved back one day
-            pass
 
         day_obj = datetime.fromisoformat(day).date()
         if day_obj.weekday() >= 5:
