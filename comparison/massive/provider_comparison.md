@@ -1,6 +1,6 @@
 # ORB provider comparison: Twelve Data vs Massive
 
-Generated: 2026-09-03T08:22:24Z
+Generated: 2026-09-03T20:30:13Z
 
 The **screening code is identical** in both runs. Only the daily-bar provider differs.
 
