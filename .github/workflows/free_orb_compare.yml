@@ -2,9 +2,6 @@ name: Free ORB provider comparison
 
 on:
   workflow_dispatch:
-  schedule:
-    # Safely after the US close year-round and after the 15-minute free-data delay.
-    - cron: "15 22 * * 1-5"
 
 permissions:
   contents: write
