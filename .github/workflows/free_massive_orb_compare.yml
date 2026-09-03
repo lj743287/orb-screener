@@ -86,3 +86,5 @@ jobs:
             git pull --rebase origin ${{ github.ref_name }} || true
             git push
           fi
+
+# Manual comparison rerun marker: 2026-09-03T19:31Z
