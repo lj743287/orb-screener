@@ -1,31 +1,26 @@
 # .github/workflows/overnight.yml
 #
-# The overnight run. One shared data fetch, then every scan reads it.
+# The overnight run. One shared data fetch, then every remaining scan reads it.
 #
-# WHAT CHANGED AND WHY: the three big scans each used to fetch daily history
-# for the same ~5,760 symbols separately -- roughly 17,000 API calls a night,
-# measured at 8h47m end to end, which finished after the 07:00 UK review it
-# was meant to feed. fetch_bars.py now does one pass (~5,760 calls) and writes
-# cache/bars.json.gz; the ORB, burst and anticipation scans read that instead
-# of calling the provider. The scanning rules themselves are untouched.
+# WHAT CHANGED AND WHY: the large scans used to fetch daily history for the
+# same ~5,760 symbols separately. fetch_bars.py now does one shared pass and
+# writes cache/bars.json.gz; the burst and anticipation scans read that cache.
+#
+# The ORB continuation screener is intentionally NOT run here any more.
+# ORB candidate screening has moved to the TradingView Pine Screener workflow.
+# The underlying screener.py file is retained for reference/manual testing.
 #
 # WHY ONE JOB, NOT FIVE: the cache has to be on disk when the scans run.
 # Separate jobs would mean shuttling it through the artifact store on every
-# hand-off. One job keeps it on local disk between steps. The six-hour job
-# ceiling was what forced the old split; at an estimated ~4h05 there is room,
-# though not a vast amount -- see the note on timing below.
+# hand-off. One job keeps it on local disk between steps.
 #
-# EXPECTED TIMING (estimates, to be checked against the first real run):
+# EXPECTED TIMING (estimates):
 #   fetch          ~2h00   one pass, 50 req/min
 #   daily          ~1h45   measured; cannot share the cache, different endpoint
-#   orb            ~5m     reads cache, no API calls
 #   burst          ~5m     reads cache
 #   anticipation   ~10m    reads cache
 #   publish        ~1m
-#   total          ~4h05, finishing about 01:35 UTC from a 21:30 start
-#
-# If that holds, the page is ready hours before the morning rather than after
-# it. The daily scanner is now the longest single item in the night.
+#   total          ~4h00
 #
 # WHY MONDAY TO FRIDAY: the run scans the same evening's close, so Monday
 # evening scans Monday. Tuesday-Saturday would miss every Monday close.
@@ -57,9 +52,6 @@ jobs:
   scans:
     if: github.event.inputs.mode != 'build-only'
     runs-on: ubuntu-latest
-    # Well inside the six-hour ceiling on the estimate above, with room for
-    # the fetch to run long. If a real run ever approaches this, the daily
-    # scanner is the thing to attack next.
     timeout-minutes: 330
     environment:
       name: github-pages
@@ -76,9 +68,7 @@ jobs:
       - run: pip install -r requirements.txt
 
       # ---------------------------------------------------------------
-      # One pass over the universe. Everything below reads what this
-      # writes. If it fails, the scans fall back to their own API calls --
-      # slow, but they still run, so the night is degraded not lost.
+      # One pass over the universe. Burst and anticipation read this cache.
       # ---------------------------------------------------------------
       - name: Fetch shared daily bars
         id: fetch
@@ -95,13 +85,11 @@ jobs:
           if [ -f cache/bars.json.gz ]; then
             echo "Cache built: $(du -h cache/bars.json.gz | cut -f1)"
           else
-            echo "NO CACHE - every scan will fetch its own data. Expect this"
-            echo "run to take around nine hours instead of four."
+            echo "NO CACHE - cache-backed scans may fall back to provider calls."
           fi
 
       # ---------------------------------------------------------------
       # Each scan continues on error so one failure cannot cost the night.
-      # A failed scan writes its own red banner to the dashboard.
       # ---------------------------------------------------------------
       - name: Daily scanner
         continue-on-error: true
@@ -110,14 +98,8 @@ jobs:
           PYTHONUNBUFFERED: "1"
         run: python daily_scanner.py
 
-      - name: ORB continuation screener
-        continue-on-error: true
-        env:
-          TWELVE_DATA_KEY: ${{ secrets.TWELVE_DATA_KEY }}
-          MAX_SYMBOLS: ${{ vars.MAX_SYMBOLS }}
-          THROTTLE_SEC: "1.2"
-          PYTHONUNBUFFERED: "1"
-        run: python screener.py
+      # ORB continuation screener intentionally removed from the scheduled
+      # GitHub workflow. TradingView Pine Screener is now the ORB source.
 
       - name: Stockbee burst scan
         continue-on-error: true
@@ -137,7 +119,7 @@ jobs:
         run: python build_scans.py
 
       # The cache is working data, not a result. Deleting it before the
-      # commit keeps 20MB of bars out of the repository history.
+      # commit keeps the bars out of the repository history.
       - name: Save results
         if: always()
         run: |
