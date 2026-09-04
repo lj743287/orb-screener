@@ -2,6 +2,12 @@ name: Build TradingView ORB watchlists
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - tradingview-full-universe-test
+    paths:
+      - build_tradingview_watchlists.py
+      - .github/workflows/build_tradingview_watchlists.yml
 
 permissions:
   contents: read
@@ -25,7 +31,7 @@ jobs:
         run: |
           ls -lh tradingview_watchlists
           for f in tradingview_watchlists/orb_universe_*.txt; do
-            echo "$(basename "$f"): $(tr ',' '\n' < "$f" | wc -l) symbols"
+            echo "$(basename \"$f\"): $(tr ',' '\n' < \"$f\" | wc -l) symbols"
           done
 
       - name: Upload TradingView watchlists
