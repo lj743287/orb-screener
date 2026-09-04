@@ -1,0 +1,36 @@
+name: Build TradingView ORB watchlists
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build exact production-universe watchlists
+        run: python build_tradingview_watchlists.py
+
+      - name: Show generated files
+        run: |
+          ls -lh tradingview_watchlists
+          for f in tradingview_watchlists/orb_universe_*.txt; do
+            echo "$(basename "$f"): $(tr ',' '\n' < "$f" | wc -l) symbols"
+          done
+
+      - name: Upload TradingView watchlists
+        uses: actions/upload-artifact@v4
+        with:
+          name: tradingview-orb-watchlists
+          path: tradingview_watchlists/orb_universe_*.txt
+          retention-days: 30
