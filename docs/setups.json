@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-09-07T18:42:51.355109+00:00",
- "session_fraction": 0.8,
+ "generated_utc": "2026-09-07T21:59:34.041289+00:00",
+ "session_fraction": 1.0,
  "results": [
   {
    "symbol": "OSPN",
@@ -16,7 +16,7 @@
    "adr_pct": 3.09,
    "consol_days": 6,
    "quals": "TI65+MDT",
-   "proj_vol": 337847,
+   "proj_vol": 270200,
    "prev_vol": 269978,
    "vol_ok": true,
    "rng_ok": false,
