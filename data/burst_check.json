@@ -1,138 +1,17 @@
 {
   "scan_id": "burst_check",
   "label": "Second burst",
-  "generated_utc": "2026-09-04T17:37:14Z",
-  "status": "ok",
-  "count": 8,
-  "columns": [
-    "status",
-    "today_pct",
-    "y_pct",
-    "proj_volM",
-    "burst_volM",
-    "volume_ok",
-    "range_ok"
-  ],
+  "generated_utc": "2026-09-07T18:44:39Z",
+  "status": "empty",
+  "count": 0,
+  "columns": [],
   "meta": {
     "sort": "FULL first, then biggest move",
-    "watching": 148,
-    "session_elapsed": "63%",
-    "full": 1,
-    "early": 7,
-    "burst_date": "2026-09-03"
+    "watching": 114,
+    "session_elapsed": "80%",
+    "full": 0,
+    "early": 0,
+    "burst_date": "2026-09-04"
   },
-  "rows": [
-    {
-      "symbol": "CRWV",
-      "exchange": "NASDAQ",
-      "close": 88.5742,
-      "extra": {
-        "status": "FULL",
-        "today_pct": 4.75,
-        "y_pct": 4.49,
-        "proj_volM": 14.16,
-        "burst_volM": 18.74,
-        "volume_ok": "yes",
-        "range_ok": "yes"
-      }
-    },
-    {
-      "symbol": "MTEX",
-      "exchange": "NASDAQ",
-      "close": 8.44,
-      "extra": {
-        "status": "EARLY",
-        "today_pct": 15.78,
-        "y_pct": 6.89,
-        "proj_volM": 0.0,
-        "burst_volM": 0.24,
-        "volume_ok": "no",
-        "range_ok": "no"
-      }
-    },
-    {
-      "symbol": "VBNK",
-      "exchange": "NASDAQ",
-      "close": 22.075,
-      "extra": {
-        "status": "EARLY",
-        "today_pct": 7.21,
-        "y_pct": 6.79,
-        "proj_volM": 0.01,
-        "burst_volM": 0.42,
-        "volume_ok": "no",
-        "range_ok": "no"
-      }
-    },
-    {
-      "symbol": "CAMT",
-      "exchange": "NASDAQ",
-      "close": 146.32,
-      "extra": {
-        "status": "EARLY",
-        "today_pct": 5.34,
-        "y_pct": 5.3,
-        "proj_volM": 0.03,
-        "burst_volM": 0.61,
-        "volume_ok": "no",
-        "range_ok": "yes"
-      }
-    },
-    {
-      "symbol": "DPC",
-      "exchange": "NYSE",
-      "close": 43.73,
-      "extra": {
-        "status": "EARLY",
-        "today_pct": 5.22,
-        "y_pct": 5.3,
-        "proj_volM": 0.04,
-        "burst_volM": 1.25,
-        "volume_ok": "no",
-        "range_ok": "yes"
-      }
-    },
-    {
-      "symbol": "SECZ",
-      "exchange": "NYSE",
-      "close": 7.47,
-      "extra": {
-        "status": "EARLY",
-        "today_pct": 5.21,
-        "y_pct": 9.06,
-        "proj_volM": 0.06,
-        "burst_volM": 1.64,
-        "volume_ok": "no",
-        "range_ok": "yes"
-      }
-    },
-    {
-      "symbol": "IREN",
-      "exchange": "NASDAQ",
-      "close": 43.755,
-      "extra": {
-        "status": "EARLY",
-        "today_pct": 5.05,
-        "y_pct": 5.18,
-        "proj_volM": 1.05,
-        "burst_volM": 44.87,
-        "volume_ok": "no",
-        "range_ok": "yes"
-      }
-    },
-    {
-      "symbol": "AGMB",
-      "exchange": "NASDAQ",
-      "close": 15.565,
-      "extra": {
-        "status": "EARLY",
-        "today_pct": 4.96,
-        "y_pct": 8.57,
-        "proj_volM": 0.02,
-        "burst_volM": 0.41,
-        "volume_ok": "no",
-        "range_ok": "yes"
-      }
-    }
-  ]
+  "rows": []
 }
