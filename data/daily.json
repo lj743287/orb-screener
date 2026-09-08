@@ -1,9 +1,9 @@
 {
   "scan_id": "daily",
   "label": "Daily Stock Scanner",
-  "generated_utc": "2026-09-05T03:26:10Z",
+  "generated_utc": "2026-09-08T03:58:59Z",
   "status": "ok",
-  "count": 95,
+  "count": 93,
   "columns": [
     "score",
     "runup_pct",
@@ -109,7 +109,7 @@
     {
       "symbol": "GENB",
       "exchange": "",
-      "close": 16.38,
+      "close": 16.39,
       "extra": {
         "score": 74,
         "runup_pct": 74.1,
@@ -723,28 +723,6 @@
       }
     },
     {
-      "symbol": "BEEP",
-      "exchange": "",
-      "close": 3.02,
-      "extra": {
-        "score": 37,
-        "runup_pct": 36.5,
-        "triangle_date": "2026-09-03",
-        "ema_touched": 10
-      }
-    },
-    {
-      "symbol": "NGNE",
-      "exchange": "",
-      "close": 38.6,
-      "extra": {
-        "score": 37,
-        "runup_pct": 37.4,
-        "triangle_date": "2026-09-03",
-        "ema_touched": 10
-      }
-    },
-    {
       "symbol": "CAI",
       "exchange": "",
       "close": 25.07,
@@ -879,7 +857,7 @@
     {
       "symbol": "CCCS",
       "exchange": "",
-      "close": 7.22,
+      "close": 7.51,
       "extra": {
         "score": 33,
         "runup_pct": 32.9,
