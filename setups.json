@@ -1,5 +1,26 @@
 {
- "generated_utc": "2026-09-09T17:47:18.873202+00:00",
- "session_fraction": 0.657,
- "results": []
+ "generated_utc": "2026-09-09T20:53:19.314476+00:00",
+ "session_fraction": 1.0,
+ "results": [
+  {
+   "symbol": "JMIA",
+   "exchange": "NYSE",
+   "status": "EARLY",
+   "score": 37.2,
+   "price": 7.52,
+   "pct": 3.87,
+   "pivot": 7.51,
+   "dist": 0.13,
+   "stop": 6.95,
+   "risk_pct": 7.58,
+   "adr_pct": 4.93,
+   "consol_days": 9,
+   "quals": "TI65",
+   "proj_vol": 144164,
+   "prev_vol": 2246977,
+   "vol_ok": false,
+   "rng_ok": true,
+   "pos_ok": true
+  }
+ ]
 }
