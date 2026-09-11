@@ -1,0 +1,49 @@
+name: Temporary full entry backtest
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tmp/full_entry_backtest.py'
+      - '.github/workflows/tmp_full_entry_backtest.yml'
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+env:
+  PYTHONUNBUFFERED: '1'
+
+jobs:
+  backtest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 100
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install --disable-pip-version-check yfinance
+      - name: Build full Alpaca daily cache
+        env:
+          APCA_API_KEY_ID: ${{ secrets.APCA_API_KEY_ID }}
+          APCA_API_SECRET_KEY: ${{ secrets.APCA_API_SECRET_KEY }}
+          CACHE_FILE: cache/full_backtest_bars.json.gz
+          BARS: '300'
+          BATCH_SIZE: '50'
+          REQUESTS_PER_MIN: '170'
+          LOOKBACK_DAYS: '520'
+        run: python fetch_bars_alpaca.py
+      - name: Run full historical backtest
+        env:
+          CACHE_FILE: cache/full_backtest_bars.json.gz
+        run: python tmp/full_entry_backtest.py
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        with:
+          name: full-entry-backtest
+          path: tmp/full_backtest_out/
+          retention-days: 3
