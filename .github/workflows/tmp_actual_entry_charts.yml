@@ -1,0 +1,26 @@
+name: Temporary actual entry charts
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tmp/actual_entry_charts.py'
+      - '.github/workflows/tmp_actual_entry_charts.yml'
+  workflow_dispatch: {}
+permissions:
+  contents: read
+jobs:
+  charts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install --disable-pip-version-check pandas numpy yfinance mplfinance matplotlib
+      - run: python tmp/actual_entry_charts.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: actual-entry-charts
+          path: tmp/entry_charts/
+          retention-days: 2
