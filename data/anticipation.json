@@ -1,9 +1,9 @@
 {
   "scan_id": "anticipation",
   "label": "Stockbee Anticipation",
-  "generated_utc": "2026-09-10T03:39:01Z",
+  "generated_utc": "2026-09-11T03:51:56Z",
   "status": "ok",
-  "count": 73,
+  "count": 51,
   "columns": [
     "score",
     "pivot",
@@ -19,1324 +19,928 @@
   ],
   "meta": {
     "sort": "score descending",
-    "universe": 5755,
-    "found": 73,
+    "universe": 5754,
+    "found": 51,
     "cap": 250,
-    "setup_date": "2026-09-09"
+    "setup_date": "2026-09-10"
   },
   "rows": [
     {
-      "symbol": "RDVT",
+      "symbol": "MRNA",
       "exchange": "NASDAQ",
-      "close": 74.4,
+      "close": 136.62,
       "extra": {
-        "score": 77.6,
-        "pivot": 76.35,
-        "pct_to_pivot": 2.55,
-        "consol_days": 3,
-        "quals": "DT+TI65+MDT",
-        "rng_ratio": 0.65,
-        "vol_ratio": 0.56,
-        "adr_pct": 4.09,
-        "avg_range_10": 3.69,
-        "volM": 0.18,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "CRSR",
-      "exchange": "NASDAQ",
-      "close": 12.33,
-      "extra": {
-        "score": 77.1,
-        "pivot": 12.95,
-        "pct_to_pivot": 4.79,
-        "consol_days": 3,
-        "quals": "DT+TI65+MDT",
-        "rng_ratio": 0.62,
-        "vol_ratio": 0.48,
-        "adr_pct": 4.44,
-        "avg_range_10": 3.85,
-        "volM": 0.86,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "MTA",
-      "exchange": "AMEX",
-      "close": 10.31,
-      "extra": {
-        "score": 75.9,
-        "pivot": 10.96,
-        "pct_to_pivot": 5.93,
-        "consol_days": 4,
-        "quals": "DT+TI65+MDT",
-        "rng_ratio": 0.74,
-        "vol_ratio": 0.4,
-        "adr_pct": 4.63,
-        "avg_range_10": 4.25,
-        "volM": 0.19,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "MLAB",
-      "exchange": "NASDAQ",
-      "close": 123.91,
-      "extra": {
-        "score": 73.7,
-        "pivot": 132.7,
-        "pct_to_pivot": 6.62,
-        "consol_days": 4,
-        "quals": "DT+TI65+MDT",
-        "rng_ratio": 0.59,
-        "vol_ratio": 0.75,
-        "adr_pct": 4.32,
-        "avg_range_10": 3.12,
-        "volM": 0.13,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "NMAX",
-      "exchange": "NYSE",
-      "close": 10.62,
-      "extra": {
-        "score": 73.7,
-        "pivot": 11.29,
-        "pct_to_pivot": 5.93,
-        "consol_days": 4,
-        "quals": "DT+TI65+MDT",
-        "rng_ratio": 0.65,
-        "vol_ratio": 0.69,
-        "adr_pct": 6.51,
-        "avg_range_10": 4.62,
-        "volM": 0.93,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "AEHL",
-      "exchange": "NASDAQ",
-      "close": 7.96,
-      "extra": {
-        "score": 72.4,
-        "pivot": 8.7,
-        "pct_to_pivot": 8.51,
-        "consol_days": 3,
-        "quals": "DT+TI65+MDT",
-        "rng_ratio": 0.69,
-        "vol_ratio": 0.16,
-        "adr_pct": 20.56,
-        "avg_range_10": 21.6,
-        "volM": 0.11,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "WGS",
-      "exchange": "NASDAQ",
-      "close": 86.48,
-      "extra": {
-        "score": 72.3,
-        "pivot": 91.78,
-        "pct_to_pivot": 5.77,
-        "consol_days": 12,
-        "quals": "DT+TI65+MDT",
-        "rng_ratio": 0.6,
-        "vol_ratio": 0.54,
-        "adr_pct": 4.65,
-        "avg_range_10": 4.63,
-        "volM": 0.49,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "EVC",
-      "exchange": "NYSE",
-      "close": 8.37,
-      "extra": {
-        "score": 70.5,
-        "pivot": 8.67,
-        "pct_to_pivot": 3.46,
-        "consol_days": 4,
-        "quals": "DT",
-        "rng_ratio": 0.6,
-        "vol_ratio": 0.59,
-        "adr_pct": 4.87,
-        "avg_range_10": 4.06,
-        "volM": 1.08,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "SLS",
-      "exchange": "NASDAQ",
-      "close": 13.95,
-      "extra": {
-        "score": 68.2,
-        "pivot": 14.54,
-        "pct_to_pivot": 4.06,
-        "consol_days": 4,
-        "quals": "DT+TI65+MDT",
-        "rng_ratio": 0.73,
-        "vol_ratio": 0.77,
-        "adr_pct": 8.26,
-        "avg_range_10": 7.01,
-        "volM": 5.47,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "SUPV",
-      "exchange": "NYSE",
-      "close": 8.77,
-      "extra": {
-        "score": 67.6,
-        "pivot": 9.08,
-        "pct_to_pivot": 3.41,
+        "score": 74.9,
+        "pivot": 156.41,
+        "pct_to_pivot": 12.66,
         "consol_days": 6,
-        "quals": "DT",
-        "rng_ratio": 0.71,
-        "vol_ratio": 0.52,
-        "adr_pct": 4.83,
-        "avg_range_10": 4.23,
-        "volM": 0.35,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "XGN",
-      "exchange": "NASDAQ",
-      "close": 7.31,
-      "extra": {
-        "score": 67.6,
-        "pivot": 7.65,
-        "pct_to_pivot": 4.44,
-        "consol_days": 4,
-        "quals": "DT+TI65+MDT",
-        "rng_ratio": 0.87,
-        "vol_ratio": 0.58,
-        "adr_pct": 5.19,
-        "avg_range_10": 5.31,
-        "volM": 0.15,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "TWLO",
-      "exchange": "NYSE",
-      "close": 227.19,
-      "extra": {
-        "score": 67.4,
-        "pivot": 239.52,
-        "pct_to_pivot": 5.15,
-        "consol_days": 3,
-        "quals": "DT+TI65+MDT",
-        "rng_ratio": 0.68,
-        "vol_ratio": 0.65,
-        "adr_pct": 4.19,
-        "avg_range_10": 3.67,
-        "volM": 1.45,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "ALVO",
-      "exchange": "NASDAQ",
-      "close": 5.21,
-      "extra": {
-        "score": 66.8,
-        "pivot": 5.47,
-        "pct_to_pivot": 4.75,
-        "consol_days": 6,
-        "quals": "TI65+MDT",
-        "rng_ratio": 0.71,
-        "vol_ratio": 0.68,
-        "adr_pct": 5.77,
-        "avg_range_10": 4.15,
-        "volM": 0.57,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "SM",
-      "exchange": "NYSE",
-      "close": 37.98,
-      "extra": {
-        "score": 66.4,
-        "pivot": 38.94,
-        "pct_to_pivot": 2.47,
-        "consol_days": 8,
         "quals": "DT+TI65+MDT",
         "rng_ratio": 0.64,
-        "vol_ratio": 0.96,
-        "adr_pct": 3.24,
-        "avg_range_10": 3.16,
-        "volM": 3.26,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "SND",
-      "exchange": "NASDAQ",
-      "close": 5.39,
-      "extra": {
-        "score": 64.5,
-        "pivot": 5.47,
-        "pct_to_pivot": 1.46,
-        "consol_days": 8,
-        "quals": "DT+TI65",
-        "rng_ratio": 0.81,
-        "vol_ratio": 0.69,
-        "adr_pct": 4.86,
-        "avg_range_10": 4.41,
-        "volM": 0.16,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "PBF",
-      "exchange": "NYSE",
-      "close": 76.51,
-      "extra": {
-        "score": 64.2,
-        "pivot": 77.98,
-        "pct_to_pivot": 1.89,
-        "consol_days": 9,
-        "quals": "DT+TI65+MDT",
-        "rng_ratio": 0.68,
-        "vol_ratio": 0.84,
-        "adr_pct": 5.23,
-        "avg_range_10": 4.99,
-        "volM": 2.0,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "ATRO",
-      "exchange": "NASDAQ",
-      "close": 75.6,
-      "extra": {
-        "score": 63.4,
-        "pivot": 78.27,
-        "pct_to_pivot": 3.41,
-        "consol_days": 9,
-        "quals": "DT",
-        "rng_ratio": 0.55,
-        "vol_ratio": 0.72,
-        "adr_pct": 5.11,
-        "avg_range_10": 3.38,
-        "volM": 0.43,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "ELPC",
-      "exchange": "NYSE",
-      "close": 12.45,
-      "extra": {
-        "score": 63.3,
-        "pivot": 12.69,
-        "pct_to_pivot": 1.89,
-        "consol_days": 4,
-        "quals": "TI65",
-        "rng_ratio": 0.65,
-        "vol_ratio": 0.72,
-        "adr_pct": 2.08,
-        "avg_range_10": 1.89,
-        "volM": 0.39,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "OSPN",
-      "exchange": "NASDAQ",
-      "close": 16.1,
-      "extra": {
-        "score": 61.7,
-        "pivot": 16.77,
-        "pct_to_pivot": 4.0,
-        "consol_days": 8,
-        "quals": "TI65",
-        "rng_ratio": 0.65,
-        "vol_ratio": 0.8,
-        "adr_pct": 2.95,
-        "avg_range_10": 2.91,
-        "volM": 0.29,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "NTNX",
-      "exchange": "NASDAQ",
-      "close": 66.94,
-      "extra": {
-        "score": 61.6,
-        "pivot": 71.83,
-        "pct_to_pivot": 6.81,
-        "consol_days": 8,
-        "quals": "DT+TI65+MDT",
-        "rng_ratio": 0.78,
-        "vol_ratio": 0.78,
-        "adr_pct": 3.17,
-        "avg_range_10": 3.37,
-        "volM": 2.38,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "SKE",
-      "exchange": "NYSE",
-      "close": 32.95,
-      "extra": {
-        "score": 61.4,
-        "pivot": 33.66,
-        "pct_to_pivot": 2.12,
-        "consol_days": 3,
-        "quals": "DT+TI65",
-        "rng_ratio": 0.84,
-        "vol_ratio": 0.53,
-        "adr_pct": 3.68,
-        "avg_range_10": 3.8,
-        "volM": 0.29,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "RIOT",
-      "exchange": "NASDAQ",
-      "close": 22.07,
-      "extra": {
-        "score": 61.2,
-        "pivot": 22.87,
-        "pct_to_pivot": 3.5,
-        "consol_days": 3,
-        "quals": "DT",
-        "rng_ratio": 0.62,
-        "vol_ratio": 0.7,
-        "adr_pct": 7.49,
-        "avg_range_10": 6.61,
-        "volM": 14.76,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "CENX",
-      "exchange": "NASDAQ",
-      "close": 47.69,
-      "extra": {
-        "score": 60.4,
-        "pivot": 49.77,
-        "pct_to_pivot": 4.18,
-        "consol_days": 8,
-        "quals": "DT",
-        "rng_ratio": 0.7,
-        "vol_ratio": 0.63,
-        "adr_pct": 5.36,
-        "avg_range_10": 4.06,
-        "volM": 1.32,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "EXK",
-      "exchange": "NYSE",
-      "close": 11.15,
-      "extra": {
-        "score": 59.1,
-        "pivot": 11.65,
-        "pct_to_pivot": 4.29,
-        "consol_days": 4,
-        "quals": "DT+TI65+MDT",
-        "rng_ratio": 0.68,
-        "vol_ratio": 0.97,
-        "adr_pct": 5.18,
-        "avg_range_10": 4.76,
-        "volM": 9.54,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "MUX",
-      "exchange": "NYSE",
-      "close": 20.26,
-      "extra": {
-        "score": 57.8,
-        "pivot": 20.93,
-        "pct_to_pivot": 3.2,
-        "consol_days": 4,
-        "quals": "TI65",
-        "rng_ratio": 0.75,
-        "vol_ratio": 0.67,
-        "adr_pct": 4.04,
-        "avg_range_10": 4.03,
-        "volM": 0.85,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "DINO",
-      "exchange": "NYSE",
-      "close": 108.14,
-      "extra": {
-        "score": 57.4,
-        "pivot": 109.86,
-        "pct_to_pivot": 1.57,
-        "consol_days": 12,
-        "quals": "DT+TI65+MDT",
-        "rng_ratio": 0.86,
-        "vol_ratio": 0.77,
-        "adr_pct": 3.56,
-        "avg_range_10": 3.65,
-        "volM": 1.72,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "ABUS",
-      "exchange": "NASDAQ",
-      "close": 5.17,
-      "extra": {
-        "score": 56.1,
-        "pivot": 5.28,
-        "pct_to_pivot": 2.08,
-        "consol_days": 12,
-        "quals": "TI65",
-        "rng_ratio": 0.48,
-        "vol_ratio": 2.61,
-        "adr_pct": 2.98,
-        "avg_range_10": 1.75,
-        "volM": 5.5,
-        "setup_date": "2026-09-09"
+        "vol_ratio": 0.37,
+        "adr_pct": 9.45,
+        "avg_range_10": 6.64,
+        "volM": 7.85,
+        "setup_date": "2026-09-10"
       }
     },
     {
       "symbol": "PUBM",
       "exchange": "NASDAQ",
-      "close": 16.18,
+      "close": 16.23,
       "extra": {
-        "score": 55.5,
+        "score": 67.8,
         "pivot": 17.88,
-        "pct_to_pivot": 9.51,
+        "pct_to_pivot": 9.23,
+        "consol_days": 5,
+        "quals": "DT+TI65+MDT",
+        "rng_ratio": 0.85,
+        "vol_ratio": 0.53,
+        "adr_pct": 3.77,
+        "avg_range_10": 3.98,
+        "volM": 0.25,
+        "setup_date": "2026-09-10"
+      }
+    },
+    {
+      "symbol": "ALVO",
+      "exchange": "NASDAQ",
+      "close": 5.24,
+      "extra": {
+        "score": 67.7,
+        "pivot": 5.47,
+        "pct_to_pivot": 4.2,
+        "consol_days": 7,
+        "quals": "TI65+MDT",
+        "rng_ratio": 0.7,
+        "vol_ratio": 0.66,
+        "adr_pct": 5.64,
+        "avg_range_10": 4.11,
+        "volM": 0.54,
+        "setup_date": "2026-09-10"
+      }
+    },
+    {
+      "symbol": "STIM",
+      "exchange": "NASDAQ",
+      "close": 3.01,
+      "extra": {
+        "score": 67.0,
+        "pivot": 3.12,
+        "pct_to_pivot": 3.37,
+        "consol_days": 3,
+        "quals": "DT+TI65+MDT",
+        "rng_ratio": 0.82,
+        "vol_ratio": 0.4,
+        "adr_pct": 7.02,
+        "avg_range_10": 6.49,
+        "volM": 0.64,
+        "setup_date": "2026-09-10"
+      }
+    },
+    {
+      "symbol": "RBRK",
+      "exchange": "NYSE",
+      "close": 88.91,
+      "extra": {
+        "score": 66.7,
+        "pivot": 94.61,
+        "pct_to_pivot": 6.02,
         "consol_days": 4,
         "quals": "DT+TI65+MDT",
-        "rng_ratio": 0.98,
-        "vol_ratio": 0.6,
-        "adr_pct": 3.91,
-        "avg_range_10": 4.39,
-        "volM": 0.47,
-        "setup_date": "2026-09-09"
+        "rng_ratio": 0.76,
+        "vol_ratio": 0.61,
+        "adr_pct": 5.87,
+        "avg_range_10": 6.06,
+        "volM": 2.9,
+        "setup_date": "2026-09-10"
       }
     },
     {
-      "symbol": "ARIS",
+      "symbol": "SUPV",
       "exchange": "NYSE",
-      "close": 20.13,
+      "close": 8.73,
       "extra": {
-        "score": 55.1,
-        "pivot": 20.8,
-        "pct_to_pivot": 3.24,
-        "consol_days": 4,
-        "quals": "DT+TI65",
-        "rng_ratio": 0.8,
-        "vol_ratio": 0.79,
-        "adr_pct": 3.75,
-        "avg_range_10": 4.0,
-        "volM": 1.11,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "GGB",
-      "exchange": "NYSE",
-      "close": 5.01,
-      "extra": {
-        "score": 54.1,
-        "pivot": 5.11,
-        "pct_to_pivot": 1.96,
-        "consol_days": 4,
-        "quals": "TI65",
-        "rng_ratio": 0.68,
-        "vol_ratio": 0.94,
-        "adr_pct": 3.27,
-        "avg_range_10": 2.95,
-        "volM": 10.27,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "AEM",
-      "exchange": "NYSE",
-      "close": 202.57,
-      "extra": {
-        "score": 53.8,
-        "pivot": 208.64,
-        "pct_to_pivot": 2.91,
-        "consol_days": 3,
-        "quals": "TI65",
-        "rng_ratio": 0.87,
-        "vol_ratio": 0.4,
-        "adr_pct": 3.46,
-        "avg_range_10": 3.53,
-        "volM": 1.34,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "AUR",
-      "exchange": "NASDAQ",
-      "close": 6.5,
-      "extra": {
-        "score": 53.6,
-        "pivot": 6.6,
-        "pct_to_pivot": 1.52,
-        "consol_days": 3,
+        "score": 63.3,
+        "pivot": 9.08,
+        "pct_to_pivot": 3.85,
+        "consol_days": 7,
         "quals": "DT",
-        "rng_ratio": 0.73,
-        "vol_ratio": 0.78,
-        "adr_pct": 5.36,
-        "avg_range_10": 4.87,
-        "volM": 24.63,
-        "setup_date": "2026-09-09"
+        "rng_ratio": 0.72,
+        "vol_ratio": 0.58,
+        "adr_pct": 4.87,
+        "avg_range_10": 4.21,
+        "volM": 0.68,
+        "setup_date": "2026-09-10"
       }
     },
     {
-      "symbol": "REPX",
-      "exchange": "AMEX",
-      "close": 43.14,
+      "symbol": "PBF",
+      "exchange": "NYSE",
+      "close": 77.08,
       "extra": {
-        "score": 52.3,
-        "pivot": 43.36,
-        "pct_to_pivot": 0.51,
-        "consol_days": 4,
-        "quals": "TI65+MDT",
-        "rng_ratio": 0.79,
-        "vol_ratio": 1.88,
-        "adr_pct": 3.03,
-        "avg_range_10": 3.17,
-        "volM": 0.36,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "FUTU",
-      "exchange": "NASDAQ",
-      "close": 116.74,
-      "extra": {
-        "score": 51.7,
-        "pivot": 128.43,
-        "pct_to_pivot": 9.1,
+        "score": 62.0,
+        "pivot": 78.94,
+        "pct_to_pivot": 2.36,
         "consol_days": 10,
-        "quals": "TI65",
-        "rng_ratio": 0.73,
-        "vol_ratio": 0.68,
-        "adr_pct": 3.77,
-        "avg_range_10": 2.82,
-        "volM": 0.64,
-        "setup_date": "2026-09-09"
+        "quals": "DT+TI65+MDT",
+        "rng_ratio": 0.67,
+        "vol_ratio": 0.86,
+        "adr_pct": 5.22,
+        "avg_range_10": 4.36,
+        "volM": 3.38,
+        "setup_date": "2026-09-10"
       }
     },
     {
       "symbol": "BILL",
       "exchange": "NYSE",
-      "close": 47.94,
+      "close": 47.63,
       "extra": {
-        "score": 50.8,
+        "score": 61.9,
         "pivot": 50.46,
-        "pct_to_pivot": 4.99,
-        "consol_days": 3,
-        "quals": "TI65",
-        "rng_ratio": 0.8,
-        "vol_ratio": 0.72,
-        "adr_pct": 4.15,
-        "avg_range_10": 3.48,
-        "volM": 2.09,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "PUSA",
-      "exchange": "NASDAQ",
-      "close": 3.68,
-      "extra": {
-        "score": 50.6,
-        "pivot": 4.14,
-        "pct_to_pivot": 11.11,
-        "consol_days": 11,
-        "quals": "DT",
-        "rng_ratio": 0.67,
-        "vol_ratio": 0.64,
-        "adr_pct": 6.63,
-        "avg_range_10": 5.82,
-        "volM": 0.4,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "STLD",
-      "exchange": "NASDAQ",
-      "close": 240.69,
-      "extra": {
-        "score": 50.2,
-        "pivot": 251.88,
-        "pct_to_pivot": 4.44,
+        "pct_to_pivot": 5.61,
         "consol_days": 4,
-        "quals": "DT",
-        "rng_ratio": 0.77,
-        "vol_ratio": 0.87,
-        "adr_pct": 3.64,
-        "avg_range_10": 2.94,
-        "volM": 0.81,
-        "setup_date": "2026-09-09"
+        "quals": "TI65",
+        "rng_ratio": 0.72,
+        "vol_ratio": 0.67,
+        "adr_pct": 4.08,
+        "avg_range_10": 3.22,
+        "volM": 1.19,
+        "setup_date": "2026-09-10"
+      }
+    },
+    {
+      "symbol": "GRAL",
+      "exchange": "NASDAQ",
+      "close": 77.56,
+      "extra": {
+        "score": 59.5,
+        "pivot": 85.49,
+        "pct_to_pivot": 9.28,
+        "consol_days": 11,
+        "quals": "DT+TI65+MDT",
+        "rng_ratio": 0.67,
+        "vol_ratio": 0.73,
+        "adr_pct": 5.74,
+        "avg_range_10": 4.89,
+        "volM": 0.9,
+        "setup_date": "2026-09-10"
       }
     },
     {
       "symbol": "MGNI",
       "exchange": "NASDAQ",
-      "close": 23.58,
+      "close": 23.55,
       "extra": {
-        "score": 49.8,
+        "score": 58.1,
         "pivot": 25.79,
-        "pct_to_pivot": 8.57,
-        "consol_days": 4,
+        "pct_to_pivot": 8.69,
+        "consol_days": 5,
         "quals": "DT+TI65+MDT",
-        "rng_ratio": 0.95,
-        "vol_ratio": 0.72,
-        "adr_pct": 3.68,
-        "avg_range_10": 4.33,
-        "volM": 1.61,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "CRBG",
-      "exchange": "NYSE",
-      "close": 33.82,
-      "extra": {
-        "score": 49.0,
-        "pivot": 34.82,
-        "pct_to_pivot": 2.87,
-        "consol_days": 4,
-        "quals": "TI65",
         "rng_ratio": 0.88,
-        "vol_ratio": 0.79,
-        "adr_pct": 2.22,
-        "avg_range_10": 2.21,
-        "volM": 3.97,
-        "setup_date": "2026-09-09"
+        "vol_ratio": 0.69,
+        "adr_pct": 3.65,
+        "avg_range_10": 4.22,
+        "volM": 1.63,
+        "setup_date": "2026-09-10"
       }
     },
     {
-      "symbol": "OOMA",
+      "symbol": "TIC",
       "exchange": "NYSE",
-      "close": 22.84,
+      "close": 9.27,
       "extra": {
-        "score": 47.3,
-        "pivot": 23.81,
-        "pct_to_pivot": 4.07,
-        "consol_days": 8,
-        "quals": "DT+TI65+MDT",
-        "rng_ratio": 0.98,
-        "vol_ratio": 1.31,
-        "adr_pct": 5.36,
-        "avg_range_10": 6.03,
-        "volM": 0.32,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "NEO",
-      "exchange": "NASDAQ",
-      "close": 17.66,
-      "extra": {
-        "score": 47.1,
-        "pivot": 18.75,
-        "pct_to_pivot": 5.81,
-        "consol_days": 8,
-        "quals": "DT+TI65+MDT",
-        "rng_ratio": 1.13,
-        "vol_ratio": 0.8,
-        "adr_pct": 4.39,
-        "avg_range_10": 5.28,
-        "volM": 1.54,
-        "setup_date": "2026-09-09"
+        "score": 57.1,
+        "pivot": 9.99,
+        "pct_to_pivot": 7.21,
+        "consol_days": 11,
+        "quals": "TI65",
+        "rng_ratio": 0.71,
+        "vol_ratio": 0.5,
+        "adr_pct": 4.28,
+        "avg_range_10": 3.99,
+        "volM": 2.18,
+        "setup_date": "2026-09-10"
       }
     },
     {
       "symbol": "FA",
       "exchange": "NASDAQ",
-      "close": 20.55,
+      "close": 20.42,
       "extra": {
-        "score": 46.1,
+        "score": 56.9,
         "pivot": 21.41,
-        "pct_to_pivot": 4.02,
-        "consol_days": 3,
+        "pct_to_pivot": 4.62,
+        "consol_days": 4,
         "quals": "DT+MDT",
-        "rng_ratio": 1.02,
-        "vol_ratio": 0.67,
-        "adr_pct": 3.8,
-        "avg_range_10": 3.8,
-        "volM": 1.81,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "DNN",
-      "exchange": "AMEX",
-      "close": 3.35,
-      "extra": {
-        "score": 45.1,
-        "pivot": 3.48,
-        "pct_to_pivot": 3.74,
-        "consol_days": 3,
-        "quals": "TI65",
-        "rng_ratio": 0.72,
-        "vol_ratio": 0.94,
-        "adr_pct": 4.74,
-        "avg_range_10": 4.38,
-        "volM": 24.65,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "KGC",
-      "exchange": "NYSE",
-      "close": 30.23,
-      "extra": {
-        "score": 44.5,
-        "pivot": 31.36,
-        "pct_to_pivot": 3.6,
-        "consol_days": 3,
-        "quals": "TI65",
-        "rng_ratio": 0.94,
-        "vol_ratio": 0.62,
-        "adr_pct": 3.44,
-        "avg_range_10": 3.49,
-        "volM": 5.09,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "ICE",
-      "exchange": "NYSE",
-      "close": 156.5,
-      "extra": {
-        "score": 44.2,
-        "pivot": 162.56,
-        "pct_to_pivot": 3.73,
-        "consol_days": 3,
-        "quals": "TI65",
-        "rng_ratio": 0.7,
-        "vol_ratio": 1.22,
-        "adr_pct": 1.92,
-        "avg_range_10": 1.86,
-        "volM": 2.76,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "INVX",
-      "exchange": "NYSE",
-      "close": 29.84,
-      "extra": {
-        "score": 43.9,
-        "pivot": 31.56,
-        "pct_to_pivot": 5.45,
-        "consol_days": 8,
-        "quals": "DT+TI65",
-        "rng_ratio": 0.83,
-        "vol_ratio": 1.04,
-        "adr_pct": 3.8,
-        "avg_range_10": 4.21,
-        "volM": 0.69,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "NTSK",
-      "exchange": "NASDAQ",
-      "close": 14.46,
-      "extra": {
-        "score": 43.8,
-        "pivot": 14.7,
-        "pct_to_pivot": 1.63,
-        "consol_days": 3,
-        "quals": "DT+TI65+MDT",
-        "rng_ratio": 0.96,
-        "vol_ratio": 0.99,
-        "adr_pct": 6.1,
-        "avg_range_10": 6.84,
-        "volM": 3.72,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "PVLA",
-      "exchange": "NASDAQ",
-      "close": 151.34,
-      "extra": {
-        "score": 43.3,
-        "pivot": 157.93,
-        "pct_to_pivot": 4.17,
-        "consol_days": 9,
-        "quals": "DT+TI65",
-        "rng_ratio": 0.76,
-        "vol_ratio": 0.99,
-        "adr_pct": 4.88,
-        "avg_range_10": 4.43,
-        "volM": 0.15,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "DAR",
-      "exchange": "NYSE",
-      "close": 67.51,
-      "extra": {
-        "score": 43.1,
-        "pivot": 68.65,
-        "pct_to_pivot": 1.66,
-        "consol_days": 7,
-        "quals": "DT+TI65",
-        "rng_ratio": 1.01,
-        "vol_ratio": 0.97,
-        "adr_pct": 4.2,
-        "avg_range_10": 4.03,
-        "volM": 1.71,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "VEON",
-      "exchange": "NASDAQ",
-      "close": 65.0,
-      "extra": {
-        "score": 42.4,
-        "pivot": 67.36,
-        "pct_to_pivot": 3.5,
-        "consol_days": 4,
-        "quals": "TI65+MDT",
-        "rng_ratio": 0.97,
-        "vol_ratio": 1.96,
-        "adr_pct": 3.02,
-        "avg_range_10": 3.5,
-        "volM": 0.21,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "GFI",
-      "exchange": "NYSE",
-      "close": 47.03,
-      "extra": {
-        "score": 40.9,
-        "pivot": 48.39,
-        "pct_to_pivot": 2.81,
-        "consol_days": 3,
-        "quals": "TI65",
-        "rng_ratio": 0.82,
-        "vol_ratio": 0.88,
-        "adr_pct": 3.15,
-        "avg_range_10": 3.24,
-        "volM": 3.3,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "HYMC",
-      "exchange": "NASDAQ",
-      "close": 22.81,
-      "extra": {
-        "score": 40.7,
-        "pivot": 24.2,
-        "pct_to_pivot": 5.74,
-        "consol_days": 4,
-        "quals": "DT",
-        "rng_ratio": 0.86,
-        "vol_ratio": 0.93,
-        "adr_pct": 6.58,
-        "avg_range_10": 6.61,
-        "volM": 1.93,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "PBR",
-      "exchange": "NYSE",
-      "close": 20.93,
-      "extra": {
-        "score": 39.9,
-        "pivot": 21.26,
-        "pct_to_pivot": 1.55,
-        "consol_days": 5,
-        "quals": "DT+TI65",
-        "rng_ratio": 1.1,
-        "vol_ratio": 1.29,
-        "adr_pct": 2.52,
-        "avg_range_10": 3.01,
-        "volM": 27.11,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "QURE",
-      "exchange": "NASDAQ",
-      "close": 46.0,
-      "extra": {
-        "score": 39.6,
-        "pivot": 51.2,
-        "pct_to_pivot": 10.15,
-        "consol_days": 10,
-        "quals": "DT+TI65+MDT",
-        "rng_ratio": 0.89,
-        "vol_ratio": 0.94,
-        "adr_pct": 4.41,
-        "avg_range_10": 4.39,
-        "volM": 1.3,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "NAKA",
-      "exchange": "NASDAQ",
-      "close": 7.98,
-      "extra": {
-        "score": 39.1,
-        "pivot": 8.41,
-        "pct_to_pivot": 5.11,
-        "consol_days": 3,
-        "quals": "DT+TI65+MDT",
-        "rng_ratio": 0.97,
-        "vol_ratio": 1.07,
-        "adr_pct": 7.83,
-        "avg_range_10": 7.43,
-        "volM": 0.18,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "XMAX",
-      "exchange": "NASDAQ",
-      "close": 8.5,
-      "extra": {
-        "score": 39.1,
-        "pivot": 9.39,
-        "pct_to_pivot": 9.48,
-        "consol_days": 11,
-        "quals": "DT",
-        "rng_ratio": 0.75,
-        "vol_ratio": 0.93,
-        "adr_pct": 2.85,
-        "avg_range_10": 2.01,
-        "volM": 1.16,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "NGNE",
-      "exchange": "NASDAQ",
-      "close": 37.88,
-      "extra": {
-        "score": 38.9,
-        "pivot": 40.33,
-        "pct_to_pivot": 6.07,
-        "consol_days": 5,
-        "quals": "DT+TI65+MDT",
-        "rng_ratio": 1.03,
-        "vol_ratio": 1.07,
-        "adr_pct": 6.46,
-        "avg_range_10": 6.67,
-        "volM": 0.19,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "EQH",
-      "exchange": "NYSE",
-      "close": 52.09,
-      "extra": {
-        "score": 38.4,
-        "pivot": 53.56,
-        "pct_to_pivot": 2.74,
-        "consol_days": 4,
-        "quals": "TI65",
         "rng_ratio": 0.92,
-        "vol_ratio": 1.4,
-        "adr_pct": 2.29,
-        "avg_range_10": 2.33,
-        "volM": 5.22,
-        "setup_date": "2026-09-09"
+        "vol_ratio": 0.65,
+        "adr_pct": 3.78,
+        "avg_range_10": 3.81,
+        "volM": 1.33,
+        "setup_date": "2026-09-10"
       }
     },
     {
-      "symbol": "GPRK",
+      "symbol": "BBY",
       "exchange": "NYSE",
-      "close": 11.91,
+      "close": 88.09,
       "extra": {
-        "score": 38.0,
-        "pivot": 13.13,
-        "pct_to_pivot": 9.29,
-        "consol_days": 6,
-        "quals": "DT+TI65+MDT",
-        "rng_ratio": 1.96,
-        "vol_ratio": 5.39,
-        "adr_pct": 4.18,
-        "avg_range_10": 5.63,
-        "volM": 0.82,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "ANDE",
-      "exchange": "NASDAQ",
-      "close": 71.32,
-      "extra": {
-        "score": 37.4,
-        "pivot": 72.0,
-        "pct_to_pivot": 0.94,
-        "consol_days": 4,
-        "quals": "DT",
-        "rng_ratio": 0.96,
-        "vol_ratio": 1.42,
-        "adr_pct": 3.57,
-        "avg_range_10": 3.57,
-        "volM": 0.41,
-        "setup_date": "2026-09-09"
-      }
-    },
-    {
-      "symbol": "IPI",
-      "exchange": "NYSE",
-      "close": 41.26,
-      "extra": {
-        "score": 37.4,
-        "pivot": 42.74,
-        "pct_to_pivot": 3.46,
+        "score": 55.5,
+        "pivot": 90.82,
+        "pct_to_pivot": 3.01,
         "consol_days": 5,
-        "quals": "DT+TI65",
-        "rng_ratio": 1.05,
-        "vol_ratio": 1.09,
-        "adr_pct": 4.2,
-        "avg_range_10": 4.72,
-        "volM": 0.17,
-        "setup_date": "2026-09-09"
+        "quals": "TI65+MDT",
+        "rng_ratio": 0.81,
+        "vol_ratio": 0.8,
+        "adr_pct": 3.66,
+        "avg_range_10": 4.32,
+        "volM": 2.71,
+        "setup_date": "2026-09-10"
       }
     },
     {
-      "symbol": "FNV",
-      "exchange": "NYSE",
-      "close": 265.43,
+      "symbol": "PUSA",
+      "exchange": "NASDAQ",
+      "close": 3.67,
       "extra": {
-        "score": 37.2,
-        "pivot": 271.0,
-        "pct_to_pivot": 2.06,
+        "score": 51.9,
+        "pivot": 4.14,
+        "pct_to_pivot": 11.35,
+        "consol_days": 12,
+        "quals": "DT",
+        "rng_ratio": 0.67,
+        "vol_ratio": 0.62,
+        "adr_pct": 6.67,
+        "avg_range_10": 5.88,
+        "volM": 0.28,
+        "setup_date": "2026-09-10"
+      }
+    },
+    {
+      "symbol": "EPRX",
+      "exchange": "NASDAQ",
+      "close": 8.02,
+      "extra": {
+        "score": 50.1,
+        "pivot": 8.6,
+        "pct_to_pivot": 6.74,
         "consol_days": 3,
         "quals": "TI65",
-        "rng_ratio": 0.83,
-        "vol_ratio": 1.13,
-        "adr_pct": 2.76,
-        "avg_range_10": 2.77,
-        "volM": 2.1,
-        "setup_date": "2026-09-09"
+        "rng_ratio": 0.84,
+        "vol_ratio": 0.54,
+        "adr_pct": 5.85,
+        "avg_range_10": 7.16,
+        "volM": 0.26,
+        "setup_date": "2026-09-10"
+      }
+    },
+    {
+      "symbol": "CMBT",
+      "exchange": "NYSE",
+      "close": 19.38,
+      "extra": {
+        "score": 49.7,
+        "pivot": 19.91,
+        "pct_to_pivot": 2.64,
+        "consol_days": 3,
+        "quals": "DT+TI65+MDT",
+        "rng_ratio": 0.9,
+        "vol_ratio": 0.95,
+        "adr_pct": 2.35,
+        "avg_range_10": 2.67,
+        "volM": 0.69,
+        "setup_date": "2026-09-10"
       }
     },
     {
       "symbol": "GDYN",
       "exchange": "NASDAQ",
-      "close": 7.85,
+      "close": 7.83,
       "extra": {
-        "score": 37.1,
+        "score": 49.4,
         "pivot": 8.19,
-        "pct_to_pivot": 4.15,
-        "consol_days": 3,
+        "pct_to_pivot": 4.4,
+        "consol_days": 4,
         "quals": "TI65+MDT",
-        "rng_ratio": 1.02,
-        "vol_ratio": 0.9,
-        "adr_pct": 3.66,
-        "avg_range_10": 3.29,
-        "volM": 1.04,
-        "setup_date": "2026-09-09"
+        "rng_ratio": 0.92,
+        "vol_ratio": 0.84,
+        "adr_pct": 3.56,
+        "avg_range_10": 3.21,
+        "volM": 0.83,
+        "setup_date": "2026-09-10"
       }
     },
     {
-      "symbol": "AERO",
-      "exchange": "NYSE",
-      "close": 15.72,
+      "symbol": "PVLA",
+      "exchange": "NASDAQ",
+      "close": 150.39,
       "extra": {
-        "score": 36.0,
-        "pivot": 16.19,
-        "pct_to_pivot": 2.9,
+        "score": 49.1,
+        "pivot": 157.93,
+        "pct_to_pivot": 4.77,
+        "consol_days": 10,
+        "quals": "DT+TI65",
+        "rng_ratio": 0.72,
+        "vol_ratio": 1.04,
+        "adr_pct": 4.82,
+        "avg_range_10": 3.99,
+        "volM": 0.27,
+        "setup_date": "2026-09-10"
+      }
+    },
+    {
+      "symbol": "DAN",
+      "exchange": "NYSE",
+      "close": 30.67,
+      "extra": {
+        "score": 48.7,
+        "pivot": 32.3,
+        "pct_to_pivot": 5.05,
+        "consol_days": 5,
+        "quals": "TI65",
+        "rng_ratio": 0.77,
+        "vol_ratio": 0.86,
+        "adr_pct": 3.08,
+        "avg_range_10": 2.88,
+        "volM": 1.08,
+        "setup_date": "2026-09-10"
+      }
+    },
+    {
+      "symbol": "VAC",
+      "exchange": "NYSE",
+      "close": 101.09,
+      "extra": {
+        "score": 47.3,
+        "pivot": 106.97,
+        "pct_to_pivot": 5.5,
         "consol_days": 3,
         "quals": "DT",
-        "rng_ratio": 0.88,
-        "vol_ratio": 1.04,
-        "adr_pct": 4.42,
-        "avg_range_10": 3.99,
-        "volM": 0.32,
-        "setup_date": "2026-09-09"
+        "rng_ratio": 0.75,
+        "vol_ratio": 0.86,
+        "adr_pct": 3.82,
+        "avg_range_10": 3.98,
+        "volM": 0.36,
+        "setup_date": "2026-09-10"
       }
     },
     {
-      "symbol": "GPRE",
+      "symbol": "NEO",
       "exchange": "NASDAQ",
-      "close": 15.64,
+      "close": 17.61,
       "extra": {
-        "score": 35.3,
-        "pivot": 16.03,
-        "pct_to_pivot": 2.43,
+        "score": 47.2,
+        "pivot": 18.75,
+        "pct_to_pivot": 6.08,
+        "consol_days": 9,
+        "quals": "DT+TI65+MDT",
+        "rng_ratio": 1.07,
+        "vol_ratio": 0.78,
+        "adr_pct": 4.41,
+        "avg_range_10": 5.02,
+        "volM": 1.11,
+        "setup_date": "2026-09-10"
+      }
+    },
+    {
+      "symbol": "OKTA",
+      "exchange": "NASDAQ",
+      "close": 171.11,
+      "extra": {
+        "score": 46.2,
+        "pivot": 179.44,
+        "pct_to_pivot": 4.64,
         "consol_days": 7,
+        "quals": "DT+TI65+MDT",
+        "rng_ratio": 0.93,
+        "vol_ratio": 0.94,
+        "adr_pct": 5.12,
+        "avg_range_10": 5.25,
+        "volM": 4.57,
+        "setup_date": "2026-09-10"
+      }
+    },
+    {
+      "symbol": "ICE",
+      "exchange": "NYSE",
+      "close": 155.81,
+      "extra": {
+        "score": 46.0,
+        "pivot": 162.56,
+        "pct_to_pivot": 4.15,
+        "consol_days": 4,
+        "quals": "TI65",
+        "rng_ratio": 0.73,
+        "vol_ratio": 1.16,
+        "adr_pct": 1.92,
+        "avg_range_10": 1.88,
+        "volM": 2.82,
+        "setup_date": "2026-09-10"
+      }
+    },
+    {
+      "symbol": "LCLN",
+      "exchange": "NYSE",
+      "close": 26.15,
+      "extra": {
+        "score": 45.6,
+        "pivot": 27.55,
+        "pct_to_pivot": 5.08,
+        "consol_days": 5,
+        "quals": "TI65",
+        "rng_ratio": 0.76,
+        "vol_ratio": 1.4,
+        "adr_pct": 4.1,
+        "avg_range_10": 3.84,
+        "volM": 0.8,
+        "setup_date": "2026-09-10"
+      }
+    },
+    {
+      "symbol": "ARXS",
+      "exchange": "NASDAQ",
+      "close": 51.98,
+      "extra": {
+        "score": 44.2,
+        "pivot": 54.75,
+        "pct_to_pivot": 5.06,
+        "consol_days": 4,
+        "quals": "TI65",
+        "rng_ratio": 0.78,
+        "vol_ratio": 1.78,
+        "adr_pct": 4.18,
+        "avg_range_10": 3.73,
+        "volM": 0.55,
+        "setup_date": "2026-09-10"
+      }
+    },
+    {
+      "symbol": "EQH",
+      "exchange": "NYSE",
+      "close": 52.6,
+      "extra": {
+        "score": 42.9,
+        "pivot": 53.56,
+        "pct_to_pivot": 1.79,
+        "consol_days": 5,
+        "quals": "TI65",
+        "rng_ratio": 0.86,
+        "vol_ratio": 1.34,
+        "adr_pct": 2.27,
+        "avg_range_10": 2.19,
+        "volM": 2.47,
+        "setup_date": "2026-09-10"
+      }
+    },
+    {
+      "symbol": "DXC",
+      "exchange": "NYSE",
+      "close": 11.04,
+      "extra": {
+        "score": 42.8,
+        "pivot": 11.96,
+        "pct_to_pivot": 7.69,
+        "consol_days": 5,
+        "quals": "TI65",
+        "rng_ratio": 0.93,
+        "vol_ratio": 0.77,
+        "adr_pct": 4.02,
+        "avg_range_10": 3.77,
+        "volM": 1.68,
+        "setup_date": "2026-09-10"
+      }
+    },
+    {
+      "symbol": "NU",
+      "exchange": "NYSE",
+      "close": 15.02,
+      "extra": {
+        "score": 42.4,
+        "pivot": 15.84,
+        "pct_to_pivot": 5.18,
+        "consol_days": 5,
+        "quals": "TI65",
+        "rng_ratio": 0.77,
+        "vol_ratio": 0.98,
+        "adr_pct": 4.23,
+        "avg_range_10": 3.78,
+        "volM": 76.2,
+        "setup_date": "2026-09-10"
+      }
+    },
+    {
+      "symbol": "ASST",
+      "exchange": "NASDAQ",
+      "close": 26.9,
+      "extra": {
+        "score": 41.6,
+        "pivot": 28.53,
+        "pct_to_pivot": 5.71,
+        "consol_days": 4,
+        "quals": "DT+TI65+MDT",
+        "rng_ratio": 0.99,
+        "vol_ratio": 1.02,
+        "adr_pct": 8.56,
+        "avg_range_10": 8.62,
+        "volM": 8.69,
+        "setup_date": "2026-09-10"
+      }
+    },
+    {
+      "symbol": "MITK",
+      "exchange": "NASDAQ",
+      "close": 17.1,
+      "extra": {
+        "score": 41.4,
+        "pivot": 19.29,
+        "pct_to_pivot": 11.35,
+        "consol_days": 9,
         "quals": "DT",
-        "rng_ratio": 0.98,
-        "vol_ratio": 1.12,
-        "adr_pct": 4.93,
-        "avg_range_10": 5.58,
-        "volM": 0.94,
-        "setup_date": "2026-09-09"
+        "rng_ratio": 0.71,
+        "vol_ratio": 0.8,
+        "adr_pct": 4.1,
+        "avg_range_10": 4.03,
+        "volM": 0.52,
+        "setup_date": "2026-09-10"
+      }
+    },
+    {
+      "symbol": "OOMA",
+      "exchange": "NYSE",
+      "close": 22.67,
+      "extra": {
+        "score": 40.5,
+        "pivot": 23.81,
+        "pct_to_pivot": 4.79,
+        "consol_days": 9,
+        "quals": "DT+TI65+MDT",
+        "rng_ratio": 0.95,
+        "vol_ratio": 1.29,
+        "adr_pct": 5.2,
+        "avg_range_10": 6.02,
+        "volM": 0.42,
+        "setup_date": "2026-09-10"
+      }
+    },
+    {
+      "symbol": "AMPL",
+      "exchange": "NASDAQ",
+      "close": 12.46,
+      "extra": {
+        "score": 39.9,
+        "pivot": 14.76,
+        "pct_to_pivot": 15.58,
+        "consol_days": 9,
+        "quals": "DT+TI65+MDT",
+        "rng_ratio": 0.86,
+        "vol_ratio": 0.81,
+        "adr_pct": 4.53,
+        "avg_range_10": 4.8,
+        "volM": 2.41,
+        "setup_date": "2026-09-10"
+      }
+    },
+    {
+      "symbol": "VEEV",
+      "exchange": "NYSE",
+      "close": 260.98,
+      "extra": {
+        "score": 38.4,
+        "pivot": 290.47,
+        "pct_to_pivot": 10.15,
+        "consol_days": 9,
+        "quals": "TI65+MDT",
+        "rng_ratio": 0.89,
+        "vol_ratio": 0.86,
+        "adr_pct": 3.37,
+        "avg_range_10": 3.58,
+        "volM": 0.85,
+        "setup_date": "2026-09-10"
+      }
+    },
+    {
+      "symbol": "XRX",
+      "exchange": "NASDAQ",
+      "close": 3.17,
+      "extra": {
+        "score": 37.5,
+        "pivot": 3.55,
+        "pct_to_pivot": 10.7,
+        "consol_days": 7,
+        "quals": "DT+TI65+MDT",
+        "rng_ratio": 1.14,
+        "vol_ratio": 1.13,
+        "adr_pct": 5.12,
+        "avg_range_10": 5.92,
+        "volM": 1.59,
+        "setup_date": "2026-09-10"
       }
     },
     {
       "symbol": "GLUE",
       "exchange": "NASDAQ",
-      "close": 14.26,
+      "close": 14.32,
       "extra": {
-        "score": 33.8,
+        "score": 37.2,
         "pivot": 15.0,
-        "pct_to_pivot": 4.93,
-        "consol_days": 6,
+        "pct_to_pivot": 4.53,
+        "consol_days": 7,
         "quals": "DT",
-        "rng_ratio": 1.04,
+        "rng_ratio": 0.99,
         "vol_ratio": 0.91,
-        "adr_pct": 4.97,
-        "avg_range_10": 5.16,
-        "volM": 1.15,
-        "setup_date": "2026-09-09"
+        "adr_pct": 5.0,
+        "avg_range_10": 5.15,
+        "volM": 1.06,
+        "setup_date": "2026-09-10"
       }
     },
     {
-      "symbol": "GSM",
-      "exchange": "NASDAQ",
-      "close": 4.49,
+      "symbol": "GPRK",
+      "exchange": "NYSE",
+      "close": 11.97,
       "extra": {
-        "score": 32.3,
-        "pivot": 4.75,
-        "pct_to_pivot": 5.47,
+        "score": 37.2,
+        "pivot": 13.13,
+        "pct_to_pivot": 8.83,
+        "consol_days": 7,
+        "quals": "DT+TI65+MDT",
+        "rng_ratio": 1.85,
+        "vol_ratio": 5.23,
+        "adr_pct": 4.27,
+        "avg_range_10": 5.78,
+        "volM": 1.77,
+        "setup_date": "2026-09-10"
+      }
+    },
+    {
+      "symbol": "INVX",
+      "exchange": "NYSE",
+      "close": 29.69,
+      "extra": {
+        "score": 37.0,
+        "pivot": 31.56,
+        "pct_to_pivot": 5.93,
+        "consol_days": 9,
+        "quals": "DT+TI65",
+        "rng_ratio": 0.84,
+        "vol_ratio": 1.03,
+        "adr_pct": 3.87,
+        "avg_range_10": 4.38,
+        "volM": 0.83,
+        "setup_date": "2026-09-10"
+      }
+    },
+    {
+      "symbol": "ASND",
+      "exchange": "NASDAQ",
+      "close": 261.23,
+      "extra": {
+        "score": 35.9,
+        "pivot": 272.47,
+        "pct_to_pivot": 4.12,
+        "consol_days": 7,
+        "quals": "TI65",
+        "rng_ratio": 1.08,
+        "vol_ratio": 1.23,
+        "adr_pct": 3.14,
+        "avg_range_10": 3.32,
+        "volM": 0.5,
+        "setup_date": "2026-09-10"
+      }
+    },
+    {
+      "symbol": "KB",
+      "exchange": "NYSE",
+      "close": 126.55,
+      "extra": {
+        "score": 35.7,
+        "pivot": 131.28,
+        "pct_to_pivot": 3.6,
         "consol_days": 4,
         "quals": "TI65",
-        "rng_ratio": 0.96,
-        "vol_ratio": 1.21,
-        "adr_pct": 4.81,
-        "avg_range_10": 4.72,
-        "volM": 2.5,
-        "setup_date": "2026-09-09"
+        "rng_ratio": 1.13,
+        "vol_ratio": 0.94,
+        "adr_pct": 1.73,
+        "avg_range_10": 1.79,
+        "volM": 0.16,
+        "setup_date": "2026-09-10"
       }
     },
     {
-      "symbol": "ICL",
+      "symbol": "TBN",
       "exchange": "NYSE",
-      "close": 5.88,
+      "close": 39.33,
       "extra": {
-        "score": 31.7,
-        "pivot": 5.94,
-        "pct_to_pivot": 1.01,
-        "consol_days": 12,
-        "quals": "TI65",
-        "rng_ratio": 1.07,
-        "vol_ratio": 1.0,
-        "adr_pct": 1.86,
-        "avg_range_10": 1.95,
-        "volM": 1.73,
-        "setup_date": "2026-09-09"
+        "score": 34.4,
+        "pivot": 41.82,
+        "pct_to_pivot": 5.95,
+        "consol_days": 6,
+        "quals": "DT+TI65",
+        "rng_ratio": 1.23,
+        "vol_ratio": 1.45,
+        "adr_pct": 3.82,
+        "avg_range_10": 4.38,
+        "volM": 0.16,
+        "setup_date": "2026-09-10"
       }
     },
     {
-      "symbol": "LAR",
+      "symbol": "NBR",
       "exchange": "NYSE",
-      "close": 6.76,
+      "close": 90.6,
       "extra": {
-        "score": 31.4,
-        "pivot": 7.27,
-        "pct_to_pivot": 7.02,
-        "consol_days": 12,
-        "quals": "DT",
-        "rng_ratio": 0.95,
-        "vol_ratio": 0.89,
-        "adr_pct": 5.41,
-        "avg_range_10": 4.94,
-        "volM": 2.17,
-        "setup_date": "2026-09-09"
+        "score": 33.7,
+        "pivot": 96.91,
+        "pct_to_pivot": 6.51,
+        "consol_days": 9,
+        "quals": "DT+TI65",
+        "rng_ratio": 0.92,
+        "vol_ratio": 0.97,
+        "adr_pct": 4.26,
+        "avg_range_10": 4.43,
+        "volM": 0.22,
+        "setup_date": "2026-09-10"
       }
     },
     {
       "symbol": "VAL",
       "exchange": "NYSE",
-      "close": 84.96,
+      "close": 85.71,
       "extra": {
-        "score": 31.3,
+        "score": 32.9,
         "pivot": 93.03,
-        "pct_to_pivot": 8.67,
-        "consol_days": 4,
+        "pct_to_pivot": 7.87,
+        "consol_days": 5,
         "quals": "DT+TI65",
-        "rng_ratio": 1.05,
-        "vol_ratio": 1.25,
-        "adr_pct": 3.55,
-        "avg_range_10": 4.04,
-        "volM": 1.82,
-        "setup_date": "2026-09-09"
+        "rng_ratio": 1.02,
+        "vol_ratio": 1.32,
+        "adr_pct": 3.6,
+        "avg_range_10": 4.16,
+        "volM": 1.75,
+        "setup_date": "2026-09-10"
       }
     },
     {
-      "symbol": "RIG",
-      "exchange": "NYSE",
-      "close": 5.71,
+      "symbol": "BBCP",
+      "exchange": "NASDAQ",
+      "close": 10.18,
       "extra": {
-        "score": 31.1,
-        "pivot": 6.27,
-        "pct_to_pivot": 8.93,
-        "consol_days": 4,
-        "quals": "DT+TI65",
-        "rng_ratio": 1.04,
-        "vol_ratio": 1.05,
-        "adr_pct": 3.58,
-        "avg_range_10": 4.15,
-        "volM": 45.75,
-        "setup_date": "2026-09-09"
+        "score": 32.7,
+        "pivot": 10.74,
+        "pct_to_pivot": 5.21,
+        "consol_days": 3,
+        "quals": "DT",
+        "rng_ratio": 0.94,
+        "vol_ratio": 1.56,
+        "adr_pct": 4.09,
+        "avg_range_10": 4.77,
+        "volM": 0.21,
+        "setup_date": "2026-09-10"
+      }
+    },
+    {
+      "symbol": "LAND",
+      "exchange": "NASDAQ",
+      "close": 9.48,
+      "extra": {
+        "score": 32.4,
+        "pivot": 9.99,
+        "pct_to_pivot": 5.11,
+        "consol_days": 6,
+        "quals": "TI65",
+        "rng_ratio": 1.07,
+        "vol_ratio": 1.4,
+        "adr_pct": 2.61,
+        "avg_range_10": 2.86,
+        "volM": 0.56,
+        "setup_date": "2026-09-10"
+      }
+    },
+    {
+      "symbol": "GFL",
+      "exchange": "NYSE",
+      "close": 41.63,
+      "extra": {
+        "score": 31.8,
+        "pivot": 44.0,
+        "pct_to_pivot": 5.39,
+        "consol_days": 8,
+        "quals": "TI65",
+        "rng_ratio": 1.01,
+        "vol_ratio": 1.69,
+        "adr_pct": 2.84,
+        "avg_range_10": 3.01,
+        "volM": 2.05,
+        "setup_date": "2026-09-10"
+      }
+    },
+    {
+      "symbol": "CRM",
+      "exchange": "NYSE",
+      "close": 243.0,
+      "extra": {
+        "score": 31.6,
+        "pivot": 268.27,
+        "pct_to_pivot": 9.42,
+        "consol_days": 9,
+        "quals": "TI65+MDT",
+        "rng_ratio": 0.94,
+        "vol_ratio": 1.2,
+        "adr_pct": 3.93,
+        "avg_range_10": 4.13,
+        "volM": 9.13,
+        "setup_date": "2026-09-10"
       }
     },
     {
       "symbol": "BNS",
       "exchange": "NYSE",
-      "close": 92.11,
+      "close": 92.84,
       "extra": {
-        "score": 29.6,
+        "score": 31.0,
         "pivot": 95.34,
-        "pct_to_pivot": 3.39,
-        "consol_days": 10,
+        "pct_to_pivot": 2.62,
+        "consol_days": 11,
         "quals": "TI65",
-        "rng_ratio": 1.09,
-        "vol_ratio": 1.03,
+        "rng_ratio": 1.06,
+        "vol_ratio": 1.06,
         "adr_pct": 1.93,
-        "avg_range_10": 1.85,
-        "volM": 2.31,
-        "setup_date": "2026-09-09"
+        "avg_range_10": 1.69,
+        "volM": 1.17,
+        "setup_date": "2026-09-10"
       }
     },
     {
-      "symbol": "WFRD",
+      "symbol": "GSM",
       "exchange": "NASDAQ",
-      "close": 93.06,
+      "close": 4.46,
       "extra": {
-        "score": 28.6,
-        "pivot": 99.4,
-        "pct_to_pivot": 6.38,
-        "consol_days": 6,
+        "score": 31.0,
+        "pivot": 4.75,
+        "pct_to_pivot": 6.11,
+        "consol_days": 5,
         "quals": "TI65",
-        "rng_ratio": 1.19,
-        "vol_ratio": 1.14,
-        "adr_pct": 3.64,
-        "avg_range_10": 4.22,
-        "volM": 0.85,
-        "setup_date": "2026-09-09"
+        "rng_ratio": 0.96,
+        "vol_ratio": 1.12,
+        "adr_pct": 4.85,
+        "avg_range_10": 4.54,
+        "volM": 1.07,
+        "setup_date": "2026-09-10"
+      }
+    },
+    {
+      "symbol": "INDO",
+      "exchange": "AMEX",
+      "close": 3.17,
+      "extra": {
+        "score": 30.2,
+        "pivot": 3.33,
+        "pct_to_pivot": 4.8,
+        "consol_days": 4,
+        "quals": "TI65",
+        "rng_ratio": 1.2,
+        "vol_ratio": 1.81,
+        "adr_pct": 3.89,
+        "avg_range_10": 4.6,
+        "volM": 0.51,
+        "setup_date": "2026-09-10"
+      }
+    },
+    {
+      "symbol": "VSTS",
+      "exchange": "NYSE",
+      "close": 13.04,
+      "extra": {
+        "score": 24.5,
+        "pivot": 13.8,
+        "pct_to_pivot": 5.51,
+        "consol_days": 3,
+        "quals": "DT",
+        "rng_ratio": 1.35,
+        "vol_ratio": 1.54,
+        "adr_pct": 3.58,
+        "avg_range_10": 3.72,
+        "volM": 1.61,
+        "setup_date": "2026-09-10"
+      }
+    },
+    {
+      "symbol": "IOT",
+      "exchange": "NYSE",
+      "close": 38.44,
+      "extra": {
+        "score": 21.1,
+        "pivot": 45.12,
+        "pct_to_pivot": 14.8,
+        "consol_days": 4,
+        "quals": "TI65",
+        "rng_ratio": 1.59,
+        "vol_ratio": 2.37,
+        "adr_pct": 5.29,
+        "avg_range_10": 5.73,
+        "volM": 6.17,
+        "setup_date": "2026-09-10"
       }
     }
   ]
