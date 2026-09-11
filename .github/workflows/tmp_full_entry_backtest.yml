@@ -17,17 +17,22 @@ env:
 jobs:
   backtest:
     runs-on: ubuntu-latest
-    timeout-minutes: 100
+    timeout-minutes: 180
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
           pip install --disable-pip-version-check yfinance
+
       - name: Build full Alpaca daily cache
+        id: build_cache
+        continue-on-error: true
         env:
           APCA_API_KEY_ID: ${{ secrets.APCA_API_KEY_ID }}
           APCA_API_SECRET_KEY: ${{ secrets.APCA_API_SECRET_KEY }}
@@ -37,10 +42,34 @@ jobs:
           REQUESTS_PER_MIN: '170'
           LOOKBACK_DAYS: '520'
         run: python fetch_bars_alpaca.py
+
+      - name: Verify cache coverage
+        env:
+          CACHE_FILE: cache/full_backtest_bars.json.gz
+        run: |
+          echo "Cache build outcome: ${{ steps.build_cache.outcome }}"
+          python - <<'PY'
+          from bars_cache import CACHE
+          if not CACHE.available:
+              raise SystemExit("Cache unavailable")
+          n = len(CACHE.symbols)
+          print(f"Verified cache symbols: {n}")
+          if n < 5000:
+              raise SystemExit(f"Cache coverage too low: {n}")
+          PY
+
+      - name: Preserve verified cache
+        uses: actions/upload-artifact@v4
+        with:
+          name: full-backtest-daily-cache
+          path: cache/full_backtest_bars.json.gz
+          retention-days: 3
+
       - name: Run full historical backtest
         env:
           CACHE_FILE: cache/full_backtest_bars.json.gz
         run: python tmp/full_entry_backtest.py
+
       - name: Upload results
         uses: actions/upload-artifact@v4
         with:
