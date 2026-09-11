@@ -1,5 +1,78 @@
 {
- "generated_utc": "2026-09-10T17:39:56.486628+00:00",
- "session_fraction": 0.641,
- "results": []
+ "generated_utc": "2026-09-11T17:43:47.958000+00:00",
+ "session_fraction": 0.651,
+ "results": [
+  {
+   "symbol": "HCWC",
+   "exchange": "AMEX",
+   "status": "EARLY",
+   "y_pct": 13.53,
+   "today_pct": 9.02,
+   "price": 10.52,
+   "proj_vol": 635,
+   "y_volume": 117830,
+   "vol_ok": false,
+   "rng_ok": true
+  },
+  {
+   "symbol": "BAND",
+   "exchange": "NASDAQ",
+   "status": "EARLY",
+   "y_pct": 5.71,
+   "today_pct": 8.21,
+   "price": 55.86,
+   "proj_vol": 52565,
+   "y_volume": 1302671,
+   "vol_ok": false,
+   "rng_ok": false
+  },
+  {
+   "symbol": "SWKS",
+   "exchange": "NASDAQ",
+   "status": "EARLY",
+   "y_pct": 9.79,
+   "today_pct": 7.65,
+   "price": 90.46,
+   "proj_vol": 631065,
+   "y_volume": 11321612,
+   "vol_ok": false,
+   "rng_ok": true
+  },
+  {
+   "symbol": "QRVO",
+   "exchange": "NASDAQ",
+   "status": "EARLY",
+   "y_pct": 6.77,
+   "today_pct": 5.7,
+   "price": 118.76,
+   "proj_vol": 136811,
+   "y_volume": 2254074,
+   "vol_ok": false,
+   "rng_ok": true
+  },
+  {
+   "symbol": "FOUR",
+   "exchange": "NYSE",
+   "status": "EARLY",
+   "y_pct": 4.62,
+   "today_pct": 5.68,
+   "price": 45.475,
+   "proj_vol": 73962,
+   "y_volume": 3561439,
+   "vol_ok": false,
+   "rng_ok": true
+  },
+  {
+   "symbol": "IOND",
+   "exchange": "NASDAQ",
+   "status": "EARLY",
+   "y_pct": 4.75,
+   "today_pct": 5.35,
+   "price": 84.15,
+   "proj_vol": 41420,
+   "y_volume": 654145,
+   "vol_ok": false,
+   "rng_ok": true
+  }
+ ]
 }
