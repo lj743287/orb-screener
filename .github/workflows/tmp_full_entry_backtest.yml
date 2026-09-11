@@ -45,9 +45,10 @@ jobs:
 
       - name: Check cache file exists
         run: |
+          set -euxo pipefail
           echo "Cache build outcome: ${{ steps.build_cache.outcome }}"
-          ls -lh cache/full_backtest_bars.json.gz
           test -s cache/full_backtest_bars.json.gz
+          ls -lh cache/full_backtest_bars.json.gz
 
       - name: Preserve cache
         if: always()
@@ -55,6 +56,7 @@ jobs:
         with:
           name: full-backtest-daily-cache
           path: cache/full_backtest_bars.json.gz
+          if-no-files-found: warn
           retention-days: 3
 
       - name: Run full historical backtest
