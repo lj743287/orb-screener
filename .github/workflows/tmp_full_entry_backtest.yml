@@ -14,6 +14,10 @@ permissions:
 env:
   PYTHONUNBUFFERED: '1'
 
+concurrency:
+  group: temporary-full-entry-backtest
+  cancel-in-progress: true
+
 jobs:
   backtest:
     runs-on: ubuntu-latest
