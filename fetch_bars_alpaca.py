@@ -50,6 +50,7 @@ BATCH_SIZE = int(os.environ.get("BATCH_SIZE", "50"))
 REQUESTS_PER_MIN = int(os.environ.get("REQUESTS_PER_MIN", "170"))
 LOOKBACK_DAYS = int(os.environ.get("LOOKBACK_DAYS", "450"))
 MAX_SYMBOLS = int(os.environ.get("MAX_SYMBOLS", "0") or "0")
+ALPACA_FEED = os.environ.get("ALPACA_FEED", "sip").strip().lower() or "sip"
 
 HEADERS = {
     "APCA-API-KEY-ID": API_KEY,
@@ -102,7 +103,7 @@ def fetch_batch(symbols, start_date, end_date, skip_date):
             "end": end_date,
             "limit": 10000,
             "adjustment": "split",
-            "feed": "sip",
+            "feed": ALPACA_FEED,
             "sort": "asc",
         }
         if page_token:
@@ -154,6 +155,8 @@ def fetch_batch(symbols, start_date, end_date, skip_date):
 def main():
     if not API_KEY or not API_SECRET:
         sys.exit("APCA_API_KEY_ID and APCA_API_SECRET_KEY must both be set")
+    if ALPACA_FEED not in {"iex", "sip"}:
+        sys.exit("ALPACA_FEED must be either iex or sip")
 
     universe = load_universe()
     if MAX_SYMBOLS:
@@ -174,7 +177,7 @@ def main():
 
     print(
         f"Alpaca free ORB cache: {len(symbols)} symbols, up to {BARS} daily bars, "
-        f"{start_date} to {end_date}, batch size {BATCH_SIZE}",
+        f"{start_date} to {end_date}, batch size {BATCH_SIZE}, feed {ALPACA_FEED}",
         flush=True,
     )
 
@@ -210,7 +213,7 @@ def main():
     payload = {
         "generated_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "provider": "alpaca",
-        "feed": "sip",
+        "feed": ALPACA_FEED,
         "adjustment": "split",
         "bars_requested": BARS,
         "lookback_days": LOOKBACK_DAYS,
