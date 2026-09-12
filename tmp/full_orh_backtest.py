@@ -577,7 +577,9 @@ def main():
     daily_frames = {symbol: frame for symbol, frame in daily_frames.items() if frame is not None}
     client = AlpacaClient()
 
-    calendar_start = (SIGNAL_START - pd.Timedelta(days=10)).tz_localize(NY).tz_convert(UTC).isoformat()
+    # The EMA gate needs at least 20 completed sessions before the first signal.
+    # Use a generous buffer so early-period rows are never silently unclassified.
+    calendar_start = (SIGNAL_START - pd.Timedelta(days=120)).tz_localize(NY).tz_convert(UTC).isoformat()
     calendar_end = (DATA_END + pd.Timedelta(days=2)).tz_localize(NY).tz_convert(UTC).isoformat()
     references = client.bars(["SPY", "ONEQ"], "1Day", calendar_start, calendar_end, batch_size=2)
     spy = alpaca_frame(references.get("SPY"))
@@ -709,6 +711,9 @@ def main():
                      "strict_watchlist_pairs": len(watchlist),
                      "orh_data_known": int((results.orh_data_known == 1).sum()),
                      "orh_triggered": len(triggered), "stop_ok_8pct": len(primary),
+                     "opening_range_30_iex_minutes": int((primary.opening_minutes == 30).sum()),
+                     "opening_range_at_least_20_iex_minutes": int((primary.opening_minutes >= 20).sum()),
+                     "session_at_least_250_iex_minutes": int((primary.session_minutes >= 250).sum()),
                      "market_bull_primary": len(bull), "intraday_failures": len(intraday_failures),
                      "alpaca_api_calls": client.calls},
         "outcomes": {"primary_gate_off_pure": outcome_metrics(primary),
