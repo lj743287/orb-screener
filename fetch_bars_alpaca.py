@@ -69,6 +69,10 @@ def request_page(params, tries=6):
     for attempt in range(tries):
         try:
             r = requests.get(BASE_URL, headers=HEADERS, params=params, timeout=60)
+            if r.status_code in (401, 403):
+                raise PermissionError(
+                    f"Alpaca denied {ALPACA_FEED} feed access ({r.status_code})"
+                )
             if r.status_code == 429:
                 retry_after = float(r.headers.get("Retry-After", "0") or "0")
                 time.sleep(max(retry_after, 60.0 / max(1, REQUESTS_PER_MIN), delay))
@@ -192,6 +196,8 @@ def main():
             got, calls = fetch_batch(group, start_date, end_date, skip)
             all_bars.update(got)
             total_calls += calls
+        except PermissionError as exc:
+            sys.exit(f"ERROR: {exc}")
         except Exception as exc:
             failed_batches.append({"symbols": group, "error": str(exc)})
             print(f"Batch {idx}/{len(groups)} failed: {exc}", flush=True)
