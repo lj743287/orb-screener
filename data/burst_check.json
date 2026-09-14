@@ -1,9 +1,9 @@
 {
   "scan_id": "burst_check",
   "label": "Second burst",
-  "generated_utc": "2026-09-11T17:43:47Z",
+  "generated_utc": "2026-09-14T19:18:05Z",
   "status": "ok",
-  "count": 6,
+  "count": 2,
   "columns": [
     "status",
     "today_pct",
@@ -15,93 +15,37 @@
   ],
   "meta": {
     "sort": "FULL first, then biggest move",
-    "watching": 38,
-    "session_elapsed": "65%",
+    "watching": 93,
+    "session_elapsed": "89%",
     "full": 0,
-    "early": 6,
-    "burst_date": "2026-09-10"
+    "early": 2,
+    "burst_date": "2026-09-11"
   },
   "rows": [
     {
-      "symbol": "HCWC",
-      "exchange": "AMEX",
-      "close": 10.52,
-      "extra": {
-        "status": "EARLY",
-        "today_pct": 9.02,
-        "y_pct": 13.53,
-        "proj_volM": 0.0,
-        "burst_volM": 0.12,
-        "volume_ok": "no",
-        "range_ok": "yes"
-      }
-    },
-    {
-      "symbol": "BAND",
+      "symbol": "IOVA",
       "exchange": "NASDAQ",
-      "close": 55.86,
+      "close": 9.135,
       "extra": {
         "status": "EARLY",
-        "today_pct": 8.21,
-        "y_pct": 5.71,
-        "proj_volM": 0.05,
-        "burst_volM": 1.3,
+        "today_pct": 6.22,
+        "y_pct": 5.65,
+        "proj_volM": 0.39,
+        "burst_volM": 12.35,
         "volume_ok": "no",
         "range_ok": "no"
       }
     },
     {
-      "symbol": "SWKS",
-      "exchange": "NASDAQ",
-      "close": 90.46,
-      "extra": {
-        "status": "EARLY",
-        "today_pct": 7.65,
-        "y_pct": 9.79,
-        "proj_volM": 0.63,
-        "burst_volM": 11.32,
-        "volume_ok": "no",
-        "range_ok": "yes"
-      }
-    },
-    {
-      "symbol": "QRVO",
-      "exchange": "NASDAQ",
-      "close": 118.76,
-      "extra": {
-        "status": "EARLY",
-        "today_pct": 5.7,
-        "y_pct": 6.77,
-        "proj_volM": 0.14,
-        "burst_volM": 2.25,
-        "volume_ok": "no",
-        "range_ok": "yes"
-      }
-    },
-    {
-      "symbol": "FOUR",
+      "symbol": "ECO",
       "exchange": "NYSE",
-      "close": 45.475,
+      "close": 79.36,
       "extra": {
         "status": "EARLY",
-        "today_pct": 5.68,
-        "y_pct": 4.62,
-        "proj_volM": 0.07,
-        "burst_volM": 3.56,
-        "volume_ok": "no",
-        "range_ok": "yes"
-      }
-    },
-    {
-      "symbol": "IOND",
-      "exchange": "NASDAQ",
-      "close": 84.15,
-      "extra": {
-        "status": "EARLY",
-        "today_pct": 5.35,
-        "y_pct": 4.75,
+        "today_pct": 4.22,
+        "y_pct": 4.43,
         "proj_volM": 0.04,
-        "burst_volM": 0.65,
+        "burst_volM": 0.68,
         "volume_ok": "no",
         "range_ok": "yes"
       }
