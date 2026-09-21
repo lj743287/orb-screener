@@ -1,17 +1,9 @@
-name: ORB screener (Alpaca)
+name: ORB screener (moved to Portfolio-Manager)
 
 on:
-  schedule:
-    # Safely after the US close in both daylight-saving periods.
-    - cron: "15 22 * * 1-5"
+  # Scheduled execution moved to lj743287/Portfolio-Manager.
+  # Retained for manual recovery only; no automatic duplicate runs.
   workflow_dispatch: {}
-  push:
-    branches: [main]
-    paths:
-      - ".github/workflows/orb.yml"
-      - "fetch_bars_alpaca.py"
-      - "screener.py"
-      - "bars_cache.py"
 
 permissions:
   contents: write
