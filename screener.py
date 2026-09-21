@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Overnight ORB-continuation screener (NYSE/NASDAQ) via Twelve Data.
+Overnight ORB-continuation screener (NYSE/NASDAQ).
 
 Surfaces stocks in an intact uptrend that are COILING below a recent high
 (set up for a breakout next session).
@@ -23,7 +23,8 @@ Current core screen:
 - Above 200-day moving average where sufficient history exists
 
 Env:
-    TWELVE_DATA_KEY (required)
+    ORB_DATA_PROVIDER (alpaca or twelve_data; default alpaca)
+    TWELVE_DATA_KEY (required only for twelve_data fallback mode)
     MAX_SYMBOLS (optional cap)
     THROTTLE_SEC (default 1.2)
 
@@ -53,6 +54,7 @@ from bars_cache import CACHE
 
 
 API_KEY = os.environ.get("TWELVE_DATA_KEY", "")
+DATA_PROVIDER = os.environ.get("ORB_DATA_PROVIDER", "alpaca").strip().lower()
 MAX_SYMBOLS = int(os.environ.get("MAX_SYMBOLS", "0"))
 THROTTLE = float(os.environ.get("THROTTLE_SEC", "1.2"))
 
@@ -297,13 +299,18 @@ def td_daily(
     """
     Return daily bars for a symbol.
 
-    Uses the shared cache first and Twelve Data as fallback.
+    Uses the shared cache first. In Alpaca mode a cache miss is not allowed to
+    fall through to Twelve Data, so the production ORB run can never consume
+    Twelve Data credits accidentally.
     """
 
     cached = CACHE.get(symbol)
 
     if cached:
         return bars_to_frame(cached)
+
+    if DATA_PROVIDER == "alpaca":
+        return None
 
     params = dict(
         symbol=symbol,
@@ -1136,10 +1143,23 @@ Copy tickers
 
 def main():
 
-    if not API_KEY:
+    if DATA_PROVIDER not in {"alpaca", "twelve_data"}:
 
         raise SystemExit(
-            "TWELVE_DATA_KEY not set"
+            "ORB_DATA_PROVIDER must be alpaca or twelve_data"
+        )
+
+    if DATA_PROVIDER == "alpaca" and not CACHE.available:
+
+        raise SystemExit(
+            "Alpaca bar cache is missing or empty; refusing to fall back "
+            "to Twelve Data"
+        )
+
+    if DATA_PROVIDER == "twelve_data" and not API_KEY:
+
+        raise SystemExit(
+            "TWELVE_DATA_KEY not set for twelve_data mode"
         )
 
     # -----------------------------------------------------------------------
