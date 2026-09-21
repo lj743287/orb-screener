@@ -1,0 +1,88 @@
+name: ORB screener (Alpaca)
+
+on:
+  schedule:
+    # Safely after the US close in both daylight-saving periods.
+    - cron: "15 22 * * 1-5"
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/orb.yml"
+      - "fetch_bars_alpaca.py"
+      - "screener.py"
+      - "bars_cache.py"
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  orb:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt
+
+      - name: Build Alpaca daily-bar cache
+        env:
+          APCA_API_KEY_ID: ${{ secrets.APCA_API_KEY_ID }}
+          APCA_API_SECRET_KEY: ${{ secrets.APCA_API_SECRET_KEY }}
+          ALPACA_FEED: "iex"
+          CACHE_FILE: cache/bars.json.gz
+          BARS: "250"
+          BATCH_SIZE: "50"
+          REQUESTS_PER_MIN: "170"
+          LOOKBACK_DAYS: "450"
+          MAX_SYMBOLS: ${{ vars.MAX_SYMBOLS }}
+          PYTHONUNBUFFERED: "1"
+        run: python fetch_bars_alpaca.py
+
+      - name: Run ORB continuation screen
+        env:
+          ORB_DATA_PROVIDER: "alpaca"
+          CACHE_FILE: cache/bars.json.gz
+          MAX_SYMBOLS: ${{ vars.MAX_SYMBOLS }}
+          PYTHONUNBUFFERED: "1"
+        run: python screener.py
+
+      - name: Rebuild combined scans page
+        run: python build_scans.py
+
+      - name: Save ORB results
+        run: |
+          rm -rf cache
+          git config user.name "scan-bot"
+          git config user.email "actions@github.com"
+          git add data/orb.json output/candidates.csv output/watchlist.txt docs || true
+          if git diff --cached --quiet; then
+            echo "nothing to commit"
+          else
+            git commit -m "ORB scan $(date -u +'%F %H:%M')"
+            git pull --rebase origin ${{ github.ref_name }}
+            git push
+          fi
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+      - id: deploy
+        uses: actions/deploy-pages@v4
