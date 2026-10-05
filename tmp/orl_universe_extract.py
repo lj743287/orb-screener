@@ -13,6 +13,7 @@ END = os.environ.get("ORL_END","2026-10-06")
 BATCH = int(os.environ.get("BATCH_SIZE","50"))
 RPM = int(os.environ.get("REQUESTS_PER_MIN","170"))
 OUT = os.environ.get("OUT_FILE","tmp/orl_out/orl_universe.json.gz")
+FEED = os.environ.get("ALPACA_FEED","iex").strip().lower() or "iex"
 NY = ZoneInfo("America/New_York")
 HEADERS = {"APCA-API-KEY-ID": KEY, "APCA-API-SECRET-KEY": SECRET}
 
@@ -33,25 +34,19 @@ def get_page(params, tries=7):
         return r
     return r
 
-def feed_available(feed):
-    params={"symbols":"QQQ","timeframe":"30Min","start":"2026-09-01T00:00:00Z","end":"2026-09-03T00:00:00Z",
-            "limit":100,"adjustment":"split","feed":feed,"sort":"asc"}
-    r=get_page(params)
-    return r.status_code==200
-
-def fetch_group(group, feed):
+def fetch_group(group):
     out={s:{} for s in group}
     token=None
     calls=0
     while True:
         params={"symbols":",".join(group),"timeframe":"30Min",
                 "start":START+"T00:00:00Z","end":END+"T00:00:00Z",
-                "limit":10000,"adjustment":"split","feed":feed,"sort":"asc"}
+                "limit":10000,"adjustment":"split","feed":FEED,"sort":"asc"}
         if token: params["page_token"]=token
         r=get_page(params)
         calls += 1
         if r.status_code in (401,403):
-            raise PermissionError(f"{feed} denied ({r.status_code})")
+            raise PermissionError(f"{FEED} denied ({r.status_code})")
         r.raise_for_status()
         payload=r.json()
         for sym, rows in (payload.get("bars") or {}).items():
@@ -72,8 +67,9 @@ def fetch_group(group, feed):
 def main():
     if not KEY or not SECRET:
         sys.exit("Missing Alpaca credentials")
-    feed="sip" if feed_available("sip") else "iex"
-    print(f"Using Alpaca feed: {feed}", flush=True)
+    if FEED not in {"iex","sip"}:
+        sys.exit("ALPACA_FEED must be iex or sip")
+    print(f"Using Alpaca feed: {FEED}", flush=True)
     universe=[s for s,_ in load_universe()]
     print(f"Universe size: {len(universe)}", flush=True)
     merged={}
@@ -82,7 +78,7 @@ def main():
     groups=list(chunks(universe,BATCH))
     for idx,g in enumerate(groups,1):
         try:
-            data,c=fetch_group(g,feed); calls+=c
+            data,c=fetch_group(g); calls+=c
             for s,days in data.items():
                 if days: merged[s]=days
         except Exception as e:
@@ -93,13 +89,15 @@ def main():
         if RPM: time.sleep(60.0/RPM)
     os.makedirs(os.path.dirname(OUT),exist_ok=True)
     payload={"generated_utc":datetime.now(timezone.utc).isoformat(),
-             "provider":"alpaca","feed":feed,"adjustment":"split",
+             "provider":"alpaca","feed":FEED,"adjustment":"split",
              "start":START,"end_exclusive":END,"universe_size":len(universe),
              "symbols_with_orl":len(merged),"api_calls":calls,"failed_batches":failed,
              "orl":merged}
     with gzip.open(OUT,"wt",encoding="utf-8") as f:
         json.dump(payload,f,separators=(",",":"))
     print(f"Wrote {OUT}", flush=True)
+    if not merged:
+        sys.exit("No ORL rows produced")
 
 if __name__=="__main__":
     main()
