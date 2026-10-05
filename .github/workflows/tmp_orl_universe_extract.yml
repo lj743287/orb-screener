@@ -37,7 +37,7 @@ jobs:
           BATCH_SIZE: '50'
           REQUESTS_PER_MIN: '170'
           OUT_FILE: tmp/orl_out/orl_universe.json.gz
-        run: python tmp/orl_universe_extract.py
+        run: PYTHONPATH="$GITHUB_WORKSPACE" python tmp/orl_universe_extract.py
 
       - name: Upload ORL dataset
         if: always()
