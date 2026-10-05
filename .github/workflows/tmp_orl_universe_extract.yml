@@ -1,0 +1,49 @@
+name: Temporary historical ORL universe extract
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tmp/orl_universe_extract.py'
+      - '.github/workflows/tmp_orl_universe_extract.yml'
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: temporary-orl-universe-extract
+  cancel-in-progress: true
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: pip install requests
+
+      - name: Extract historical opening-range lows
+        env:
+          APCA_API_KEY_ID: ${{ secrets.APCA_API_KEY_ID }}
+          APCA_API_SECRET_KEY: ${{ secrets.APCA_API_SECRET_KEY }}
+          ORL_START: '2026-03-01'
+          ORL_END: '2026-10-06'
+          BATCH_SIZE: '50'
+          REQUESTS_PER_MIN: '170'
+          OUT_FILE: tmp/orl_out/orl_universe.json.gz
+        run: python tmp/orl_universe_extract.py
+
+      - name: Upload ORL dataset
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: historical-orl-universe
+          path: tmp/orl_out/orl_universe.json.gz
+          if-no-files-found: error
+          retention-days: 2
